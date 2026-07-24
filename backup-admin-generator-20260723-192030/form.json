@@ -1,0 +1,6 @@
+[
+  {
+    "template": "form.txt",
+    "target": "{{MODULE}}.form.json"
+  }
+]

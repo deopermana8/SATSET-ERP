@@ -1,0 +1,5 @@
+export const {{ENTITY}}Menu = {
+    entity: '{{ENTITY}}',
+    table: '{{TABLE}}',
+    fields: [{{FIELDS}}]
+};

@@ -1,0 +1,7 @@
+﻿{
+  "entity": "payment",
+  "table": "payment",
+  "primaryKey": "id",
+  "columns": []
+}
+

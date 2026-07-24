@@ -1,0 +1,5 @@
+export const {{ENTITY}}Route = {
+    entity: '{{ENTITY}}',
+    table: '{{TABLE}}',
+    fields: [{{FIELDS}}]
+};

@@ -1,0 +1,12 @@
+﻿{
+  "entity": "ticket",
+  "columns": [
+    {
+      "name": "id",
+      "type": "uuid",
+      "primary": true,
+      "nullable": false
+    }
+  ]
+}
+

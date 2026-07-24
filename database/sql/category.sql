@@ -1,0 +1,8 @@
+﻿CREATE TABLE category (
+
+);
+
+
+
+
+

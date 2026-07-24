@@ -1,0 +1,130 @@
+import { AggregateRoot } from "@satset/shared";
+
+export type SouvenirSaleLineItem = {
+  id: string;
+  productId: string;
+  productName: string;
+  quantity: number;
+  unitPrice: number;
+  subtotal: number;
+};
+
+export type SouvenirSaleProps = {
+  saleNumber: string;
+  lineItems: SouvenirSaleLineItem[];
+  totalAmount: number;
+  totalCost: number;
+  status: "draft" | "completed" | "cancelled";
+  createdAt: Date;
+  completedAt?: Date;
+};
+
+export class SouvenirSale extends AggregateRoot<string> {
+  private props: SouvenirSaleProps;
+
+  constructor(id: string, props: SouvenirSaleProps) {
+    super(id);
+    this.props = props;
+    this.validate();
+  }
+
+  private validate(): void {
+    if (!this.props.saleNumber?.trim()) throw new Error("Sale number is required");
+    if (this.props.lineItems.length === 0) throw new Error("Sale must have at least one item");
+    if (this.props.totalAmount < 0) throw new Error("Total amount cannot be negative");
+  }
+
+  public static create(params: { id: string; saleNumber: string }): SouvenirSale {
+    return new SouvenirSale(params.id, {
+      saleNumber: params.saleNumber,
+      lineItems: [],
+      totalAmount: 0,
+      totalCost: 0,
+      status: "draft",
+      createdAt: new Date(),
+    });
+  }
+
+  public get saleNumber(): string {
+    return this.props.saleNumber;
+  }
+
+  public get lineItems(): SouvenirSaleLineItem[] {
+    return this.props.lineItems;
+  }
+
+  public get totalAmount(): number {
+    return this.props.totalAmount;
+  }
+
+  public get totalCost(): number {
+    return this.props.totalCost;
+  }
+
+  public get profit(): number {
+    return this.props.totalAmount - this.props.totalCost;
+  }
+
+  public get profitPercent(): number {
+    return this.props.totalAmount > 0 ? (this.profit / this.props.totalAmount) * 100 : 0;
+  }
+
+  public get status(): string {
+    return this.props.status;
+  }
+
+  public addItem(item: SouvenirSaleLineItem, cost: number): void {
+    if (this.props.status !== "draft") {
+      throw new Error("Cannot add items to completed sale");
+    }
+
+    const existingItem = this.props.lineItems.find((li) => li.productId === item.productId);
+    if (existingItem) {
+      existingItem.quantity += item.quantity;
+      existingItem.subtotal = existingItem.quantity * existingItem.unitPrice;
+    } else {
+      this.props.lineItems.push(item);
+    }
+
+    this.recalculateTotal(cost);
+  }
+
+  public removeItem(productId: string): void {
+    if (this.props.status !== "draft") {
+      throw new Error("Cannot remove items from completed sale");
+    }
+
+    this.props.lineItems = this.props.lineItems.filter((li) => li.productId !== productId);
+    this.recalculateTotal(0);
+  }
+
+  public complete(): void {
+    if (this.props.status !== "draft") {
+      throw new Error("Only draft sales can be completed");
+    }
+
+    this.props.status = "completed";
+    this.props.completedAt = new Date();
+  }
+
+  public cancel(): void {
+    this.props.status = "cancelled";
+  }
+
+  public clone(): SouvenirSale {
+    return new SouvenirSale(this.id, {
+      saleNumber: this.props.saleNumber,
+      lineItems: this.props.lineItems.map((item) => ({ ...item })),
+      totalAmount: this.props.totalAmount,
+      totalCost: this.props.totalCost,
+      status: this.props.status,
+      createdAt: new Date(this.props.createdAt),
+      completedAt: this.props.completedAt ? new Date(this.props.completedAt) : undefined,
+    });
+  }
+
+  private recalculateTotal(costPerUnit: number): void {
+    this.props.totalAmount = this.props.lineItems.reduce((sum, item) => sum + item.subtotal, 0);
+    this.props.totalCost = this.props.lineItems.reduce((sum, item) => sum + item.quantity * costPerUnit, 0);
+  }
+}

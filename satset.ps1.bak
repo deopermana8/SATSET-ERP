@@ -1,0 +1,34 @@
+﻿param(
+[string]$Command
+)
+
+. "$PSScriptRoot\tools\core\lib.ps1"
+
+switch($Command){
+
+"doctor"{
+
+Write-Host ""
+Write-Host "============================="
+Write-Host " SATSET AI v$($Global:SATSET.Version)"
+Write-Host "============================="
+Write-Host ""
+
+node -v
+git --version
+
+break
+}
+
+default{
+
+Write-Host ""
+Write-Host "SATSET AI"
+Write-Host ""
+Write-Host "Commands:"
+Write-Host " satset doctor"
+Write-Host ""
+
+}
+
+}

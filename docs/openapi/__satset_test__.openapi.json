@@ -1,0 +1,23 @@
+﻿{
+    "paths":  {
+
+              },
+    "components":  {
+                       "schemas":  {
+                                       "__satset_test__":  {
+                                                               "properties":  {
+                                                                                  "id":  {
+                                                                                             "type":  "string"
+                                                                                         }
+                                                                              },
+                                                               "type":  "object"
+                                                           }
+                                   }
+                   },
+    "openapi":  "3.0.0",
+    "info":  {
+                 "version":  "1.0.0",
+                 "title":  "__satset_test__ API"
+             }
+}
+

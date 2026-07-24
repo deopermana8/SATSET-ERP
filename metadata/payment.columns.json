@@ -1,0 +1,12 @@
+﻿{
+  "entity": "payment",
+  "columns": [
+    {
+      "name": "id",
+      "type": "uuid",
+      "primary": true,
+      "nullable": false
+    }
+  ]
+}
+

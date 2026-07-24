@@ -1,0 +1,13 @@
+import { Router } from 'express'
+import { {{ENTITY_UPPER}}Controller } from './{{ENTITY}}.controller'
+
+const router = Router()
+const controller = new {{ENTITY_UPPER}}Controller()
+
+router.get('{{ROUTE_PATH}}', controller.findAll.bind(controller))
+router.get('{{ROUTE_PATH}}/:id', controller.findById.bind(controller))
+router.post('{{ROUTE_PATH}}', controller.create.bind(controller))
+router.put('{{ROUTE_PATH}}/:id', controller.update.bind(controller))
+router.delete('{{ROUTE_PATH}}/:id', controller.delete.bind(controller))
+
+export default router

@@ -1,0 +1,10 @@
+﻿{
+    "name": "POS Wisata",
+    "version": "1.0.0",
+    "framework": "nextjs",
+    "language": "typescript",
+    "database": "postgresql",
+    "orm": "prisma",
+    "ui": "shadcn",
+    "author": "SATSET Framework"
+}

@@ -1,0 +1,7 @@
+﻿{
+  "entity": "facility",
+  "table": "facility",
+  "primaryKey": "id",
+  "columns": []
+}
+

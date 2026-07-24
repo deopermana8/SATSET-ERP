@@ -1,0 +1,8 @@
+INSERT INTO {{TABLE}}
+(
+    {{COLUMNS}}
+)
+VALUES
+(
+    {{VALUES}}
+);

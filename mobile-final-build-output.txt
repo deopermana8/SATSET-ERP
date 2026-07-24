@@ -1,0 +1,195 @@
+﻿pnpm.cmd : $ next build
+At line:1 char:31
++ ... I\POS WISATA"; pnpm.cmd --filter ./apps/mobile run build 2>&1 | Out-F ...
++                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ($ next build:String) [], RemoteEx 
+   ception
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   Γû▓ Next.js 15.5.21
+
+   Creating an optimized production build ...
+Failed to compile.
+
+../../node_modules/.pnpm/next@15.5.21_react-dom@18.3.1_react@18.3.1__react@18.3
+.1/node_modules/next/dist/client/index.js
+Module not found: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxG:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: G:\SATSET AI\POS WISATA\package.json 
+(directory description file): SyntaxError: G:\SATSET AI\POS 
+WISATA\package.json (directory description file): SyntaxError: G:\SATSET 
+AI\POS WISATA\package.json (directory description file): SyntaxError: 
+G:\SATSET AI\POS WISATA\package.json (directory description file): 
+SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: G:\SATSET AI\POS WISATA\package.json 
+(directory description file): SyntaxError: G:\SATSET AI\POS 
+WISATA\package.json (directory description file): SyntaxError: G:\SATSET 
+AI\POS WISATA\package.json (directory description file): SyntaxError: 
+G:\SATSET AI\POS WISATA\package.json (directory description file): 
+SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: G:\SATSET AI\POS WISATA\package.json 
+(directory description file): SyntaxError: G:\SATSET AI\POS 
+WISATA\package.json (directory description file): SyntaxError: G:\SATSET 
+AI\POS WISATA\package.json (directory description file): SyntaxError: 
+G:\SATSET AI\POS WISATA\package.json (directory description file): 
+SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: Unexpected token '∩╗┐', "∩╗┐{
+    "n"... is not valid JSON
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+../../node_modules/.pnpm/next@15.5.21_react-dom@18.3.1_react@18.3.1__react@18.3
+.1/node_modules/next/dist/client/next.js
+
+../../node_modules/.pnpm/next@15.5.21_react-dom@18.3.1_react@18.3.1__react@18.3
+.1/node_modules/next/dist/client/portal/index.js
+Module not found: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxG:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: G:\SATSET AI\POS WISATA\package.json 
+(directory description file): SyntaxError: G:\SATSET AI\POS 
+WISATA\package.json (directory description file): SyntaxError: G:\SATSET 
+AI\POS WISATA\package.json (directory description file): SyntaxError: 
+G:\SATSET AI\POS WISATA\package.json (directory description file): 
+SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: G:\SATSET AI\POS WISATA\package.json 
+(directory description file): SyntaxError: G:\SATSET AI\POS 
+WISATA\package.json (directory description file): SyntaxError: G:\SATSET 
+AI\POS WISATA\package.json (directory description file): SyntaxError: 
+G:\SATSET AI\POS WISATA\package.json (directory description file): 
+SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: G:\SATSET AI\POS WISATA\package.json 
+(directory description file): SyntaxError: G:\SATSET AI\POS 
+WISATA\package.json (directory description file): SyntaxError: G:\SATSET 
+AI\POS WISATA\package.json (directory description file): SyntaxError: 
+G:\SATSET AI\POS WISATA\package.json (directory description file): 
+SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: Unexpected token '∩╗┐', "∩╗┐{
+    "n"... is not valid JSON
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+../../node_modules/.pnpm/next@15.5.21_react-dom@18.3.1_react@18.3.1__react@18.3
+.1/node_modules/next/dist/client/index.js
+../../node_modules/.pnpm/next@15.5.21_react-dom@18.3.1_react@18.3.1__react@18.3
+.1/node_modules/next/dist/client/next.js
+
+../../node_modules/.pnpm/next@15.5.21_react-dom@18.3.1_react@18.3.1__react@18.3
+.1/node_modules/next/dist/client/portal/index.js
+Module not found: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxG:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: G:\SATSET AI\POS WISATA\package.json 
+(directory description file): SyntaxError: G:\SATSET AI\POS 
+WISATA\package.json (directory description file): SyntaxError: G:\SATSET 
+AI\POS WISATA\package.json (directory description file): SyntaxError: 
+G:\SATSET AI\POS WISATA\package.json (directory description file): 
+SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: G:\SATSET AI\POS WISATA\package.json 
+(directory description file): SyntaxError: G:\SATSET AI\POS 
+WISATA\package.json (directory description file): SyntaxError: G:\SATSET 
+AI\POS WISATA\package.json (directory description file): SyntaxError: 
+G:\SATSET AI\POS WISATA\package.json (directory description file): 
+SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: G:\SATSET AI\POS WISATA\package.json 
+(directory description file): SyntaxError: G:\SATSET AI\POS 
+WISATA\package.json (directory description file): SyntaxError: G:\SATSET 
+AI\POS WISATA\package.json (directory description file): SyntaxError: 
+G:\SATSET AI\POS WISATA\package.json (directory description file): 
+SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: Unexpected token '∩╗┐', "∩╗┐{
+    "n"... is not valid JSON
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+../../node_modules/.pnpm/next@15.5.21_react-dom@18.3.1_react@18.3.1__react@18.3
+.1/node_modules/next/dist/client/index.js
+../../node_modules/.pnpm/next@15.5.21_react-dom@18.3.1_react@18.3.1__react@18.3
+.1/node_modules/next/dist/client/next.js
+
+../../node_modules/.pnpm/next@15.5.21_react-dom@18.3.1_react@18.3.1__react@18.3
+.1/node_modules/next/dist/client/route-announcer.js
+Module not found: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxG:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: G:\SATSET AI\POS WISATA\package.json 
+(directory description file): SyntaxError: G:\SATSET AI\POS 
+WISATA\package.json (directory description file): SyntaxError: G:\SATSET 
+AI\POS WISATA\package.json (directory description file): SyntaxError: 
+G:\SATSET AI\POS WISATA\package.json (directory description file): 
+SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: G:\SATSET AI\POS WISATA\package.json 
+(directory description file): SyntaxError: G:\SATSET AI\POS 
+WISATA\package.json (directory description file): SyntaxError: G:\SATSET 
+AI\POS WISATA\package.json (directory description file): SyntaxError: 
+G:\SATSET AI\POS WISATA\package.json (directory description file): 
+SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: G:\SATSET AI\POS WISATA\package.json 
+(directory description file): SyntaxError: G:\SATSET AI\POS 
+WISATA\package.json (directory description file): SyntaxError: G:\SATSET 
+AI\POS WISATA\package.json (directory description file): SyntaxError: 
+G:\SATSET AI\POS WISATA\package.json (directory description file): 
+SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: Unexpected token '∩╗┐', "∩╗┐{
+    "n"... is not valid JSON
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+../../node_modules/.pnpm/next@15.5.21_react-dom@18.3.1_react@18.3.1__react@18.3
+.1/node_modules/next/dist/client/index.js
+../../node_modules/.pnpm/next@15.5.21_react-dom@18.3.1_react@18.3.1__react@18.3
+.1/node_modules/next/dist/client/next.js
+
+../../node_modules/.pnpm/next@15.5.21_react-dom@18.3.1_react@18.3.1__react@18.3
+.1/node_modules/next/dist/client/router.js
+Module not found: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxG:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: G:\SATSET AI\POS WISATA\package.json 
+(directory description file): SyntaxError: G:\SATSET AI\POS 
+WISATA\package.json (directory description file): SyntaxError: G:\SATSET 
+AI\POS WISATA\package.json (directory description file): SyntaxError: 
+G:\SATSET AI\POS WISATA\package.json (directory description file): 
+SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: G:\SATSET AI\POS WISATA\package.json 
+(directory description file): SyntaxError: G:\SATSET AI\POS 
+WISATA\package.json (directory description file): SyntaxError: G:\SATSET 
+AI\POS WISATA\package.json (directory description file): SyntaxError: 
+G:\SATSET AI\POS WISATA\package.json (directory description file): 
+SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: G:\SATSET AI\POS WISATA\package.json 
+(directory description file): SyntaxError: G:\SATSET AI\POS 
+WISATA\package.json (directory description file): SyntaxError: G:\SATSET 
+AI\POS WISATA\package.json (directory description file): SyntaxError: 
+G:\SATSET AI\POS WISATA\package.json (directory description file): 
+SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory description 
+file): SyntaxError: G:\SATSET AI\POS WISATA\package.json (directory 
+description file): SyntaxError: Unexpected token '∩╗┐', "∩╗┐{
+    "n"... is not valid JSON
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+> Build failed because of webpack errors
+G:\SATSET AI\POS WISATA\apps\mobile:
+[ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL] @satset/mobile@0.1.0 build: `next build`
+Exit status 1

@@ -1,0 +1,6 @@
+[
+  {
+    "template": "entity.txt",
+    "target": "{{MODULE}}.entity.json"
+  }
+]

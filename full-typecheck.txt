@@ -1,0 +1,244 @@
+packages/reservation/src/application/components/workflow-dashboard.tsx(4,40): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/reservation/src'. 'rootDir' is expected to contain all source files.
+  The file is in the program because:
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/reservation/src/application/components/workflow-dashboard.tsx'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/reservation/src/application/services/reservation-service.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/reservation/src/application/services/ticket-service.ts'
+packages/reservation/src/application/components/workflow-dashboard.tsx(4,40): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/reservation/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+  The file is in the program because:
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/reservation/src/application/components/workflow-dashboard.tsx'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/reservation/src/application/services/reservation-service.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/reservation/src/application/services/ticket-service.ts'
+packages/reservation/src/application/services/reservation-service.ts(74,7): error TS2322: Type 'InvoiceStatus' is not assignable to type 'InvoiceStatus | undefined'.
+packages/reservation/src/application/services/reservation-service.ts(101,20): error TS2673: Constructor of class 'Reservation' is private and only accessible within the class declaration.
+packages/reservation/src/application/services/ticket-service.ts(2,34): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/ticketing/src/index.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/reservation/src'. 'rootDir' is expected to contain all source files.
+packages/reservation/src/application/services/ticket-service.ts(2,34): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/ticketing/src/index.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/reservation/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(3,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/entity.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/reservation/src'. 'rootDir' is expected to contain all source files.
+  The file is in the program because:
+    Imported via "./domain/entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts'
+    Imported via "./entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts'
+packages/shared/src/index.ts(3,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/entity.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/reservation/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+  The file is in the program because:
+    Imported via "./domain/entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts'
+    Imported via "./entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts'
+packages/shared/src/index.ts(4,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/reservation/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(4,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/reservation/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(5,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/value-object.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/reservation/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(5,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/value-object.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/reservation/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(6,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/domain-event.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/reservation/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(6,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/domain-event.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/reservation/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(7,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/journal-contracts.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/reservation/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(7,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/journal-contracts.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/reservation/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(8,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/workflow-dashboard.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/reservation/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(8,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/workflow-dashboard.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/reservation/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/ticketing/src/application/generate-ticket.ts(1,20): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/ticketing/src/domain/entities/ticket.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/reservation/src'. 'rootDir' is expected to contain all source files.
+  The file is in the program because:
+    Imported via "../domain/entities/ticket" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/application/generate-ticket.ts'
+    Imported via "./domain/entities/ticket" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/index.ts'
+packages/ticketing/src/application/generate-ticket.ts(1,20): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/ticketing/src/domain/entities/ticket.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/reservation/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+  The file is in the program because:
+    Imported via "../domain/entities/ticket" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/application/generate-ticket.ts'
+    Imported via "./domain/entities/ticket" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/index.ts'
+packages/ticketing/src/application/generate-ticket.ts(10,34): error TS2339: Property 'id' does not exist on type 'ReservationId'.
+packages/ticketing/src/application/qr-ticket-card.tsx(4,46): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/ticketing/src/application/generate-ticket.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/reservation/src'. 'rootDir' is expected to contain all source files.
+  The file is in the program because:
+    Imported via "./generate-ticket" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/application/qr-ticket-card.tsx'
+    Imported via "./application/generate-ticket" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/index.ts'
+packages/ticketing/src/application/qr-ticket-card.tsx(4,46): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/ticketing/src/application/generate-ticket.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/reservation/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+  The file is in the program because:
+    Imported via "./generate-ticket" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/application/qr-ticket-card.tsx'
+    Imported via "./application/generate-ticket" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/index.ts'
+packages/ticketing/src/application/qr-ticket-card.tsx(26,101): error TS2339: Property 'id' does not exist on type 'ReservationId'.
+packages/ticketing/src/domain/entities/ticket.ts(1,22): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/ticketing/src/domain/value-objects/ticket-id.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/reservation/src'. 'rootDir' is expected to contain all source files.
+  The file is in the program because:
+    Imported via "../value-objects/ticket-id" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/domain/entities/ticket.ts'
+    Imported via "../domain/value-objects/ticket-id" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/application/generate-ticket.ts'
+    Imported via "./domain/value-objects/ticket-id" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/index.ts'
+packages/ticketing/src/domain/entities/ticket.ts(1,22): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/ticketing/src/domain/value-objects/ticket-id.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/reservation/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+  The file is in the program because:
+    Imported via "../value-objects/ticket-id" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/domain/entities/ticket.ts'
+    Imported via "../domain/value-objects/ticket-id" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/application/generate-ticket.ts'
+    Imported via "./domain/value-objects/ticket-id" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/index.ts'
+packages/ticketing/src/domain/entities/ticket.ts(30,41): error TS2339: Property 'id' does not exist on type 'ReservationId'.
+packages/ticketing/src/index.ts(3,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/ticketing/src/application/qr-ticket-card.tsx' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/reservation/src'. 'rootDir' is expected to contain all source files.
+packages/ticketing/src/index.ts(3,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/ticketing/src/application/qr-ticket-card.tsx' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/reservation/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/reservation/src/domain/value-objects/reservation-id.ts(1,29): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/reservation/src/shared/value-object.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/ticketing/src'. 'rootDir' is expected to contain all source files.
+packages/reservation/src/domain/value-objects/reservation-id.ts(1,29): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/reservation/src/shared/value-object.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/ticketing/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/reservation/src/index.ts(3,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/reservation/src/domain/value-objects/reservation-id.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/ticketing/src'. 'rootDir' is expected to contain all source files.
+packages/reservation/src/index.ts(3,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/reservation/src/domain/value-objects/reservation-id.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/ticketing/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/ticketing/src/application/generate-ticket.ts(10,34): error TS2339: Property 'id' does not exist on type 'ReservationId'.
+packages/ticketing/src/application/qr-ticket-card.tsx(26,101): error TS2339: Property 'id' does not exist on type 'ReservationId'.
+packages/ticketing/src/domain/entities/ticket.ts(2,31): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/reservation/src/index.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/ticketing/src'. 'rootDir' is expected to contain all source files.
+  The file is in the program because:
+    Imported via "@satset/reservation" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/domain/entities/ticket.ts'
+    Imported via "@satset/reservation" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/application/generate-ticket.ts'
+    Imported via "@satset/reservation" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/application/qr-ticket-card.tsx'
+packages/ticketing/src/domain/entities/ticket.ts(2,31): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/reservation/src/index.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/ticketing/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+  The file is in the program because:
+    Imported via "@satset/reservation" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/domain/entities/ticket.ts'
+    Imported via "@satset/reservation" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/application/generate-ticket.ts'
+    Imported via "@satset/reservation" from file 'G:/SATSET AI/POS WISATA/packages/ticketing/src/application/qr-ticket-card.tsx'
+packages/ticketing/src/domain/entities/ticket.ts(30,41): error TS2339: Property 'id' does not exist on type 'ReservationId'.
+packages/gate/src/domain/entities/gate-check-in.ts(1,31): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/gate/src'. 'rootDir' is expected to contain all source files.
+packages/gate/src/domain/entities/gate-check-in.ts(1,31): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/gate/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/gate/src/domain/entities/gate-check-in.ts(2,31): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/reservation/src/index.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/gate/src'. 'rootDir' is expected to contain all source files.
+packages/gate/src/domain/entities/gate-check-in.ts(2,31): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/reservation/src/index.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/gate/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/reservation/src/domain/value-objects/reservation-id.ts(1,29): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/reservation/src/shared/value-object.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/gate/src'. 'rootDir' is expected to contain all source files.
+packages/reservation/src/domain/value-objects/reservation-id.ts(1,29): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/reservation/src/shared/value-object.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/gate/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/reservation/src/index.ts(3,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/reservation/src/domain/value-objects/reservation-id.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/gate/src'. 'rootDir' is expected to contain all source files.
+packages/reservation/src/index.ts(3,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/reservation/src/domain/value-objects/reservation-id.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/gate/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(3,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/entity.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/gate/src'. 'rootDir' is expected to contain all source files.
+  The file is in the program because:
+    Imported via "./domain/entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts'
+    Imported via "./entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts'
+packages/shared/src/index.ts(3,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/entity.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/gate/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+  The file is in the program because:
+    Imported via "./domain/entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts'
+    Imported via "./entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts'
+packages/shared/src/index.ts(4,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/gate/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(4,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/gate/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(5,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/value-object.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/gate/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(5,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/value-object.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/gate/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(6,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/domain-event.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/gate/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(6,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/domain-event.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/gate/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(7,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/journal-contracts.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/gate/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(7,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/journal-contracts.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/gate/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(8,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/workflow-dashboard.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/gate/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(8,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/workflow-dashboard.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/gate/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(3,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/entity.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/souvenir/src'. 'rootDir' is expected to contain all source files.
+  The file is in the program because:
+    Imported via "./domain/entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts'
+    Imported via "./entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts'
+packages/shared/src/index.ts(3,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/entity.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/souvenir/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+  The file is in the program because:
+    Imported via "./domain/entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts'
+    Imported via "./entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts'
+packages/shared/src/index.ts(4,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/souvenir/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(4,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/souvenir/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(5,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/value-object.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/souvenir/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(5,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/value-object.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/souvenir/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(6,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/domain-event.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/souvenir/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(6,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/domain-event.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/souvenir/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(7,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/journal-contracts.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/souvenir/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(7,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/journal-contracts.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/souvenir/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(8,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/workflow-dashboard.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/souvenir/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(8,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/workflow-dashboard.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/souvenir/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/souvenir/src/application/components/souvenir-pos-panel.tsx(8,3): error TS2740: Type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' is missing the following properties from type 'Omit<SouvenirProduct, "id">': margin, marginPercent, canSell, sell, and 2 more.
+packages/souvenir/src/application/components/souvenir-pos-panel.tsx(17,3): error TS2740: Type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' is missing the following properties from type 'Omit<SouvenirProduct, "id">': margin, marginPercent, canSell, sell, and 2 more.
+packages/souvenir/src/application/components/souvenir-pos-panel.tsx(26,3): error TS2740: Type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' is missing the following properties from type 'Omit<SouvenirProduct, "id">': margin, marginPercent, canSell, sell, and 2 more.
+packages/souvenir/src/application/components/souvenir-pos-panel.tsx(35,3): error TS2740: Type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' is missing the following properties from type 'Omit<SouvenirProduct, "id">': margin, marginPercent, canSell, sell, and 2 more.
+packages/souvenir/src/application/components/souvenir-pos-panel.tsx(44,3): error TS2740: Type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' is missing the following properties from type 'Omit<SouvenirProduct, "id">': margin, marginPercent, canSell, sell, and 2 more.
+packages/souvenir/src/application/components/souvenir-pos-panel.tsx(53,3): error TS2740: Type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' is missing the following properties from type 'Omit<SouvenirProduct, "id">': margin, marginPercent, canSell, sell, and 2 more.
+packages/souvenir/src/application/components/souvenir-pos-panel.tsx(113,13): error TS2345: Argument of type '{}' is not assignable to parameter of type 'SetStateAction<SouvenirSale | null>'.
+packages/souvenir/src/application/components/souvenir-pos-panel.tsx(119,10): error TS2540: Cannot assign to 'lineItems' because it is a read-only property.
+packages/souvenir/src/application/components/souvenir-pos-panel.tsx(120,13): error TS2345: Argument of type '{} | null' is not assignable to parameter of type 'SetStateAction<SouvenirSale | null>'.
+  Type '{}' is not assignable to type 'SetStateAction<SouvenirSale | null>'.
+packages/souvenir/src/domain/entities/souvenir-product.ts(1,31): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/souvenir/src'. 'rootDir' is expected to contain all source files.
+  The file is in the program because:
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/souvenir/src/domain/entities/souvenir-product.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/souvenir/src/domain/entities/souvenir-sale.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/souvenir/src/application/services/souvenir-service.ts'
+packages/souvenir/src/domain/entities/souvenir-product.ts(1,31): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/souvenir/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+  The file is in the program because:
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/souvenir/src/domain/entities/souvenir-product.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/souvenir/src/domain/entities/souvenir-sale.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/souvenir/src/application/services/souvenir-service.ts'
+packages/inventory/src/application/components/inventory-panel.tsx(16,5): error TS2353: Object literal may only specify known properties, and 'lastRestockDate' does not exist in type 'Omit<InventoryItem, "id">'.
+packages/inventory/src/application/components/inventory-panel.tsx(26,5): error TS2353: Object literal may only specify known properties, and 'lastRestockDate' does not exist in type 'Omit<InventoryItem, "id">'.
+packages/inventory/src/application/components/inventory-panel.tsx(36,5): error TS2353: Object literal may only specify known properties, and 'lastRestockDate' does not exist in type 'Omit<InventoryItem, "id">'.
+packages/inventory/src/application/components/inventory-panel.tsx(46,5): error TS2353: Object literal may only specify known properties, and 'lastRestockDate' does not exist in type 'Omit<InventoryItem, "id">'.
+packages/inventory/src/application/components/inventory-panel.tsx(56,5): error TS2353: Object literal may only specify known properties, and 'lastRestockDate' does not exist in type 'Omit<InventoryItem, "id">'.
+packages/inventory/src/application/components/inventory-panel.tsx(83,13): error TS2540: Cannot assign to 'quantity' because it is a read-only property.
+packages/inventory/src/application/components/inventory-panel.tsx(88,11): error TS2741: Property 'equals' is missing in type '{ transactionType: string; itemSku: string; itemName: string; quantity: number; reference: string; notes: string; createdAt: Date; createdBy: string; }' but required in type 'Omit<InventoryTransaction, "id">'.
+packages/inventory/src/application/components/inventory-panel.tsx(120,13): error TS2540: Cannot assign to 'quantity' because it is a read-only property.
+packages/inventory/src/application/components/inventory-panel.tsx(125,11): error TS2741: Property 'equals' is missing in type '{ transactionType: string; itemSku: string; itemName: string; quantity: number; reference: string; notes: string; createdAt: Date; createdBy: string; }' but required in type 'Omit<InventoryTransaction, "id">'.
+packages/inventory/src/application/components/supplier-purchase-panel.tsx(8,3): error TS2739: Type '{ code: string; name: string; contactPerson: string; phone: string; email: string; address: string; city: string; bankAccount: string; isActive: true; }' is missing the following properties from type 'Omit<Supplier, "id">': equals, deactivate, activate
+packages/inventory/src/application/components/supplier-purchase-panel.tsx(19,3): error TS2739: Type '{ code: string; name: string; contactPerson: string; phone: string; email: string; address: string; city: string; bankAccount: string; isActive: true; }' is missing the following properties from type 'Omit<Supplier, "id">': equals, deactivate, activate
+packages/inventory/src/application/components/supplier-purchase-panel.tsx(30,3): error TS2739: Type '{ code: string; name: string; contactPerson: string; phone: string; email: string; address: string; city: string; isActive: true; }' is missing the following properties from type 'Omit<Supplier, "id">': equals, bankAccount, deactivate, activate
+packages/inventory/src/application/components/supplier-purchase-panel.tsx(68,7): error TS2353: Object literal may only specify known properties, and 'createdAt' does not exist in type 'Omit<PurchaseOrder, "id">'.
+packages/inventory/src/application/components/supplier-purchase-panel.tsx(78,10): error TS2540: Cannot assign to 'status' because it is a read-only property.
+packages/inventory/src/application/components/supplier-purchase-panel.tsx(86,10): error TS2540: Cannot assign to 'status' because it is a read-only property.
+packages/inventory/src/application/components/supplier-purchase-panel.tsx(87,10): error TS2339: Property 'receivedDate' does not exist on type 'Omit<PurchaseOrder, "id">'.
+packages/inventory/src/domain/entities/inventory-item.ts(1,31): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/inventory/src'. 'rootDir' is expected to contain all source files.
+  The file is in the program because:
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/inventory/src/domain/entities/inventory-item.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/inventory/src/domain/entities/inventory-transaction.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/inventory/src/domain/entities/supplier.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/inventory/src/domain/entities/purchase-order.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/inventory/src/application/services/inventory-service.ts'
+packages/inventory/src/domain/entities/inventory-item.ts(1,31): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/inventory/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+  The file is in the program because:
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/inventory/src/domain/entities/inventory-item.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/inventory/src/domain/entities/inventory-transaction.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/inventory/src/domain/entities/supplier.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/inventory/src/domain/entities/purchase-order.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/inventory/src/application/services/inventory-service.ts'
+packages/shared/src/index.ts(3,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/entity.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/inventory/src'. 'rootDir' is expected to contain all source files.
+  The file is in the program because:
+    Imported via "./domain/entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts'
+    Imported via "./entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts'
+packages/shared/src/index.ts(3,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/entity.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/inventory/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+  The file is in the program because:
+    Imported via "./domain/entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts'
+    Imported via "./entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts'
+packages/shared/src/index.ts(4,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/inventory/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(4,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/inventory/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(5,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/value-object.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/inventory/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(5,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/value-object.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/inventory/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(6,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/domain-event.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/inventory/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(6,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/domain-event.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/inventory/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(7,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/journal-contracts.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/inventory/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(7,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/journal-contracts.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/inventory/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(8,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/workflow-dashboard.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/inventory/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(8,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/workflow-dashboard.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/inventory/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/accounting/src/application/services/finance-service.ts(1,32): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/finance/src/index.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/accounting/src'. 'rootDir' is expected to contain all source files.
+packages/accounting/src/application/services/finance-service.ts(1,32): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/finance/src/index.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/accounting/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/accounting/src/domain/accounting-domain.ts(1,31): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/accounting/src'. 'rootDir' is expected to contain all source files.
+  The file is in the program because:
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/accounting/src/domain/accounting-domain.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/accounting/src/domain/entities/journal-entry.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/accounting/src/application/services/accounting-service.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/accounting/src/application/services/journal-service.ts'
+packages/accounting/src/domain/accounting-domain.ts(1,31): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/accounting/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+  The file is in the program because:
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/accounting/src/domain/accounting-domain.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/accounting/src/domain/entities/journal-entry.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/accounting/src/application/services/accounting-service.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/accounting/src/application/services/journal-service.ts'
+packages/accounting/src/index.ts(4,1): error TS2308: Module "./domain/accounting-domain" has already exported a member named 'JournalEntry'. Consider explicitly re-exporting to resolve the ambiguity.
+packages/accounting/src/index.ts(4,1): error TS2308: Module "./domain/accounting-domain" has already exported a member named 'JournalEntryProps'. Consider explicitly re-exporting to resolve the ambiguity.
+packages/finance/src/index.ts(3,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/finance/src/domain/finance-domain.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/accounting/src'. 'rootDir' is expected to contain all source files.
+  The file is in the program because:
+    Imported via "./domain/finance-domain" from file 'G:/SATSET AI/POS WISATA/packages/finance/src/index.ts'
+    Imported via "../../domain/finance-domain" from file 'G:/SATSET AI/POS WISATA/packages/finance/src/application/services/finance-service.ts'
+packages/finance/src/index.ts(3,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/finance/src/domain/finance-domain.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/accounting/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+  The file is in the program because:
+    Imported via "./domain/finance-domain" from file 'G:/SATSET AI/POS WISATA/packages/finance/src/index.ts'
+    Imported via "../../domain/finance-domain" from file 'G:/SATSET AI/POS WISATA/packages/finance/src/application/services/finance-service.ts'
+packages/finance/src/index.ts(4,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/finance/src/domain/entities/finance-transaction.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/accounting/src'. 'rootDir' is expected to contain all source files.
+packages/finance/src/index.ts(4,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/finance/src/domain/entities/finance-transaction.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/accounting/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/finance/src/index.ts(5,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/finance/src/domain/events/cash-received.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/accounting/src'. 'rootDir' is expected to contain all source files.
+packages/finance/src/index.ts(5,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/finance/src/domain/events/cash-received.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/accounting/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/finance/src/index.ts(6,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/finance/src/application/services/finance-service.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/accounting/src'. 'rootDir' is expected to contain all source files.
+packages/finance/src/index.ts(6,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/finance/src/application/services/finance-service.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/accounting/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(3,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/entity.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/accounting/src'. 'rootDir' is expected to contain all source files.
+  The file is in the program because:
+    Imported via "./domain/entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts'
+    Imported via "./entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts'
+packages/shared/src/index.ts(3,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/entity.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/accounting/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+  The file is in the program because:
+    Imported via "./domain/entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts'
+    Imported via "./entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts'
+packages/shared/src/index.ts(4,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/accounting/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(4,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/accounting/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(5,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/value-object.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/accounting/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(5,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/value-object.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/accounting/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(6,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/domain-event.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/accounting/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(6,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/domain-event.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/accounting/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(7,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/journal-contracts.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/accounting/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(7,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/journal-contracts.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/accounting/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+packages/shared/src/index.ts(8,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/workflow-dashboard.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/accounting/src'. 'rootDir' is expected to contain all source files.
+packages/shared/src/index.ts(8,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/workflow-dashboard.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/accounting/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+apps/web/app/reservation/page.tsx(77,55): error TS2345: Argument of type 'InMemoryReservationRepository | null' is not assignable to parameter of type 'ReservationRepository'.
+  Type 'null' is not assignable to type 'ReservationRepository'.
+apps/web/app/reservation/page.tsx(88,51): error TS2345: Argument of type 'InMemoryReservationRepository | null' is not assignable to parameter of type 'ReservationRepository'.
+  Type 'null' is not assignable to type 'ReservationRepository'.

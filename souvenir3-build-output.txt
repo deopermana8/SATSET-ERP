@@ -1,0 +1,8 @@
+﻿pnpm.cmd : $ tsc -p tsconfig.json
+At line:1 char:31
++ ... OS WISATA"; pnpm.cmd --filter @satset/souvenir run build 2>&1 | Out-F ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ($ tsc -p tsconfig.json:String) [] 
+   , RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

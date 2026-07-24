@@ -1,0 +1,7 @@
+﻿{
+  "entity": "destination",
+  "table": "destination",
+  "primaryKey": "id",
+  "columns": []
+}
+

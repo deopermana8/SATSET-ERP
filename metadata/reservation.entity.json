@@ -1,0 +1,7 @@
+﻿{
+  "entity": "reservation",
+  "table": "reservation",
+  "primaryKey": "id",
+  "columns": []
+}
+

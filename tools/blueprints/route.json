@@ -1,0 +1,6 @@
+[
+  {
+    "template": "route.txt",
+    "target": "{{ENTITY}}.route.ts"
+  }
+]

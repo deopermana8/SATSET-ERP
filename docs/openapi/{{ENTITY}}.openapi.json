@@ -1,0 +1,165 @@
+﻿{
+    "openapi":  "3.0.0",
+    "info":  {
+                 "title":  "Employee API",
+                 "version":  "1.0.0",
+                 "description":  "OpenAPI definition for employee"
+             },
+    "paths":  {
+                  "/employee":  {
+                                    "get":  {
+                                                "tags":  [
+                                                             "Employee"
+                                                         ],
+                                                "summary":  "Get list of employee",
+                                                "responses":  {
+                                                                  "200":  {
+                                                                              "description":  "Successful response",
+                                                                              "content":  {
+                                                                                              "application/json":  {
+                                                                                                                       "schema":  {
+                                                                                                                                      "type":  "array",
+                                                                                                                                      "items":  {
+                                                                                                                                                    "\u0004ref":  "#/components/schemas/Employee"
+                                                                                                                                                }
+                                                                                                                                  }
+                                                                                                                   }
+                                                                                          }
+                                                                          }
+                                                              }
+                                            },
+                                    "post":  {
+                                                 "tags":  [
+                                                              "Employee"
+                                                          ],
+                                                 "summary":  "Create new employee",
+                                                 "requestBody":  {
+                                                                     "required":  true,
+                                                                     "content":  {
+                                                                                     "application/json":  {
+                                                                                                              "schema":  {
+                                                                                                                             "\u0004ref":  "#/components/schemas/Employee"
+                                                                                                                         }
+                                                                                                          }
+                                                                                 }
+                                                                 },
+                                                 "responses":  {
+                                                                   "201":  {
+                                                                               "description":  "Created",
+                                                                               "content":  {
+                                                                                               "application/json":  {
+                                                                                                                        "schema":  {
+                                                                                                                                       "\u0004ref":  "#/components/schemas/Employee"
+                                                                                                                                   }
+                                                                                                                    }
+                                                                                           }
+                                                                           }
+                                                               }
+                                             }
+                                },
+                  "/employee/{id}":  {
+                                         "get":  {
+                                                     "tags":  [
+                                                                  "Employee"
+                                                              ],
+                                                     "summary":  "Get employee by ID",
+                                                     "parameters":  [
+                                                                        {
+                                                                            "name":  "id",
+                                                                            "in":  "path",
+                                                                            "required":  true,
+                                                                            "schema":  {
+                                                                                           "type":  "uuid"
+                                                                                       }
+                                                                        }
+                                                                    ],
+                                                     "responses":  {
+                                                                       "200":  {
+                                                                                   "description":  "Successful response",
+                                                                                   "content":  {
+                                                                                                   "application/json":  {
+                                                                                                                            "schema":  {
+                                                                                                                                           "\u0004ref":  "#/components/schemas/Employee"
+                                                                                                                                       }
+                                                                                                                        }
+                                                                                               }
+                                                                               }
+                                                                   }
+                                                 },
+                                         "put":  {
+                                                     "tags":  [
+                                                                  "Employee"
+                                                              ],
+                                                     "summary":  "Update existing employee",
+                                                     "parameters":  [
+                                                                        {
+                                                                            "name":  "id",
+                                                                            "in":  "path",
+                                                                            "required":  true,
+                                                                            "schema":  {
+                                                                                           "type":  "uuid"
+                                                                                       }
+                                                                        }
+                                                                    ],
+                                                     "requestBody":  {
+                                                                         "required":  true,
+                                                                         "content":  {
+                                                                                         "application/json":  {
+                                                                                                                  "schema":  {
+                                                                                                                                 "\u0004ref":  "#/components/schemas/Employee"
+                                                                                                                             }
+                                                                                                              }
+                                                                                     }
+                                                                     },
+                                                     "responses":  {
+                                                                       "200":  {
+                                                                                   "description":  "Updated",
+                                                                                   "content":  {
+                                                                                                   "application/json":  {
+                                                                                                                            "schema":  {
+                                                                                                                                           "\u0004ref":  "#/components/schemas/Employee"
+                                                                                                                                       }
+                                                                                                                        }
+                                                                                               }
+                                                                               }
+                                                                   }
+                                                 },
+                                         "delete":  {
+                                                        "tags":  [
+                                                                     "Employee"
+                                                                 ],
+                                                        "summary":  "Delete employee by ID",
+                                                        "parameters":  [
+                                                                           {
+                                                                               "name":  "id",
+                                                                               "in":  "path",
+                                                                               "required":  true,
+                                                                               "schema":  {
+                                                                                              "type":  "uuid"
+                                                                                          }
+                                                                           }
+                                                                       ],
+                                                        "responses":  {
+                                                                          "204":  {
+                                                                                      "description":  "Deleted"
+                                                                                  }
+                                                                      }
+                                                    }
+                                     }
+              },
+    "components":  {
+                       "schemas":  {
+                                       "Employee":  {
+                                                        "type":  "object",
+                                                        "properties":  {
+                                                                           "id":  {
+                                                                                      "type":  "string",
+                                                                                      "format":  "uuid",
+                                                                                      "readOnly":  true
+                                                                                  }
+                                                                       }
+                                                    }
+                                   }
+                   }
+}
+

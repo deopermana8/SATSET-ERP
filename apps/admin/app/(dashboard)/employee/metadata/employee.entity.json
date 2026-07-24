@@ -1,0 +1,13 @@
+﻿{
+  "entity": "employee",
+  "table": "employee",
+  "primaryKey": "id",
+  "columns": [
+    { "name": "id", "type": "int", "primary": true, "nullable": false },
+    { "name": "name", "type": "string", "nullable": false },
+    { "name": "email", "type": "string", "nullable": false },
+    { "name": "phone", "type": "string", "nullable": false },
+    { "name": "role", "type": "string", "nullable": false }
+  ]
+}
+

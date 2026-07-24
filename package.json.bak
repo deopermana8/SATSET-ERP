@@ -1,0 +1,39 @@
+{
+  "name": "satset-erp",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@11.13.1",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+  "dev": "pnpm -r --filter ./apps/* run dev",
+  "build": "pnpm -r --filter ./packages/* --filter ./apps/* run build",
+  "lint": "pnpm -r --filter ./packages/* --filter ./apps/* run lint",
+  "typecheck": "pnpm -r --filter ./packages/* --filter ./apps/* run typecheck"
+"dependencies": {
+    "@prisma/client": "^5.15.0",
+    "next": "^15.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.64.0",
+    "@typescript-eslint/parser": "^8.64.0",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^15.5.20",
+    "eslint-plugin-tailwindcss": "^4.2.0",
+    "postcss": "^8.4.40",
+    "prisma": "^5.15.0",
+    "tailwindcss": "^4.3.3",
+    "turbo": "^1.12.3",
+    "turbo-windows-64": "1.13.4",
+    "typescript": "^5.7.0"
+  }
+}

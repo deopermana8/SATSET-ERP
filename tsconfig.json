@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "esnext",
+    "lib": ["dom", "dom.iterable", "es2020"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "ignoreDeprecations": "5.0",
+    "isolatedModules": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@satset/*": ["packages/*/src"],
+      "@satset/ui": ["packages/ui/src"],
+      "@satset/shared": ["packages/shared/src"]
+    }
+  },
+  "include": ["apps", "packages"],
+  "references": [
+    { "path": "packages/ui" },
+    { "path": "packages/database" },
+    { "path": "packages/auth" },
+    { "path": "packages/reservation" },
+    { "path": "packages/ticketing" },
+    { "path": "packages/gate" },
+    { "path": "packages/cafe" },
+    { "path": "packages/souvenir" },
+    { "path": "packages/inventory" },
+    { "path": "packages/finance" },
+    { "path": "packages/accounting" },
+    { "path": "packages/crm" },
+    { "path": "packages/ai" },
+    { "path": "packages/shared" }
+  ]
+}
+

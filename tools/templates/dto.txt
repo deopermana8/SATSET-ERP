@@ -1,0 +1,3 @@
+export interface {{ENTITY_UPPER}}Dto {
+{{DTO_PROPERTIES}}
+}

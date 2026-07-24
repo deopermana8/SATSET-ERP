@@ -1,0 +1,42 @@
+'use client';
+
+import { useMemo } from "react";
+import { generateTicketForReservation } from "./generate-ticket";
+import { ReservationId } from "@satset/reservation";
+
+export function QrTicketCard() {
+  const reservationId = useMemo(() => new ReservationId("RES-1001"), []);
+  const ticket = useMemo(() => generateTicketForReservation(reservationId), [reservationId]);
+
+  return (
+    <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="mb-4 flex items-center justify-between">
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">QR Ticket</p>
+          <h3 className="text-xl font-semibold text-slate-900">Tiket digital siap pakai</h3>
+        </div>
+        <div className="rounded-full bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-700">Mock data</div>
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
+          <p className="font-semibold text-slate-900">Detail tiket</p>
+          <div className="mt-3 space-y-2">
+            <div className="flex justify-between"><span>Nomor tiket</span><span>{ticket.ticketNumber}</span></div>
+            <div className="flex justify-between"><span>Reservasi</span><span>{ticket.reservationId.id}</span></div>
+            <div className="flex justify-between"><span>Diterbitkan</span><span>{ticket.issuedAt.toLocaleString("id-ID")}</span></div>
+          </div>
+        </div>
+
+        <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-4">
+          <div className="flex h-56 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50">
+            <div className="text-center">
+              <div className="mb-3 text-4xl font-bold tracking-[0.3em] text-slate-800">QR</div>
+              <p className="text-sm text-slate-500">Payload: {ticket.qrPayload.slice(0, 20)}...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

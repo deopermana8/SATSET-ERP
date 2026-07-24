@@ -1,0 +1,21 @@
+﻿pnpm.cmd : $ tsc -p tsconfig.json
+At line:1 char:31
++ ... OS WISATA"; pnpm.cmd --filter @satset/souvenir run build 2>&1 | Out-F ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ($ tsc -p tsconfig.json:String) [] 
+   , RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+src/application/components/souvenir-pos-panel.tsx(20,3): error TS2322: Type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' is not assignable to type 'SouvenirProductView'.
+  Property 'marginPercent' is missing in type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' but required in type '{ marginPercent: number; }'.
+src/application/components/souvenir-pos-panel.tsx(29,3): error TS2322: Type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' is not assignable to type 'SouvenirProductView'.
+  Property 'marginPercent' is missing in type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' but required in type '{ marginPercent: number; }'.
+src/application/components/souvenir-pos-panel.tsx(38,3): error TS2322: Type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' is not assignable to type 'SouvenirProductView'.
+  Property 'marginPercent' is missing in type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' but required in type '{ marginPercent: number; }'.
+src/application/components/souvenir-pos-panel.tsx(47,3): error TS2322: Type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' is not assignable to type 'SouvenirProductView'.
+  Property 'marginPercent' is missing in type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' but required in type '{ marginPercent: number; }'.
+src/application/components/souvenir-pos-panel.tsx(56,3): error TS2322: Type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' is not assignable to type 'SouvenirProductView'.
+  Property 'marginPercent' is missing in type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' but required in type '{ marginPercent: number; }'.
+G:\SATSET AI\POS WISATA\packages\souvenir:
+[ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL] @satset/souvenir@0.1.0 build: `tsc -p tsconfig.json`
+Exit status 2

@@ -1,0 +1,49 @@
+﻿pnpm.cmd : $ tsc -p tsconfig.json
+At line:1 char:31
++ ... OS WISATA"; pnpm.cmd --filter @satset/souvenir run build 2>&1 | Out-F ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ($ tsc -p tsconfig.json:String) [] 
+   , RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+../shared/src/index.ts(3,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/entity.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/souvenir/src'. 'rootDir' is expected to contain all source files.
+  The file is in the program because:
+    Imported via "./domain/entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts'
+    Imported via "./entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts'
+../shared/src/index.ts(3,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/entity.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/souvenir/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+  The file is in the program because:
+    Imported via "./domain/entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts'
+    Imported via "./entity" from file 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts'
+../shared/src/index.ts(4,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/souvenir/src'. 'rootDir' is expected to contain all source files.
+../shared/src/index.ts(4,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/aggregate-root.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/souvenir/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+../shared/src/index.ts(5,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/value-object.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/souvenir/src'. 'rootDir' is expected to contain all source files.
+../shared/src/index.ts(5,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/value-object.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/souvenir/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+../shared/src/index.ts(6,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/domain-event.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/souvenir/src'. 'rootDir' is expected to contain all source files.
+../shared/src/index.ts(6,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/domain/domain-event.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/souvenir/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+../shared/src/index.ts(7,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/journal-contracts.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/souvenir/src'. 'rootDir' is expected to contain all source files.
+../shared/src/index.ts(7,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/journal-contracts.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/souvenir/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+../shared/src/index.ts(8,15): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/workflow-dashboard.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/souvenir/src'. 'rootDir' is expected to contain all source files.
+../shared/src/index.ts(8,15): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/application/workflow-dashboard.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/souvenir/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+src/application/components/souvenir-pos-panel.tsx(8,3): error TS2740: Type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' is missing the following properties from type 'Omit<SouvenirProduct, "id">': margin, marginPercent, canSell, sell, and 2 more.
+src/application/components/souvenir-pos-panel.tsx(17,3): error TS2740: Type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' is missing the following properties from type 'Omit<SouvenirProduct, "id">': margin, marginPercent, canSell, sell, and 2 more.
+src/application/components/souvenir-pos-panel.tsx(26,3): error TS2740: Type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' is missing the following properties from type 'Omit<SouvenirProduct, "id">': margin, marginPercent, canSell, sell, and 2 more.
+src/application/components/souvenir-pos-panel.tsx(35,3): error TS2740: Type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' is missing the following properties from type 'Omit<SouvenirProduct, "id">': margin, marginPercent, canSell, sell, and 2 more.
+src/application/components/souvenir-pos-panel.tsx(44,3): error TS2740: Type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' is missing the following properties from type 'Omit<SouvenirProduct, "id">': margin, marginPercent, canSell, sell, and 2 more.
+src/application/components/souvenir-pos-panel.tsx(53,3): error TS2740: Type '{ code: string; name: string; description: string; price: number; cost: number; category: string; stock: number; }' is missing the following properties from type 'Omit<SouvenirProduct, "id">': margin, marginPercent, canSell, sell, and 2 more.
+src/application/components/souvenir-pos-panel.tsx(113,13): error TS2345: Argument of type '{}' is not assignable to parameter of type 'SetStateAction<SouvenirSale | null>'.
+src/application/components/souvenir-pos-panel.tsx(119,10): error TS2540: Cannot assign to 'lineItems' because it is a read-only property.
+src/application/components/souvenir-pos-panel.tsx(120,13): error TS2345: Argument of type '{} | null' is not assignable to parameter of type 'SetStateAction<SouvenirSale | null>'.
+  Type '{}' is not assignable to type 'SetStateAction<SouvenirSale | null>'.
+src/domain/entities/souvenir-product.ts(1,31): error TS6059: File 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts' is not under 'rootDir' 'G:/SATSET AI/POS WISATA/packages/souvenir/src'. 'rootDir' is expected to contain all source files.
+  The file is in the program because:
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/souvenir/src/domain/entities/souvenir-product.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/souvenir/src/domain/entities/souvenir-sale.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/souvenir/src/application/services/souvenir-service.ts'
+src/domain/entities/souvenir-product.ts(1,31): error TS6307: File 'G:/SATSET AI/POS WISATA/packages/shared/src/index.ts' is not listed within the file list of project 'G:/SATSET AI/POS WISATA/packages/souvenir/tsconfig.json'. Projects must list all files or use an 'include' pattern.
+  The file is in the program because:
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/souvenir/src/domain/entities/souvenir-product.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/souvenir/src/domain/entities/souvenir-sale.ts'
+    Imported via "@satset/shared" from file 'G:/SATSET AI/POS WISATA/packages/souvenir/src/application/services/souvenir-service.ts'
+G:\SATSET AI\POS WISATA\packages\souvenir:
+[ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL] @satset/souvenir@0.1.0 build: `tsc -p tsconfig.json`
+Exit status 2

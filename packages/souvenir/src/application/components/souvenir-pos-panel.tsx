@@ -1,0 +1,276 @@
+'use client';
+
+import { useState, useMemo } from "react";
+import { SouvenirProduct, type SouvenirProductProps } from "../../domain/entities/souvenir-product";
+import { SouvenirSale, SouvenirSaleLineItem } from "../../domain/entities/souvenir-sale";
+
+type SouvenirProductView = SouvenirProductProps & { marginPercent: number };
+
+const mockProducts: SouvenirProductView[] = [
+  {
+    code: "SVN001",
+    name: "T-Shirt Wisata",
+    description: "Kaos branded wisata berkualitas",
+    price: 85000,
+    cost: 35000,
+    category: "Apparel",
+    stock: 50,
+    marginPercent: ((85000 - 35000) / 85000) * 100,
+  },
+  {
+    code: "SVN002",
+    name: "Mug Souvenir",
+    description: "Mug ceramic dengan design unik",
+    price: 45000,
+    cost: 15000,
+    category: "Accessories",
+    stock: 75,
+    marginPercent: ((45000 - 15000) / 45000) * 100,
+  },
+  {
+    code: "SVN003",
+    name: "Keychain",
+    description: "Gantungan kunci metal premium",
+    price: 25000,
+    cost: 8000,
+    category: "Accessories",
+    stock: 120,
+    marginPercent: ((25000 - 8000) / 25000) * 100,
+  },
+  {
+    code: "SVN004",
+    name: "Hat / Topi",
+    description: "Topi adjustable dengan logo",
+    price: 65000,
+    cost: 25000,
+    category: "Apparel",
+    stock: 40,
+    marginPercent: ((65000 - 25000) / 65000) * 100,
+  },
+  {
+    code: "SVN005",
+    name: "Photo Frame",
+    description: "Frame foto wooden handmade",
+    price: 95000,
+    cost: 40000,
+    category: "Decoration",
+    stock: 30,
+    marginPercent: ((95000 - 40000) / 95000) * 100,
+  },
+  {
+    code: "SVN006",
+    name: "Sticker Pack",
+    description: "Paket stiker premium set 10pcs",
+    price: 15000,
+    cost: 4000,
+    category: "Accessories",
+    stock: 200,
+    marginPercent: ((15000 - 4000) / 15000) * 100,
+  },
+];
+
+const categories = ["Apparel", "Accessories", "Decoration"];
+
+export function SouvenirPosPanel() {
+  const [selectedCategory, setSelectedCategory] = useState<string>("Apparel");
+  const [sale, setSale] = useState<SouvenirSale | null>(null);
+  const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+
+  const filteredProducts = useMemo(
+    () => mockProducts.filter((p) => p.category === selectedCategory),
+    [selectedCategory]
+  );
+
+  const handleAddProduct = (product: SouvenirProductView) => {
+    let currentSale = sale;
+
+    if (!currentSale) {
+      currentSale = SouvenirSale.create({
+        id: `SALE-${Date.now()}`,
+        saleNumber: `SAL-${Date.now().toString(36).toUpperCase()}`,
+      });
+    }
+
+    const lineItem: SouvenirSaleLineItem = {
+      id: `${Date.now()}-${Math.random()}`,
+      productId: product.code,
+      productName: product.name,
+      quantity: 1,
+      unitPrice: product.price,
+      subtotal: product.price,
+    };
+
+    try {
+      currentSale.addItem(lineItem, product.cost);
+      setSale(currentSale === sale ? currentSale.clone() : currentSale);
+      setMessage({ type: "success", text: `${product.name} ditambahkan` });
+      setTimeout(() => setMessage(null), 2000);
+    } catch (error) {
+      setMessage({ type: "error", text: error instanceof Error ? error.message : "Error" });
+    }
+  };
+
+  const handleUpdateQuantity = (productId: string, quantity: number) => {
+    if (!sale) return;
+
+    const item = sale.lineItems.find((li) => li.productId === productId);
+    if (!item) return;
+
+    item.quantity = Math.max(1, quantity);
+    item.subtotal = item.quantity * item.unitPrice;
+    setSale(sale.clone());
+  };
+
+  const handleRemoveItem = (productId: string) => {
+    if (!sale) return;
+
+    sale.removeItem(productId);
+    setSale(sale.lineItems.length > 0 ? sale.clone() : null);
+  };
+
+  const handleCompleteSale = () => {
+    if (!sale || sale.lineItems.length === 0) {
+      setMessage({ type: "error", text: "Tambahkan produk terlebih dahulu" });
+      return;
+    }
+
+    try {
+      sale.complete();
+      setMessage({ type: "success", text: `Penjualan ${sale.saleNumber} selesai` });
+      setTimeout(() => {
+        setSale(null);
+        setMessage(null);
+      }, 2000);
+    } catch (error) {
+      setMessage({ type: "error", text: error instanceof Error ? error.message : "Error" });
+    }
+  };
+
+  return (
+    <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="mb-6 flex flex-col gap-2">
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-rose-600">Souvenir POS</p>
+        <h2 className="text-2xl font-semibold text-slate-900">Point of Sale Souvenir</h2>
+        <p className="text-sm text-slate-600">Sistem POS untuk manajemen penjualan souvenir dengan margin tracking</p>
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
+        <div className="space-y-4">
+          <div className="flex gap-2 overflow-x-auto">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`whitespace-nowrap rounded-lg px-4 py-2 font-medium transition ${
+                  selectedCategory === cat
+                    ? "bg-rose-600 text-white"
+                    : "border border-slate-300 text-slate-600 hover:border-rose-300"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            {filteredProducts.map((product) => (
+              <div
+                key={product.code}
+                className="rounded-lg border border-slate-200 p-3 hover:border-rose-300 transition"
+              >
+                <div className="mb-2">
+                  <p className="font-semibold text-slate-900">{product.name}</p>
+                  <p className="text-xs text-slate-500">{product.description}</p>
+                </div>
+                <div className="mb-2 flex items-center justify-between text-xs">
+                  <span className="text-slate-600">Stock: {product.stock}</span>
+                  <span className="font-medium text-emerald-600">Margin: {product.marginPercent.toFixed(0)}%</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-bold text-rose-600">Rp {product.price.toLocaleString("id-ID")}</p>
+                    <p className="text-xs text-slate-500">Cost: Rp {product.cost.toLocaleString("id-ID")}</p>
+                  </div>
+                  <button
+                    onClick={() => handleAddProduct(product)}
+                    className="rounded-lg bg-rose-600 px-3 py-1 text-sm font-medium text-white hover:bg-rose-700 transition"
+                  >
+                    + Tambah
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+          <p className="mb-4 font-semibold text-slate-900">Keranjang Penjualan</p>
+
+          {!sale || sale.lineItems.length === 0 ? (
+            <p className="text-center text-sm text-slate-500">Keranjang kosong</p>
+          ) : (
+            <>
+              <div className="mb-4 max-h-64 space-y-2 overflow-y-auto">
+                {sale.lineItems.map((item) => (
+                  <div key={item.id} className="rounded-lg bg-white p-2 text-sm">
+                    <div className="mb-2 flex items-start justify-between">
+                      <span className="font-medium text-slate-900">{item.productName}</span>
+                      <button
+                        onClick={() => handleRemoveItem(item.productId)}
+                        className="text-xs font-medium text-red-600 hover:text-red-700"
+                      >
+                        ✕
+                      </button>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <input
+                        type="number"
+                        min="1"
+                        value={item.quantity}
+                        onChange={(e) => handleUpdateQuantity(item.productId, Number.parseInt(e.target.value, 10))}
+                        className="w-12 rounded border border-slate-300 px-2 py-1 text-center text-xs"
+                      />
+                      <span className="text-xs text-slate-600">
+                        Rp {item.subtotal.toLocaleString("id-ID")}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="border-t border-slate-200 pt-3">
+                <div className="mb-2 flex justify-between text-sm">
+                  <span>Total</span>
+                  <span className="font-semibold text-rose-600">Rp {sale.totalAmount.toLocaleString("id-ID")}</span>
+                </div>
+                <div className="mb-3 flex justify-between text-xs">
+                  <span className="text-slate-600">Profit: Rp {sale.profit.toLocaleString("id-ID")}</span>
+                  <span className="text-emerald-600 font-medium">{sale.profitPercent.toFixed(1)}%</span>
+                </div>
+
+                <button
+                  onClick={handleCompleteSale}
+                  className="w-full rounded-lg bg-rose-600 px-4 py-2 font-semibold text-white hover:bg-rose-700 transition"
+                >
+                  Selesaikan Penjualan
+                </button>
+              </div>
+            </>
+          )}
+
+          {message && (
+            <div
+              className={`mt-3 rounded-lg border px-3 py-2 text-sm ${
+                message.type === "success"
+                  ? "border-emerald-200 bg-emerald-50 text-emerald-700"
+                  : "border-red-200 bg-red-50 text-red-700"
+              }`}
+            >
+              {message.text}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}

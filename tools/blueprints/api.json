@@ -1,0 +1,22 @@
+[
+  {
+    "template": "controller.txt",
+    "target": "{{ENTITY}}.controller.ts"
+  },
+  {
+    "template": "api-service.txt",
+    "target": "{{ENTITY}}.service.ts"
+  },
+  {
+    "template": "repository.txt",
+    "target": "{{ENTITY}}.repository.ts"
+  },
+  {
+    "template": "dto.txt",
+    "target": "{{ENTITY}}.dto.ts"
+  },
+  {
+    "template": "routes.txt",
+    "target": "{{ENTITY}}.routes.ts"
+  }
+]

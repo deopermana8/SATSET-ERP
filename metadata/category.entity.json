@@ -1,0 +1,7 @@
+﻿{
+  "entity": "category",
+  "table": "category",
+  "primaryKey": "id",
+  "columns": []
+}
+

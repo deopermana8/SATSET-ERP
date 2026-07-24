@@ -1,0 +1,6 @@
+[
+  {
+    "template": "menu.txt",
+    "target": "{{ENTITY}}.menu.ts"
+  }
+]

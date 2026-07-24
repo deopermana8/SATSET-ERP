@@ -1,0 +1,6 @@
+[
+  {
+    "template": "openapi.txt",
+    "target": "{{ENTITY}}.openapi.json"
+  }
+]

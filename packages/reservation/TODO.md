@@ -1,0 +1,10 @@
+- [x] Define reservation domain contracts
+- [x] Implement domain entities for Reservation, Guest, Package, Schedule, Quotation, Invoice, and Payment
+- [x] Add value objects for ReservationId, ReservationStatus, GuestCount
+- [x] Create ReservationRepository interface
+- [x] Create domain application commands for reservation lifecycle and workflow
+- [x] Add domain events for reservation and payment workflow
+- [x] Add an in-memory repository adapter as infrastructure prototype
+- [ ] Add domain tests for reservation invariants and transitions
+- [ ] Model hold expiry policies and ticket issuance workflow
+- [ ] Add persistence adapter for relational or document store

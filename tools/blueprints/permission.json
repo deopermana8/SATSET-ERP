@@ -1,0 +1,6 @@
+[
+  {
+    "template": "permission.txt",
+    "target": "{{ENTITY}}.permission.ts"
+  }
+]

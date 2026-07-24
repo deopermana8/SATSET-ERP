@@ -1,0 +1,11 @@
+{
+  "entity": "{{MODULE}}",
+  "columns": [
+    {
+      "name": "id",
+      "type": "uuid",
+      "primary": true,
+      "nullable": false
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "entity": "{{MODULE}}",
+  "table": "{{MODULE}}",
+  "primaryKey": "id",
+  "columns": []
+}

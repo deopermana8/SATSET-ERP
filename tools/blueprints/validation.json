@@ -1,0 +1,6 @@
+[
+  {
+    "template": "validation.txt",
+    "target": "{{MODULE}}.validation.json"
+  }
+]

@@ -1,0 +1,6 @@
+[
+  {
+    "template": "relation.txt",
+    "target": "{{MODULE}}.relations.json"
+  }
+]

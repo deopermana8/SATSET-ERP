@@ -1,0 +1,23 @@
+﻿{
+    "paths":  {
+
+              },
+    "components":  {
+                       "schemas":  {
+                                       "facility":  {
+                                                        "properties":  {
+                                                                           "id":  {
+                                                                                      "type":  "string"
+                                                                                  }
+                                                                       },
+                                                        "type":  "object"
+                                                    }
+                                   }
+                   },
+    "openapi":  "3.0.0",
+    "info":  {
+                 "version":  "1.0.0",
+                 "title":  "facility API"
+             }
+}
+

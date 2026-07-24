@@ -1,0 +1,12 @@
+﻿{
+  "entity": "destination",
+  "columns": [
+    {
+      "name": "id",
+      "type": "uuid",
+      "primary": true,
+      "nullable": false
+    }
+  ]
+}
+

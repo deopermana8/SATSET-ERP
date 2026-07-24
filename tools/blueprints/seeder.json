@@ -1,0 +1,6 @@
+[
+  {
+    "template": "seeder.txt",
+    "target": "{{ENTITY}}.seeder.sql"
+  }
+]

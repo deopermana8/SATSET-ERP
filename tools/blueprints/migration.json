@@ -1,0 +1,6 @@
+[
+  {
+    "template": "migration.txt",
+    "target": "{{TIMESTAMP}}_create_{{ENTITY}}.sql"
+  }
+]

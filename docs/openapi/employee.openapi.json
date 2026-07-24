@@ -1,0 +1,150 @@
+﻿{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "employee API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/employee": {
+      "get": {
+        "summary": "List employees",
+        "responses": {
+          "200": {
+            "description": "A list of employees",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/employee" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create an employee",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/employeeCreate" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created employee",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/employee" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/employee/{id}": {
+      "get": {
+        "summary": "Get employee by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Employee record",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/employee" }
+              }
+            }
+          },
+          "404": { "description": "Employee not found" }
+        }
+      },
+      "put": {
+        "summary": "Update employee",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/employeeUpdate" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated employee",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/employee" }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete employee",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "204": { "description": "Employee deleted" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "employee": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "name": { "type": "string" },
+          "email": { "type": "string" },
+          "phone": { "type": "string" },
+          "role": { "type": "string" }
+        },
+        "required": ["id", "name", "email", "phone", "role"]
+      },
+      "employeeCreate": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "email": { "type": "string" },
+          "phone": { "type": "string" },
+          "role": { "type": "string" }
+        },
+        "required": ["name", "email", "phone", "role"]
+      },
+      "employeeUpdate": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "email": { "type": "string" },
+          "phone": { "type": "string" },
+          "role": { "type": "string" }
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,5 @@
+export const {{ENTITY}}Sidebar = {
+    entity: '{{ENTITY}}',
+    table: '{{TABLE}}',
+    fields: [{{FIELDS}}]
+};

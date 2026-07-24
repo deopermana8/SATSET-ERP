@@ -1,0 +1,6 @@
+export function useModule() {
+  return {
+    module: '{{MODULE}}',
+    label: '{{MODULE_UPPER}}',
+  };
+}

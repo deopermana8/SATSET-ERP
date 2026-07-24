@@ -1,0 +1,2 @@
+- Define ticketing domain contracts
+- Add business logic and Prisma model usage

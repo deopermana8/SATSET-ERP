@@ -1,0 +1,6 @@
+[
+  {
+    "template": "sidebar.txt",
+    "target": "{{ENTITY}}.sidebar.ts"
+  }
+]

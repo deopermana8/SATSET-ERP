@@ -1,0 +1,10 @@
+﻿{
+  "entity": "employee",
+  "validation": [
+    { "field": "name", "rule": "required", "message": "Nama harus diisi" },
+    { "field": "email", "rule": "email", "message": "Email tidak valid" },
+    { "field": "phone", "rule": "minLength:8", "message": "Telepon minimal 8 karakter" },
+    { "field": "role", "rule": "required", "message": "Jabatan harus dipilih" }
+  ]
+}
+

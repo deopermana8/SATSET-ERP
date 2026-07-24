@@ -1,0 +1,12 @@
+﻿{
+  "entity": "__satset_test__",
+  "columns": [
+    {
+      "name": "id",
+      "type": "uuid",
+      "primary": true,
+      "nullable": false
+    }
+  ]
+}
+

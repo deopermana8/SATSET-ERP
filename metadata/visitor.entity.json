@@ -1,0 +1,7 @@
+﻿{
+  "entity": "visitor",
+  "table": "visitor",
+  "primaryKey": "id",
+  "columns": []
+}
+

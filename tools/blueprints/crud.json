@@ -1,0 +1,22 @@
+[
+  {
+    "template": "crud-list.txt",
+    "target": "{{MODULE}}.list.ts"
+  },
+  {
+    "template": "crud-create.txt",
+    "target": "{{MODULE}}.create.ts"
+  },
+  {
+    "template": "crud-edit.txt",
+    "target": "{{MODULE}}.edit.ts"
+  },
+  {
+    "template": "crud-detail.txt",
+    "target": "{{MODULE}}.detail.ts"
+  },
+  {
+    "template": "crud-delete.txt",
+    "target": "{{MODULE}}.delete.ts"
+  }
+]

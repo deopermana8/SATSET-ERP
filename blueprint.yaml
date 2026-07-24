@@ -1,0 +1,9 @@
+﻿project: POS Wisata
+
+stack:
+  - nextjs
+  - prisma
+  - postgres
+
+modules:
+  - dashboard

@@ -1,0 +1,4 @@
+-- Migration: {{TIMESTAMP}}_create_{{ENTITY}}
+-- Source: database/sql/{{ENTITY}}.sql
+
+{{SQL_CONTENT}}

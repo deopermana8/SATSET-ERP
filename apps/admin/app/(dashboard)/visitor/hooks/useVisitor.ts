@@ -1,0 +1,4 @@
+﻿export function useVisitor(){
+  return {};
+}
+
