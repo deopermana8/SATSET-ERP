@@ -1,5 +1,0 @@
-
-
-# Business Rules
-
-- Tourism must follow deterministic workflow rules.

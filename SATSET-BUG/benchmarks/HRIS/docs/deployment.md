@@ -1,7 +1,0 @@
-
-
-# Deployment Plan
-
-Project: HRIS
-
-Status: prepared

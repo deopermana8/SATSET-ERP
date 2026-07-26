@@ -1,7 +1,0 @@
-<!-- satset-artifact-metadata {"projectId":"POS WISATA","projectName":"POS WISATA","runtimeId":"satset-doctor","timestamp":"2026-07-26T08:54:30.179Z","benchmarkScore":0,"qualityScore":0,"validationScore":0,"knowledgeVersion":"1.0.0"} -->
-
-openapi: 3.0.3
-info:
-  title: POS WISATA
-  version: 1.0.0
-paths: {}

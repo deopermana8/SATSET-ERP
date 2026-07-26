@@ -1,5 +1,0 @@
-
-
-# Refactor Plan
-
-Refactor LMS using deterministic repair loops.

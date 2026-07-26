@@ -1,2 +1,76 @@
+# Dependencies
 node_modules/
+.pnpm-store/
+
+# Build outputs
+.next/
 dist/
+build/
+out/
+coverage/
+*.tsbuildinfo
+
+# Logs and temp files
+*.log
+*.pid
+*.seed
+*.tmp
+*.bak
+
+# Environment files
+.env
+.env.*
+!.env.example
+!.env.example.bak
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.history/
+.vscode/
+.idea/
+
+# Runtime and generated artifacts
+knowledge/
+reports/
+artifacts/
+release/
+
+# Prisma generated output
+prisma/generated/
+!prisma/schema.prisma
+
+# Benchmark and runtime output
+benchmark-output/
+benchmarks/
+*.benchmark.*
+runtime-*.json
+execution-*.json
+factory-*.json
+validation-*.json
+repair-*.json
+benchmark-*.json
+
+# Monorepo / app-specific generated files
+**/.turbo/
+**/.cache/
+
+# Keep source and config tracked
+!src/
+!apps/
+!packages/
+!docs/
+!tests/
+!prisma/schema.prisma
+!package.json
+!pnpm-workspace.yaml
+!tsconfig.json
+!tsconfig.*.json
+!*.config.js
+!*.config.ts
+!*.config.cjs
+!*.config.mjs
+!docker-compose.yml
+!Dockerfile
+!README.md
+!LICENSE*

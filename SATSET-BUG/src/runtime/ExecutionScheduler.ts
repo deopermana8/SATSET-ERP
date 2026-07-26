@@ -11,13 +11,13 @@ export interface ExecutionGroup {
 
 export class ExecutionScheduler {
   async createGroups(engines: IEngine[]): Promise<ExecutionGroup[]> {
+    const ordered = this.orderEngines(engines);
     const groups: ExecutionGroup[] = [];
-    const ordered = engines.map((engine) => this.getManifest(engine));
-    for (let index = 0; index < ordered.length; index += 1) {
-      const manifest = ordered[index];
+    for (const engine of ordered) {
+      const manifest = this.getManifest(engine);
       groups.push({
         id: manifest.id,
-        engines: [engines[index]],
+        engines: [engine],
         parallel: false,
         dependencies: manifest.dependencies,
       });
@@ -31,6 +31,39 @@ export class ExecutionScheduler {
         await engine.run(context);
       }
     }
+  }
+
+  private orderEngines(engines: IEngine[]): IEngine[] {
+    const ordered: IEngine[] = [];
+    const visited = new Set<string>();
+    const visiting = new Set<string>();
+
+    const visit = (engine: IEngine): void => {
+      const manifest = this.getManifest(engine);
+      const id = manifest.id;
+      if (visiting.has(id)) {
+        throw new Error(`Circular dependency detected for engine ${id}`);
+      }
+      if (visited.has(id)) {
+        return;
+      }
+      visiting.add(id);
+      for (const dependencyId of manifest.dependencies) {
+        const dependency = engines.find((candidate) => this.getManifest(candidate).id === dependencyId);
+        if (dependency) {
+          visit(dependency);
+        }
+      }
+      visiting.delete(id);
+      visited.add(id);
+      ordered.push(engine);
+    };
+
+    for (const engine of engines) {
+      visit(engine);
+    }
+
+    return ordered;
   }
 
   private getManifest(engine: IEngine): EngineManifest {

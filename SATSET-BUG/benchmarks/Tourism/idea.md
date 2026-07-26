@@ -1,1 +1,0 @@
-Tourism and destination management platform.

@@ -1,5 +1,0 @@
-
-
-# Release Notes
-
-Tourism released successfully.

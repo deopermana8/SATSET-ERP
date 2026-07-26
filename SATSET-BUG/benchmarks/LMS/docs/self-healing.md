@@ -1,5 +1,0 @@
-
-
-# Self Healing
-
-LMS uses deterministic repair loops.

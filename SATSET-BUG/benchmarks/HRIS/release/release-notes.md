@@ -1,5 +1,0 @@
-
-
-# Release Notes
-
-HRIS released successfully.

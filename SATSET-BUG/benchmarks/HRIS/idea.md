@@ -1,1 +1,0 @@
-Human resources management system.

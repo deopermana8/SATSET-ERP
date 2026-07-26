@@ -1,8 +1,0 @@
-{
-  "topology": [
-    "domain",
-    "application",
-    "infrastructure",
-    "interface"
-  ]
-}

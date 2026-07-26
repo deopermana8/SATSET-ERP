@@ -1,6 +1,0 @@
-<!-- satset-artifact-metadata {"projectId":"runtime-test","projectName":"runtime-test","runtimeId":"satset-doctor","timestamp":"2026-07-26T08:49:48.910Z","benchmarkScore":0,"qualityScore":0,"validationScore":0,"knowledgeVersion":"1.0.0"} -->
-
-# Compiled Prompt
-
-Idea: runtime
-Prompt: Generate a production-ready implementation for runtime

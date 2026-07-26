@@ -1,5 +1,0 @@
-
-
-# Refactor Plan
-
-Refactor Tourism using deterministic repair loops.

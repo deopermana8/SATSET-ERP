@@ -1,5 +1,0 @@
-
-
-# Business Rules
-
-- POS must follow deterministic workflow rules.

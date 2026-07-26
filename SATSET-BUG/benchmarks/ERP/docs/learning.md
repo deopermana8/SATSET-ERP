@@ -1,7 +1,0 @@
-
-
-# Learning Notes
-
-Project: ERP
-
-Status: captured

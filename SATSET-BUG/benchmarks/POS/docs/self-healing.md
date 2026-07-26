@@ -1,5 +1,0 @@
-
-
-# Self Healing
-
-POS uses deterministic repair loops.

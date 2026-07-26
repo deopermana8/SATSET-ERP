@@ -1,6 +1,0 @@
-services:
-  app:
-    build: .
-    image: VillageSystem:latest
-    ports:
-      - "3000:3000"

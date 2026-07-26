@@ -1,5 +1,0 @@
-
-
-# Release Notes
-
-VillageSystem released successfully.

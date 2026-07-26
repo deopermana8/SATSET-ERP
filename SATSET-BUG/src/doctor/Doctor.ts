@@ -19,6 +19,13 @@ import { VerificationEngine } from "./VerificationEngine.js";
 import { PlannerEngine } from "../ai/engines/PlannerEngine.js";
 import { ArchitectureEngine } from "../ai/engines/ArchitectureEngine.js";
 import { GenerationEngine } from "../generator/GenerationEngine.js";
+import { ExecutionGraphEngine } from "../runtime/ExecutionGraphEngine.js";
+import { MultiAgentCoordinatorEngine } from "../agents/MultiAgentCoordinatorEngine.js";
+import { PromptCompilerEngine as FactoryPromptCompilerEngine } from "../prompt/PromptCompilerEngine.js";
+import { QualityIntelligenceEngine } from "../factory/QualityIntelligenceEngine.js";
+import { RepairIntelligenceEngine } from "../factory/RepairIntelligenceEngine.js";
+import { ReleaseIntelligenceEngine } from "../factory/ReleaseIntelligenceEngine.js";
+import { FactoryDashboardEngine } from "../factory/FactoryDashboardEngine.js";
 import { ProjectReasonerEngine, IntentAnalyzerEngine, DomainAnalyzerEngine, FeaturePlannerEngine, ConstraintAnalyzerEngine, ArchitectureReasonerEngine, TaskBreakdownEngine, PromptCompilerEngine, ReflectionEngine, CriticEngine, ConfidenceEngine } from "../ai/engines/ReasoningBrainEngines.js";
 import { DatabaseGenerator } from "../ai/engines/DatabaseGenerator.js";
 import { BackendGenerator } from "../ai/engines/BackendGenerator.js";
@@ -123,13 +130,20 @@ export class Doctor {
     const constraintAnalyzerEngine = new ConstraintAnalyzerEngine();
     const architectureReasonerEngine = new ArchitectureReasonerEngine();
     const taskBreakdownEngine = new TaskBreakdownEngine();
-    const promptCompilerEngine = new PromptCompilerEngine();
+    const reasoningPromptCompilerEngine = new PromptCompilerEngine();
     const reflectionEngine = new ReflectionEngine();
     const criticEngine = new CriticEngine();
     const confidenceEngine = new ConfidenceEngine();
     const plannerEngine = new PlannerEngine();
     const architectureEngine = new ArchitectureEngine();
+    const executionGraphEngine = new ExecutionGraphEngine();
+    const multiAgentCoordinatorEngine = new MultiAgentCoordinatorEngine();
+    const promptCompilerEngine = new FactoryPromptCompilerEngine();
     const generationEngine = new GenerationEngine();
+    const qualityIntelligenceEngine = new QualityIntelligenceEngine();
+    const repairIntelligenceEngine = new RepairIntelligenceEngine();
+    const releaseIntelligenceEngine = new ReleaseIntelligenceEngine();
+    const factoryDashboardEngine = new FactoryDashboardEngine();
     const databaseGenerator = new DatabaseGenerator();
     const backendGenerator = new BackendGenerator();
     const frontendGenerator = new FrontendGenerator();
@@ -190,13 +204,20 @@ export class Doctor {
       constraintAnalyzerEngine,
       architectureReasonerEngine,
       taskBreakdownEngine,
-      promptCompilerEngine,
+      reasoningPromptCompilerEngine,
       reflectionEngine,
       criticEngine,
       confidenceEngine,
       plannerEngine,
       architectureEngine,
+      executionGraphEngine,
+      multiAgentCoordinatorEngine,
+      promptCompilerEngine,
       generationEngine,
+      qualityIntelligenceEngine,
+      repairIntelligenceEngine,
+      releaseIntelligenceEngine,
+      factoryDashboardEngine,
       databaseGenerator,
       backendGenerator,
       frontendGenerator,

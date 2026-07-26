@@ -1,7 +1,0 @@
-
-
-# Optimization Plan
-
-Project: HRIS
-
-Status: optimized

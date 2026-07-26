@@ -1,9 +1,0 @@
-{
-  "repeatedMistakes": [
-    "agent-history.json",
-    "agent-mesh.json",
-    "benchmark-history.json"
-  ],
-  "acceptedImprovements": 3,
-  "rejectedImprovements": 0
-}

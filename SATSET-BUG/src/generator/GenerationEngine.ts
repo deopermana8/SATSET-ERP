@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import type { Context } from "../core/Context.js";
 import type { IEngine } from "../core/IEngine.js";
+import type { EngineManifest } from "../runtime/EngineManifest.js";
 import { ProjectGenerator } from "./ProjectGenerator.js";
 import { BackendGenerator } from "./BackendGenerator.js";
 import { FrontendGenerator } from "./FrontendGenerator.js";
@@ -43,6 +44,22 @@ export interface GenerationSnapshot {
 
 export class GenerationEngine implements IEngine {
   public readonly name = "GenerationEngine";
+
+  getManifest(): EngineManifest {
+    return {
+      id: "generation",
+      name: this.name,
+      version: "1.0.0",
+      author: "satset",
+      category: "generation",
+      priority: 35,
+      enabled: true,
+      timeout: 30000,
+      retryPolicy: { retries: 1, backoff: 50 },
+      dependencies: [],
+      tags: ["generation", "runtime"],
+    };
+  }
 
   async run(context: Context): Promise<void> {
     const project = new ProjectGenerator();

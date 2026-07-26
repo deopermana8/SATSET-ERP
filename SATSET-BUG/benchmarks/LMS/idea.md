@@ -1,1 +1,0 @@
-Learning management system for online courses.

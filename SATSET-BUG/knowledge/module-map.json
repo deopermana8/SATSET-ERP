@@ -1,8 +1,0 @@
-{
-  "modules": [
-    "src/domain",
-    "src/application",
-    "src/infrastructure",
-    "src/interface"
-  ]
-}

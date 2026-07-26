@@ -1,7 +1,0 @@
-
-
-# Deployment Plan
-
-Project: Tourism
-
-Status: prepared
