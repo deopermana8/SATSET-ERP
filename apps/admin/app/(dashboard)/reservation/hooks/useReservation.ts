@@ -1,4 +1,4 @@
-﻿export function useReservation(){
+export function useReservation(){
   return {};
 }
 

@@ -1,0 +1,21 @@
+<!-- satset-artifact-metadata {"projectId":"CMS","projectName":"CMS","runtimeId":"satset-doctor","timestamp":"2026-07-26T08:50:17.260Z","benchmarkScore":0,"qualityScore":0,"validationScore":0,"knowledgeVersion":"1.0.0"} -->
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: CMS
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: CMS
+  template:
+    metadata:
+      labels:
+        app: CMS
+    spec:
+      containers:
+        - name: CMS
+          image: CMS:latest
+          ports:
+            - containerPort: 3000

@@ -1,0 +1,5 @@
+export const jwtConfig = {
+  providers: ["jwt, rbac"],
+  issuer: "satset",
+  expiresIn: "1h",
+};

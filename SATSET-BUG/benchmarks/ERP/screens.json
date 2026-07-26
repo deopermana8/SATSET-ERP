@@ -1,0 +1,15 @@
+{
+  "screens": [
+    "Dashboard,Settings"
+  ],
+  "metadata": {
+    "projectId": "ERP",
+    "projectName": "ERP",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:46:04.367Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

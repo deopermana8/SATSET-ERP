@@ -1,1 +1,1 @@
-﻿export const columns = [];
+export const columns = [];

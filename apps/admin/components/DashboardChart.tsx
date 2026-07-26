@@ -1,4 +1,4 @@
-﻿export default function DashboardChart() {
+export default function DashboardChart() {
 
   const data=[40,65,55,80,72,95,88];
 

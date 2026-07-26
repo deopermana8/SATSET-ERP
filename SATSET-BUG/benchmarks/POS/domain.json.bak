@@ -1,0 +1,14 @@
+{
+  "idea": "POS",
+  "domain": "travel-and-tourism",
+  "metadata": {
+    "projectId": "POS",
+    "projectName": "POS",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:53:54.775Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

@@ -1,4 +1,4 @@
-﻿export const session = {
+export const session = {
   user: null,
 };
 

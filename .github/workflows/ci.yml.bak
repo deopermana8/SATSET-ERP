@@ -1,0 +1,9 @@
+<!-- satset-artifact-metadata {"projectId":"POS WISATA","projectName":"POS WISATA","runtimeId":"satset-doctor","timestamp":"2026-07-26T08:54:29.247Z","benchmarkScore":0,"qualityScore":0,"validationScore":0,"knowledgeVersion":"1.0.0"} -->
+
+name: ci
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4

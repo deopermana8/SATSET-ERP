@@ -1,0 +1,42 @@
+{
+  "name": "satset-bug",
+  "version": "0.0.0",
+  "description": "CLI for diagnosing and fixing bugs in Node.js projects.",
+  "type": "module",
+  "bin": {
+    "satset-bug": "./bin/index.js"
+  },
+  "scripts": {
+    "doctor": "tsx ./src/cli/index.js",
+    "dev": "tsx ./src/cli/index.js",
+    "test": "tsx ./tests/run-all.ts"
+  },
+  "keywords": [
+    "cli",
+    "bug",
+    "scanner",
+    "diagnostic",
+    "fixer"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "commander": "^11.1.0",
+    "fast-glob": "^3.0.0",
+    "ora": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "json-stable-stringify": "^1.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.3"
+  }
+}

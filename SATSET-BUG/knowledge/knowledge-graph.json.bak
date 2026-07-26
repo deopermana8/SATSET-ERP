@@ -1,0 +1,51 @@
+{
+  "nodes": [
+    {
+      "id": "problem:typescript",
+      "kind": "problem",
+      "label": "typescript"
+    },
+    {
+      "id": "repair:repair:typescript:",
+      "kind": "repair",
+      "label": "repair typescript issue with minimal patch"
+    },
+    {
+      "id": "file:typescript",
+      "kind": "file",
+      "label": "typescript"
+    },
+    {
+      "id": "engine:repair",
+      "kind": "engine",
+      "label": "RepairMemoryEngine"
+    },
+    {
+      "id": "artifact:typescript",
+      "kind": "artifact",
+      "label": "typescript-artifact"
+    }
+  ],
+  "edges": [
+    {
+      "from": "problem:typescript",
+      "to": "repair:repair:typescript:",
+      "kind": "causes"
+    },
+    {
+      "from": "repair:repair:typescript:",
+      "to": "file:typescript",
+      "kind": "touches"
+    },
+    {
+      "from": "repair:repair:typescript:",
+      "to": "engine:repair",
+      "kind": "generated-by"
+    },
+    {
+      "from": "repair:repair:typescript:",
+      "to": "artifact:typescript",
+      "kind": "produces"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "trends": {
+    "compileSuccessTrend": [
+      {
+        "value": 80,
+        "timestamp": "2026-07-26T09:31:45.629Z"
+      }
+    ],
+    "repairTrend": [
+      {
+        "value": 0,
+        "timestamp": "2026-07-26T09:31:45.629Z"
+      }
+    ],
+    "knowledgeReuseTrend": [
+      {
+        "value": 0.2,
+        "timestamp": "2026-07-26T09:31:45.629Z"
+      }
+    ],
+    "runtimeTrend": [
+      {
+        "value": 0,
+        "timestamp": "2026-07-26T09:31:45.629Z"
+      }
+    ],
+    "qualityTrend": [
+      {
+        "value": 74,
+        "timestamp": "2026-07-26T09:31:45.629Z"
+      }
+    ]
+  },
+  "summary": "compile 80, repair 0, reuse 0.2, quality 74"
+}

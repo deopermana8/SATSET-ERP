@@ -5,15 +5,28 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "tailwindcss"],
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "plugins": [
+    "@typescript-eslint",
+    "tailwindcss"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/.next/**",
+    "**/next-env.d.ts"
+  ],
   "rules": {
     "tailwindcss/classnames-order": "warn"
   },
   "settings": {
     "tailwindcss": {
       "cssConfigPath": "./app/globals.css",
-      "functions": ["cn"]
+      "functions": [
+        "cn"
+      ]
     }
   }
 }

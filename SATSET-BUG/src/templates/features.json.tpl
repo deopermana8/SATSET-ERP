@@ -1,0 +1,4 @@
+{
+  "idea": "{{idea}}",
+  "features": ["{{features}}"]
+}

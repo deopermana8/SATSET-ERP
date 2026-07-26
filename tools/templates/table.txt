@@ -1,3 +1,53 @@
-export default function Table(){
-  return <div>Table Component</div>
+import type { {{MODULE_UPPER}}Record } from "../types";
+
+type {{MODULE_UPPER}}TableProps = {
+  rows: {{MODULE_UPPER}}Record[];
+  isLoading?: boolean;
+  isMutating?: boolean;
+  onEdit?: (row: {{MODULE_UPPER}}Record) => void;
+  onDelete?: (row: {{MODULE_UPPER}}Record) => void;
+};
+
+export default function Table({
+  rows,
+  isLoading = false,
+  isMutating = false,
+  onEdit,
+  onDelete,
+}: {{MODULE_UPPER}}TableProps) {
+  if (isLoading) {
+    return <div>Memuat data...</div>;
+  }
+
+  if (rows.length === 0) {
+    return <div>Belum ada data.</div>;
+  }
+
+  return (
+    <table style={{ width: "100%", borderCollapse: "collapse" }}>
+      <thead>
+        <tr>
+          <th style={{ borderBottom: "1px solid #e5e7eb", padding: 8, textAlign: "left" }}>ID</th>
+          <th style={{ borderBottom: "1px solid #e5e7eb", padding: 8, textAlign: "left" }}>Nama</th>
+          <th style={{ borderBottom: "1px solid #e5e7eb", padding: 8, textAlign: "left" }}>Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => (
+          <tr key={row.id}>
+            <td style={{ padding: 8 }}>{row.id}</td>
+            <td style={{ padding: 8 }}>{row.name}</td>
+            <td style={{ padding: 8 }}>
+              <button type="button" disabled={isMutating} onClick={() => onEdit?.(row)} style={{ marginRight: 8 }}>
+                Edit
+              </button>
+              <button type="button" disabled={isMutating} onClick={() => onDelete?.(row)}>
+                Hapus
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
 }

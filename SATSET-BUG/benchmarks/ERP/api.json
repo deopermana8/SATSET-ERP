@@ -1,0 +1,15 @@
+{
+  "api": [
+    "GET /projects,POST /projects"
+  ],
+  "metadata": {
+    "projectId": "ERP",
+    "projectName": "ERP",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:46:04.174Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "projectRoot": "G:\\SATSET AI\\POS WISATA",
+  "summary": {
+    "fingerprint": "941a9af48332424fe35b7430ecbc5d8c387bf14071dc42c7d63c076f5dd9fcde",
+    "healthScore": 79,
+    "issueCount": 2,
+    "repairPlanCount": 1
+  },
+  "verification": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "diagnosis",
+        "passed": true,
+        "reason": "Diagnosis entries are consistent with detected issues."
+      },
+      {
+        "name": "repairPlan",
+        "passed": true,
+        "reason": "Repair plans are consistent with identified root causes."
+      },
+      {
+        "name": "issueConsistency",
+        "passed": true,
+        "reason": "Issue metadata and references are consistent."
+      },
+      {
+        "name": "healthScore",
+        "passed": true,
+        "reason": "Health score and summary are consistent with diagnostics and repair state."
+      }
+    ],
+    "reasons": []
+  }
+}

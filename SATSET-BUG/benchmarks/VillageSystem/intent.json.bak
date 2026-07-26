@@ -1,0 +1,14 @@
+{
+  "idea": "VillageSystem",
+  "summary": "Reasoning intent for VillageSystem",
+  "metadata": {
+    "projectId": "VillageSystem",
+    "projectName": "VillageSystem",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:48:50.767Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

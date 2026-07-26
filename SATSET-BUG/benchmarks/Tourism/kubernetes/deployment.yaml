@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Tourism
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Tourism
+  template:
+    metadata:
+      labels:
+        app: Tourism
+    spec:
+      containers:
+        - name: Tourism
+          image: Tourism:latest
+          ports:
+            - containerPort: 3000

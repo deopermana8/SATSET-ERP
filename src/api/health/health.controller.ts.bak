@@ -1,0 +1,17 @@
+<!-- satset-artifact-metadata {"projectId":"POS WISATA","projectName":"POS WISATA","runtimeId":"satset-doctor","timestamp":"2026-07-26T08:54:24.772Z","benchmarkScore":0,"qualityScore":0,"validationScore":0,"knowledgeVersion":"1.0.0"} -->
+
+export class HealthController {
+  constructor(private readonly service = new (class {})()) {}
+
+  async list() {
+    return {
+      resource: "Health",
+      routes: ["GET /health","POST /health"],
+      useCases: ["Create resource","List resources"],
+    };
+  }
+
+  async create(input: Record<string, unknown>) {
+    return { ok: true, input, resource: "health" };
+  }
+}

@@ -1,4 +1,4 @@
-﻿export function useFacility(){
+export function useFacility(){
   return {};
 }
 

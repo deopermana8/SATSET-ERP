@@ -1,0 +1,20 @@
+{
+  "goals": [
+    {
+      "id": "goal-1",
+      "title": "Autonomous coding task for POS",
+      "description": "Autonomous coding task for POS",
+      "status": "completed",
+      "createdAt": "2026-07-26T09:40:36.795Z",
+      "updatedAt": "2026-07-26T09:40:37.556Z"
+    },
+    {
+      "id": "goal-2",
+      "title": "Autonomous coding task for POS",
+      "description": "Autonomous coding task for POS",
+      "status": "completed",
+      "createdAt": "2026-07-26T09:45:18.012Z",
+      "updatedAt": "2026-07-26T09:45:18.047Z"
+    }
+  ]
+}

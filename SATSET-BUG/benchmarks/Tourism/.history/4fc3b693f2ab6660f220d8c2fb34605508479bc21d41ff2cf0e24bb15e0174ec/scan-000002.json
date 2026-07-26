@@ -1,0 +1,3899 @@
+{
+  "diagnosis": [
+    {
+      "affectedFiles": [
+      ],
+      "automaticFixAvailable": false,
+      "confidence": 90,
+      "description": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists",
+      "estimatedRepairTime": 30,
+      "id": "prisma-integrity-failed",
+      "recommendedFixes": [
+        {
+          "automatic": false,
+          "description": "Regenerate the Prisma Client to restore integrity.",
+          "id": "generate-prisma-client",
+          "risk": "low",
+          "steps": [
+            "Run prisma generate in the project root."
+          ],
+          "title": "Generate ulang Prisma Client"
+        }
+      ],
+      "rootCause": "Prisma",
+      "title": "Prisma Client Integrity Failed"
+    },
+    {
+      "affectedFiles": [
+      ],
+      "automaticFixAvailable": false,
+      "confidence": 90,
+      "description": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists",
+      "estimatedRepairTime": 30,
+      "id": "prisma-integrity-failed-unknown-file-0-60fa30740f0e",
+      "recommendedFixes": [
+        {
+          "automatic": false,
+          "description": "Regenerate the Prisma Client to restore integrity.",
+          "id": "generate-prisma-client",
+          "risk": "low",
+          "steps": [
+            "Run prisma generate in the project root."
+          ],
+          "title": "Generate ulang Prisma Client"
+        }
+      ],
+      "rootCause": "Prisma",
+      "title": "Prisma Client Integrity Failed"
+    }
+  ],
+  "doctorVersion": "unknown",
+  "durationMs": 109201,
+  "fingerprint": {
+    "database": "supabase",
+    "dependencyCount": 1,
+    "framework": "next",
+    "hash": "4fc3b693f2ab6660f220d8c2fb34605508479bc21d41ff2cf0e24bb15e0174ec",
+    "next": null,
+    "nodeVersion": "v24.18.0",
+    "packageManager": null,
+    "prisma": null,
+    "react": null,
+    "signature": "next:unknown:4fc3b693f2ab6660f220d8c2fb34605508479bc21d41ff2cf0e24bb15e0174ec",
+    "tailwind": null,
+    "trackedFileCount": 89,
+    "trackedFilesHash": "e6e4b0175f0a8037274b49fa95182501d12f75a07f684caa4339d23dc72d60f2",
+    "turbo": null,
+    "typescript": null,
+    "workspace": false,
+    "workspaceCount": 0
+  },
+  "health": {
+    "autoRepairAvailable": false,
+    "critical": 2,
+    "diagnosisConfidence": 90,
+    "error": 0,
+    "grade": "C",
+    "info": 0,
+    "recommendation": "Resolve remaining critical and error issues first. Verify the current repair and diagnosis results.",
+    "score": 79,
+    "status": "Fair",
+    "warning": 0
+  },
+  "issues": [
+    {
+      "category": "Prisma",
+      "evidence": [
+        {
+          "description": "Integrity indication from Prisma metadata for library.d.ts",
+          "file": "library.d.ts",
+          "id": "prisma-integrity-source",
+          "type": "file"
+        }
+      ],
+      "fixes": [
+        {
+          "automatic": false,
+          "description": "Regenerate the Prisma Client to restore integrity.",
+          "id": "generate-prisma-client",
+          "risk": "low",
+          "steps": [
+            "Run prisma generate in the project root."
+          ],
+          "title": "Generate ulang Prisma Client"
+        }
+      ],
+      "id": "prisma-integrity-failed",
+      "message": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists",
+      "severity": "critical",
+      "title": "Prisma Client Integrity Failed"
+    },
+    {
+      "category": "Prisma",
+      "evidence": [
+        {
+          "description": "Integrity indication from Prisma metadata for library.d.ts",
+          "file": "library.d.ts",
+          "id": "prisma-integrity-source",
+          "type": "file"
+        }
+      ],
+      "fixes": [
+        {
+          "automatic": false,
+          "description": "Regenerate the Prisma Client to restore integrity.",
+          "id": "generate-prisma-client",
+          "risk": "low",
+          "steps": [
+            "Run prisma generate in the project root."
+          ],
+          "title": "Generate ulang Prisma Client"
+        }
+      ],
+      "id": "prisma-integrity-failed-unknown-file-0-60fa30740f0e",
+      "message": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists",
+      "severity": "critical",
+      "title": "Prisma Client Integrity Failed"
+    }
+  ],
+  "metadata": {
+    "agentMesh": {
+      "activeAgent": "DevOpsAgent",
+      "confidence": 0.7675384615384616,
+      "durationMs": 0,
+      "history": [
+        {
+          "agent": "ArchitectAgent",
+          "confidence": 0.85,
+          "status": "completed"
+        },
+        {
+          "agent": "ArchitectAgent",
+          "confidence": 0.7,
+          "status": "completed"
+        },
+        {
+          "agent": "BackendAgent",
+          "confidence": 0.82,
+          "status": "completed"
+        },
+        {
+          "agent": "ArchitectAgent",
+          "confidence": 0.7,
+          "status": "completed"
+        },
+        {
+          "agent": "BackendAgent",
+          "confidence": 0.72,
+          "status": "completed"
+        },
+        {
+          "agent": "FrontendAgent",
+          "confidence": 0.8,
+          "status": "completed"
+        },
+        {
+          "agent": "ArchitectAgent",
+          "confidence": 0.7,
+          "status": "completed"
+        },
+        {
+          "agent": "BackendAgent",
+          "confidence": 0.72,
+          "status": "completed"
+        },
+        {
+          "agent": "FrontendAgent",
+          "confidence": 0.74,
+          "status": "completed"
+        },
+        {
+          "agent": "DatabaseAgent",
+          "confidence": 0.83,
+          "status": "completed"
+        },
+        {
+          "agent": "ArchitectAgent",
+          "confidence": 0.7,
+          "status": "completed"
+        },
+        {
+          "agent": "BackendAgent",
+          "confidence": 0.72,
+          "status": "completed"
+        },
+        {
+          "agent": "FrontendAgent",
+          "confidence": 0.74,
+          "status": "completed"
+        },
+        {
+          "agent": "DatabaseAgent",
+          "confidence": 0.76,
+          "status": "completed"
+        },
+        {
+          "agent": "QAAgent",
+          "confidence": 0.78,
+          "status": "completed"
+        },
+        {
+          "agent": "ArchitectAgent",
+          "confidence": 0.7,
+          "status": "completed"
+        },
+        {
+          "agent": "BackendAgent",
+          "confidence": 0.72,
+          "status": "completed"
+        },
+        {
+          "agent": "FrontendAgent",
+          "confidence": 0.74,
+          "status": "completed"
+        },
+        {
+          "agent": "DatabaseAgent",
+          "confidence": 0.76,
+          "status": "completed"
+        },
+        {
+          "agent": "QAAgent",
+          "confidence": 0.7799999999999999,
+          "status": "completed"
+        },
+        {
+          "agent": "RepairAgent",
+          "confidence": 0.81,
+          "status": "completed"
+        },
+        {
+          "agent": "ArchitectAgent",
+          "confidence": 0.7,
+          "status": "completed"
+        },
+        {
+          "agent": "BackendAgent",
+          "confidence": 0.72,
+          "status": "completed"
+        },
+        {
+          "agent": "FrontendAgent",
+          "confidence": 0.74,
+          "status": "completed"
+        },
+        {
+          "agent": "DatabaseAgent",
+          "confidence": 0.76,
+          "status": "completed"
+        },
+        {
+          "agent": "QAAgent",
+          "confidence": 0.7799999999999999,
+          "status": "completed"
+        },
+        {
+          "agent": "RepairAgent",
+          "confidence": 0.7999999999999999,
+          "status": "completed"
+        },
+        {
+          "agent": "SecurityAgent",
+          "confidence": 0.84,
+          "status": "completed"
+        },
+        {
+          "agent": "ArchitectAgent",
+          "confidence": 0.7,
+          "status": "completed"
+        },
+        {
+          "agent": "BackendAgent",
+          "confidence": 0.72,
+          "status": "completed"
+        },
+        {
+          "agent": "FrontendAgent",
+          "confidence": 0.74,
+          "status": "completed"
+        },
+        {
+          "agent": "DatabaseAgent",
+          "confidence": 0.76,
+          "status": "completed"
+        },
+        {
+          "agent": "QAAgent",
+          "confidence": 0.7799999999999999,
+          "status": "completed"
+        },
+        {
+          "agent": "RepairAgent",
+          "confidence": 0.7999999999999999,
+          "status": "completed"
+        },
+        {
+          "agent": "SecurityAgent",
+          "confidence": 0.82,
+          "status": "completed"
+        },
+        {
+          "agent": "PerformanceAgent",
+          "confidence": 0.79,
+          "status": "completed"
+        },
+        {
+          "agent": "ArchitectAgent",
+          "confidence": 0.7,
+          "status": "completed"
+        },
+        {
+          "agent": "BackendAgent",
+          "confidence": 0.72,
+          "status": "completed"
+        },
+        {
+          "agent": "FrontendAgent",
+          "confidence": 0.74,
+          "status": "completed"
+        },
+        {
+          "agent": "DatabaseAgent",
+          "confidence": 0.76,
+          "status": "completed"
+        },
+        {
+          "agent": "QAAgent",
+          "confidence": 0.7799999999999999,
+          "status": "completed"
+        },
+        {
+          "agent": "RepairAgent",
+          "confidence": 0.7999999999999999,
+          "status": "completed"
+        },
+        {
+          "agent": "SecurityAgent",
+          "confidence": 0.82,
+          "status": "completed"
+        },
+        {
+          "agent": "PerformanceAgent",
+          "confidence": 0.84,
+          "status": "completed"
+        },
+        {
+          "agent": "DocumentationAgent",
+          "confidence": 0.77,
+          "status": "completed"
+        },
+        {
+          "agent": "ArchitectAgent",
+          "confidence": 0.7,
+          "status": "completed"
+        },
+        {
+          "agent": "BackendAgent",
+          "confidence": 0.72,
+          "status": "completed"
+        },
+        {
+          "agent": "FrontendAgent",
+          "confidence": 0.74,
+          "status": "completed"
+        },
+        {
+          "agent": "DatabaseAgent",
+          "confidence": 0.76,
+          "status": "completed"
+        },
+        {
+          "agent": "QAAgent",
+          "confidence": 0.7799999999999999,
+          "status": "completed"
+        },
+        {
+          "agent": "RepairAgent",
+          "confidence": 0.7999999999999999,
+          "status": "completed"
+        },
+        {
+          "agent": "SecurityAgent",
+          "confidence": 0.82,
+          "status": "completed"
+        },
+        {
+          "agent": "PerformanceAgent",
+          "confidence": 0.84,
+          "status": "completed"
+        },
+        {
+          "agent": "DocumentationAgent",
+          "confidence": 0.86,
+          "status": "completed"
+        },
+        {
+          "agent": "DevOpsAgent",
+          "confidence": 0.8,
+          "status": "completed"
+        },
+        {
+          "agent": "ArchitectAgent",
+          "confidence": 0.7,
+          "status": "completed"
+        },
+        {
+          "agent": "BackendAgent",
+          "confidence": 0.72,
+          "status": "completed"
+        },
+        {
+          "agent": "FrontendAgent",
+          "confidence": 0.74,
+          "status": "completed"
+        },
+        {
+          "agent": "DatabaseAgent",
+          "confidence": 0.76,
+          "status": "completed"
+        },
+        {
+          "agent": "QAAgent",
+          "confidence": 0.7799999999999999,
+          "status": "completed"
+        },
+        {
+          "agent": "RepairAgent",
+          "confidence": 0.7999999999999999,
+          "status": "completed"
+        },
+        {
+          "agent": "SecurityAgent",
+          "confidence": 0.82,
+          "status": "completed"
+        },
+        {
+          "agent": "PerformanceAgent",
+          "confidence": 0.84,
+          "status": "completed"
+        },
+        {
+          "agent": "DocumentationAgent",
+          "confidence": 0.86,
+          "status": "completed"
+        },
+        {
+          "agent": "DevOpsAgent",
+          "confidence": 0.8799999999999999,
+          "status": "completed"
+        }
+      ],
+      "progress": 100,
+      "queue": [
+        "ArchitectAgent",
+        "BackendAgent",
+        "FrontendAgent",
+        "DatabaseAgent",
+        "QAAgent",
+        "RepairAgent",
+        "SecurityAgent",
+        "PerformanceAgent",
+        "DocumentationAgent",
+        "DevOpsAgent"
+      ]
+    },
+    "agentRuntime": {
+      "goal": "Autonomous coding task for Tourism",
+      "goalId": "goal-2",
+      "status": "completed"
+    },
+    "architecture": {
+      "dependencyGraph": [
+        "Scanner -> Analyzer -> Diagnostic -> Root Cause -> Repair -> Verification"
+      ],
+      "folderStructure": [
+        "src/core",
+        "src/doctor",
+        "src/planner",
+        "src/autofix",
+        "tests"
+      ],
+      "moduleBoundaries": [
+        "Scanner owns discovery",
+        "Analyzer owns rules",
+        "Repair owns file mutations"
+      ],
+      "namingConvention": [
+        "PascalCase for engines",
+        "camelCase for helpers",
+        "kebab-case for folders"
+      ],
+      "projectStructure": [
+        "Engine-based pipeline",
+        "Context-driven state",
+        "Deterministic repair"
+      ],
+      "validation": [
+        "Compile step",
+        "Test step",
+        "History step"
+      ]
+    },
+    "architectureBuilder": {
+      "docs": [
+        "architecture.md",
+        "modules.md",
+        "api.md",
+        "database.md",
+        "security.md",
+        "workflow.md"
+      ]
+    },
+    "artifacts": [
+      {
+        "id": "knowledge-graph",
+        "name": "knowledge-graph",
+        "outputPath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\knowledge\\knowledge-graph.json",
+        "templatePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\templates\\repair-plan.md.tpl",
+        "variables": {
+          "category": "knowledge",
+          "priority": "high",
+          "strategy": "graph"
+        }
+      }
+    ],
+    "audit": {
+      "status": "recorded"
+    },
+    "authentication": {
+      "providers": [
+        "jwt",
+        "rbac"
+      ],
+      "roles": [
+        "admin",
+        "member"
+      ],
+      "strategy": [
+        "jwt",
+        "rbac"
+      ]
+    },
+    "backend": {
+      "authentication": [
+        "JWT auth"
+      ],
+      "authorization": [
+        "RBAC"
+      ],
+      "controllers": [
+        "UsersController"
+      ],
+      "dto": [
+        "UserDto"
+      ],
+      "openApi": [
+        "OpenAPI spec generated for User"
+      ],
+      "restApi": [
+        "GET /projects",
+        "POST /projects"
+      ],
+      "services": [
+        "UsersService"
+      ],
+      "types": [
+        "UserType"
+      ],
+      "validation": [
+        "Blueprint-driven validation",
+        "Error handling"
+      ]
+    },
+    "benchmarkHistory": {
+    },
+    "benchmarkResult": [
+    ],
+    "benchmarkScore": 0,
+    "benchmarkSummary": {
+      "averageBenchmarkScore": 0,
+      "averageQualityScore": 0,
+      "averageValidationScore": 0,
+      "benchmarkScore": 0,
+      "knowledgeVersion": "1.0.0",
+      "projectId": "Tourism",
+      "projectName": "Tourism",
+      "projects": [
+      ],
+      "qualityScore": 0,
+      "runtimeId": "satset-doctor",
+      "timestamp": "2026-07-26T09:47:30.895Z",
+      "totalProjects": 0,
+      "validationScore": 0
+    },
+    "build": {
+      "compileExitCode": 2,
+      "compileTimeMs": 2336,
+      "diagnostics": [
+      ],
+      "installExitCode": 0,
+      "logs": [
+        "Scope: all 20 workspace projects\nAlready up to date\nDone in 649ms using pnpm v11.13.1\n",
+        "",
+        "src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/app/(marketing)/page.tsx(5,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/ui/HomePage.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/ui/HomePage.tsx(4,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/ui/HomePage.tsx(5,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\ntests/CreateProject.test.ts(3,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.\r\ntests/CreateProject.test.ts(4,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.\r\ntests/PrimaryWorkflow.test.ts(3,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.\r\ntests/PrimaryWorkflow.test.ts(4,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.\r\n",
+        ""
+      ],
+      "packageManager": "unknown"
+    },
+    "buildLoop": {
+      "report": {
+        "compilerResult": {
+          "diagnostics": [
+            "src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+            "src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+            "src/app/(marketing)/page.tsx(5,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+            "src/ui/HomePage.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+            "src/ui/HomePage.tsx(4,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+            "src/ui/HomePage.tsx(5,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+            "tests/CreateProject.test.ts(3,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.",
+            "tests/CreateProject.test.ts(4,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.",
+            "tests/PrimaryWorkflow.test.ts(3,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.",
+            "tests/PrimaryWorkflow.test.ts(4,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`."
+          ],
+          "exitCode": 2,
+          "stderr": "",
+          "stdout": "src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/app/(marketing)/page.tsx(5,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/ui/HomePage.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/ui/HomePage.tsx(4,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/ui/HomePage.tsx(5,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\ntests/CreateProject.test.ts(3,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.\r\ntests/CreateProject.test.ts(4,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.\r\ntests/PrimaryWorkflow.test.ts(3,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.\r\ntests/PrimaryWorkflow.test.ts(4,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.\r\n",
+          "succeeded": false
+        },
+        "summary": {
+          "durationMs": 7587,
+          "message": "Build loop detected compiler or test failures",
+          "status": "failed"
+        },
+        "testResults": [
+          {
+            "exitCode": 1,
+            "name": "tests/build-loop.test.ts",
+            "passed": false,
+            "stderr": "node:internal/modules/esm/resolve:271\r\n    throw new ERR_MODULE_NOT_FOUND(\r\n          ^\r\n\r\nError [ERR_MODULE_NOT_FOUND]: Cannot find module 'G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tests\\build-loop.test.ts' imported from G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\\r\n    at finalizeResolution (node:internal/modules/esm/resolve:271:11)\r\n    at moduleResolve (node:internal/modules/esm/resolve:865:10)\r\n    at defaultResolve (node:internal/modules/esm/resolve:992:11)\r\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)\r\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)\r\n    at nextStep (node:internal/modules/customization_hooks:189:26)\r\n    at resolveBaseSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:9102)\r\n    at resolveDirectorySync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:10315)\r\n    at resolveTsPathsSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:11547)\r\n    at resolve (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:13365) {\r\n  code: 'ERR_MODULE_NOT_FOUND',\r\n  url: 'file:///G:/SATSET%20AI/POS%20WISATA/SATSET-BUG/benchmarks/Tourism/tests/build-loop.test.ts'\r\n}\r\n\r\nNode.js v24.18.0\r\n",
+            "stdout": ""
+          },
+          {
+            "exitCode": 1,
+            "name": "tests/reasoning-brain.test.ts",
+            "passed": false,
+            "stderr": "node:internal/modules/esm/resolve:271\r\n    throw new ERR_MODULE_NOT_FOUND(\r\n          ^\r\n\r\nError [ERR_MODULE_NOT_FOUND]: Cannot find module 'G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tests\\reasoning-brain.test.ts' imported from G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\\r\n    at finalizeResolution (node:internal/modules/esm/resolve:271:11)\r\n    at moduleResolve (node:internal/modules/esm/resolve:865:10)\r\n    at defaultResolve (node:internal/modules/esm/resolve:992:11)\r\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)\r\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)\r\n    at nextStep (node:internal/modules/customization_hooks:189:26)\r\n    at resolveBaseSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:9102)\r\n    at resolveDirectorySync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:10315)\r\n    at resolveTsPathsSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:11547)\r\n    at resolve (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:13365) {\r\n  code: 'ERR_MODULE_NOT_FOUND',\r\n  url: 'file:///G:/SATSET%20AI/POS%20WISATA/SATSET-BUG/benchmarks/Tourism/tests/reasoning-brain.test.ts'\r\n}\r\n\r\nNode.js v24.18.0\r\n",
+            "stdout": ""
+          }
+        ]
+      },
+      "state": {
+        "attempt": 1,
+        "completedAt": "2026-07-26T09:47:28.608Z",
+        "reason": "Build loop detected compiler or test failures",
+        "stage": "verify",
+        "startedAt": "2026-07-26T09:47:21.021Z",
+        "status": "failed"
+      }
+    },
+    "certificate": {
+      "architecture": 92,
+      "coverage": 90,
+      "doctorVersion": "0.1.0",
+      "finalScore": 93,
+      "generatorVersion": "1.0.0",
+      "health": 95,
+      "history": 90,
+      "performance": 88,
+      "reliability": 91,
+      "repairCount": 13,
+      "retryCount": 0,
+      "timestamp": "2026-07-26T09:46:39.112Z",
+      "verification": 100
+    },
+    "checkpoint": {
+      "checkpointPath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\.checkpoints",
+      "created": true
+    },
+    "compile": {
+      "diagnostics": [
+      ],
+      "exitCode": 2,
+      "timestamp": "2026-07-26T09:47:12.259Z",
+      "toolchain": [
+        "typescript",
+        "next",
+        "react",
+        "node",
+        "prisma"
+      ]
+    },
+    "dashboardSnapshot": {
+      "benchmarkTrend": 80,
+      "confidenceTrend": 90,
+      "currentPhase": "validation",
+      "engineStates": [
+        {
+          "name": "Doctor",
+          "state": "running"
+        },
+        {
+          "name": "AgentMesh",
+          "state": "active"
+        }
+      ],
+      "executionGraph": {
+        "edges": [
+          {
+            "from": "reasoning",
+            "to": "planning"
+          },
+          {
+            "from": "planning",
+            "to": "generation"
+          },
+          {
+            "from": "generation",
+            "to": "compile"
+          },
+          {
+            "from": "compile",
+            "to": "repair"
+          },
+          {
+            "from": "repair",
+            "to": "benchmark"
+          },
+          {
+            "from": "benchmark",
+            "to": "validation"
+          },
+          {
+            "from": "validation",
+            "to": "knowledge"
+          },
+          {
+            "from": "knowledge",
+            "to": "selfEvolution"
+          }
+        ],
+        "nodes": [
+          {
+            "dependencies": [
+            ],
+            "id": "reasoning",
+            "name": "Reasoning",
+            "parallelizable": false,
+            "phase": "reasoning"
+          },
+          {
+            "dependencies": [
+              "reasoning"
+            ],
+            "id": "planning",
+            "name": "Planning",
+            "parallelizable": false,
+            "phase": "planning"
+          },
+          {
+            "dependencies": [
+              "planning"
+            ],
+            "id": "generation",
+            "name": "Generation",
+            "parallelizable": true,
+            "phase": "generation"
+          },
+          {
+            "dependencies": [
+              "generation"
+            ],
+            "id": "compile",
+            "name": "Compile",
+            "parallelizable": false,
+            "phase": "compile"
+          },
+          {
+            "dependencies": [
+              "compile"
+            ],
+            "id": "repair",
+            "name": "Repair",
+            "parallelizable": false,
+            "phase": "repair"
+          },
+          {
+            "dependencies": [
+              "repair"
+            ],
+            "id": "benchmark",
+            "name": "Benchmark",
+            "parallelizable": false,
+            "phase": "benchmark"
+          },
+          {
+            "dependencies": [
+              "benchmark"
+            ],
+            "id": "validation",
+            "name": "Validation",
+            "parallelizable": false,
+            "phase": "validation"
+          },
+          {
+            "dependencies": [
+              "validation"
+            ],
+            "id": "knowledge",
+            "name": "Knowledge",
+            "parallelizable": false,
+            "phase": "knowledge"
+          },
+          {
+            "dependencies": [
+              "knowledge"
+            ],
+            "id": "selfEvolution",
+            "name": "SelfEvolution",
+            "parallelizable": false,
+            "phase": "selfEvolution"
+          }
+        ]
+      },
+      "knowledgeGrowth": 1,
+      "qualityTrend": 85,
+      "remainingTasks": 0,
+      "runtimeStatus": "running"
+    },
+    "database": {
+      "erd": [
+        "User",
+        "Project",
+        "AuditEntry"
+      ],
+      "indexes": [
+        "@@index([id])"
+      ],
+      "migrations": [
+        "create_user_table",
+        "create_project_table",
+        "create_auditentry_table"
+      ],
+      "prismaSchema": [
+        "model User { id String @id }",
+        "model Project { id String @id }",
+        "model AuditEntry { id String @id }"
+      ],
+      "relations": [
+        "User has many Project"
+      ],
+      "seed": [
+        "seed admin user"
+      ],
+      "validation": [
+        "Schema compiles",
+        "Relations are consistent"
+      ]
+    },
+    "decision": {
+      "action": "continue",
+      "retry": false,
+      "rollback": false
+    },
+    "dependencies": {
+      "circularCandidates": [
+      ],
+      "dependencyTree": {
+        "Tourism": {
+          "dependencies": [
+          ],
+          "devDependencies": [
+          ],
+          "optionalDependencies": [
+          ],
+          "peerDependencies": [
+          ]
+        }
+      },
+      "devDependencies": [
+      ],
+      "duplicatePackages": [
+      ],
+      "exists": true,
+      "optionalDependencies": [
+      ],
+      "peerDependencies": [
+      ],
+      "totalPackages": 1,
+      "unusedCandidates": [
+        "Tourism"
+      ],
+      "versionConflicts": {
+      },
+      "workspacePackages": [
+      ]
+    },
+    "deployment": {
+      "status": "prepared"
+    },
+    "docker": {
+      "compose": [
+        "App + database service"
+      ],
+      "dockerfile": [
+        "Node base image",
+        "Install dependencies"
+      ],
+      "env": [
+        "Environment variables"
+      ]
+    },
+    "documentation": {
+      "architecture": [
+        "Engine-driven architecture"
+      ],
+      "overview": [
+        "SATSET autonomous project workflow"
+      ],
+      "setup": [
+        "Install dependencies",
+        "Run doctor workflow"
+      ],
+      "usage": [
+        "Provide idea and run orchestration"
+      ]
+    },
+    "environment": {
+      "duplicateVariables": [
+      ],
+      "exists": true,
+      "files": [
+        ".env.example"
+      ],
+      "hasAnthropicKey": false,
+      "hasDatabaseUrl": false,
+      "hasGeminiKey": false,
+      "hasNextAuthSecret": false,
+      "hasNextPublicVariables": false,
+      "hasOpenAIKey": false,
+      "hasSupabaseKey": false,
+      "hasSupabaseUrl": false,
+      "missingVariables": [
+        "DATABASE_URL",
+        "NEXTAUTH_SECRET",
+        "OPENAI_API_KEY",
+        "OPENAI_KEY",
+        "GEMINI_API_KEY",
+        "GEMINI_KEY",
+        "ANTHROPIC_API_KEY",
+        "ANTHROPIC_KEY",
+        "SUPABASE_URL",
+        "SUPABASE_KEY"
+      ],
+      "variables": {
+        "NODE_ENV": "development"
+      }
+    },
+    "failureReport": {
+      "category": "test",
+      "errors": [
+        "src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+        "src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+        "src/app/(marketing)/page.tsx(5,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+        "src/ui/HomePage.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+        "src/ui/HomePage.tsx(4,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+        "src/ui/HomePage.tsx(5,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+        "tests/CreateProject.test.ts(3,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.",
+        "tests/CreateProject.test.ts(4,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.",
+        "tests/PrimaryWorkflow.test.ts(3,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.",
+        "tests/PrimaryWorkflow.test.ts(4,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`."
+      ],
+      "severity": "medium"
+    },
+    "frontend": {
+      "components": [
+        "Sidebar",
+        "Header"
+      ],
+      "dashboard": [
+        "Dashboard"
+      ],
+      "forms": [
+        "ProjectForm"
+      ],
+      "hooks": [
+        "useProjects"
+      ],
+      "layouts": [
+        "MainLayout"
+      ],
+      "pages": [
+        "Dashboard"
+      ],
+      "responsiveUi": [
+        "Mobile first layout"
+      ],
+      "tables": [
+        "ProjectTable"
+      ],
+      "theme": [
+        "Shared design tokens"
+      ]
+    },
+    "git": {
+      "branch": null,
+      "exists": false,
+      "hasGitAttributes": false,
+      "hasGitignore": true,
+      "hooksDetected": false,
+      "ignoredBuild": true,
+      "ignoredEnv": false,
+      "ignoredGenerated": false,
+      "ignoredNodeModules": true,
+      "remoteOrigin": null
+    },
+    "historyEvents": [
+      {
+        "engine": "Engine",
+        "stage": "Engine",
+        "timestamp": "2026-07-26T09:45:42.767Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "Engine",
+        "stage": "Engine",
+        "timestamp": "2026-07-26T09:45:42.767Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "PluginEngine",
+        "stage": "PluginEngine",
+        "timestamp": "2026-07-26T09:45:42.767Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "PluginEngine",
+        "stage": "PluginEngine",
+        "timestamp": "2026-07-26T09:45:42.767Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "ScannerEngine",
+        "stage": "ScannerEngine",
+        "timestamp": "2026-07-26T09:45:42.767Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "ScannerEngine",
+        "stage": "ScannerEngine",
+        "timestamp": "2026-07-26T09:45:42.773Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "RuleEngine",
+        "stage": "RuleEngine",
+        "timestamp": "2026-07-26T09:45:42.773Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "RuleEngine",
+        "stage": "RuleEngine",
+        "timestamp": "2026-07-26T09:45:42.774Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "AnalyzerEngine",
+        "stage": "AnalyzerEngine",
+        "timestamp": "2026-07-26T09:45:42.774Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "AnalyzerEngine",
+        "stage": "AnalyzerEngine",
+        "timestamp": "2026-07-26T09:45:42.774Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "DiagnosticEngine",
+        "stage": "DiagnosticEngine",
+        "timestamp": "2026-07-26T09:45:42.774Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "DiagnosticEngine",
+        "stage": "DiagnosticEngine",
+        "timestamp": "2026-07-26T09:45:42.774Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "RootCauseEngine",
+        "stage": "RootCauseEngine",
+        "timestamp": "2026-07-26T09:45:42.774Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "RootCauseEngine",
+        "stage": "RootCauseEngine",
+        "timestamp": "2026-07-26T09:45:42.774Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "RepairEngine",
+        "stage": "RepairEngine",
+        "timestamp": "2026-07-26T09:45:42.774Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "RepairEngine",
+        "stage": "RepairEngine",
+        "timestamp": "2026-07-26T09:45:43.470Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "AutoRepairEngine",
+        "stage": "AutoRepairEngine",
+        "timestamp": "2026-07-26T09:45:43.470Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "AutoRepairEngine",
+        "stage": "AutoRepairEngine",
+        "timestamp": "2026-07-26T09:45:45.597Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "ProjectReasonerEngine",
+        "stage": "ProjectReasonerEngine",
+        "timestamp": "2026-07-26T09:45:45.597Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "ProjectReasonerEngine",
+        "stage": "ProjectReasonerEngine",
+        "timestamp": "2026-07-26T09:45:45.602Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "IntentAnalyzerEngine",
+        "stage": "IntentAnalyzerEngine",
+        "timestamp": "2026-07-26T09:45:45.602Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "IntentAnalyzerEngine",
+        "stage": "IntentAnalyzerEngine",
+        "timestamp": "2026-07-26T09:45:45.606Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "DomainAnalyzerEngine",
+        "stage": "DomainAnalyzerEngine",
+        "timestamp": "2026-07-26T09:45:45.606Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "DomainAnalyzerEngine",
+        "stage": "DomainAnalyzerEngine",
+        "timestamp": "2026-07-26T09:45:45.609Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "FeaturePlannerEngine",
+        "stage": "FeaturePlannerEngine",
+        "timestamp": "2026-07-26T09:45:45.609Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "FeaturePlannerEngine",
+        "stage": "FeaturePlannerEngine",
+        "timestamp": "2026-07-26T09:45:45.613Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "ConstraintAnalyzerEngine",
+        "stage": "ConstraintAnalyzerEngine",
+        "timestamp": "2026-07-26T09:45:45.613Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "ConstraintAnalyzerEngine",
+        "stage": "ConstraintAnalyzerEngine",
+        "timestamp": "2026-07-26T09:45:45.616Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "ArchitectureReasonerEngine",
+        "stage": "ArchitectureReasonerEngine",
+        "timestamp": "2026-07-26T09:45:45.616Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "ArchitectureReasonerEngine",
+        "stage": "ArchitectureReasonerEngine",
+        "timestamp": "2026-07-26T09:45:45.619Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "TaskBreakdownEngine",
+        "stage": "TaskBreakdownEngine",
+        "timestamp": "2026-07-26T09:45:45.619Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "TaskBreakdownEngine",
+        "stage": "TaskBreakdownEngine",
+        "timestamp": "2026-07-26T09:45:45.875Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "PromptCompilerEngine",
+        "stage": "PromptCompilerEngine",
+        "timestamp": "2026-07-26T09:45:45.875Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "PromptCompilerEngine",
+        "stage": "PromptCompilerEngine",
+        "timestamp": "2026-07-26T09:45:45.876Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "ReflectionEngine",
+        "stage": "ReflectionEngine",
+        "timestamp": "2026-07-26T09:45:45.876Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "ReflectionEngine",
+        "stage": "ReflectionEngine",
+        "timestamp": "2026-07-26T09:45:45.877Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "CriticEngine",
+        "stage": "CriticEngine",
+        "timestamp": "2026-07-26T09:45:45.877Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "CriticEngine",
+        "stage": "CriticEngine",
+        "timestamp": "2026-07-26T09:45:45.877Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "ConfidenceEngine",
+        "stage": "ConfidenceEngine",
+        "timestamp": "2026-07-26T09:45:45.877Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "ConfidenceEngine",
+        "stage": "ConfidenceEngine",
+        "timestamp": "2026-07-26T09:45:45.973Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "PlannerEngine",
+        "stage": "PlannerEngine",
+        "timestamp": "2026-07-26T09:45:45.973Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "PlannerEngine",
+        "stage": "PlannerEngine",
+        "timestamp": "2026-07-26T09:45:45.975Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "ArchitectureEngine",
+        "stage": "ArchitectureEngine",
+        "timestamp": "2026-07-26T09:45:45.975Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "ArchitectureEngine",
+        "stage": "ArchitectureEngine",
+        "timestamp": "2026-07-26T09:45:45.975Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "DatabaseGenerator",
+        "stage": "DatabaseGenerator",
+        "timestamp": "2026-07-26T09:45:45.975Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "DatabaseGenerator",
+        "stage": "DatabaseGenerator",
+        "timestamp": "2026-07-26T09:45:46.069Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "BackendGenerator",
+        "stage": "BackendGenerator",
+        "timestamp": "2026-07-26T09:45:46.069Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "BackendGenerator",
+        "stage": "BackendGenerator",
+        "timestamp": "2026-07-26T09:45:46.072Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "FrontendGenerator",
+        "stage": "FrontendGenerator",
+        "timestamp": "2026-07-26T09:45:46.072Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "FrontendGenerator",
+        "stage": "FrontendGenerator",
+        "timestamp": "2026-07-26T09:45:46.261Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "TestingGenerator",
+        "stage": "TestingGenerator",
+        "timestamp": "2026-07-26T09:45:46.261Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "TestingGenerator",
+        "stage": "TestingGenerator",
+        "timestamp": "2026-07-26T09:45:46.263Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "AuthenticationGenerator",
+        "stage": "AuthenticationGenerator",
+        "timestamp": "2026-07-26T09:45:46.263Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "AuthenticationGenerator",
+        "stage": "AuthenticationGenerator",
+        "timestamp": "2026-07-26T09:45:46.264Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "OpenApiGenerator",
+        "stage": "OpenApiGenerator",
+        "timestamp": "2026-07-26T09:45:46.264Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "OpenApiGenerator",
+        "stage": "OpenApiGenerator",
+        "timestamp": "2026-07-26T09:45:46.265Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "DockerGenerator",
+        "stage": "DockerGenerator",
+        "timestamp": "2026-07-26T09:45:46.265Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "DockerGenerator",
+        "stage": "DockerGenerator",
+        "timestamp": "2026-07-26T09:45:46.266Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "DeploymentGenerator",
+        "stage": "DeploymentGenerator",
+        "timestamp": "2026-07-26T09:45:46.266Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "DeploymentGenerator",
+        "stage": "DeploymentGenerator",
+        "timestamp": "2026-07-26T09:45:46.267Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "DocumentationGenerator",
+        "stage": "DocumentationGenerator",
+        "timestamp": "2026-07-26T09:45:46.267Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "DocumentationGenerator",
+        "stage": "DocumentationGenerator",
+        "timestamp": "2026-07-26T09:45:46.269Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "WorkflowEngine",
+        "stage": "WorkflowEngine",
+        "timestamp": "2026-07-26T09:45:46.269Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "WorkflowEngine",
+        "stage": "WorkflowEngine",
+        "timestamp": "2026-07-26T09:45:46.269Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "OrchestratorEngine",
+        "stage": "OrchestratorEngine",
+        "timestamp": "2026-07-26T09:45:46.269Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "OrchestratorEngine",
+        "stage": "OrchestratorEngine",
+        "timestamp": "2026-07-26T09:45:46.284Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "DoctorOrchestrator",
+        "stage": "DoctorOrchestrator",
+        "timestamp": "2026-07-26T09:45:46.284Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "DoctorOrchestrator",
+        "stage": "DoctorOrchestrator",
+        "timestamp": "2026-07-26T09:46:39.207Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "AutonomousOrchestrator",
+        "stage": "AutonomousOrchestrator",
+        "timestamp": "2026-07-26T09:46:39.207Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "AutonomousOrchestrator",
+        "stage": "AutonomousOrchestrator",
+        "timestamp": "2026-07-26T09:46:49.566Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "AgentMeshEngine",
+        "stage": "AgentMeshEngine",
+        "timestamp": "2026-07-26T09:46:49.566Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "AgentMeshEngine",
+        "stage": "AgentMeshEngine",
+        "timestamp": "2026-07-26T09:46:49.622Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "RepairCoordinator",
+        "stage": "RepairCoordinator",
+        "timestamp": "2026-07-26T09:46:49.622Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "RepairCoordinator",
+        "stage": "RepairCoordinator",
+        "timestamp": "2026-07-26T09:47:21.021Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "BuildLoopEngine",
+        "stage": "BuildLoopEngine",
+        "timestamp": "2026-07-26T09:47:21.021Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "BuildLoopEngine",
+        "stage": "BuildLoopEngine",
+        "timestamp": "2026-07-26T09:47:28.612Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "FailureClassifierEngine",
+        "stage": "FailureClassifierEngine",
+        "timestamp": "2026-07-26T09:47:28.612Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "FailureClassifierEngine",
+        "stage": "FailureClassifierEngine",
+        "timestamp": "2026-07-26T09:47:28.612Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "RepairDecisionEngine",
+        "stage": "RepairDecisionEngine",
+        "timestamp": "2026-07-26T09:47:28.612Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "RepairDecisionEngine",
+        "stage": "RepairDecisionEngine",
+        "timestamp": "2026-07-26T09:47:28.613Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "PatchGeneratorEngine",
+        "stage": "PatchGeneratorEngine",
+        "timestamp": "2026-07-26T09:47:28.613Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "PatchGeneratorEngine",
+        "stage": "PatchGeneratorEngine",
+        "timestamp": "2026-07-26T09:47:28.614Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "PatchValidatorEngine",
+        "stage": "PatchValidatorEngine",
+        "timestamp": "2026-07-26T09:47:28.614Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "PatchValidatorEngine",
+        "stage": "PatchValidatorEngine",
+        "timestamp": "2026-07-26T09:47:30.854Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "RetryPolicyEngine",
+        "stage": "RetryPolicyEngine",
+        "timestamp": "2026-07-26T09:47:30.854Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "RetryPolicyEngine",
+        "stage": "RetryPolicyEngine",
+        "timestamp": "2026-07-26T09:47:30.857Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "RepairMemoryEngine",
+        "stage": "RepairMemoryEngine",
+        "timestamp": "2026-07-26T09:47:30.857Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "RepairMemoryEngine",
+        "stage": "RepairMemoryEngine",
+        "timestamp": "2026-07-26T09:47:30.862Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "KnowledgeGraphEngine",
+        "stage": "KnowledgeGraphEngine",
+        "timestamp": "2026-07-26T09:47:30.862Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "KnowledgeGraphEngine",
+        "stage": "KnowledgeGraphEngine",
+        "timestamp": "2026-07-26T09:47:30.866Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "SemanticRetrieverEngine",
+        "stage": "SemanticRetrieverEngine",
+        "timestamp": "2026-07-26T09:47:30.866Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "SemanticRetrieverEngine",
+        "stage": "SemanticRetrieverEngine",
+        "timestamp": "2026-07-26T09:47:30.873Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "KnowledgePrunerEngine",
+        "stage": "KnowledgePrunerEngine",
+        "timestamp": "2026-07-26T09:47:30.873Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "KnowledgePrunerEngine",
+        "stage": "KnowledgePrunerEngine",
+        "timestamp": "2026-07-26T09:47:30.876Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "KnowledgeMetricsEngine",
+        "stage": "KnowledgeMetricsEngine",
+        "timestamp": "2026-07-26T09:47:30.876Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "KnowledgeMetricsEngine",
+        "stage": "KnowledgeMetricsEngine",
+        "timestamp": "2026-07-26T09:47:30.883Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "SwarmCoordinatorEngine",
+        "stage": "SwarmCoordinatorEngine",
+        "timestamp": "2026-07-26T09:47:30.883Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "SwarmCoordinatorEngine",
+        "stage": "SwarmCoordinatorEngine",
+        "timestamp": "2026-07-26T09:47:30.886Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "SelfEvolutionEngine",
+        "stage": "SelfEvolutionEngine",
+        "timestamp": "2026-07-26T09:47:30.886Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "SelfEvolutionEngine",
+        "stage": "SelfEvolutionEngine",
+        "timestamp": "2026-07-26T09:47:30.906Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "AgentOrchestrationEngine",
+        "stage": "AgentOrchestrationEngine",
+        "timestamp": "2026-07-26T09:47:30.906Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "AgentOrchestrationEngine",
+        "stage": "AgentOrchestrationEngine",
+        "timestamp": "2026-07-26T09:47:31.832Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "HealthEngine",
+        "stage": "HealthEngine",
+        "timestamp": "2026-07-26T09:47:31.832Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "HealthEngine",
+        "stage": "HealthEngine",
+        "timestamp": "2026-07-26T09:47:31.832Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "VerificationEngine",
+        "stage": "VerificationEngine",
+        "timestamp": "2026-07-26T09:47:31.832Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "VerificationEngine",
+        "stage": "VerificationEngine",
+        "timestamp": "2026-07-26T09:47:31.832Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "ReporterEngine",
+        "stage": "ReporterEngine",
+        "timestamp": "2026-07-26T09:47:31.832Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "ReporterEngine",
+        "stage": "ReporterEngine",
+        "timestamp": "2026-07-26T09:47:31.834Z",
+        "type": "EngineCompleted"
+      }
+    ],
+    "knowledgeGraph": {
+      "edges": [
+        {
+          "from": "problem:typescript",
+          "kind": "causes",
+          "to": "repair:repair:typescript:'tsc' is not recognized as an internal or external command,|operable program or batch file.|undefined|[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsc\" not found"
+        },
+        {
+          "from": "repair:repair:typescript:'tsc' is not recognized as an internal or external command,|operable program or batch file.|undefined|[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsc\" not found",
+          "kind": "touches",
+          "to": "file:typescript"
+        },
+        {
+          "from": "repair:repair:typescript:'tsc' is not recognized as an internal or external command,|operable program or batch file.|undefined|[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsc\" not found",
+          "kind": "generated-by",
+          "to": "engine:repair"
+        },
+        {
+          "from": "repair:repair:typescript:'tsc' is not recognized as an internal or external command,|operable program or batch file.|undefined|[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsc\" not found",
+          "kind": "produces",
+          "to": "artifact:typescript"
+        },
+        {
+          "from": "problem:typescript",
+          "kind": "causes",
+          "to": "repair:repair:typescript:"
+        },
+        {
+          "from": "repair:repair:typescript:",
+          "kind": "touches",
+          "to": "file:typescript"
+        },
+        {
+          "from": "repair:repair:typescript:",
+          "kind": "generated-by",
+          "to": "engine:repair"
+        },
+        {
+          "from": "repair:repair:typescript:",
+          "kind": "produces",
+          "to": "artifact:typescript"
+        },
+        {
+          "from": "problem:test",
+          "kind": "causes",
+          "to": "repair:repair:test:src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.|src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX u"
+        },
+        {
+          "from": "repair:repair:test:src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.|src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX u",
+          "kind": "touches",
+          "to": "file:test"
+        },
+        {
+          "from": "repair:repair:test:src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.|src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX u",
+          "kind": "generated-by",
+          "to": "engine:repair"
+        },
+        {
+          "from": "repair:repair:test:src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.|src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX u",
+          "kind": "produces",
+          "to": "artifact:test"
+        },
+        {
+          "from": "agent:ArchitectAgent",
+          "kind": "performed",
+          "to": "performance:ArchitectAgent"
+        },
+        {
+          "from": "agent:BackendAgent",
+          "kind": "performed",
+          "to": "performance:BackendAgent"
+        },
+        {
+          "from": "agent:FrontendAgent",
+          "kind": "performed",
+          "to": "performance:FrontendAgent"
+        },
+        {
+          "from": "agent:DatabaseAgent",
+          "kind": "performed",
+          "to": "performance:DatabaseAgent"
+        },
+        {
+          "from": "agent:QAAgent",
+          "kind": "performed",
+          "to": "performance:QAAgent"
+        },
+        {
+          "from": "agent:RepairAgent",
+          "kind": "performed",
+          "to": "performance:RepairAgent"
+        },
+        {
+          "from": "agent:SecurityAgent",
+          "kind": "performed",
+          "to": "performance:SecurityAgent"
+        },
+        {
+          "from": "agent:PerformanceAgent",
+          "kind": "performed",
+          "to": "performance:PerformanceAgent"
+        },
+        {
+          "from": "agent:DocumentationAgent",
+          "kind": "performed",
+          "to": "performance:DocumentationAgent"
+        },
+        {
+          "from": "agent:DevOpsAgent",
+          "kind": "performed",
+          "to": "performance:DevOpsAgent"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "problem:typescript",
+          "kind": "problem",
+          "label": "typescript"
+        },
+        {
+          "id": "repair:repair:typescript:'tsc' is not recognized as an internal or external command,|operable program or batch file.|undefined|[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsc\" not found",
+          "kind": "repair",
+          "label": "repair typescript issue with minimal patch"
+        },
+        {
+          "id": "file:typescript",
+          "kind": "file",
+          "label": "typescript"
+        },
+        {
+          "id": "engine:repair",
+          "kind": "engine",
+          "label": "RepairMemoryEngine"
+        },
+        {
+          "id": "artifact:typescript",
+          "kind": "artifact",
+          "label": "typescript-artifact"
+        },
+        {
+          "id": "repair:repair:typescript:",
+          "kind": "repair",
+          "label": "repair typescript issue with minimal patch"
+        },
+        {
+          "id": "problem:test",
+          "kind": "problem",
+          "label": "test"
+        },
+        {
+          "id": "repair:repair:test:src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.|src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX u",
+          "kind": "repair",
+          "label": "repair test issue with minimal patch"
+        },
+        {
+          "id": "file:test",
+          "kind": "file",
+          "label": "test"
+        },
+        {
+          "id": "artifact:test",
+          "kind": "artifact",
+          "label": "test-artifact"
+        },
+        {
+          "id": "agent:ArchitectAgent",
+          "kind": "engine",
+          "label": "ArchitectAgent",
+          "metadata": {
+            "confidence": 0.85,
+            "status": "completed"
+          }
+        },
+        {
+          "id": "performance:ArchitectAgent",
+          "kind": "artifact",
+          "label": "ArchitectAgent performance",
+          "metadata": {
+            "confidence": 0.85
+          }
+        },
+        {
+          "id": "agent:BackendAgent",
+          "kind": "engine",
+          "label": "BackendAgent",
+          "metadata": {
+            "confidence": 0.82,
+            "status": "completed"
+          }
+        },
+        {
+          "id": "performance:BackendAgent",
+          "kind": "artifact",
+          "label": "BackendAgent performance",
+          "metadata": {
+            "confidence": 0.82
+          }
+        },
+        {
+          "id": "agent:FrontendAgent",
+          "kind": "engine",
+          "label": "FrontendAgent",
+          "metadata": {
+            "confidence": 0.8,
+            "status": "completed"
+          }
+        },
+        {
+          "id": "performance:FrontendAgent",
+          "kind": "artifact",
+          "label": "FrontendAgent performance",
+          "metadata": {
+            "confidence": 0.8
+          }
+        },
+        {
+          "id": "agent:DatabaseAgent",
+          "kind": "engine",
+          "label": "DatabaseAgent",
+          "metadata": {
+            "confidence": 0.83,
+            "status": "completed"
+          }
+        },
+        {
+          "id": "performance:DatabaseAgent",
+          "kind": "artifact",
+          "label": "DatabaseAgent performance",
+          "metadata": {
+            "confidence": 0.83
+          }
+        },
+        {
+          "id": "agent:QAAgent",
+          "kind": "engine",
+          "label": "QAAgent",
+          "metadata": {
+            "confidence": 0.78,
+            "status": "completed"
+          }
+        },
+        {
+          "id": "performance:QAAgent",
+          "kind": "artifact",
+          "label": "QAAgent performance",
+          "metadata": {
+            "confidence": 0.78
+          }
+        },
+        {
+          "id": "agent:RepairAgent",
+          "kind": "engine",
+          "label": "RepairAgent",
+          "metadata": {
+            "confidence": 0.81,
+            "status": "completed"
+          }
+        },
+        {
+          "id": "performance:RepairAgent",
+          "kind": "artifact",
+          "label": "RepairAgent performance",
+          "metadata": {
+            "confidence": 0.81
+          }
+        },
+        {
+          "id": "agent:SecurityAgent",
+          "kind": "engine",
+          "label": "SecurityAgent",
+          "metadata": {
+            "confidence": 0.84,
+            "status": "completed"
+          }
+        },
+        {
+          "id": "performance:SecurityAgent",
+          "kind": "artifact",
+          "label": "SecurityAgent performance",
+          "metadata": {
+            "confidence": 0.84
+          }
+        },
+        {
+          "id": "agent:PerformanceAgent",
+          "kind": "engine",
+          "label": "PerformanceAgent",
+          "metadata": {
+            "confidence": 0.79,
+            "status": "completed"
+          }
+        },
+        {
+          "id": "performance:PerformanceAgent",
+          "kind": "artifact",
+          "label": "PerformanceAgent performance",
+          "metadata": {
+            "confidence": 0.79
+          }
+        },
+        {
+          "id": "agent:DocumentationAgent",
+          "kind": "engine",
+          "label": "DocumentationAgent",
+          "metadata": {
+            "confidence": 0.77,
+            "status": "completed"
+          }
+        },
+        {
+          "id": "performance:DocumentationAgent",
+          "kind": "artifact",
+          "label": "DocumentationAgent performance",
+          "metadata": {
+            "confidence": 0.77
+          }
+        },
+        {
+          "id": "agent:DevOpsAgent",
+          "kind": "engine",
+          "label": "DevOpsAgent",
+          "metadata": {
+            "confidence": 0.8,
+            "status": "completed"
+          }
+        },
+        {
+          "id": "performance:DevOpsAgent",
+          "kind": "artifact",
+          "label": "DevOpsAgent performance",
+          "metadata": {
+            "confidence": 0.8
+          }
+        }
+      ]
+    },
+    "knowledgeMetrics": {
+      "averageRetries": 1,
+      "confidenceTrend": 0.498666666666667,
+      "duplicateRatio": 0.09090909090909091,
+      "repairSuccessRate": 0.9,
+      "reuseRate": 1,
+      "totalEntries": 33
+    },
+    "knowledgePruning": {
+      "archived": [
+        "file:typescript",
+        "repair:repair:typescript:",
+        "file:test"
+      ],
+      "nodes": [
+        {
+          "id": "problem:typescript",
+          "label": "typescript"
+        },
+        {
+          "id": "repair:repair:typescript:'tsc' is not recognized as an internal or external command,|operable program or batch file.|undefined|[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsc\" not found",
+          "label": "repair typescript issue with minimal patch"
+        },
+        {
+          "id": "engine:repair",
+          "label": "RepairMemoryEngine"
+        },
+        {
+          "id": "artifact:typescript",
+          "label": "typescript-artifact"
+        },
+        {
+          "id": "problem:test",
+          "label": "test"
+        },
+        {
+          "id": "repair:repair:test:src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.|src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX u",
+          "label": "repair test issue with minimal patch"
+        },
+        {
+          "id": "artifact:test",
+          "label": "test-artifact"
+        },
+        {
+          "id": "agent:ArchitectAgent",
+          "label": "ArchitectAgent"
+        },
+        {
+          "id": "performance:ArchitectAgent",
+          "label": "ArchitectAgent performance"
+        },
+        {
+          "id": "agent:BackendAgent",
+          "label": "BackendAgent"
+        },
+        {
+          "id": "performance:BackendAgent",
+          "label": "BackendAgent performance"
+        },
+        {
+          "id": "agent:FrontendAgent",
+          "label": "FrontendAgent"
+        },
+        {
+          "id": "performance:FrontendAgent",
+          "label": "FrontendAgent performance"
+        },
+        {
+          "id": "agent:DatabaseAgent",
+          "label": "DatabaseAgent"
+        },
+        {
+          "id": "performance:DatabaseAgent",
+          "label": "DatabaseAgent performance"
+        },
+        {
+          "id": "agent:QAAgent",
+          "label": "QAAgent"
+        },
+        {
+          "id": "performance:QAAgent",
+          "label": "QAAgent performance"
+        },
+        {
+          "id": "agent:RepairAgent",
+          "label": "RepairAgent"
+        },
+        {
+          "id": "performance:RepairAgent",
+          "label": "RepairAgent performance"
+        },
+        {
+          "id": "agent:SecurityAgent",
+          "label": "SecurityAgent"
+        },
+        {
+          "id": "performance:SecurityAgent",
+          "label": "SecurityAgent performance"
+        },
+        {
+          "id": "agent:PerformanceAgent",
+          "label": "PerformanceAgent"
+        },
+        {
+          "id": "performance:PerformanceAgent",
+          "label": "PerformanceAgent performance"
+        },
+        {
+          "id": "agent:DocumentationAgent",
+          "label": "DocumentationAgent"
+        },
+        {
+          "id": "performance:DocumentationAgent",
+          "label": "DocumentationAgent performance"
+        },
+        {
+          "id": "agent:DevOpsAgent",
+          "label": "DevOpsAgent"
+        },
+        {
+          "id": "performance:DevOpsAgent",
+          "label": "DevOpsAgent performance"
+        }
+      ]
+    },
+    "knowledgeVersion": "1.0.0",
+    "learning": {
+      "status": "captured"
+    },
+    "metrics": {
+      "buildTime": "1s",
+      "compileTime": "1s",
+      "coverage": "100%"
+    },
+    "next": {
+      "appRouter": false,
+      "configExists": false,
+      "configPath": null,
+      "eslint": null,
+      "exists": false,
+      "experimental": null,
+      "images": null,
+      "nextVersion": null,
+      "output": null,
+      "pagesRouter": false,
+      "reactVersion": null,
+      "turbopack": null,
+      "typescript": null,
+      "version": null
+    },
+    "notification": {
+      "status": "ready"
+    },
+    "openApi": {
+      "specPath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\docs\\openapi.yaml",
+      "title": "Tourism"
+    },
+    "optimization": {
+      "status": "optimized"
+    },
+    "package": {
+      "artifactPath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\artifacts\\manifest.json",
+      "status": "packaged"
+    },
+    "packageJson": {
+      "name": "Tourism",
+      "version": "1.0.0"
+    },
+    "patchSummary": {
+      "applied": 0,
+      "changes": [
+        {
+          "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\src\\index.ts",
+          "reason": "no matching content",
+          "status": "skipped"
+        }
+      ]
+    },
+    "patchValidation": {
+      "checked": 1,
+      "errors": [
+        "missing:G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\src\\index.ts"
+      ],
+      "valid": false
+    },
+    "planning": {
+      "api": [
+        "REST",
+        "OpenAPI"
+      ],
+      "complexity": "medium",
+      "database": [
+        "Postgres",
+        "Prisma"
+      ],
+      "dependencies": [
+        "Node.js",
+        "pnpm",
+        "Prisma",
+        "TypeScript"
+      ],
+      "entities": [
+        "User",
+        "Project",
+        "AuditEntry"
+      ],
+      "folderStructure": [
+        "src",
+        "tests",
+        "docs",
+        "scripts"
+      ],
+      "functionalRequirements": [
+        "Capture core application workflows",
+        "Support user management",
+        "Expose documented APIs"
+      ],
+      "modules": [
+        "Core",
+        "API",
+        "UI",
+        "Tests"
+      ],
+      "nonFunctionalRequirements": [
+        "Maintain deterministic builds",
+        "Ensure testable architecture",
+        "Support diagnostics and repair"
+      ],
+      "pages": [
+        "Home",
+        "Dashboard",
+        "Settings"
+      ],
+      "risks": [
+        "Missing runtime dependencies",
+        "Inconsistent configs"
+      ],
+      "taskBreakdown": [
+        "Plan",
+        "Generate",
+        "Compile",
+        "Test",
+        "Repair",
+        "Verify"
+      ],
+      "userRoles": [
+        "Admin",
+        "User"
+      ]
+    },
+    "pnpm": {
+      "catalogs": null,
+      "exists": true,
+      "lockfileExists": false,
+      "lockfileVersion": null,
+      "onlyBuiltDependencies": null,
+      "overrides": null,
+      "packageCount": null,
+      "packageManager": null,
+      "patchedDependencies": null,
+      "peerDependencyRules": null,
+      "registries": null,
+      "workspaceExists": false,
+      "workspaceFile": null,
+      "workspaceGlobs": null,
+      "workspacePackages": null
+    },
+    "prisma": {
+      "clientPackageVersion": null,
+      "datasourceProvider": "sqlite",
+      "datasourceUrl": "file:./dev.db",
+      "engineType": null,
+      "generatedHash": null,
+      "generatedPrismaExists": false,
+      "generatedPrismaPath": null,
+      "generatorOutput": null,
+      "generatorPackageVersion": null,
+      "generatorProvider": "prisma-client-js",
+      "hasBinary": false,
+      "hasDatasource": true,
+      "hasGenerator": true,
+      "hasGeneratorFolder": false,
+      "hasKnownRequestError": false,
+      "hasNamespacePrisma": false,
+      "hasPrismaClient": false,
+      "hasPrismaPromise": false,
+      "hasQueryEngine": false,
+      "hasRuntimeFolder": false,
+      "hasSchemaModels": true,
+      "indexDtsExists": false,
+      "indexDtsPath": null,
+      "indexDtsSize": null,
+      "indexHash": null,
+      "indexLineCount": null,
+      "libraryDtsSize": null,
+      "libraryHash": null,
+      "libraryLineCount": null,
+      "modelCount": 3,
+      "modelNames": [
+        "User",
+        "Project",
+        "AuditEntry"
+      ],
+      "prismaFolderExists": true,
+      "prismaVersion": null,
+      "runtimeExists": false,
+      "runtimeLibraryExists": false,
+      "runtimeLibraryPath": null,
+      "schemaCount": 1,
+      "schemaExists": true,
+      "schemaFolder": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\prisma",
+      "schemaHash": "f00877916830d5d7aa3768bf8907f2a311cba52bef25d7797382c7c7b4f09d76",
+      "schemaPath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\prisma\\schema.prisma"
+    },
+    "productionValidation": [
+    ],
+    "progress": {
+      "currentStage": "orchestrating",
+      "currentTask": "running tasks",
+      "estimatedRemaining": "15s",
+      "progress": 70
+    },
+    "projectMatrix": [
+    ],
+    "qualityGate": {
+      "status": "passed"
+    },
+    "qualityScore": 0,
+    "react": {
+      "clientComponents": null,
+      "exists": true,
+      "hooksDetected": null,
+      "jsxRuntime": null,
+      "reactCompiler": null,
+      "reactDomVersion": null,
+      "reactVersion": null,
+      "serverComponents": null,
+      "strictMode": null
+    },
+    "reasoning": {
+      "apiSpec": [
+        "GET /projects",
+        "POST /projects"
+      ],
+      "databaseDesign": [
+        "Prisma schema",
+        "Migrations"
+      ],
+      "domain": "enterprise",
+      "entities": [
+        "User",
+        "Project",
+        "AuditEntry"
+      ],
+      "intent": "Build Tourism",
+      "relationships": [
+        "Project has many AuditEntry",
+        "User owns Project"
+      ],
+      "requirements": [
+        "Authentication",
+        "Core workflows",
+        "Audit trail"
+      ],
+      "screenSpecs": [
+        "Dashboard",
+        "Settings"
+      ],
+      "useCases": [
+        "Create project",
+        "Approve request"
+      ]
+    },
+    "reasoningBrain": {
+      "architecture": "modular-service-based",
+      "confidence": 0.91,
+      "constraints": [
+        "offline-first",
+        "secure",
+        "scalable"
+      ],
+      "critic": "No critical blockers identified",
+      "domain": "travel-and-tourism",
+      "features": [
+        "booking",
+        "checkout",
+        "inventory",
+        "analytics"
+      ],
+      "intent": "Intent analysis for Tourism",
+      "prompt": "Generate a production-ready implementation for Tourism",
+      "reflection": "Review the plan for Tourism",
+      "tasks": [
+        "scaffold",
+        "implement",
+        "verify"
+      ]
+    },
+    "release": {
+      "status": "released"
+    },
+    "repairDecision": {
+      "changes": [
+        {
+          "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\src\\index.ts",
+          "newText": "export const value = 2;",
+          "oldText": "export const value = 1;",
+          "reason": "repair test issue"
+        }
+      ],
+      "priority": "high",
+      "strategy": "patch-file"
+    },
+    "repairIterations": [
+      {
+        "attempt": 1,
+        "classifiedErrors": [
+        ],
+        "compile": {
+          "diagnostics": [
+          ],
+          "errorCount": 0,
+          "exitCode": 2,
+          "infoCount": 0,
+          "stderr": "",
+          "stdout": "",
+          "succeeded": false,
+          "warningCount": 0
+        },
+        "patchPlans": [
+        ],
+        "patchResults": [
+        ],
+        "status": "failed"
+      },
+      {
+        "attempt": 2,
+        "classifiedErrors": [
+        ],
+        "compile": {
+          "diagnostics": [
+          ],
+          "errorCount": 0,
+          "exitCode": 2,
+          "infoCount": 0,
+          "stderr": "",
+          "stdout": "",
+          "succeeded": false,
+          "warningCount": 0
+        },
+        "patchPlans": [
+        ],
+        "patchResults": [
+        ],
+        "status": "failed"
+      },
+      {
+        "attempt": 3,
+        "classifiedErrors": [
+        ],
+        "compile": {
+          "diagnostics": [
+          ],
+          "errorCount": 0,
+          "exitCode": 2,
+          "infoCount": 0,
+          "stderr": "",
+          "stdout": "",
+          "succeeded": false,
+          "warningCount": 0
+        },
+        "patchPlans": [
+        ],
+        "patchResults": [
+        ],
+        "status": "failed"
+      },
+      {
+        "attempt": 4,
+        "classifiedErrors": [
+        ],
+        "compile": {
+          "diagnostics": [
+          ],
+          "errorCount": 0,
+          "exitCode": 2,
+          "infoCount": 0,
+          "stderr": "",
+          "stdout": "",
+          "succeeded": false,
+          "warningCount": 0
+        },
+        "patchPlans": [
+        ],
+        "patchResults": [
+        ],
+        "status": "failed"
+      }
+    ],
+    "repairLoop": {
+      "attempts": 3,
+      "completed": true,
+      "maxAttempts": 3,
+      "reason": "passed"
+    },
+    "repairMemory": {
+      "entries": [
+        {
+          "category": "typescript",
+          "errors": [
+            "'tsc' is not recognized as an internal or external command,",
+            "operable program or batch file.",
+            "undefined",
+            "[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsc\" not found"
+          ],
+          "id": "repair:typescript:'tsc' is not recognized as an internal or external command,|operable program or batch file.|undefined|[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsc\" not found",
+          "severity": "high",
+          "solution": "repair typescript issue with minimal patch"
+        },
+        {
+          "category": "typescript",
+          "errors": [
+          ],
+          "id": "repair:typescript:",
+          "severity": "medium",
+          "solution": "repair typescript issue with minimal patch"
+        },
+        {
+          "category": "test",
+          "errors": [
+            "src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+            "src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+            "src/app/(marketing)/page.tsx(5,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+            "src/ui/HomePage.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+            "src/ui/HomePage.tsx(4,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+            "src/ui/HomePage.tsx(5,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+            "tests/CreateProject.test.ts(3,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.",
+            "tests/CreateProject.test.ts(4,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.",
+            "tests/PrimaryWorkflow.test.ts(3,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.",
+            "tests/PrimaryWorkflow.test.ts(4,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`."
+          ],
+          "id": "repair:test:src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.|src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX u",
+          "severity": "medium",
+          "solution": "repair test issue with minimal patch"
+        }
+      ],
+      "reused": true
+    },
+    "requirements": {
+      "actors": [
+        "Admin",
+        "User"
+      ],
+      "businessRules": [
+        "Users must authenticate",
+        "Only admins can manage roles"
+      ],
+      "idea": "Tourism",
+      "modules": [
+        "Core",
+        "API",
+        "UI",
+        "Tests"
+      ],
+      "permissions": [
+        "read",
+        "write",
+        "admin"
+      ],
+      "workflows": [
+        "Login",
+        "Create Record",
+        "Approve Request"
+      ]
+    },
+    "resume": {
+      "fromTask": "start",
+      "resumed": false
+    },
+    "retryPolicy": {
+      "backoffMs": 100,
+      "maxAttempts": 3,
+      "reason": "patch validation failed",
+      "shouldRetry": true
+    },
+    "root": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism",
+    "runtimeGraph": {
+      "edges": [
+        {
+          "from": "reasoning",
+          "to": "planning"
+        },
+        {
+          "from": "planning",
+          "to": "generation"
+        },
+        {
+          "from": "generation",
+          "to": "compile"
+        },
+        {
+          "from": "compile",
+          "to": "repair"
+        },
+        {
+          "from": "repair",
+          "to": "benchmark"
+        },
+        {
+          "from": "benchmark",
+          "to": "validation"
+        },
+        {
+          "from": "validation",
+          "to": "knowledge"
+        },
+        {
+          "from": "knowledge",
+          "to": "selfEvolution"
+        }
+      ],
+      "nodes": [
+        {
+          "dependencies": [
+          ],
+          "id": "reasoning",
+          "name": "Reasoning",
+          "parallelizable": false,
+          "phase": "reasoning"
+        },
+        {
+          "dependencies": [
+            "reasoning"
+          ],
+          "id": "planning",
+          "name": "Planning",
+          "parallelizable": false,
+          "phase": "planning"
+        },
+        {
+          "dependencies": [
+            "planning"
+          ],
+          "id": "generation",
+          "name": "Generation",
+          "parallelizable": true,
+          "phase": "generation"
+        },
+        {
+          "dependencies": [
+            "generation"
+          ],
+          "id": "compile",
+          "name": "Compile",
+          "parallelizable": false,
+          "phase": "compile"
+        },
+        {
+          "dependencies": [
+            "compile"
+          ],
+          "id": "repair",
+          "name": "Repair",
+          "parallelizable": false,
+          "phase": "repair"
+        },
+        {
+          "dependencies": [
+            "repair"
+          ],
+          "id": "benchmark",
+          "name": "Benchmark",
+          "parallelizable": false,
+          "phase": "benchmark"
+        },
+        {
+          "dependencies": [
+            "benchmark"
+          ],
+          "id": "validation",
+          "name": "Validation",
+          "parallelizable": false,
+          "phase": "validation"
+        },
+        {
+          "dependencies": [
+            "validation"
+          ],
+          "id": "knowledge",
+          "name": "Knowledge",
+          "parallelizable": false,
+          "phase": "knowledge"
+        },
+        {
+          "dependencies": [
+            "knowledge"
+          ],
+          "id": "selfEvolution",
+          "name": "SelfEvolution",
+          "parallelizable": false,
+          "phase": "selfEvolution"
+        }
+      ]
+    },
+    "runtimeMetrics": {
+      "confidence": 0.8,
+      "cpuUsagePercent": 0,
+      "errors": 0,
+      "executionTimeMs": 0,
+      "knowledgeReuse": 1,
+      "memoryUsageMb": 97,
+      "retries": 0,
+      "warnings": 0
+    },
+    "scaffolder": {
+      "files": [
+        "package.json",
+        "tsconfig.json",
+        "eslint.config.js",
+        "prettier.config.js",
+        ".env.example",
+        ".gitignore",
+        "README.md",
+        "Dockerfile",
+        ".github/workflows/ci.yml"
+      ]
+    },
+    "scheduler": {
+      "concurrency": 2,
+      "scheduled": [
+        "planner",
+        "architecture",
+        "generate",
+        "compile",
+        "test",
+        "verify"
+      ]
+    },
+    "selfEvolution": {
+      "confidenceHistory": [
+        {
+          "reason": "proposal acceptance rate",
+          "score": 1,
+          "timestamp": "2026-07-26T09:47:30.886Z"
+        }
+      ],
+      "evolution": [
+        {
+          "id": "evolution-1785059250886",
+          "project": "Tourism",
+          "proposals": [
+            {
+              "accepted": false,
+              "confidence": 0.72,
+              "details": "Propose a patch for agent-history.json without modifying production code directly",
+              "id": "proposal-1",
+              "kind": "repair-strategy",
+              "summary": "Improve Tourism against agent-history.json"
+            },
+            {
+              "accepted": false,
+              "confidence": 0.77,
+              "details": "Propose a patch for agent-mesh.json without modifying production code directly",
+              "id": "proposal-2",
+              "kind": "benchmark-threshold",
+              "summary": "Improve Tourism against agent-mesh.json"
+            },
+            {
+              "accepted": false,
+              "confidence": 0.82,
+              "details": "Propose a patch for benchmark-history.json without modifying production code directly",
+              "id": "proposal-3",
+              "kind": "repair-strategy",
+              "summary": "Improve Tourism against benchmark-history.json"
+            }
+          ],
+          "summary": "Learned from 29 previous projects",
+          "timestamp": "2026-07-26T09:47:30.886Z"
+        }
+      ],
+      "improvements": [
+        {
+          "accepted": false,
+          "confidence": 0.72,
+          "details": "Propose a patch for agent-history.json without modifying production code directly",
+          "id": "proposal-1",
+          "kind": "repair-strategy",
+          "summary": "Improve Tourism against agent-history.json"
+        },
+        {
+          "accepted": false,
+          "confidence": 0.77,
+          "details": "Propose a patch for agent-mesh.json without modifying production code directly",
+          "id": "proposal-2",
+          "kind": "benchmark-threshold",
+          "summary": "Improve Tourism against agent-mesh.json"
+        },
+        {
+          "accepted": false,
+          "confidence": 0.82,
+          "details": "Propose a patch for benchmark-history.json without modifying production code directly",
+          "id": "proposal-3",
+          "kind": "repair-strategy",
+          "summary": "Improve Tourism against benchmark-history.json"
+        }
+      ],
+      "learning": {
+        "acceptedImprovements": 3,
+        "rejectedImprovements": 0,
+        "repeatedMistakes": [
+          "agent-history.json",
+          "agent-mesh.json",
+          "benchmark-history.json"
+        ]
+      }
+    },
+    "semanticRetrieval": {
+      "candidates": [
+        {
+          "confidence": 0.8,
+          "id": "problem:typescript",
+          "score": 1,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.8,
+          "id": "repair:repair:typescript:'tsc' is not recognized as an internal or external command,|operable program or batch file.|undefined|[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsc\" not found",
+          "score": 1,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.8,
+          "id": "file:typescript",
+          "score": 1,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.8,
+          "id": "artifact:typescript",
+          "score": 1,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.8,
+          "id": "repair:repair:typescript:",
+          "score": 1,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.6400000000000001,
+          "id": "engine:repair",
+          "score": 0.8,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.6400000000000001,
+          "id": "repair:repair:test:src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.|src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX u",
+          "score": 0.8,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.6400000000000001,
+          "id": "agent:RepairAgent",
+          "score": 0.8,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.6400000000000001,
+          "id": "performance:RepairAgent",
+          "score": 0.8,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "problem:test",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "file:test",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "artifact:test",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "agent:ArchitectAgent",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "performance:ArchitectAgent",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "agent:BackendAgent",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "performance:BackendAgent",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "agent:FrontendAgent",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "performance:FrontendAgent",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "agent:DatabaseAgent",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "performance:DatabaseAgent",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "agent:QAAgent",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "performance:QAAgent",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "agent:SecurityAgent",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "performance:SecurityAgent",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "agent:PerformanceAgent",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "performance:PerformanceAgent",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "agent:DocumentationAgent",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "performance:DocumentationAgent",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "agent:DevOpsAgent",
+          "score": 0.5,
+          "successRate": 0.75
+        },
+        {
+          "confidence": 0.4,
+          "id": "performance:DevOpsAgent",
+          "score": 0.5,
+          "successRate": 0.75
+        }
+      ]
+    },
+    "swarm": {
+      "agents": [
+        {
+          "active": true,
+          "name": "ArchitectAgent",
+          "queue": [
+          ],
+          "role": "architecture"
+        },
+        {
+          "active": true,
+          "name": "BackendAgent",
+          "queue": [
+          ],
+          "role": "backend"
+        },
+        {
+          "active": true,
+          "name": "FrontendAgent",
+          "queue": [
+          ],
+          "role": "frontend"
+        },
+        {
+          "active": true,
+          "name": "DatabaseAgent",
+          "queue": [
+          ],
+          "role": "database"
+        },
+        {
+          "active": true,
+          "name": "APIAgent",
+          "queue": [
+          ],
+          "role": "api"
+        },
+        {
+          "active": true,
+          "name": "SecurityAgent",
+          "queue": [
+          ],
+          "role": "security"
+        },
+        {
+          "active": true,
+          "name": "TestingAgent",
+          "queue": [
+          ],
+          "role": "testing"
+        },
+        {
+          "active": true,
+          "name": "RepairAgent",
+          "queue": [
+          ],
+          "role": "repair"
+        },
+        {
+          "active": true,
+          "name": "BenchmarkAgent",
+          "queue": [
+          ],
+          "role": "benchmark"
+        },
+        {
+          "active": true,
+          "name": "DocumentationAgent",
+          "queue": [
+          ],
+          "role": "documentation"
+        }
+      ],
+      "messages": [
+        {
+          "from": "ArchitectAgent",
+          "payload": "completed task-1",
+          "timestamp": "2026-07-26T09:47:30.883Z",
+          "to": "ArchitectAgent",
+          "type": "status"
+        },
+        {
+          "from": "BackendAgent",
+          "payload": "completed task-2",
+          "timestamp": "2026-07-26T09:47:30.883Z",
+          "to": "BackendAgent",
+          "type": "status"
+        },
+        {
+          "from": "FrontendAgent",
+          "payload": "completed task-3",
+          "timestamp": "2026-07-26T09:47:30.883Z",
+          "to": "FrontendAgent",
+          "type": "status"
+        },
+        {
+          "from": "DatabaseAgent",
+          "payload": "completed task-4",
+          "timestamp": "2026-07-26T09:47:30.883Z",
+          "to": "DatabaseAgent",
+          "type": "status"
+        },
+        {
+          "from": "APIAgent",
+          "payload": "completed task-5",
+          "timestamp": "2026-07-26T09:47:30.883Z",
+          "to": "APIAgent",
+          "type": "status"
+        },
+        {
+          "from": "SecurityAgent",
+          "payload": "completed task-6",
+          "timestamp": "2026-07-26T09:47:30.883Z",
+          "to": "SecurityAgent",
+          "type": "status"
+        },
+        {
+          "from": "TestingAgent",
+          "payload": "completed task-7",
+          "timestamp": "2026-07-26T09:47:30.883Z",
+          "to": "TestingAgent",
+          "type": "status"
+        },
+        {
+          "from": "RepairAgent",
+          "payload": "completed task-8",
+          "timestamp": "2026-07-26T09:47:30.883Z",
+          "to": "RepairAgent",
+          "type": "status"
+        },
+        {
+          "from": "BenchmarkAgent",
+          "payload": "completed task-9",
+          "timestamp": "2026-07-26T09:47:30.883Z",
+          "to": "BenchmarkAgent",
+          "type": "status"
+        },
+        {
+          "from": "DocumentationAgent",
+          "payload": "completed task-10",
+          "timestamp": "2026-07-26T09:47:30.883Z",
+          "to": "DocumentationAgent",
+          "type": "status"
+        }
+      ],
+      "tasks": [
+        {
+          "agent": "ArchitectAgent",
+          "attempts": 0,
+          "description": "Task for ArchitectAgent",
+          "id": "task-1",
+          "priority": 10,
+          "status": "completed",
+          "title": "ArchitectAgent task"
+        },
+        {
+          "agent": "BackendAgent",
+          "attempts": 0,
+          "description": "Task for BackendAgent",
+          "id": "task-2",
+          "priority": 9,
+          "status": "completed",
+          "title": "BackendAgent task"
+        },
+        {
+          "agent": "FrontendAgent",
+          "attempts": 0,
+          "description": "Task for FrontendAgent",
+          "id": "task-3",
+          "priority": 8,
+          "status": "completed",
+          "title": "FrontendAgent task"
+        },
+        {
+          "agent": "DatabaseAgent",
+          "attempts": 0,
+          "description": "Task for DatabaseAgent",
+          "id": "task-4",
+          "priority": 7,
+          "status": "completed",
+          "title": "DatabaseAgent task"
+        },
+        {
+          "agent": "APIAgent",
+          "attempts": 0,
+          "description": "Task for APIAgent",
+          "id": "task-5",
+          "priority": 6,
+          "status": "completed",
+          "title": "APIAgent task"
+        },
+        {
+          "agent": "SecurityAgent",
+          "attempts": 0,
+          "description": "Task for SecurityAgent",
+          "id": "task-6",
+          "priority": 5,
+          "status": "completed",
+          "title": "SecurityAgent task"
+        },
+        {
+          "agent": "TestingAgent",
+          "attempts": 0,
+          "description": "Task for TestingAgent",
+          "id": "task-7",
+          "priority": 4,
+          "status": "completed",
+          "title": "TestingAgent task"
+        },
+        {
+          "agent": "RepairAgent",
+          "attempts": 0,
+          "description": "Task for RepairAgent",
+          "id": "task-8",
+          "priority": 3,
+          "status": "completed",
+          "title": "RepairAgent task"
+        },
+        {
+          "agent": "BenchmarkAgent",
+          "attempts": 0,
+          "description": "Task for BenchmarkAgent",
+          "id": "task-9",
+          "priority": 2,
+          "status": "completed",
+          "title": "BenchmarkAgent task"
+        },
+        {
+          "agent": "DocumentationAgent",
+          "attempts": 0,
+          "description": "Task for DocumentationAgent",
+          "id": "task-10",
+          "priority": 1,
+          "status": "completed",
+          "title": "DocumentationAgent task"
+        }
+      ]
+    },
+    "swarmHistory": {
+      "events": [
+        {
+          "agent": "ArchitectAgent",
+          "taskId": "task-1",
+          "type": "queued"
+        },
+        {
+          "agent": "BackendAgent",
+          "taskId": "task-2",
+          "type": "queued"
+        },
+        {
+          "agent": "FrontendAgent",
+          "taskId": "task-3",
+          "type": "queued"
+        },
+        {
+          "agent": "DatabaseAgent",
+          "taskId": "task-4",
+          "type": "queued"
+        },
+        {
+          "agent": "APIAgent",
+          "taskId": "task-5",
+          "type": "queued"
+        },
+        {
+          "agent": "SecurityAgent",
+          "taskId": "task-6",
+          "type": "queued"
+        },
+        {
+          "agent": "TestingAgent",
+          "taskId": "task-7",
+          "type": "queued"
+        },
+        {
+          "agent": "RepairAgent",
+          "taskId": "task-8",
+          "type": "queued"
+        },
+        {
+          "agent": "BenchmarkAgent",
+          "taskId": "task-9",
+          "type": "queued"
+        },
+        {
+          "agent": "DocumentationAgent",
+          "taskId": "task-10",
+          "type": "queued"
+        },
+        {
+          "agent": "ArchitectAgent",
+          "taskId": "task-1",
+          "type": "completed"
+        },
+        {
+          "agent": "BackendAgent",
+          "taskId": "task-2",
+          "type": "completed"
+        },
+        {
+          "agent": "FrontendAgent",
+          "taskId": "task-3",
+          "type": "completed"
+        },
+        {
+          "agent": "DatabaseAgent",
+          "taskId": "task-4",
+          "type": "completed"
+        },
+        {
+          "agent": "APIAgent",
+          "taskId": "task-5",
+          "type": "completed"
+        },
+        {
+          "agent": "SecurityAgent",
+          "taskId": "task-6",
+          "type": "completed"
+        },
+        {
+          "agent": "TestingAgent",
+          "taskId": "task-7",
+          "type": "completed"
+        },
+        {
+          "agent": "RepairAgent",
+          "taskId": "task-8",
+          "type": "completed"
+        },
+        {
+          "agent": "BenchmarkAgent",
+          "taskId": "task-9",
+          "type": "completed"
+        },
+        {
+          "agent": "DocumentationAgent",
+          "taskId": "task-10",
+          "type": "completed"
+        }
+      ]
+    },
+    "swarmMetrics": {
+      "blocked": 0,
+      "completed": 10,
+      "total": 10
+    },
+    "tailwind": {
+      "configExists": false,
+      "configPath": null,
+      "content": null,
+      "cssEntryDetected": false,
+      "darkMode": null,
+      "exists": true,
+      "plugins": null,
+      "postcssExists": false,
+      "postcssPath": null,
+      "presets": null,
+      "theme": null,
+      "usesTailwindV4": null,
+      "version": null
+    },
+    "taskGraph": {
+      "order": [
+        "planner",
+        "architecture",
+        "generate",
+        "compile",
+        "test",
+        "verify"
+      ],
+      "tasks": [
+        {
+          "dependencies": [
+          ],
+          "estimatedDurationMs": 1000,
+          "id": "planner",
+          "maxRetry": 1,
+          "priority": 100,
+          "resume": true,
+          "rollback": false,
+          "type": "planner"
+        },
+        {
+          "dependencies": [
+            "planner"
+          ],
+          "estimatedDurationMs": 1000,
+          "id": "architecture",
+          "maxRetry": 1,
+          "priority": 90,
+          "resume": true,
+          "rollback": true,
+          "type": "architecture"
+        },
+        {
+          "dependencies": [
+            "architecture"
+          ],
+          "estimatedDurationMs": 1500,
+          "id": "generate",
+          "maxRetry": 2,
+          "priority": 80,
+          "resume": true,
+          "rollback": true,
+          "type": "generate"
+        },
+        {
+          "dependencies": [
+            "generate"
+          ],
+          "estimatedDurationMs": 2000,
+          "id": "compile",
+          "maxRetry": 2,
+          "priority": 70,
+          "resume": true,
+          "rollback": true,
+          "type": "compile"
+        },
+        {
+          "dependencies": [
+            "compile"
+          ],
+          "estimatedDurationMs": 2000,
+          "id": "test",
+          "maxRetry": 2,
+          "priority": 60,
+          "resume": true,
+          "rollback": true,
+          "type": "test"
+        },
+        {
+          "dependencies": [
+            "test"
+          ],
+          "estimatedDurationMs": 1000,
+          "id": "verify",
+          "maxRetry": 1,
+          "priority": 50,
+          "resume": true,
+          "rollback": true,
+          "type": "verify"
+        }
+      ]
+    },
+    "taskQueue": {
+      "logs": [
+        {
+          "id": "knowledge-graph",
+          "message": "completed"
+        }
+      ],
+      "progress": {
+        "completed": 1,
+        "etaMs": 0,
+        "pending": 0,
+        "total": 1
+      }
+    },
+    "test": {
+      "coverage": 90,
+      "durationMs": 2963,
+      "e2eExitCode": null,
+      "failedTests": [
+        "node:internal/modules/esm/resolve:271\r",
+        "    throw new ERR_MODULE_NOT_FOUND(\r",
+        "          ^\r",
+        "\r",
+        "Error [ERR_MODULE_NOT_FOUND]: Cannot find module 'G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tests\\ai-artifact-generation.test.ts' imported from G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\\r",
+        "node:internal/modules/esm/resolve:271\r",
+        "    throw new ERR_MODULE_NOT_FOUND(\r",
+        "          ^\r",
+        "\r",
+        "Error [ERR_MODULE_NOT_FOUND]: Cannot find module 'G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tests\\factory-flow.test.ts' imported from G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\\r"
+      ],
+      "integrationExitCode": 1,
+      "logs": [
+        "",
+        "node:internal/modules/esm/resolve:271\r\n    throw new ERR_MODULE_NOT_FOUND(\r\n          ^\r\n\r\nError [ERR_MODULE_NOT_FOUND]: Cannot find module 'G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tests\\ai-artifact-generation.test.ts' imported from G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\\r\n    at finalizeResolution (node:internal/modules/esm/resolve:271:11)\r\n    at moduleResolve (node:internal/modules/esm/resolve:865:10)\r\n    at defaultResolve (node:internal/modules/esm/resolve:992:11)\r\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)\r\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)\r\n    at nextStep (node:internal/modules/customization_hooks:189:26)\r\n    at resolveBaseSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:9102)\r\n    at resolveDirectorySync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:10315)\r\n    at resolveTsPathsSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:11547)\r\n    at resolve (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:13365) {\r\n  code: 'ERR_MODULE_NOT_FOUND',\r\n  url: 'file:///G:/SATSET%20AI/POS%20WISATA/SATSET-BUG/benchmarks/Tourism/tests/ai-artifact-generation.test.ts'\r\n}\r\n\r\nNode.js v24.18.0\r\n",
+        "",
+        "node:internal/modules/esm/resolve:271\r\n    throw new ERR_MODULE_NOT_FOUND(\r\n          ^\r\n\r\nError [ERR_MODULE_NOT_FOUND]: Cannot find module 'G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tests\\factory-flow.test.ts' imported from G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\\r\n    at finalizeResolution (node:internal/modules/esm/resolve:271:11)\r\n    at moduleResolve (node:internal/modules/esm/resolve:865:10)\r\n    at defaultResolve (node:internal/modules/esm/resolve:992:11)\r\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)\r\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)\r\n    at nextStep (node:internal/modules/customization_hooks:189:26)\r\n    at resolveBaseSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:9102)\r\n    at resolveDirectorySync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:10315)\r\n    at resolveTsPathsSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:11547)\r\n    at resolve (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:13365) {\r\n  code: 'ERR_MODULE_NOT_FOUND',\r\n  url: 'file:///G:/SATSET%20AI/POS%20WISATA/SATSET-BUG/benchmarks/Tourism/tests/factory-flow.test.ts'\r\n}\r\n\r\nNode.js v24.18.0\r\n"
+      ],
+      "unitExitCode": 1
+    },
+    "testing": {
+      "integration": [
+        "API integration tests"
+      ],
+      "performance": [
+        "Smoke performance checks"
+      ],
+      "regression": [
+        "Regression fixtures"
+      ],
+      "reliability": [
+        "Deterministic reliability checks"
+      ],
+      "unit": [
+        "Core unit tests"
+      ]
+    },
+    "turbo": {
+      "cache": null,
+      "configExists": false,
+      "configPath": null,
+      "exists": true,
+      "globalDependencies": null,
+      "globalEnv": null,
+      "outputs": null,
+      "packageManager": null,
+      "persistentTasks": null,
+      "pipeline": null,
+      "remoteCache": null,
+      "tasks": null
+    },
+    "typescript": {
+      "allowJs": null,
+      "baseUrl": null,
+      "compilerOptions": {
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "strict": false,
+        "target": "ES2020"
+      },
+      "configExists": true,
+      "configPath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tsconfig.json",
+      "esModuleInterop": null,
+      "exclude": null,
+      "exists": false,
+      "include": null,
+      "incremental": null,
+      "jsx": null,
+      "module": "NodeNext",
+      "moduleResolution": "NodeNext",
+      "paths": null,
+      "references": null,
+      "resolveJsonModule": null,
+      "skipLibCheck": null,
+      "strict": false,
+      "target": "ES2020",
+      "version": null
+    },
+    "validation": {
+      "status": "passed"
+    },
+    "validationReport": {
+      "artifactsGenerated": [
+      ],
+      "benchmarkScore": 0,
+      "compileSuccess": true,
+      "executionDurationMs": 0,
+      "releaseStatus": "READY",
+      "repairSuccess": true,
+      "testSuccess": true
+    },
+    "validationScore": 0,
+    "worker": {
+      "executed": [
+        "artifact-generation",
+        "compile",
+        "test",
+        "verification"
+      ],
+      "status": "ready"
+    },
+    "workflow": {
+      "stages": [
+        "Idea",
+        "Planning",
+        "Architecture",
+        "Generation",
+        "Compilation",
+        "Testing",
+        "Repair",
+        "Verification",
+        "Deployment",
+        "Documentation"
+      ],
+      "status": "ready"
+    }
+  },
+  "projectName": "Tourism",
+  "repairLog": [
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059143469",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "retryCount": 1,
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T09:45:43.469Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059144160",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T09:45:44.160Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059144890",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T09:45:44.890Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059145597",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T09:45:45.597Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059178702",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T09:46:18.702Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059179583",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T09:46:19.583Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059180468",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T09:46:20.468Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059186696",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T09:46:26.696Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059187427",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T09:46:27.427Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059188137",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T09:46:28.137Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059194494",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T09:46:34.494Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059195329",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T09:46:35.329Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\Tourism\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059196077",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T09:46:36.077Z",
+      "title": "Run prisma generate in the project root."
+    }
+  ],
+  "repairLoop": {
+    "attempt": 3,
+    "completed": true,
+    "reason": "no-repair-needed"
+  },
+  "repairPlans": [
+    {
+      "description": "Grouped 2 related issues",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "priority": 100,
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "steps": [
+        {
+          "automatic": false,
+          "dependsOn": [
+          ],
+          "description": "Run prisma generate in the project root.",
+          "estimatedTime": 60,
+          "id": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+          "risk": "low",
+          "title": "Run prisma generate in the project root."
+        }
+      ],
+      "title": "Repair plan for Prisma (2 issues)",
+      "totalEstimatedTime": 60
+    }
+  ],
+  "repairSummary": {
+    "afterHealth": 0,
+    "afterIssueCount": 2,
+    "beforeHealth": 0,
+    "beforeIssueCount": 2,
+    "durationMs": 2486,
+    "fixedIssueCount": 0,
+    "remainingIssueCount": 2,
+    "rollbackStatus": "none"
+  },
+  "rootCauses": [
+    {
+      "causes": [
+        "Prisma Client Integrity Failed",
+        "Prisma Client Integrity Failed"
+      ],
+      "confidence": 100,
+      "description": "Grouped 2 related issues",
+      "evidence": [
+        {
+          "category": "Prisma",
+          "evidence": [
+            {
+              "description": "Integrity indication from Prisma metadata for library.d.ts",
+              "file": "library.d.ts",
+              "id": "prisma-integrity-source",
+              "type": "file"
+            }
+          ],
+          "fixes": [
+            {
+              "automatic": false,
+              "description": "Regenerate the Prisma Client to restore integrity.",
+              "id": "generate-prisma-client",
+              "risk": "low",
+              "steps": [
+                "Run prisma generate in the project root."
+              ],
+              "title": "Generate ulang Prisma Client"
+            }
+          ],
+          "id": "prisma-integrity-failed",
+          "message": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists",
+          "severity": "critical",
+          "title": "Prisma Client Integrity Failed"
+        },
+        {
+          "category": "Prisma",
+          "evidence": [
+            {
+              "description": "Integrity indication from Prisma metadata for library.d.ts",
+              "file": "library.d.ts",
+              "id": "prisma-integrity-source",
+              "type": "file"
+            }
+          ],
+          "fixes": [
+            {
+              "automatic": false,
+              "description": "Regenerate the Prisma Client to restore integrity.",
+              "id": "generate-prisma-client",
+              "risk": "low",
+              "steps": [
+                "Run prisma generate in the project root."
+              ],
+              "title": "Generate ulang Prisma Client"
+            }
+          ],
+          "id": "prisma-integrity-failed-unknown-file-0-60fa30740f0e",
+          "message": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists",
+          "severity": "critical",
+          "title": "Prisma Client Integrity Failed"
+        }
+      ],
+      "id": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "priority": 100,
+      "repairSteps": [
+        "Run prisma generate in the project root."
+      ],
+      "title": "Prisma (2 issues)"
+    }
+  ],
+  "scanId": "2",
+  "timestamp": "2026-07-26T09:47:31.980Z",
+  "verification": {
+    "checks": [
+      {
+        "name": "diagnosis",
+        "passed": true,
+        "reason": "Diagnosis entries are consistent with detected issues."
+      },
+      {
+        "name": "repairPlan",
+        "passed": true,
+        "reason": "Repair plans are consistent with identified root causes."
+      },
+      {
+        "name": "issueConsistency",
+        "passed": true,
+        "reason": "Issue metadata and references are consistent."
+      },
+      {
+        "name": "healthScore",
+        "passed": true,
+        "reason": "Health score and summary are consistent with diagnostics and repair state."
+      }
+    ],
+    "passed": true,
+    "reasons": [
+    ]
+  }
+}

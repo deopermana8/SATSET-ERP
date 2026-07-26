@@ -1,6 +1,7 @@
 packages:
   - "apps/*"
   - "packages/*"
+  - "SATSET-BUG"
 allowBuilds:
   '@prisma/client': true
   '@prisma/engines': true

@@ -1,50 +1,76 @@
-﻿"use client";
+"use client";
 
-import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+
+import { categorySchema, type CategoryFormValues } from "../validation";
 
 type CategoryFormProps = {
-  initialData?: Record<string, unknown>;
-  onSubmit?: (data: Record<string, unknown>) => void;
+  initialData?: Partial<CategoryFormValues>;
+  onSubmit?: (data: CategoryFormValues) => void | Promise<void>;
+  submitLabel?: string;
+  cancelLabel?: string;
+  onCancel?: () => void;
 };
 
 export default function Form({
-  initialData = {},
+  initialData,
   onSubmit,
+  submitLabel = "Simpan",
+  cancelLabel = "Batal",
+  onCancel,
 }: CategoryFormProps) {
-  const [data, setData] =
-    useState<Record<string, unknown>>(initialData);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<CategoryFormValues>({
+    resolver: zodResolver(categorySchema),
+    defaultValues: { name: initialData?.name ?? "" },
+  });
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    onSubmit?.(data);
-  }
+  useEffect(() => {
+    reset({ name: initialData?.name ?? "" });
+  }, [initialData, reset]);
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form
+      onSubmit={handleSubmit(async (data) => {
+        await onSubmit?.(data);
+      })}
+      className="space-y-4"
+    >
       <div>
-        <label className="block text-sm font-medium">
+        <label htmlFor="category-name" className="block text-sm font-medium text-slate-700">
           Nama
         </label>
-
         <input
+          id="category-name"
           type="text"
-          value={String(data.name ?? "")}
-          onChange={(event) =>
-            setData({
-              ...data,
-              name: event.target.value,
-            })
-          }
-          className="w-full rounded-md border px-3 py-2"
+          {...register("name")}
+          className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2"
+          aria-invalid={Boolean(errors.name)}
+          aria-describedby={errors.name ? "category-name-error" : undefined}
         />
+        {errors.name ? (
+          <p id="category-name-error" className="mt-1 text-sm text-red-600">
+            {errors.name.message}
+          </p>
+        ) : null}
       </div>
 
-      <button
-        type="submit"
-        className="rounded-md border px-4 py-2"
-      >
-        Simpan
-      </button>
+      <div className="flex gap-2">
+        <button type="submit" disabled={isSubmitting} className="rounded-md border border-slate-300 px-4 py-2">
+          {isSubmitting ? "Menyimpan..." : submitLabel}
+        </button>
+        {onCancel ? (
+          <button type="button" onClick={onCancel} className="rounded-md border border-slate-300 px-4 py-2">
+            {cancelLabel}
+          </button>
+        ) : null}
+      </div>
     </form>
   );
 }

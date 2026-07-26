@@ -1,4 +1,4 @@
-﻿import type { EmployeeRow } from '../types'
+import type { EmployeeRow } from '../types'
 
 export async function getAll(): Promise<EmployeeRow[]> {
   const response = await fetch('/api/employee')

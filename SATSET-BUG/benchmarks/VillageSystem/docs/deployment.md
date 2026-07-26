@@ -1,0 +1,7 @@
+
+
+# Deployment Plan
+
+Project: VillageSystem
+
+Status: prepared

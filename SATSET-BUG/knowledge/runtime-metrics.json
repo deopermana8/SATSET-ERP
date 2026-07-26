@@ -1,0 +1,10 @@
+{
+  "executionTimeMs": 10,
+  "memoryUsageMb": 1,
+  "cpuUsagePercent": 5,
+  "warnings": 0,
+  "errors": 0,
+  "retries": 0,
+  "knowledgeReuse": 1,
+  "confidence": 0.9
+}

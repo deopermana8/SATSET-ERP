@@ -1,4 +1,4 @@
-﻿export default function Page() {
+export default function Page() {
   return (
     <div style={{padding:24}}>
       <h1 style={{fontSize:30,fontWeight:"bold"}}>

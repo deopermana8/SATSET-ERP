@@ -1,0 +1,321 @@
+{
+  "nodes": [
+    {
+      "id": "problem:typescript",
+      "kind": "problem",
+      "label": "typescript"
+    },
+    {
+      "id": "repair:repair:typescript:",
+      "kind": "repair",
+      "label": "repair typescript issue with minimal patch"
+    },
+    {
+      "id": "file:typescript",
+      "kind": "file",
+      "label": "typescript"
+    },
+    {
+      "id": "engine:repair",
+      "kind": "engine",
+      "label": "RepairMemoryEngine"
+    },
+    {
+      "id": "artifact:typescript",
+      "kind": "artifact",
+      "label": "typescript-artifact"
+    },
+    {
+      "id": "repair:repair:typescript:tools/templates-tsx/hook.ts(1,20): error TS1005: '(' expected.|tools/templates-tsx/hook.ts(1,32): error TS1005: '=>' expected.|tools/templates-tsx/service.ts(1,15",
+      "kind": "repair",
+      "label": "repair typescript issue with minimal patch"
+    },
+    {
+      "id": "repair:repair:typescript:SATSET-BUG/benchmarks/CMS/src/api/health/health.controller.ts(1,3): error TS1110: Type expected.|SATSET-BUG/benchmarks/CMS/src/api/health/health.controller.ts(1,3",
+      "kind": "repair",
+      "label": "repair typescript issue with minimal patch"
+    },
+    {
+      "id": "agent:ArchitectAgent",
+      "kind": "engine",
+      "label": "ArchitectAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.85
+      }
+    },
+    {
+      "id": "performance:ArchitectAgent",
+      "kind": "artifact",
+      "label": "ArchitectAgent performance",
+      "metadata": {
+        "confidence": 0.85
+      }
+    },
+    {
+      "id": "agent:BackendAgent",
+      "kind": "engine",
+      "label": "BackendAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.82
+      }
+    },
+    {
+      "id": "performance:BackendAgent",
+      "kind": "artifact",
+      "label": "BackendAgent performance",
+      "metadata": {
+        "confidence": 0.82
+      }
+    },
+    {
+      "id": "agent:FrontendAgent",
+      "kind": "engine",
+      "label": "FrontendAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.8
+      }
+    },
+    {
+      "id": "performance:FrontendAgent",
+      "kind": "artifact",
+      "label": "FrontendAgent performance",
+      "metadata": {
+        "confidence": 0.8
+      }
+    },
+    {
+      "id": "agent:DatabaseAgent",
+      "kind": "engine",
+      "label": "DatabaseAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.83
+      }
+    },
+    {
+      "id": "performance:DatabaseAgent",
+      "kind": "artifact",
+      "label": "DatabaseAgent performance",
+      "metadata": {
+        "confidence": 0.83
+      }
+    },
+    {
+      "id": "agent:QAAgent",
+      "kind": "engine",
+      "label": "QAAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.78
+      }
+    },
+    {
+      "id": "performance:QAAgent",
+      "kind": "artifact",
+      "label": "QAAgent performance",
+      "metadata": {
+        "confidence": 0.78
+      }
+    },
+    {
+      "id": "agent:RepairAgent",
+      "kind": "engine",
+      "label": "RepairAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.81
+      }
+    },
+    {
+      "id": "performance:RepairAgent",
+      "kind": "artifact",
+      "label": "RepairAgent performance",
+      "metadata": {
+        "confidence": 0.81
+      }
+    },
+    {
+      "id": "agent:SecurityAgent",
+      "kind": "engine",
+      "label": "SecurityAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.84
+      }
+    },
+    {
+      "id": "performance:SecurityAgent",
+      "kind": "artifact",
+      "label": "SecurityAgent performance",
+      "metadata": {
+        "confidence": 0.84
+      }
+    },
+    {
+      "id": "agent:PerformanceAgent",
+      "kind": "engine",
+      "label": "PerformanceAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.79
+      }
+    },
+    {
+      "id": "performance:PerformanceAgent",
+      "kind": "artifact",
+      "label": "PerformanceAgent performance",
+      "metadata": {
+        "confidence": 0.79
+      }
+    },
+    {
+      "id": "agent:DocumentationAgent",
+      "kind": "engine",
+      "label": "DocumentationAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.77
+      }
+    },
+    {
+      "id": "performance:DocumentationAgent",
+      "kind": "artifact",
+      "label": "DocumentationAgent performance",
+      "metadata": {
+        "confidence": 0.77
+      }
+    },
+    {
+      "id": "agent:DevOpsAgent",
+      "kind": "engine",
+      "label": "DevOpsAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.8
+      }
+    },
+    {
+      "id": "performance:DevOpsAgent",
+      "kind": "artifact",
+      "label": "DevOpsAgent performance",
+      "metadata": {
+        "confidence": 0.8
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "problem:typescript",
+      "to": "repair:repair:typescript:",
+      "kind": "causes"
+    },
+    {
+      "from": "repair:repair:typescript:",
+      "to": "file:typescript",
+      "kind": "touches"
+    },
+    {
+      "from": "repair:repair:typescript:",
+      "to": "engine:repair",
+      "kind": "generated-by"
+    },
+    {
+      "from": "repair:repair:typescript:",
+      "to": "artifact:typescript",
+      "kind": "produces"
+    },
+    {
+      "from": "problem:typescript",
+      "to": "repair:repair:typescript:tools/templates-tsx/hook.ts(1,20): error TS1005: '(' expected.|tools/templates-tsx/hook.ts(1,32): error TS1005: '=>' expected.|tools/templates-tsx/service.ts(1,15",
+      "kind": "causes"
+    },
+    {
+      "from": "repair:repair:typescript:tools/templates-tsx/hook.ts(1,20): error TS1005: '(' expected.|tools/templates-tsx/hook.ts(1,32): error TS1005: '=>' expected.|tools/templates-tsx/service.ts(1,15",
+      "to": "file:typescript",
+      "kind": "touches"
+    },
+    {
+      "from": "repair:repair:typescript:tools/templates-tsx/hook.ts(1,20): error TS1005: '(' expected.|tools/templates-tsx/hook.ts(1,32): error TS1005: '=>' expected.|tools/templates-tsx/service.ts(1,15",
+      "to": "engine:repair",
+      "kind": "generated-by"
+    },
+    {
+      "from": "repair:repair:typescript:tools/templates-tsx/hook.ts(1,20): error TS1005: '(' expected.|tools/templates-tsx/hook.ts(1,32): error TS1005: '=>' expected.|tools/templates-tsx/service.ts(1,15",
+      "to": "artifact:typescript",
+      "kind": "produces"
+    },
+    {
+      "from": "problem:typescript",
+      "to": "repair:repair:typescript:SATSET-BUG/benchmarks/CMS/src/api/health/health.controller.ts(1,3): error TS1110: Type expected.|SATSET-BUG/benchmarks/CMS/src/api/health/health.controller.ts(1,3",
+      "kind": "causes"
+    },
+    {
+      "from": "repair:repair:typescript:SATSET-BUG/benchmarks/CMS/src/api/health/health.controller.ts(1,3): error TS1110: Type expected.|SATSET-BUG/benchmarks/CMS/src/api/health/health.controller.ts(1,3",
+      "to": "file:typescript",
+      "kind": "touches"
+    },
+    {
+      "from": "repair:repair:typescript:SATSET-BUG/benchmarks/CMS/src/api/health/health.controller.ts(1,3): error TS1110: Type expected.|SATSET-BUG/benchmarks/CMS/src/api/health/health.controller.ts(1,3",
+      "to": "engine:repair",
+      "kind": "generated-by"
+    },
+    {
+      "from": "repair:repair:typescript:SATSET-BUG/benchmarks/CMS/src/api/health/health.controller.ts(1,3): error TS1110: Type expected.|SATSET-BUG/benchmarks/CMS/src/api/health/health.controller.ts(1,3",
+      "to": "artifact:typescript",
+      "kind": "produces"
+    },
+    {
+      "from": "agent:ArchitectAgent",
+      "to": "performance:ArchitectAgent",
+      "kind": "performed"
+    },
+    {
+      "from": "agent:BackendAgent",
+      "to": "performance:BackendAgent",
+      "kind": "performed"
+    },
+    {
+      "from": "agent:FrontendAgent",
+      "to": "performance:FrontendAgent",
+      "kind": "performed"
+    },
+    {
+      "from": "agent:DatabaseAgent",
+      "to": "performance:DatabaseAgent",
+      "kind": "performed"
+    },
+    {
+      "from": "agent:QAAgent",
+      "to": "performance:QAAgent",
+      "kind": "performed"
+    },
+    {
+      "from": "agent:RepairAgent",
+      "to": "performance:RepairAgent",
+      "kind": "performed"
+    },
+    {
+      "from": "agent:SecurityAgent",
+      "to": "performance:SecurityAgent",
+      "kind": "performed"
+    },
+    {
+      "from": "agent:PerformanceAgent",
+      "to": "performance:PerformanceAgent",
+      "kind": "performed"
+    },
+    {
+      "from": "agent:DocumentationAgent",
+      "to": "performance:DocumentationAgent",
+      "kind": "performed"
+    },
+    {
+      "from": "agent:DevOpsAgent",
+      "to": "performance:DevOpsAgent",
+      "kind": "performed"
+    }
+  ]
+}

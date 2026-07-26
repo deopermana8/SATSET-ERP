@@ -1,0 +1,15 @@
+{
+  "screens": [
+    "Dashboard,Settings"
+  ],
+  "metadata": {
+    "projectId": "Inventory",
+    "projectName": "Inventory",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:50:22.916Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

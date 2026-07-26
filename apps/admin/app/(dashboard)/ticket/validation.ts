@@ -20,3 +20,13 @@ export function validateTicket(
     errors,
   };
 }
+
+export type CreateTicketInput = {
+  name: string;
+  type: string;
+  price: number;
+  destinationId?: number | null;
+  active?: boolean;
+};
+
+export type UpdateTicketInput = Partial<CreateTicketInput>;

@@ -1,0 +1,4 @@
+{
+  "projectName": "{{projectName}}",
+  "idea": "{{idea}}"
+}

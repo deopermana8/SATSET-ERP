@@ -1,22 +1,15 @@
-export type {{MODULE_UPPER}}ValidationResult = {
-  valid: boolean;
-  errors: Record<string, string>;
-};
+import { z } from "zod";
 
-export function validate{{MODULE_UPPER}}(
-  data: Record<string, unknown>
-): {{MODULE_UPPER}}ValidationResult {
-  const errors: Record<string, string> = {};
+export const {{MODULE_CAMEL}}Schema = z.object({
+  name: z.string().trim().min(1, "Nama wajib diisi").max(120, "Nama maksimal 120 karakter"),
+});
 
-  if (
-    data.name !== undefined &&
-    String(data.name).trim() === ""
-  ) {
-    errors.name = "Nama wajib diisi";
-  }
+export const create{{MODULE_UPPER}}Schema = {{MODULE_CAMEL}}Schema;
+export const update{{MODULE_UPPER}}Schema = {{MODULE_CAMEL}}Schema.partial().refine(
+  (value) => Object.keys(value).length > 0,
+  { message: "Minimal satu field wajib diisi" }
+);
 
-  return {
-    valid: Object.keys(errors).length === 0,
-    errors,
-  };
-}
+export type {{MODULE_UPPER}}FormValues = z.infer<typeof {{MODULE_CAMEL}}Schema>;
+export type Create{{MODULE_UPPER}}Input = z.infer<typeof create{{MODULE_UPPER}}Schema>;
+export type Update{{MODULE_UPPER}}Input = z.infer<typeof update{{MODULE_UPPER}}Schema>;

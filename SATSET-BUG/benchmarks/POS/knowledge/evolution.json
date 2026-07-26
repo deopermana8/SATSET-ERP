@@ -1,0 +1,78 @@
+{
+  "evolution": [
+    {
+      "id": "evolution-1785059678956",
+      "project": "POS",
+      "summary": "Learned from 29 previous projects",
+      "proposals": [
+        {
+          "id": "proposal-1",
+          "kind": "repair-strategy",
+          "summary": "Improve POS against agent-history.json",
+          "details": "Propose a patch for agent-history.json without modifying production code directly",
+          "confidence": 0.72,
+          "accepted": false
+        },
+        {
+          "id": "proposal-2",
+          "kind": "benchmark-threshold",
+          "summary": "Improve POS against agent-mesh.json",
+          "details": "Propose a patch for agent-mesh.json without modifying production code directly",
+          "confidence": 0.77,
+          "accepted": false
+        },
+        {
+          "id": "proposal-3",
+          "kind": "repair-strategy",
+          "summary": "Improve POS against benchmark-history.json",
+          "details": "Propose a patch for benchmark-history.json without modifying production code directly",
+          "confidence": 0.82,
+          "accepted": false
+        }
+      ],
+      "timestamp": "2026-07-26T09:54:38.956Z"
+    }
+  ],
+  "improvements": [
+    {
+      "id": "proposal-1",
+      "kind": "repair-strategy",
+      "summary": "Improve POS against agent-history.json",
+      "details": "Propose a patch for agent-history.json without modifying production code directly",
+      "confidence": 0.72,
+      "accepted": false
+    },
+    {
+      "id": "proposal-2",
+      "kind": "benchmark-threshold",
+      "summary": "Improve POS against agent-mesh.json",
+      "details": "Propose a patch for agent-mesh.json without modifying production code directly",
+      "confidence": 0.77,
+      "accepted": false
+    },
+    {
+      "id": "proposal-3",
+      "kind": "repair-strategy",
+      "summary": "Improve POS against benchmark-history.json",
+      "details": "Propose a patch for benchmark-history.json without modifying production code directly",
+      "confidence": 0.82,
+      "accepted": false
+    }
+  ],
+  "confidenceHistory": [
+    {
+      "timestamp": "2026-07-26T09:54:38.956Z",
+      "score": 1,
+      "reason": "proposal acceptance rate"
+    }
+  ],
+  "learning": {
+    "repeatedMistakes": [
+      "agent-history.json",
+      "agent-mesh.json",
+      "benchmark-history.json"
+    ],
+    "acceptedImprovements": 3,
+    "rejectedImprovements": 0
+  }
+}

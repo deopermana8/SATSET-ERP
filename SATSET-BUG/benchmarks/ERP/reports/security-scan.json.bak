@@ -1,0 +1,14 @@
+{
+  "projectName": "ERP",
+  "status": "pass",
+  "metadata": {
+    "projectId": "ERP",
+    "projectName": "ERP",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:35:55.998Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

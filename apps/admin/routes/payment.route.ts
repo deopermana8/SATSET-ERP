@@ -1,4 +1,4 @@
-﻿export const paymentRoute = {
+export const paymentRoute = {
     entity: 'payment',
     table: 'payment',
     fields: []

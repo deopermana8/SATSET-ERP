@@ -1,0 +1,14 @@
+{
+  "category": "typescript",
+  "valid": "false",
+  "metadata": {
+    "projectId": "ERP",
+    "projectName": "ERP",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:36:54.964Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

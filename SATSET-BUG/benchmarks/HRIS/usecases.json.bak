@@ -1,0 +1,15 @@
+{
+  "useCases": [
+    "Create project,Approve request"
+  ],
+  "metadata": {
+    "projectId": "HRIS",
+    "projectName": "HRIS",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:37:29.654Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

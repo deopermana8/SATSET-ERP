@@ -1,37 +1,84 @@
-﻿export default function Page() {
+﻿"use client";
+
+import { useState } from "react";
+
+import Form from "./components/Form";
+import Table from "./components/Table";
+import { {{MODULE_UPPER}}_PAGE_TITLE } from "./constants";
+import { use{{MODULE_UPPER}} } from "./hooks/use{{MODULE_UPPER}}";
+import type { {{MODULE_UPPER}}Record } from "./types";
+import type { {{MODULE_UPPER}}FormValues } from "./validation";
+
+export default function Page() {
+  const {
+    items,
+    isLoading,
+    isMutating,
+    errorMessage,
+    createItem,
+    updateItem,
+    deleteItem,
+  } = use{{MODULE_UPPER}}();
+
+  const [editingItem, setEditingItem] = useState<{{MODULE_UPPER}}Record | null>(null);
+  const [submitMessage, setSubmitMessage] = useState<string>("");
+
+  async function handleSubmit(values: {{MODULE_UPPER}}FormValues) {
+    setSubmitMessage("");
+
+    if (editingItem) {
+      const result = await updateItem(editingItem.id, values);
+      setSubmitMessage(result.message ?? "Data berhasil diperbarui");
+      setEditingItem(null);
+      return;
+    }
+
+    const result = await createItem(values);
+    setSubmitMessage(result.message ?? "Data berhasil dibuat");
+  }
+
+  async function handleDelete(id: number) {
+    setSubmitMessage("");
+    const result = await deleteItem(id);
+    setSubmitMessage(result.message ?? "Data berhasil dihapus");
+  }
+
   return (
-    <div style={{padding:24}}>
-      <h1 style={{fontSize:30,fontWeight:"bold"}}>
-        {{MODULE}}
-      </h1>
+    <div style={{ padding: 24 }}>
+      <h1 style={{ fontSize: 30, fontWeight: "bold" }}>{ {{MODULE_UPPER}}_PAGE_TITLE }</h1>
 
-      <div style={{
-        marginTop:20,
-        padding:20,
-        background:"#fff",
-        borderRadius:12,
-        border:"1px solid #e5e7eb"
-      }}>
-        <button>Tambah Data</button>
+      {errorMessage ? <p style={{ marginTop: 12, color: "#dc2626" }}>{errorMessage}</p> : null}
+      {submitMessage ? <p style={{ marginTop: 12, color: "#2563eb" }}>{submitMessage}</p> : null}
 
-        <table style={{width:"100%",marginTop:20}}>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nama</th>
-              <th>Aksi</th>
-            </tr>
-          </thead>
+      <div
+        style={{
+          marginTop: 20,
+          padding: 20,
+          background: "#fff",
+          borderRadius: 12,
+          border: "1px solid #e5e7eb",
+        }}
+      >
+        <Form
+          initialData={editingItem ? { name: editingItem.name } : undefined}
+          onSubmit={handleSubmit}
+          submitLabel={editingItem ? "Simpan" : "Tambah"}
+          onCancel={editingItem ? () => setEditingItem(null) : undefined}
+          disabled={isMutating}
+        />
 
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Contoh</td>
-              <td>Edit | Hapus</td>
-            </tr>
-          </tbody>
-        </table>
+        <div style={{ marginTop: 20 }}>
+          <Table
+            rows={items}
+            isLoading={isLoading}
+            isMutating={isMutating}
+            onEdit={(row) => setEditingItem(row)}
+            onDelete={(row) => {
+              void handleDelete(row.id);
+            }}
+          />
+        </div>
       </div>
     </div>
-  )
+  );
 }

@@ -1,0 +1,16 @@
+﻿{
+    "Templates":  "satset/templates",
+    "Version":  "2.0.0",
+    "Modules":  "satset/modules",
+    "Generated":  "apps/admin/generated",
+    "Name":  "SATSET Framework",
+    "Prisma":  "apps/admin/prisma",
+    "Admin":  "apps/admin",
+    "Database":  "sqlite",
+    "Cache":  "satset/cache",
+    "Author":  "Lontar",
+    "Root":  ".",
+    "Logs":  "satset/logs",
+    "Apps":  "apps",
+    "Web":  "apps/web"
+}

@@ -1,0 +1,15 @@
+export class HealthController {
+  constructor(private readonly service = new (class {})()) {}
+
+  async list() {
+    return {
+      resource: "Health",
+      routes: ["GET /health","POST /health"],
+      useCases: ["Create resource","List resources"],
+    };
+  }
+
+  async create(input: Record<string, unknown>) {
+    return { ok: true, input, resource: "health" };
+  }
+}

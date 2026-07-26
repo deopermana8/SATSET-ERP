@@ -25,6 +25,91 @@ function Get-SatsetModulePath {
     return Join-Path (Get-SatsetDashboardPath) $ModuleName
 }
 
+function ConvertTo-SatsetSlug {
+    param(
+        [Parameter(Mandatory)]
+        [string]$Name
+    )
+
+    $Normalized = [string]$Name
+    if ([string]::IsNullOrWhiteSpace($Normalized)) {
+        return ""
+    }
+
+    $Normalized = $Normalized.Trim()
+    $Normalized = $Normalized -replace '[\s_]+', '-'
+    $Normalized = $Normalized -creplace '([a-z0-9])([A-Z])', '$1-$2'
+    $Normalized = $Normalized -replace '[^a-zA-Z0-9]+', '-'
+    $Normalized = $Normalized -replace '-{2,}', '-'
+    $Normalized = $Normalized.Trim('-')
+    $Normalized = $Normalized.ToLowerInvariant()
+
+    if ([string]::IsNullOrWhiteSpace($Normalized)) {
+        return ""
+    }
+
+    return $Normalized
+}
+
+function ConvertTo-SatsetPascalCase {
+    param(
+        [Parameter(Mandatory)]
+        [string]$Name
+    )
+
+    $Slug = ConvertTo-SatsetSlug -Name $Name
+    if ([string]::IsNullOrWhiteSpace($Slug)) {
+        return ""
+    }
+
+    $Parts = $Slug -split '-'
+    $Pascal = ($Parts | ForEach-Object {
+        if ([string]::IsNullOrWhiteSpace($_)) {
+            return ""
+        }
+
+        return $_.Substring(0, 1).ToUpperInvariant() + $_.Substring(1)
+    }) -join ''
+
+    return $Pascal
+}
+
+function ConvertTo-SatsetCamelCase {
+    param(
+        [Parameter(Mandatory)]
+        [string]$Name
+    )
+
+    $Pascal = ConvertTo-SatsetPascalCase -Name $Name
+    if ([string]::IsNullOrWhiteSpace($Pascal)) {
+        return ""
+    }
+
+    return $Pascal.Substring(0, 1).ToLowerInvariant() + $Pascal.Substring(1)
+}
+
+function ConvertTo-SatsetPlural {
+    param(
+        [Parameter(Mandatory)]
+        [string]$Name
+    )
+
+    $Slug = ConvertTo-SatsetSlug -Name $Name
+    if ([string]::IsNullOrWhiteSpace($Slug)) {
+        return ""
+    }
+
+    if ($Slug.EndsWith('s')) {
+        return $Slug
+    }
+
+    if ($Slug.EndsWith('y') -and $Slug.Length -gt 1 -and -not ($Slug.EndsWith('ay') -or $Slug.EndsWith('ey') -or $Slug.EndsWith('iy') -or $Slug.EndsWith('oy') -or $Slug.EndsWith('uy'))) {
+        return "$($Slug.Substring(0, $Slug.Length - 1))ies"
+    }
+
+    return "$Slug" + 's'
+}
+
 function Test-SatsetModuleName {
     param(
         [Parameter(Mandatory)]
@@ -35,12 +120,16 @@ function Test-SatsetModuleName {
         throw "Module name is required."
     }
 
-    $InvalidChars = [System.IO.Path]::GetInvalidFileNameChars()
-    if ($Name.IndexOfAny($InvalidChars) -ge 0 -or $Name -match '[\\/<>:"|?*]') {
+    $NormalizedName = ConvertTo-SatsetSlug -Name $Name
+    if ([string]::IsNullOrWhiteSpace($NormalizedName)) {
+        throw "Module name is required."
+    }
+
+    if ($NormalizedName -notmatch '^[a-z0-9]+(?:-[a-z0-9]+)*$') {
         throw "Invalid module name '$Name'."
     }
 
-    return $Name
+    return $NormalizedName
 }
 
 function Get-SatsetCrudTemplateDefinitions {
@@ -48,6 +137,24 @@ function Get-SatsetCrudTemplateDefinitions {
         @{ Template = 'columns.txt'; Target = 'columns.ts' },
         @{ Template = 'schema.txt'; Target = 'schema.ts' },
         @{ Template = 'validation.txt'; Target = 'validation.ts' }
+    )
+}
+
+function Get-SatsetCrudExtendedTemplateDefinitions {
+    param(
+        [Parameter(Mandatory)]
+        [string]$ModuleName
+    )
+
+    $SafeModuleName = Test-SatsetModuleName -Name $ModuleName
+    $RootPath = Get-SatsetRootPath
+    $ModulePath = Get-SatsetModulePath -ModuleName $SafeModuleName
+    $ApiRoot = Join-Path (Join-Path $RootPath "apps\admin\app\api") $SafeModuleName
+
+    return @(
+        @{ Template = 'admin-actions.txt'; Target = 'actions.ts'; OutputRoot = $ModulePath },
+        @{ Template = 'admin-api-route.txt'; Target = 'route.ts'; OutputRoot = $ApiRoot },
+        @{ Template = 'admin-api-id-route.txt'; Target = '[id]/route.ts'; OutputRoot = $ApiRoot }
     )
 }
 
@@ -71,13 +178,20 @@ function New-SatsetRenderedFile {
 
     $ModuleName = Test-SatsetModuleName -Name $ModuleName
     $ModulePath = Get-SatsetModulePath -ModuleName $ModuleName
-    $ModuleUpper = ($ModuleName.Substring(0, 1).ToUpperInvariant()) + $ModuleName.Substring(1)
+    $ModuleUpper = ConvertTo-SatsetPascalCase -Name $ModuleName
+    $ModuleCamel = ConvertTo-SatsetCamelCase -Name $ModuleName
+    $ModuleKebab = ConvertTo-SatsetSlug -Name $ModuleName
+    $ModulePlural = ConvertTo-SatsetPlural -Name $ModuleName
 
     $TemplateContent = Get-SatsetTemplate $TemplateName
 
     $ReplacementMap = [ordered]@{
         MODULE = $ModuleName
         MODULE_UPPER = $ModuleUpper
+        MODULE_CAMEL = $ModuleCamel
+        MODULE_KEBAB = $ModuleKebab
+        MODULE_PLURAL = $ModulePlural
+        MODULE_LOWER = $ModuleKebab
     }
 
     if ($TemplateValues) {
@@ -98,7 +212,10 @@ function New-SatsetRenderedFile {
     }
 
     $TargetBasePath = if ([string]::IsNullOrWhiteSpace($OutputRoot)) { $ModulePath } else { $OutputRoot }
-    $TargetPath = Join-Path $TargetBasePath $ResolvedTarget
+    $RelativeTarget = $ResolvedTarget -replace '^[\\/]+', ''
+    $RelativeTarget = $RelativeTarget -replace '^[.][\\/]+', ''
+    $RelativeTarget = $RelativeTarget -replace '[\\/]+', [System.IO.Path]::DirectorySeparatorChar
+    $TargetPath = Join-Path $TargetBasePath $RelativeTarget
     $TargetDir = Split-Path -Parent $TargetPath
     $TargetFileName = [System.IO.Path]::GetFileName($TargetPath)
 
@@ -131,7 +248,7 @@ function New-SatsetRenderedFile {
         Remove-Item -LiteralPath $CaseInsensitiveMatch.FullName -Force
     }
 
-    Set-Content -Path $TargetPath -Value $RenderedContent -Encoding UTF8
+    $RenderedContent | Out-File -LiteralPath $TargetPath -Encoding UTF8 -NoNewline
     Write-Host "[ OK ] File : $TargetPath" -ForegroundColor Green
     return $TargetPath
 }

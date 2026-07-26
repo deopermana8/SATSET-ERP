@@ -1,0 +1,16 @@
+{
+  "idea": "HRIS",
+  "features": [
+    "booking,checkout,inventory,analytics"
+  ],
+  "metadata": {
+    "projectId": "HRIS",
+    "projectName": "HRIS",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:49:09.526Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

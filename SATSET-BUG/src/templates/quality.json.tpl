@@ -1,0 +1,4 @@
+{
+  "score": {{score}},
+  "status": "{{status}}"
+}

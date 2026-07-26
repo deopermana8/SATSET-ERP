@@ -1,0 +1,53 @@
+{
+  "last_reminder": 1784950604343,
+  "cached_at": 1784950598809,
+  "version": "5.22.0",
+  "cli_path": "G:\\SATSET AI\\POS WISATA\\apps\\admin\\node_modules\\prisma\\build\\index.js",
+  "output": {
+    "product": "prisma",
+    "previous_version": "5.22.0",
+    "checkpoint_version": 4,
+    "local_timestamp_without_timezone": "2026-07-25T10:36:37Z",
+    "current_version": "7.9.0",
+    "current_release_date": 1784572250,
+    "client_event_id": "5c7c0073-c205-439d-b0a4-237c9d191faf",
+    "current_download_url": "https://github.com/prisma/prisma",
+    "package": "prisma",
+    "release_tag": "latest",
+    "install_command": "npm install --save-dev prisma",
+    "schema_providers": [
+      "sqlite"
+    ],
+    "schema_preview_features": [],
+    "schema_generators_providers": [
+      "prisma-client-js"
+    ],
+    "current_changelog_url": "https://github.com/prisma/prisma",
+    "outdated": true,
+    "project_website": "https://prisma.io",
+    "alerts": []
+  },
+  "product": "prisma",
+  "cli_install_type": "local",
+  "local_timestamp": "2026-07-25T10:36:44+07:00",
+  "project_hash": "edc4beb2",
+  "cli_path_hash": "9f1ab67f",
+  "endpoint": "https://checkpoint.prisma.io",
+  "arch": "x64",
+  "os": "win32",
+  "node_version": "v24.18.0",
+  "command": "generate",
+  "schema_providers": [
+    "sqlite"
+  ],
+  "schema_preview_features": [],
+  "schema_generators_providers": [
+    "prisma-client-js"
+  ],
+  "cache_file": "G:\\SATSET AI\\POS WISATA\\apps\\admin\\.node-home\\checkpoint-nodejs\\Cache\\prisma-9f1ab67f",
+  "cache_duration": 43200000,
+  "remind_duration": 172800000,
+  "timeout": 5000,
+  "unref": true,
+  "child_path": "G:\\SATSET AI\\POS WISATA\\node_modules\\.pnpm\\prisma@5.22.0\\node_modules\\prisma\\build\\child"
+}

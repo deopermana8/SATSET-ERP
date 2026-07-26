@@ -20,3 +20,13 @@ export function validateFacility(
     errors,
   };
 }
+
+export type CreateFacilityInput = {
+  name: string;
+  slug?: string;
+  description?: string | null;
+  destinationId: number;
+  active?: boolean;
+};
+
+export type UpdateFacilityInput = Partial<CreateFacilityInput>;

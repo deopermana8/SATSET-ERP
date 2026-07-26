@@ -1,4 +1,4 @@
-﻿export type EmployeeFormData = {
+export type EmployeeFormData = {
   name: string
   email: string
   phone: string

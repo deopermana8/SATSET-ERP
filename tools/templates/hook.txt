@@ -1,3 +1,109 @@
-export function useModule(){
-  return {};
+"use client";
+
+import { useCallback, useEffect, useState } from "react";
+
+import {
+  create{{MODULE_UPPER}},
+  delete{{MODULE_UPPER}},
+  list{{MODULE_UPPER}},
+  update{{MODULE_UPPER}},
+} from "../services/{{MODULE}}.service";
+import type {
+  {{MODULE_UPPER}}MutationResult,
+  {{MODULE_UPPER}}Payload,
+  {{MODULE_UPPER}}Record,
+} from "../types";
+
+export function use{{MODULE_UPPER}}() {
+  const [items, setItems] = useState<{{MODULE_UPPER}}Record[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isMutating, setIsMutating] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
+
+  const refresh = useCallback(async () => {
+    setIsLoading(true);
+    setErrorMessage("");
+
+    try {
+      const nextItems = await list{{MODULE_UPPER}}();
+      setItems(nextItems);
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : "Gagal memuat data.");
+      setItems([]);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    void refresh();
+  }, [refresh]);
+
+  const createItem = useCallback(
+    async (input: {{MODULE_UPPER}}Payload): Promise<{{MODULE_UPPER}}MutationResult> => {
+      setIsMutating(true);
+      setErrorMessage("");
+      try {
+        const result = await create{{MODULE_UPPER}}(input);
+        await refresh();
+        return result;
+      } catch (error) {
+        const message = error instanceof Error ? error.message : "Gagal membuat data.";
+        setErrorMessage(message);
+        throw error;
+      } finally {
+        setIsMutating(false);
+      }
+    },
+    [refresh]
+  );
+
+  const updateItem = useCallback(
+    async (id: number, input: Partial<{{MODULE_UPPER}}Payload>): Promise<{{MODULE_UPPER}}MutationResult> => {
+      setIsMutating(true);
+      setErrorMessage("");
+      try {
+        const result = await update{{MODULE_UPPER}}(id, input);
+        await refresh();
+        return result;
+      } catch (error) {
+        const message = error instanceof Error ? error.message : "Gagal memperbarui data.";
+        setErrorMessage(message);
+        throw error;
+      } finally {
+        setIsMutating(false);
+      }
+    },
+    [refresh]
+  );
+
+  const deleteItem = useCallback(
+    async (id: number): Promise<{{MODULE_UPPER}}MutationResult> => {
+      setIsMutating(true);
+      setErrorMessage("");
+      try {
+        const result = await delete{{MODULE_UPPER}}(id);
+        await refresh();
+        return result;
+      } catch (error) {
+        const message = error instanceof Error ? error.message : "Gagal menghapus data.";
+        setErrorMessage(message);
+        throw error;
+      } finally {
+        setIsMutating(false);
+      }
+    },
+    [refresh]
+  );
+
+  return {
+    items,
+    isLoading,
+    isMutating,
+    errorMessage,
+    refresh,
+    createItem,
+    updateItem,
+    deleteItem,
+  };
 }

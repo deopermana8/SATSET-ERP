@@ -12,7 +12,8 @@ try {
     . "$PSScriptRoot\..\engine\TemplateEngine.ps1"
     . "$PSScriptRoot\..\engine\GeneratorEngine.ps1"
 
-    New-SatsetModule -Name $Name -Force:$Force
+    $ModuleName = Test-SatsetModuleName -Name $Name
+    New-SatsetModule -Name $ModuleName -Force:$Force
     exit 0
 }
 catch {

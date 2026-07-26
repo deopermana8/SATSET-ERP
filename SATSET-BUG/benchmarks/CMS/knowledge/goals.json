@@ -1,0 +1,92 @@
+{
+  "goals": [
+    {
+      "id": "goal-1",
+      "title": "Autonomous coding task for CMS",
+      "description": "Autonomous coding task for CMS",
+      "status": "completed",
+      "createdAt": "2026-07-26T07:38:44.172Z",
+      "updatedAt": "2026-07-26T07:38:44.998Z"
+    },
+    {
+      "id": "goal-2",
+      "title": "Autonomous coding task for CMS",
+      "description": "Autonomous coding task for CMS",
+      "status": "completed",
+      "createdAt": "2026-07-26T08:42:28.883Z",
+      "updatedAt": "2026-07-26T08:42:28.909Z"
+    },
+    {
+      "id": "goal-3",
+      "title": "Autonomous coding task for CMS",
+      "description": "Autonomous coding task for CMS",
+      "status": "completed",
+      "createdAt": "2026-07-26T08:42:42.862Z",
+      "updatedAt": "2026-07-26T08:42:42.913Z"
+    },
+    {
+      "id": "goal-4",
+      "title": "Autonomous coding task for CMS",
+      "description": "Autonomous coding task for CMS",
+      "status": "completed",
+      "createdAt": "2026-07-26T08:48:32.504Z",
+      "updatedAt": "2026-07-26T08:48:32.536Z"
+    },
+    {
+      "id": "goal-5",
+      "title": "Autonomous coding task for CMS",
+      "description": "Autonomous coding task for CMS",
+      "status": "completed",
+      "createdAt": "2026-07-26T08:48:45.676Z",
+      "updatedAt": "2026-07-26T08:48:45.705Z"
+    },
+    {
+      "id": "goal-6",
+      "title": "Autonomous coding task for CMS",
+      "description": "Autonomous coding task for CMS",
+      "status": "completed",
+      "createdAt": "2026-07-26T08:51:45.017Z",
+      "updatedAt": "2026-07-26T08:51:46.170Z"
+    },
+    {
+      "id": "goal-7",
+      "title": "Autonomous coding task for CMS",
+      "description": "Autonomous coding task for CMS",
+      "status": "completed",
+      "createdAt": "2026-07-26T08:51:55.667Z",
+      "updatedAt": "2026-07-26T08:51:56.484Z"
+    },
+    {
+      "id": "goal-8",
+      "title": "Autonomous coding task for CMS",
+      "description": "Autonomous coding task for CMS",
+      "status": "planned",
+      "createdAt": "2026-07-26T09:31:43.729Z",
+      "updatedAt": "2026-07-26T09:31:43.729Z"
+    },
+    {
+      "id": "goal-9",
+      "title": "Autonomous coding task for CMS",
+      "description": "Autonomous coding task for CMS",
+      "status": "completed",
+      "createdAt": "2026-07-26T09:34:25.351Z",
+      "updatedAt": "2026-07-26T09:34:25.377Z"
+    },
+    {
+      "id": "goal-10",
+      "title": "Autonomous coding task for CMS",
+      "description": "Autonomous coding task for CMS",
+      "status": "completed",
+      "createdAt": "2026-07-26T09:34:41.225Z",
+      "updatedAt": "2026-07-26T09:34:41.257Z"
+    },
+    {
+      "id": "goal-11",
+      "title": "Autonomous coding task for CMS",
+      "description": "Autonomous coding task for CMS",
+      "status": "completed",
+      "createdAt": "2026-07-26T09:45:36.541Z",
+      "updatedAt": "2026-07-26T09:45:36.571Z"
+    }
+  ]
+}

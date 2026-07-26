@@ -1,0 +1,39 @@
+[
+  {
+    "id": "repair:typescript:'tsc' is not recognized as an internal or external command,|operable program or batch file.|undefined|[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsc\" not found",
+    "category": "typescript",
+    "severity": "high",
+    "errors": [
+      "'tsc' is not recognized as an internal or external command,",
+      "operable program or batch file.",
+      "undefined",
+      "[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsc\" not found"
+    ],
+    "solution": "repair typescript issue with minimal patch"
+  },
+  {
+    "id": "repair:typescript:",
+    "category": "typescript",
+    "severity": "medium",
+    "errors": [],
+    "solution": "repair typescript issue with minimal patch"
+  },
+  {
+    "id": "repair:test:src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.|src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX u",
+    "category": "test",
+    "severity": "medium",
+    "errors": [
+      "src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+      "src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+      "src/app/(marketing)/page.tsx(5,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+      "src/ui/HomePage.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+      "src/ui/HomePage.tsx(4,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+      "src/ui/HomePage.tsx(5,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+      "tests/CreateProject.test.ts(3,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.",
+      "tests/CreateProject.test.ts(4,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.",
+      "tests/PrimaryWorkflow.test.ts(3,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.",
+      "tests/PrimaryWorkflow.test.ts(4,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`."
+    ],
+    "solution": "repair test issue with minimal patch"
+  }
+]

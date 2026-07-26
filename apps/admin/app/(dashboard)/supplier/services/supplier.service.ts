@@ -1,2 +1,2 @@
-﻿export const supplierService = {};
+export const supplierService = {};
 

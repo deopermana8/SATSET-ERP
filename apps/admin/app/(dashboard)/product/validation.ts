@@ -1,1 +1,1 @@
-﻿export const validation = {};
+export const validation = {};

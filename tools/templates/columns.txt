@@ -1,1 +1,12 @@
-export const columns = [];
+export type {{MODULE_UPPER}}ColumnKey = "id" | "name" | "actions";
+
+export type {{MODULE_UPPER}}Column = {
+	key: {{MODULE_UPPER}}ColumnKey;
+	label: string;
+};
+
+export const {{MODULE_CAMEL}}Columns: {{MODULE_UPPER}}Column[] = [
+	{ key: "id", label: "ID" },
+	{ key: "name", label: "Nama" },
+	{ key: "actions", label: "Aksi" },
+];

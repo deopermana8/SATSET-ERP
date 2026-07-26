@@ -1,0 +1,16 @@
+{
+  "currentStage": "compile",
+  "progress": 40,
+  "currentTask": "compiling project",
+  "estimatedRemaining": "25s",
+  "metadata": {
+    "projectId": "HRIS",
+    "projectName": "HRIS",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:50:14.960Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

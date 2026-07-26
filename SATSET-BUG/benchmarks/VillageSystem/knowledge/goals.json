@@ -1,0 +1,20 @@
+{
+  "goals": [
+    {
+      "id": "goal-1",
+      "title": "Autonomous coding task for VillageSystem",
+      "description": "Autonomous coding task for VillageSystem",
+      "status": "completed",
+      "createdAt": "2026-07-26T09:43:59.155Z",
+      "updatedAt": "2026-07-26T09:43:59.172Z"
+    },
+    {
+      "id": "goal-2",
+      "title": "Autonomous coding task for VillageSystem",
+      "description": "Autonomous coding task for VillageSystem",
+      "status": "completed",
+      "createdAt": "2026-07-26T09:49:42.730Z",
+      "updatedAt": "2026-07-26T09:49:42.752Z"
+    }
+  ]
+}

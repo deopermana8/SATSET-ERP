@@ -1,0 +1,5 @@
+
+
+# Self Healing
+
+HRIS uses deterministic repair loops.

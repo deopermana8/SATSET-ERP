@@ -1,4 +1,4 @@
-﻿export function useVisitor(){
+export function useVisitor(){
   return {};
 }
 

@@ -1,0 +1,6 @@
+
+
+# Compiled Prompt
+
+Idea: Inventory
+Prompt: Generate a production-ready implementation for Inventory

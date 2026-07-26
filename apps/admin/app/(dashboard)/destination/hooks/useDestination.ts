@@ -1,4 +1,4 @@
-﻿export function useDestination(){
+export function useDestination(){
   return {};
 }
 

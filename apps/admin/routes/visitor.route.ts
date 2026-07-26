@@ -1,4 +1,4 @@
-﻿export const visitorRoute = {
+export const visitorRoute = {
     entity: 'visitor',
     table: 'visitor',
     fields: []

@@ -1,4 +1,17 @@
-export interface Item{
-  id:number;
-  name:string;
-}
+export type {{MODULE_UPPER}}Record = {
+  id: number;
+  name: string;
+  slug?: string | null;
+  createdAt?: string;
+  updatedAt?: string;
+};
+
+export type {{MODULE_UPPER}}Payload = {
+  name: string;
+};
+
+export type {{MODULE_UPPER}}MutationResult = {
+  success: boolean;
+  message?: string;
+  data?: {{MODULE_UPPER}}Record;
+};

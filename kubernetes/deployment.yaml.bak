@@ -1,0 +1,21 @@
+<!-- satset-artifact-metadata {"projectId":"POS WISATA","projectName":"POS WISATA","runtimeId":"satset-doctor","timestamp":"2026-07-26T08:54:30.496Z","benchmarkScore":0,"qualityScore":0,"validationScore":0,"knowledgeVersion":"1.0.0"} -->
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: POS WISATA
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: POS WISATA
+  template:
+    metadata:
+      labels:
+        app: POS WISATA
+    spec:
+      containers:
+        - name: POS WISATA
+          image: POS WISATA:latest
+          ports:
+            - containerPort: 3000

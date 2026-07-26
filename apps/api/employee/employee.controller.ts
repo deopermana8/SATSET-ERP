@@ -10,7 +10,7 @@ export class EmployeeController {
     }
 
     async findById(req: Request, res: Response) {
-        const id = req.params.id
+        const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id
         const item = await this.service.findById(id)
         if (!item) {
             return res.status(404).json({ message: 'Employee not found' })
@@ -25,7 +25,7 @@ export class EmployeeController {
     }
 
     async update(req: Request, res: Response) {
-        const id = req.params.id
+        const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id
         const payload = req.body
         const updated = await this.service.update(id, payload)
         if (!updated) {
@@ -35,7 +35,7 @@ export class EmployeeController {
     }
 
     async delete(req: Request, res: Response) {
-        const id = req.params.id
+        const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id
         const deleted = await this.service.delete(id)
         if (!deleted) {
             return res.status(404).json({ message: 'Employee not found' })

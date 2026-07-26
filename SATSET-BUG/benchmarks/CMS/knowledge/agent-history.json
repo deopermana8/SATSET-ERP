@@ -1,0 +1,572 @@
+{
+  "entries": [
+    {
+      "id": "entry-1",
+      "timestamp": "2026-07-26T07:38:44.277Z",
+      "goalId": "goal-1",
+      "taskId": "task-1",
+      "status": "running",
+      "summary": "inspect context"
+    },
+    {
+      "id": "entry-2",
+      "timestamp": "2026-07-26T07:38:44.446Z",
+      "goalId": "goal-1",
+      "taskId": "task-1",
+      "status": "completed",
+      "summary": "executed inspect context"
+    },
+    {
+      "id": "entry-3",
+      "timestamp": "2026-07-26T07:38:44.557Z",
+      "goalId": "goal-1",
+      "taskId": "task-2",
+      "status": "running",
+      "summary": "repair implementation"
+    },
+    {
+      "id": "entry-4",
+      "timestamp": "2026-07-26T07:38:44.677Z",
+      "goalId": "goal-1",
+      "taskId": "task-2",
+      "status": "completed",
+      "summary": "executed repair implementation"
+    },
+    {
+      "id": "entry-5",
+      "timestamp": "2026-07-26T07:38:44.789Z",
+      "goalId": "goal-1",
+      "taskId": "task-3",
+      "status": "running",
+      "summary": "verify outcome"
+    },
+    {
+      "id": "entry-6",
+      "timestamp": "2026-07-26T07:38:44.901Z",
+      "goalId": "goal-1",
+      "taskId": "task-3",
+      "status": "completed",
+      "summary": "executed verify outcome"
+    },
+    {
+      "id": "entry-7",
+      "timestamp": "2026-07-26T07:38:45.021Z",
+      "goalId": "goal-1",
+      "taskId": "summary",
+      "status": "completed",
+      "summary": "Completed Autonomous coding task for CMS"
+    },
+    {
+      "id": "entry-8",
+      "timestamp": "2026-07-26T08:42:28.887Z",
+      "goalId": "goal-2",
+      "taskId": "task-1",
+      "status": "running",
+      "summary": "inspect context"
+    },
+    {
+      "id": "entry-9",
+      "timestamp": "2026-07-26T08:42:28.891Z",
+      "goalId": "goal-2",
+      "taskId": "task-1",
+      "status": "completed",
+      "summary": "executed inspect context"
+    },
+    {
+      "id": "entry-10",
+      "timestamp": "2026-07-26T08:42:28.895Z",
+      "goalId": "goal-2",
+      "taskId": "task-2",
+      "status": "running",
+      "summary": "repair implementation"
+    },
+    {
+      "id": "entry-11",
+      "timestamp": "2026-07-26T08:42:28.899Z",
+      "goalId": "goal-2",
+      "taskId": "task-2",
+      "status": "completed",
+      "summary": "executed repair implementation"
+    },
+    {
+      "id": "entry-12",
+      "timestamp": "2026-07-26T08:42:28.902Z",
+      "goalId": "goal-2",
+      "taskId": "task-3",
+      "status": "running",
+      "summary": "verify outcome"
+    },
+    {
+      "id": "entry-13",
+      "timestamp": "2026-07-26T08:42:28.905Z",
+      "goalId": "goal-2",
+      "taskId": "task-3",
+      "status": "completed",
+      "summary": "executed verify outcome"
+    },
+    {
+      "id": "entry-14",
+      "timestamp": "2026-07-26T08:42:28.912Z",
+      "goalId": "goal-2",
+      "taskId": "summary",
+      "status": "completed",
+      "summary": "Completed Autonomous coding task for CMS"
+    },
+    {
+      "id": "entry-15",
+      "timestamp": "2026-07-26T08:42:42.879Z",
+      "goalId": "goal-3",
+      "taskId": "task-1",
+      "status": "running",
+      "summary": "inspect context"
+    },
+    {
+      "id": "entry-16",
+      "timestamp": "2026-07-26T08:42:42.884Z",
+      "goalId": "goal-3",
+      "taskId": "task-1",
+      "status": "completed",
+      "summary": "executed inspect context"
+    },
+    {
+      "id": "entry-17",
+      "timestamp": "2026-07-26T08:42:42.893Z",
+      "goalId": "goal-3",
+      "taskId": "task-2",
+      "status": "running",
+      "summary": "repair implementation"
+    },
+    {
+      "id": "entry-18",
+      "timestamp": "2026-07-26T08:42:42.898Z",
+      "goalId": "goal-3",
+      "taskId": "task-2",
+      "status": "completed",
+      "summary": "executed repair implementation"
+    },
+    {
+      "id": "entry-19",
+      "timestamp": "2026-07-26T08:42:42.903Z",
+      "goalId": "goal-3",
+      "taskId": "task-3",
+      "status": "running",
+      "summary": "verify outcome"
+    },
+    {
+      "id": "entry-20",
+      "timestamp": "2026-07-26T08:42:42.908Z",
+      "goalId": "goal-3",
+      "taskId": "task-3",
+      "status": "completed",
+      "summary": "executed verify outcome"
+    },
+    {
+      "id": "entry-21",
+      "timestamp": "2026-07-26T08:42:42.917Z",
+      "goalId": "goal-3",
+      "taskId": "summary",
+      "status": "completed",
+      "summary": "Completed Autonomous coding task for CMS"
+    },
+    {
+      "id": "entry-22",
+      "timestamp": "2026-07-26T08:48:32.507Z",
+      "goalId": "goal-4",
+      "taskId": "task-1",
+      "status": "running",
+      "summary": "inspect context"
+    },
+    {
+      "id": "entry-23",
+      "timestamp": "2026-07-26T08:48:32.511Z",
+      "goalId": "goal-4",
+      "taskId": "task-1",
+      "status": "completed",
+      "summary": "executed inspect context"
+    },
+    {
+      "id": "entry-24",
+      "timestamp": "2026-07-26T08:48:32.518Z",
+      "goalId": "goal-4",
+      "taskId": "task-2",
+      "status": "running",
+      "summary": "repair implementation"
+    },
+    {
+      "id": "entry-25",
+      "timestamp": "2026-07-26T08:48:32.522Z",
+      "goalId": "goal-4",
+      "taskId": "task-2",
+      "status": "completed",
+      "summary": "executed repair implementation"
+    },
+    {
+      "id": "entry-26",
+      "timestamp": "2026-07-26T08:48:32.525Z",
+      "goalId": "goal-4",
+      "taskId": "task-3",
+      "status": "running",
+      "summary": "verify outcome"
+    },
+    {
+      "id": "entry-27",
+      "timestamp": "2026-07-26T08:48:32.529Z",
+      "goalId": "goal-4",
+      "taskId": "task-3",
+      "status": "completed",
+      "summary": "executed verify outcome"
+    },
+    {
+      "id": "entry-28",
+      "timestamp": "2026-07-26T08:48:32.537Z",
+      "goalId": "goal-4",
+      "taskId": "summary",
+      "status": "completed",
+      "summary": "Completed Autonomous coding task for CMS"
+    },
+    {
+      "id": "entry-29",
+      "timestamp": "2026-07-26T08:48:45.682Z",
+      "goalId": "goal-5",
+      "taskId": "task-1",
+      "status": "running",
+      "summary": "inspect context"
+    },
+    {
+      "id": "entry-30",
+      "timestamp": "2026-07-26T08:48:45.685Z",
+      "goalId": "goal-5",
+      "taskId": "task-1",
+      "status": "completed",
+      "summary": "executed inspect context"
+    },
+    {
+      "id": "entry-31",
+      "timestamp": "2026-07-26T08:48:45.688Z",
+      "goalId": "goal-5",
+      "taskId": "task-2",
+      "status": "running",
+      "summary": "repair implementation"
+    },
+    {
+      "id": "entry-32",
+      "timestamp": "2026-07-26T08:48:45.692Z",
+      "goalId": "goal-5",
+      "taskId": "task-2",
+      "status": "completed",
+      "summary": "executed repair implementation"
+    },
+    {
+      "id": "entry-33",
+      "timestamp": "2026-07-26T08:48:45.697Z",
+      "goalId": "goal-5",
+      "taskId": "task-3",
+      "status": "running",
+      "summary": "verify outcome"
+    },
+    {
+      "id": "entry-34",
+      "timestamp": "2026-07-26T08:48:45.701Z",
+      "goalId": "goal-5",
+      "taskId": "task-3",
+      "status": "completed",
+      "summary": "executed verify outcome"
+    },
+    {
+      "id": "entry-35",
+      "timestamp": "2026-07-26T08:48:45.707Z",
+      "goalId": "goal-5",
+      "taskId": "summary",
+      "status": "completed",
+      "summary": "Completed Autonomous coding task for CMS"
+    },
+    {
+      "id": "entry-36",
+      "timestamp": "2026-07-26T08:51:45.153Z",
+      "goalId": "goal-6",
+      "taskId": "task-1",
+      "status": "running",
+      "summary": "inspect context"
+    },
+    {
+      "id": "entry-37",
+      "timestamp": "2026-07-26T08:51:45.265Z",
+      "goalId": "goal-6",
+      "taskId": "task-1",
+      "status": "completed",
+      "summary": "executed inspect context"
+    },
+    {
+      "id": "entry-38",
+      "timestamp": "2026-07-26T08:51:45.498Z",
+      "goalId": "goal-6",
+      "taskId": "task-2",
+      "status": "running",
+      "summary": "repair implementation"
+    },
+    {
+      "id": "entry-39",
+      "timestamp": "2026-07-26T08:51:45.691Z",
+      "goalId": "goal-6",
+      "taskId": "task-2",
+      "status": "completed",
+      "summary": "executed repair implementation"
+    },
+    {
+      "id": "entry-40",
+      "timestamp": "2026-07-26T08:51:45.970Z",
+      "goalId": "goal-6",
+      "taskId": "task-3",
+      "status": "running",
+      "summary": "verify outcome"
+    },
+    {
+      "id": "entry-41",
+      "timestamp": "2026-07-26T08:51:46.066Z",
+      "goalId": "goal-6",
+      "taskId": "task-3",
+      "status": "completed",
+      "summary": "executed verify outcome"
+    },
+    {
+      "id": "entry-42",
+      "timestamp": "2026-07-26T08:51:46.227Z",
+      "goalId": "goal-6",
+      "taskId": "summary",
+      "status": "completed",
+      "summary": "Completed Autonomous coding task for CMS"
+    },
+    {
+      "id": "entry-43",
+      "timestamp": "2026-07-26T08:51:55.771Z",
+      "goalId": "goal-7",
+      "taskId": "task-1",
+      "status": "running",
+      "summary": "inspect context"
+    },
+    {
+      "id": "entry-44",
+      "timestamp": "2026-07-26T08:51:55.876Z",
+      "goalId": "goal-7",
+      "taskId": "task-1",
+      "status": "completed",
+      "summary": "executed inspect context"
+    },
+    {
+      "id": "entry-45",
+      "timestamp": "2026-07-26T08:51:55.971Z",
+      "goalId": "goal-7",
+      "taskId": "task-2",
+      "status": "running",
+      "summary": "repair implementation"
+    },
+    {
+      "id": "entry-46",
+      "timestamp": "2026-07-26T08:51:56.091Z",
+      "goalId": "goal-7",
+      "taskId": "task-2",
+      "status": "completed",
+      "summary": "executed repair implementation"
+    },
+    {
+      "id": "entry-47",
+      "timestamp": "2026-07-26T08:51:56.219Z",
+      "goalId": "goal-7",
+      "taskId": "task-3",
+      "status": "running",
+      "summary": "verify outcome"
+    },
+    {
+      "id": "entry-48",
+      "timestamp": "2026-07-26T08:51:56.388Z",
+      "goalId": "goal-7",
+      "taskId": "task-3",
+      "status": "completed",
+      "summary": "executed verify outcome"
+    },
+    {
+      "id": "entry-49",
+      "timestamp": "2026-07-26T08:51:56.558Z",
+      "goalId": "goal-7",
+      "taskId": "summary",
+      "status": "completed",
+      "summary": "Completed Autonomous coding task for CMS"
+    },
+    {
+      "id": "entry-50",
+      "timestamp": "2026-07-26T09:31:43.825Z",
+      "goalId": "goal-8",
+      "taskId": "task-1",
+      "status": "running",
+      "summary": "inspect context"
+    },
+    {
+      "id": "entry-51",
+      "timestamp": "2026-07-26T09:34:25.354Z",
+      "goalId": "goal-9",
+      "taskId": "task-1",
+      "status": "running",
+      "summary": "inspect context"
+    },
+    {
+      "id": "entry-52",
+      "timestamp": "2026-07-26T09:34:25.358Z",
+      "goalId": "goal-9",
+      "taskId": "task-1",
+      "status": "completed",
+      "summary": "executed inspect context"
+    },
+    {
+      "id": "entry-53",
+      "timestamp": "2026-07-26T09:34:25.362Z",
+      "goalId": "goal-9",
+      "taskId": "task-2",
+      "status": "running",
+      "summary": "repair implementation"
+    },
+    {
+      "id": "entry-54",
+      "timestamp": "2026-07-26T09:34:25.366Z",
+      "goalId": "goal-9",
+      "taskId": "task-2",
+      "status": "completed",
+      "summary": "executed repair implementation"
+    },
+    {
+      "id": "entry-55",
+      "timestamp": "2026-07-26T09:34:25.370Z",
+      "goalId": "goal-9",
+      "taskId": "task-3",
+      "status": "running",
+      "summary": "verify outcome"
+    },
+    {
+      "id": "entry-56",
+      "timestamp": "2026-07-26T09:34:25.374Z",
+      "goalId": "goal-9",
+      "taskId": "task-3",
+      "status": "completed",
+      "summary": "executed verify outcome"
+    },
+    {
+      "id": "entry-57",
+      "timestamp": "2026-07-26T09:34:25.381Z",
+      "goalId": "goal-9",
+      "taskId": "summary",
+      "status": "completed",
+      "summary": "Completed Autonomous coding task for CMS"
+    },
+    {
+      "id": "entry-58",
+      "timestamp": "2026-07-26T09:34:41.229Z",
+      "goalId": "goal-10",
+      "taskId": "task-1",
+      "status": "running",
+      "summary": "inspect context"
+    },
+    {
+      "id": "entry-59",
+      "timestamp": "2026-07-26T09:34:41.233Z",
+      "goalId": "goal-10",
+      "taskId": "task-1",
+      "status": "completed",
+      "summary": "executed inspect context"
+    },
+    {
+      "id": "entry-60",
+      "timestamp": "2026-07-26T09:34:41.239Z",
+      "goalId": "goal-10",
+      "taskId": "task-2",
+      "status": "running",
+      "summary": "repair implementation"
+    },
+    {
+      "id": "entry-61",
+      "timestamp": "2026-07-26T09:34:41.243Z",
+      "goalId": "goal-10",
+      "taskId": "task-2",
+      "status": "completed",
+      "summary": "executed repair implementation"
+    },
+    {
+      "id": "entry-62",
+      "timestamp": "2026-07-26T09:34:41.247Z",
+      "goalId": "goal-10",
+      "taskId": "task-3",
+      "status": "running",
+      "summary": "verify outcome"
+    },
+    {
+      "id": "entry-63",
+      "timestamp": "2026-07-26T09:34:41.252Z",
+      "goalId": "goal-10",
+      "taskId": "task-3",
+      "status": "completed",
+      "summary": "executed verify outcome"
+    },
+    {
+      "id": "entry-64",
+      "timestamp": "2026-07-26T09:34:41.260Z",
+      "goalId": "goal-10",
+      "taskId": "summary",
+      "status": "completed",
+      "summary": "Completed Autonomous coding task for CMS"
+    },
+    {
+      "id": "entry-65",
+      "timestamp": "2026-07-26T09:45:36.546Z",
+      "goalId": "goal-11",
+      "taskId": "task-1",
+      "status": "running",
+      "summary": "inspect context"
+    },
+    {
+      "id": "entry-66",
+      "timestamp": "2026-07-26T09:45:36.549Z",
+      "goalId": "goal-11",
+      "taskId": "task-1",
+      "status": "completed",
+      "summary": "executed inspect context"
+    },
+    {
+      "id": "entry-67",
+      "timestamp": "2026-07-26T09:45:36.553Z",
+      "goalId": "goal-11",
+      "taskId": "task-2",
+      "status": "running",
+      "summary": "repair implementation"
+    },
+    {
+      "id": "entry-68",
+      "timestamp": "2026-07-26T09:45:36.558Z",
+      "goalId": "goal-11",
+      "taskId": "task-2",
+      "status": "completed",
+      "summary": "executed repair implementation"
+    },
+    {
+      "id": "entry-69",
+      "timestamp": "2026-07-26T09:45:36.562Z",
+      "goalId": "goal-11",
+      "taskId": "task-3",
+      "status": "running",
+      "summary": "verify outcome"
+    },
+    {
+      "id": "entry-70",
+      "timestamp": "2026-07-26T09:45:36.566Z",
+      "goalId": "goal-11",
+      "taskId": "task-3",
+      "status": "completed",
+      "summary": "executed verify outcome"
+    },
+    {
+      "id": "entry-71",
+      "timestamp": "2026-07-26T09:45:36.573Z",
+      "goalId": "goal-11",
+      "taskId": "summary",
+      "status": "completed",
+      "summary": "Completed Autonomous coding task for CMS"
+    }
+  ]
+}

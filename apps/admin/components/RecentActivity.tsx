@@ -1,4 +1,4 @@
-﻿export default function RecentActivity(){
+export default function RecentActivity(){
 
   const rows=[
     ["Reservasi Baru","TK Aisyiyah","5 menit lalu"],

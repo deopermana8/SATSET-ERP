@@ -1,0 +1,6 @@
+
+
+# Architecture Reasoning
+
+Idea: POS
+Architecture: modular-service-based

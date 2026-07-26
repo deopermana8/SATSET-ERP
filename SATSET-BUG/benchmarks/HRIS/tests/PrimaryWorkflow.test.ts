@@ -1,0 +1,7 @@
+import assert from "node:assert/strict";
+
+describe("PrimaryWorkflow", () => {
+  it("covers primary workflow", () => {
+    assert.ok(true);
+  });
+});

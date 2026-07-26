@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: CMS
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: CMS
+  template:
+    metadata:
+      labels:
+        app: CMS
+    spec:
+      containers:
+        - name: CMS
+          image: CMS:latest
+          ports:
+            - containerPort: 3000

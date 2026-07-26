@@ -1,0 +1,4 @@
+{
+  "category": "{{category}}",
+  "valid": "{{valid}}"
+}

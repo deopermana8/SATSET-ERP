@@ -1,0 +1,7 @@
+
+
+# Learning Notes
+
+Project: VillageSystem
+
+Status: captured

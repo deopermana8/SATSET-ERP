@@ -42,8 +42,9 @@ export default function ReservationPage() {
 
   const repoRef = React.useRef<InMemoryReservationRepository | null>(null);
 
+  const repository = repoRef.current ?? new InMemoryReservationRepository();
   if (repoRef.current === null) {
-    repoRef.current = new InMemoryReservationRepository();
+    repoRef.current = repository;
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -74,7 +75,7 @@ export default function ReservationPage() {
 
       const gc = new GuestCount(Number(guestCount));
 
-      const createReservation = new CreateReservation(repoRef.current);
+      const createReservation = new CreateReservation(repository);
 
       const reservation = await createReservation.execute({
         reservationId,
@@ -85,7 +86,7 @@ export default function ReservationPage() {
         notes,
       });
 
-      const createQuotation = new CreateQuotation(repoRef.current);
+      const createQuotation = new CreateQuotation(repository);
 
       const result = (await createQuotation.execute({
         quotationId: `Q-${reservationId.toString()}`,

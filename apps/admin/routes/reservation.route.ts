@@ -1,4 +1,4 @@
-﻿export const reservationRoute = {
+export const reservationRoute = {
     entity: 'reservation',
     table: 'reservation',
     fields: []

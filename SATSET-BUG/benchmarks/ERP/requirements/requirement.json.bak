@@ -1,0 +1,28 @@
+{
+  "idea": "ERP",
+  "modules": [
+    "Core,API,UI,Tests"
+  ],
+  "actors": [
+    "Admin,User"
+  ],
+  "businessRules": [
+    "Users must authenticate,Only admins can manage roles"
+  ],
+  "permissions": [
+    "read,write,admin"
+  ],
+  "workflows": [
+    "Login,Create Record,Approve Request"
+  ],
+  "metadata": {
+    "projectId": "ERP",
+    "projectName": "ERP",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:35:00.239Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

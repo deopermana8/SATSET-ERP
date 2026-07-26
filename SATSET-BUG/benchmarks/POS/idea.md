@@ -1,0 +1,1 @@
+Point of sale system for retail operations.

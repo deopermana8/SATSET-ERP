@@ -1,0 +1,48 @@
+"use server";
+
+import { revalidatePath } from "next/cache";
+
+import { requireAuth } from "@/lib/auth/require-auth";
+
+import type { {{MODULE_UPPER}}MutationResult } from "./types";
+import type { Create{{MODULE_UPPER}}Input, Update{{MODULE_UPPER}}Input } from "./validation";
+
+const NOT_CONNECTED_MESSAGE =
+  "Server Action scaffold dibuat. Hubungkan ke Prisma model {{MODULE_CAMEL}} sesuai arsitektur domain sebelum dipakai di production.";
+
+export async function create{{MODULE_UPPER}}Action(
+  _input: Create{{MODULE_UPPER}}Input
+): Promise<{{MODULE_UPPER}}MutationResult> {
+  await requireAuth();
+  revalidatePath("/{{MODULE_KEBAB}}");
+
+  return {
+    success: false,
+    message: NOT_CONNECTED_MESSAGE,
+  };
+}
+
+export async function update{{MODULE_UPPER}}Action(
+  _id: number,
+  _input: Update{{MODULE_UPPER}}Input
+): Promise<{{MODULE_UPPER}}MutationResult> {
+  await requireAuth();
+  revalidatePath("/{{MODULE_KEBAB}}");
+
+  return {
+    success: false,
+    message: NOT_CONNECTED_MESSAGE,
+  };
+}
+
+export async function delete{{MODULE_UPPER}}Action(
+  _id: number
+): Promise<{{MODULE_UPPER}}MutationResult> {
+  await requireAuth();
+  revalidatePath("/{{MODULE_KEBAB}}");
+
+  return {
+    success: false,
+    message: NOT_CONNECTED_MESSAGE,
+  };
+}

@@ -1,2 +1,2 @@
-﻿export const columns = ['id', 'name', 'email', 'phone', 'role'];
+export const columns = ['id', 'name', 'email', 'phone', 'role'];
 

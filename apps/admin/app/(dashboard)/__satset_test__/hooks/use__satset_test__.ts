@@ -1,4 +1,4 @@
-﻿export function use__satset_test__(){
+export function use__satset_test__(){
   return {};
 }
 

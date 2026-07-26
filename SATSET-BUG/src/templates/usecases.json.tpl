@@ -1,0 +1,3 @@
+{
+  "useCases": ["{{useCases}}"]
+}

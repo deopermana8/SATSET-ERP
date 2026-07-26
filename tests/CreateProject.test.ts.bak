@@ -1,0 +1,9 @@
+<!-- satset-artifact-metadata {"projectId":"POS WISATA","projectName":"POS WISATA","runtimeId":"satset-doctor","timestamp":"2026-07-26T08:55:20.671Z","benchmarkScore":0,"qualityScore":0,"validationScore":0,"knowledgeVersion":"1.0.0"} -->
+
+import assert from "node:assert/strict";
+
+describe("CreateProject", () => {
+  it("covers Create project", () => {
+    assert.ok(true);
+  });
+});

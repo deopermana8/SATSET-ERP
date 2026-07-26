@@ -1,0 +1,6 @@
+services:
+  app:
+    build: .
+    image: CMS:latest
+    ports:
+      - "3000:3000"

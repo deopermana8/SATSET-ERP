@@ -1,0 +1,8 @@
+<!-- satset-artifact-metadata {"projectId":"POS WISATA","projectName":"POS WISATA","runtimeId":"satset-doctor","timestamp":"2026-07-26T08:54:30.312Z","benchmarkScore":0,"qualityScore":0,"validationScore":0,"knowledgeVersion":"1.0.0"} -->
+
+FROM node:20-alpine
+WORKDIR /app
+COPY package.json pnpm-lock.yaml ./
+RUN corepack enable && pnpm install --ignore-scripts
+COPY . .
+CMD ["pnpm", "dev"]

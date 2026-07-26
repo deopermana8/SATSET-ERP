@@ -1,4 +1,4 @@
-﻿export function usePayment(){
+export function usePayment(){
   return {};
 }
 

@@ -1,0 +1,28 @@
+{
+  "idea": "Build POS",
+  "modules": [
+    "User,Project,AuditEntry"
+  ],
+  "actors": [
+    "Admin,User"
+  ],
+  "businessRules": [
+    "Authentication,Core workflows,Audit trail"
+  ],
+  "permissions": [
+    "read,write,admin"
+  ],
+  "workflows": [
+    "Create project,Approve request"
+  ],
+  "metadata": {
+    "projectId": "POS",
+    "projectName": "POS",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:53:54.826Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

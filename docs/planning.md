@@ -1,0 +1,19 @@
+
+
+# Planning
+
+## Functional Requirements
+- Capture core application workflows
+- Support user management
+- Expose documented APIs
+
+## Non Functional Requirements
+- Maintain deterministic builds
+- Ensure testable architecture
+- Support diagnostics and repair
+
+## Modules
+- Core
+- API
+- UI
+- Tests

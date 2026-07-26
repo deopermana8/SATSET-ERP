@@ -1,0 +1,52 @@
+import { NextResponse } from "next/server";
+
+import { requireAuth } from "@/lib/auth/require-auth";
+
+const NOT_CONNECTED_MESSAGE =
+  "API scaffold untuk {{MODULE}} sudah dibuat. Hubungkan ke Prisma model {{MODULE_CAMEL}} sebelum dipakai di production.";
+
+export async function GET() {
+  try {
+    await requireAuth();
+
+    return NextResponse.json(
+      {
+        success: false,
+        message: NOT_CONNECTED_MESSAGE,
+        data: [],
+      },
+      { status: 501 }
+    );
+  } catch (error) {
+    return NextResponse.json(
+      { message: error instanceof Error ? error.message : "Unauthorized" },
+      { status: 401 }
+    );
+  }
+}
+
+export async function POST(request: Request) {
+  try {
+    await requireAuth();
+
+    const body = (await request.json().catch(() => null)) as { name?: unknown } | null;
+    const name = String(body?.name ?? "").trim();
+
+    if (!name) {
+      return NextResponse.json({ message: "Nama wajib diisi" }, { status: 400 });
+    }
+
+    return NextResponse.json(
+      {
+        success: false,
+        message: NOT_CONNECTED_MESSAGE,
+      },
+      { status: 501 }
+    );
+  } catch (error) {
+    return NextResponse.json(
+      { message: error instanceof Error ? error.message : "Gagal membuat data" },
+      { status: 500 }
+    );
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "projectName": "POS WISATA",
+  "dependencies": [
+    "context",
+    "doctor",
+    "orchestrator",
+    "history"
+  ],
+  "metadata": {
+    "projectId": "POS WISATA",
+    "projectName": "POS WISATA",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:22:55.729Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

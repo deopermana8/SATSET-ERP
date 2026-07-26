@@ -1,0 +1,9 @@
+[
+  {
+    "id": "repair:typescript:",
+    "category": "typescript",
+    "severity": "medium",
+    "errors": [],
+    "solution": "repair typescript issue with minimal patch"
+  }
+]

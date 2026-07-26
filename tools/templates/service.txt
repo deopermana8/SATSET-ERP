@@ -1,3 +1,113 @@
-export async function getAll(){
+import { {{MODULE_UPPER}}_API_BASE } from "../constants";
+import type {
+  {{MODULE_UPPER}}MutationResult,
+  {{MODULE_UPPER}}Payload,
+  {{MODULE_UPPER}}Record,
+} from "../types";
+
+type RequestInitWithJson = RequestInit & {
+  json?: unknown;
+};
+
+async function request<T>(path: string, init?: RequestInitWithJson): Promise<T> {
+  const headers: HeadersInit = {
+    "Content-Type": "application/json",
+    ...(init?.headers ?? {}),
+  };
+
+  const response = await fetch(path, {
+    ...init,
+    headers,
+    credentials: "same-origin",
+    body: init?.json === undefined ? init?.body : JSON.stringify(init.json),
+  });
+
+  let payload: unknown = null;
+  try {
+    payload = await response.json();
+  } catch {
+    payload = null;
+  }
+
+  if (!response.ok) {
+    const message =
+      payload && typeof payload === "object" && "message" in payload
+        ? String((payload as { message?: unknown }).message ?? "")
+        : "Permintaan gagal.";
+    throw new Error(message || "Permintaan gagal.");
+  }
+
+  return payload as T;
+}
+
+function normalizeMutationResult(payload: unknown): {{MODULE_UPPER}}MutationResult {
+  if (payload && typeof payload === "object" && "success" in payload) {
+    const typedPayload = payload as {
+      success?: boolean;
+      message?: string;
+      data?: {{MODULE_UPPER}}Record;
+    };
+
+    return {
+      success: Boolean(typedPayload.success),
+      message: typedPayload.message,
+      data: typedPayload.data,
+    };
+  }
+
+  return {
+    success: true,
+    data: payload as {{MODULE_UPPER}}Record,
+  };
+}
+
+export async function list{{MODULE_UPPER}}(): Promise<{{MODULE_UPPER}}Record[]> {
+  const payload = await request<unknown>({{MODULE_UPPER}}_API_BASE);
+
+  if (Array.isArray(payload)) {
+    return payload as {{MODULE_UPPER}}Record[];
+  }
+
+  if (payload && typeof payload === "object" && "data" in payload) {
+    const data = (payload as { data?: unknown }).data;
+    return Array.isArray(data) ? (data as {{MODULE_UPPER}}Record[]) : [];
+  }
+
   return [];
+}
+
+export async function get{{MODULE_UPPER}}ById(id: number): Promise<{{MODULE_UPPER}}Record | null> {
+  const payload = await request<unknown>(`${{{MODULE_UPPER}}_API_BASE}/${id}`);
+
+  if (payload && typeof payload === "object" && "data" in payload) {
+    return ((payload as { data?: unknown }).data ?? null) as {{MODULE_UPPER}}Record | null;
+  }
+
+  return (payload as {{MODULE_UPPER}}Record) ?? null;
+}
+
+export async function create{{MODULE_UPPER}}(input: {{MODULE_UPPER}}Payload): Promise<{{MODULE_UPPER}}MutationResult> {
+  const payload = await request<unknown>({{MODULE_UPPER}}_API_BASE, {
+    method: "POST",
+    json: input,
+  });
+
+  return normalizeMutationResult(payload);
+}
+
+export async function update{{MODULE_UPPER}}(id: number, input: Partial<{{MODULE_UPPER}}Payload>): Promise<{{MODULE_UPPER}}MutationResult> {
+  const payload = await request<unknown>(`${{{MODULE_UPPER}}_API_BASE}/${id}`, {
+    method: "PATCH",
+    json: input,
+  });
+
+  return normalizeMutationResult(payload);
+}
+
+export async function delete{{MODULE_UPPER}}(id: number): Promise<{{MODULE_UPPER}}MutationResult> {
+  const payload = await request<unknown>(`${{{MODULE_UPPER}}_API_BASE}/${id}`, {
+    method: "DELETE",
+  });
+
+  return normalizeMutationResult(payload);
 }

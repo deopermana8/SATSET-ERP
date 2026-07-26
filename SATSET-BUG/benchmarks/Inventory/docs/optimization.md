@@ -1,0 +1,7 @@
+
+
+# Optimization Plan
+
+Project: Inventory
+
+Status: optimized

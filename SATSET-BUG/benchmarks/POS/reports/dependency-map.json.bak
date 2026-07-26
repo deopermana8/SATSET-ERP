@@ -1,0 +1,19 @@
+{
+  "projectName": "POS",
+  "dependencies": [
+    "context",
+    "doctor",
+    "orchestrator",
+    "history"
+  ],
+  "metadata": {
+    "projectId": "POS",
+    "projectName": "POS",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:43:48.548Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

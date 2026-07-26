@@ -1,0 +1,1285 @@
+{
+  "diagnosis": [
+    {
+      "affectedFiles": [
+      ],
+      "automaticFixAvailable": false,
+      "confidence": 90,
+      "description": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists, schemaExists, hasGenerator, hasDatasource",
+      "estimatedRepairTime": 30,
+      "id": "prisma-integrity-failed",
+      "recommendedFixes": [
+        {
+          "automatic": false,
+          "description": "Regenerate the Prisma Client to restore integrity.",
+          "id": "generate-prisma-client",
+          "risk": "low",
+          "steps": [
+            "Run prisma generate in the project root."
+          ],
+          "title": "Generate ulang Prisma Client"
+        }
+      ],
+      "rootCause": "Prisma",
+      "title": "Prisma Client Integrity Failed"
+    },
+    {
+      "affectedFiles": [
+      ],
+      "automaticFixAvailable": false,
+      "confidence": 90,
+      "description": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists, schemaExists, hasGenerator, hasDatasource",
+      "estimatedRepairTime": 30,
+      "id": "prisma-integrity-failed-unknown-file-0-d917ce7b82f1",
+      "recommendedFixes": [
+        {
+          "automatic": false,
+          "description": "Regenerate the Prisma Client to restore integrity.",
+          "id": "generate-prisma-client",
+          "risk": "low",
+          "steps": [
+            "Run prisma generate in the project root."
+          ],
+          "title": "Generate ulang Prisma Client"
+        }
+      ],
+      "rootCause": "Prisma",
+      "title": "Prisma Client Integrity Failed"
+    }
+  ],
+  "doctorVersion": "unknown",
+  "durationMs": 0,
+  "fingerprint": {
+    "database": "supabase",
+    "dependencyCount": 0,
+    "framework": "next",
+    "hash": "90f95098120e97a42fbfe0bf3627ec5664dfefe2117204d52b79d28828274a53",
+    "next": null,
+    "nodeVersion": "v24.18.0",
+    "packageManager": null,
+    "prisma": null,
+    "react": null,
+    "signature": "next:unknown:90f95098120e97a42fbfe0bf3627ec5664dfefe2117204d52b79d28828274a53",
+    "tailwind": null,
+    "trackedFileCount": 58,
+    "trackedFilesHash": "50db9e72950467665f0db3e0200b95408f1ac844735a14e0c8c2a008a38a4a5a",
+    "turbo": null,
+    "typescript": null,
+    "workspace": false,
+    "workspaceCount": 0
+  },
+  "health": null,
+  "issues": [
+    {
+      "category": "Prisma",
+      "evidence": [
+        {
+          "description": "Integrity indication from Prisma metadata for schema.prisma",
+          "file": "schema.prisma",
+          "id": "prisma-integrity-source",
+          "type": "file"
+        }
+      ],
+      "fixes": [
+        {
+          "automatic": false,
+          "description": "Regenerate the Prisma Client to restore integrity.",
+          "id": "generate-prisma-client",
+          "risk": "low",
+          "steps": [
+            "Run prisma generate in the project root."
+          ],
+          "title": "Generate ulang Prisma Client"
+        }
+      ],
+      "id": "prisma-integrity-failed",
+      "message": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists, schemaExists, hasGenerator, hasDatasource",
+      "severity": "critical",
+      "title": "Prisma Client Integrity Failed"
+    },
+    {
+      "category": "Prisma",
+      "evidence": [
+        {
+          "description": "Integrity indication from Prisma metadata for schema.prisma",
+          "file": "schema.prisma",
+          "id": "prisma-integrity-source",
+          "type": "file"
+        }
+      ],
+      "fixes": [
+        {
+          "automatic": false,
+          "description": "Regenerate the Prisma Client to restore integrity.",
+          "id": "generate-prisma-client",
+          "risk": "low",
+          "steps": [
+            "Run prisma generate in the project root."
+          ],
+          "title": "Generate ulang Prisma Client"
+        }
+      ],
+      "id": "prisma-integrity-failed-unknown-file-0-d917ce7b82f1",
+      "message": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists, schemaExists, hasGenerator, hasDatasource",
+      "severity": "critical",
+      "title": "Prisma Client Integrity Failed"
+    }
+  ],
+  "metadata": {
+    "architecture": {
+      "dependencyGraph": [
+        "Scanner -> Analyzer -> Diagnostic -> Root Cause -> Repair -> Verification"
+      ],
+      "folderStructure": [
+        "src/core",
+        "src/doctor",
+        "src/planner",
+        "src/autofix",
+        "tests"
+      ],
+      "moduleBoundaries": [
+        "Scanner owns discovery",
+        "Analyzer owns rules",
+        "Repair owns file mutations"
+      ],
+      "namingConvention": [
+        "PascalCase for engines",
+        "camelCase for helpers",
+        "kebab-case for folders"
+      ],
+      "projectStructure": [
+        "Engine-based pipeline",
+        "Context-driven state",
+        "Deterministic repair"
+      ],
+      "validation": [
+        "Compile step",
+        "Test step",
+        "History step"
+      ]
+    },
+    "architectureBuilder": {
+      "docs": [
+        "architecture.md",
+        "modules.md",
+        "api.md",
+        "database.md",
+        "security.md",
+        "workflow.md"
+      ]
+    },
+    "artifacts": [
+      {
+        "id": "test-progress",
+        "name": "test-progress",
+        "outputPath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\.progress.json",
+        "templatePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\templates\\test-progress.json.tpl",
+        "variables": {
+          "currentStage": "test",
+          "currentTask": "running tests",
+          "estimatedRemaining": "20s",
+          "progress": "60"
+        }
+      }
+    ],
+    "audit": {
+      "status": "recorded"
+    },
+    "authentication": {
+      "providers": [
+        "jwt",
+        "rbac"
+      ],
+      "roles": [
+        "admin",
+        "member"
+      ],
+      "strategy": [
+        "jwt",
+        "rbac"
+      ]
+    },
+    "backend": {
+      "authentication": [
+        "JWT auth"
+      ],
+      "authorization": [
+        "RBAC"
+      ],
+      "controllers": [
+        "UsersController"
+      ],
+      "dto": [
+        "UserDto"
+      ],
+      "openApi": [
+        "OpenAPI spec generated for User"
+      ],
+      "restApi": [
+        "GET /projects",
+        "POST /projects"
+      ],
+      "services": [
+        "UsersService"
+      ],
+      "types": [
+        "UserType"
+      ],
+      "validation": [
+        "Blueprint-driven validation",
+        "Error handling"
+      ]
+    },
+    "build": {
+      "compileExitCode": 1,
+      "compileTimeMs": 871,
+      "diagnostics": [
+        "'tsc' is not recognized as an internal or external command,\r",
+        "operable program or batch file.\r"
+      ],
+      "installExitCode": 0,
+      "logs": [
+        "Scope: all 20 workspace projects\nAlready up to date\nDone in 597ms using pnpm v11.13.1\n",
+        "",
+        "undefined\n[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsc\" not found\n",
+        "'tsc' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+      ],
+      "packageManager": "unknown"
+    },
+    "certificate": {
+      "architecture": 92,
+      "coverage": 90,
+      "doctorVersion": "0.1.0",
+      "finalScore": 93,
+      "generatorVersion": "1.0.0",
+      "health": 95,
+      "history": 90,
+      "performance": 88,
+      "reliability": 91,
+      "repairCount": 13,
+      "retryCount": 0,
+      "timestamp": "2026-07-26T06:51:17.183Z",
+      "verification": 100
+    },
+    "checkpoint": {
+      "checkpointPath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\.checkpoints",
+      "created": true
+    },
+    "compile": {
+      "diagnostics": [
+        "'tsc' is not recognized as an internal or external command,\r",
+        "operable program or batch file.\r"
+      ],
+      "exitCode": 1,
+      "timestamp": "2026-07-26T06:51:17.187Z",
+      "toolchain": [
+        "typescript",
+        "next",
+        "react",
+        "node",
+        "prisma"
+      ]
+    },
+    "database": {
+      "erd": [
+        "User",
+        "Project",
+        "AuditEntry"
+      ],
+      "indexes": [
+        "@@index([id])"
+      ],
+      "migrations": [
+        "create_user_table",
+        "create_project_table",
+        "create_auditentry_table"
+      ],
+      "prismaSchema": [
+        "model User { id String @id }",
+        "model Project { id String @id }",
+        "model AuditEntry { id String @id }"
+      ],
+      "relations": [
+        "User has many Project"
+      ],
+      "seed": [
+        "seed admin user"
+      ],
+      "validation": [
+        "Schema compiles",
+        "Relations are consistent"
+      ]
+    },
+    "decision": {
+      "action": "continue",
+      "retry": false,
+      "rollback": false
+    },
+    "dependencies": {
+      "circularCandidates": [
+      ],
+      "dependencyTree": {
+      },
+      "devDependencies": [
+      ],
+      "duplicatePackages": [
+      ],
+      "exists": false,
+      "optionalDependencies": [
+      ],
+      "peerDependencies": [
+      ],
+      "totalPackages": 0,
+      "unusedCandidates": [
+      ],
+      "versionConflicts": {
+      },
+      "workspacePackages": [
+      ]
+    },
+    "deployment": {
+      "status": "prepared"
+    },
+    "docker": {
+      "compose": [
+        "App + database service"
+      ],
+      "dockerfile": [
+        "Node base image",
+        "Install dependencies"
+      ],
+      "env": [
+        "Environment variables"
+      ]
+    },
+    "documentation": {
+      "architecture": [
+        "Engine-driven architecture"
+      ],
+      "overview": [
+        "SATSET autonomous project workflow"
+      ],
+      "setup": [
+        "Install dependencies",
+        "Run doctor workflow"
+      ],
+      "usage": [
+        "Provide idea and run orchestration"
+      ]
+    },
+    "environment": {
+      "duplicateVariables": [
+      ],
+      "exists": false,
+      "files": [
+      ],
+      "hasAnthropicKey": false,
+      "hasDatabaseUrl": false,
+      "hasGeminiKey": false,
+      "hasNextAuthSecret": false,
+      "hasNextPublicVariables": false,
+      "hasOpenAIKey": false,
+      "hasSupabaseKey": false,
+      "hasSupabaseUrl": false,
+      "missingVariables": [
+        "DATABASE_URL",
+        "NEXTAUTH_SECRET",
+        "OPENAI_API_KEY",
+        "OPENAI_KEY",
+        "GEMINI_API_KEY",
+        "GEMINI_KEY",
+        "ANTHROPIC_API_KEY",
+        "ANTHROPIC_KEY",
+        "SUPABASE_URL",
+        "SUPABASE_KEY"
+      ],
+      "variables": {
+      }
+    },
+    "frontend": {
+      "components": [
+        "Sidebar",
+        "Header"
+      ],
+      "dashboard": [
+        "Dashboard"
+      ],
+      "forms": [
+        "ProjectForm"
+      ],
+      "hooks": [
+        "useProjects"
+      ],
+      "layouts": [
+        "MainLayout"
+      ],
+      "pages": [
+        "Dashboard"
+      ],
+      "responsiveUi": [
+        "Mobile first layout"
+      ],
+      "tables": [
+        "ProjectTable"
+      ],
+      "theme": [
+        "Shared design tokens"
+      ]
+    },
+    "git": {
+      "branch": null,
+      "exists": false,
+      "hasGitAttributes": false,
+      "hasGitignore": false,
+      "hooksDetected": false,
+      "ignoredBuild": false,
+      "ignoredEnv": false,
+      "ignoredGenerated": false,
+      "ignoredNodeModules": false,
+      "remoteOrigin": null
+    },
+    "learning": {
+      "status": "captured"
+    },
+    "metrics": {
+      "buildTime": "1s",
+      "compileTime": "1s",
+      "coverage": "100%"
+    },
+    "next": {
+      "appRouter": false,
+      "configExists": false,
+      "configPath": null,
+      "eslint": null,
+      "exists": false,
+      "experimental": null,
+      "images": null,
+      "nextVersion": null,
+      "output": null,
+      "pagesRouter": false,
+      "reactVersion": null,
+      "turbopack": null,
+      "typescript": null,
+      "version": null
+    },
+    "notification": {
+      "status": "ready"
+    },
+    "openApi": {
+      "specPath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\docs\\openapi.yaml",
+      "title": "CMS"
+    },
+    "optimization": {
+      "status": "optimized"
+    },
+    "package": {
+      "artifactPath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\artifacts\\manifest.json",
+      "status": "packaged"
+    },
+    "packageJson": {
+      "name": "CMS"
+    },
+    "planning": {
+      "api": [
+        "REST",
+        "OpenAPI"
+      ],
+      "complexity": "medium",
+      "database": [
+        "Postgres",
+        "Prisma"
+      ],
+      "dependencies": [
+        "Node.js",
+        "pnpm",
+        "Prisma",
+        "TypeScript"
+      ],
+      "entities": [
+        "User",
+        "Project",
+        "AuditEntry"
+      ],
+      "folderStructure": [
+        "src",
+        "tests",
+        "docs",
+        "scripts"
+      ],
+      "functionalRequirements": [
+        "Capture core application workflows",
+        "Support user management",
+        "Expose documented APIs"
+      ],
+      "modules": [
+        "Core",
+        "API",
+        "UI",
+        "Tests"
+      ],
+      "nonFunctionalRequirements": [
+        "Maintain deterministic builds",
+        "Ensure testable architecture",
+        "Support diagnostics and repair"
+      ],
+      "pages": [
+        "Home",
+        "Dashboard",
+        "Settings"
+      ],
+      "risks": [
+        "Missing runtime dependencies",
+        "Inconsistent configs"
+      ],
+      "taskBreakdown": [
+        "Plan",
+        "Generate",
+        "Compile",
+        "Test",
+        "Repair",
+        "Verify"
+      ],
+      "userRoles": [
+        "Admin",
+        "User"
+      ]
+    },
+    "pnpm": {
+      "catalogs": null,
+      "exists": false,
+      "lockfileExists": false,
+      "lockfileVersion": null,
+      "onlyBuiltDependencies": null,
+      "overrides": null,
+      "packageCount": null,
+      "packageManager": null,
+      "patchedDependencies": null,
+      "peerDependencyRules": null,
+      "registries": null,
+      "workspaceExists": false,
+      "workspaceFile": null,
+      "workspaceGlobs": null,
+      "workspacePackages": null
+    },
+    "prisma": {
+      "clientPackageVersion": null,
+      "datasourceProvider": null,
+      "datasourceUrl": null,
+      "engineType": null,
+      "generatedHash": null,
+      "generatedPrismaExists": false,
+      "generatedPrismaPath": null,
+      "generatorOutput": null,
+      "generatorPackageVersion": null,
+      "generatorProvider": null,
+      "hasBinary": false,
+      "hasDatasource": false,
+      "hasGenerator": false,
+      "hasGeneratorFolder": false,
+      "hasKnownRequestError": false,
+      "hasNamespacePrisma": false,
+      "hasPrismaClient": false,
+      "hasPrismaPromise": false,
+      "hasQueryEngine": false,
+      "hasRuntimeFolder": false,
+      "hasSchemaModels": false,
+      "indexDtsExists": false,
+      "indexDtsPath": null,
+      "indexDtsSize": null,
+      "indexHash": null,
+      "indexLineCount": null,
+      "libraryDtsSize": null,
+      "libraryHash": null,
+      "libraryLineCount": null,
+      "modelCount": 0,
+      "modelNames": [
+      ],
+      "prismaFolderExists": false,
+      "prismaVersion": null,
+      "runtimeExists": false,
+      "runtimeLibraryExists": false,
+      "runtimeLibraryPath": null,
+      "schemaCount": 0,
+      "schemaExists": false,
+      "schemaFolder": null,
+      "schemaHash": null,
+      "schemaPath": null
+    },
+    "progress": {
+      "currentStage": "orchestrating",
+      "currentTask": "running tasks",
+      "estimatedRemaining": "15s",
+      "progress": 70
+    },
+    "qualityGate": {
+      "status": "passed"
+    },
+    "react": {
+      "clientComponents": null,
+      "exists": false,
+      "hooksDetected": null,
+      "jsxRuntime": null,
+      "reactCompiler": null,
+      "reactDomVersion": null,
+      "reactVersion": null,
+      "serverComponents": null,
+      "strictMode": null
+    },
+    "reasoning": {
+      "apiSpec": [
+        "GET /projects",
+        "POST /projects"
+      ],
+      "databaseDesign": [
+        "Prisma schema",
+        "Migrations"
+      ],
+      "domain": "enterprise",
+      "entities": [
+        "User",
+        "Project",
+        "AuditEntry"
+      ],
+      "intent": "Build CMS",
+      "relationships": [
+        "Project has many AuditEntry",
+        "User owns Project"
+      ],
+      "requirements": [
+        "Authentication",
+        "Core workflows",
+        "Audit trail"
+      ],
+      "screenSpecs": [
+        "Dashboard",
+        "Settings"
+      ],
+      "useCases": [
+        "Create project",
+        "Approve request"
+      ]
+    },
+    "reasoningBrain": {
+      "architecture": "modular-service-based",
+      "confidence": 0.91,
+      "constraints": [
+        "offline-first",
+        "secure",
+        "scalable"
+      ],
+      "critic": "No critical blockers identified",
+      "domain": "travel-and-tourism",
+      "features": [
+        "booking",
+        "checkout",
+        "inventory",
+        "analytics"
+      ],
+      "intent": "Intent analysis for CMS",
+      "prompt": "Generate a production-ready implementation for CMS",
+      "reflection": "Review the plan for CMS",
+      "tasks": [
+        "scaffold",
+        "implement",
+        "verify"
+      ]
+    },
+    "release": {
+      "status": "released"
+    },
+    "repairIterations": [
+      {
+        "attempt": 1,
+        "classifiedErrors": [
+        ],
+        "compile": {
+          "diagnostics": [
+          ],
+          "errorCount": 0,
+          "exitCode": 1,
+          "infoCount": 0,
+          "stderr": "",
+          "stdout": "",
+          "succeeded": false,
+          "warningCount": 0
+        },
+        "patchPlans": [
+        ],
+        "patchResults": [
+        ],
+        "status": "failed"
+      }
+    ],
+    "repairLoop": {
+      "attempts": 3,
+      "completed": true,
+      "maxAttempts": 3,
+      "reason": "passed"
+    },
+    "requirements": {
+      "actors": [
+        "Admin",
+        "User"
+      ],
+      "businessRules": [
+        "Users must authenticate",
+        "Only admins can manage roles"
+      ],
+      "idea": "CMS",
+      "modules": [
+        "Core",
+        "API",
+        "UI",
+        "Tests"
+      ],
+      "permissions": [
+        "read",
+        "write",
+        "admin"
+      ],
+      "workflows": [
+        "Login",
+        "Create Record",
+        "Approve Request"
+      ]
+    },
+    "resume": {
+      "fromTask": "start",
+      "resumed": false
+    },
+    "root": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS",
+    "scaffolder": {
+      "files": [
+        "package.json",
+        "tsconfig.json",
+        "eslint.config.js",
+        "prettier.config.js",
+        ".env.example",
+        ".gitignore",
+        "README.md",
+        "Dockerfile",
+        ".github/workflows/ci.yml"
+      ]
+    },
+    "scheduler": {
+      "concurrency": 2,
+      "scheduled": [
+        "planner",
+        "architecture",
+        "generate",
+        "compile",
+        "test",
+        "verify"
+      ]
+    },
+    "tailwind": {
+      "configExists": false,
+      "configPath": null,
+      "content": null,
+      "cssEntryDetected": false,
+      "darkMode": null,
+      "exists": false,
+      "plugins": null,
+      "postcssExists": false,
+      "postcssPath": null,
+      "presets": null,
+      "theme": null,
+      "usesTailwindV4": null,
+      "version": null
+    },
+    "taskGraph": {
+      "order": [
+        "planner",
+        "architecture",
+        "generate",
+        "compile",
+        "test",
+        "verify"
+      ],
+      "tasks": [
+        {
+          "dependencies": [
+          ],
+          "estimatedDurationMs": 1000,
+          "id": "planner",
+          "maxRetry": 1,
+          "priority": 100,
+          "resume": true,
+          "rollback": false,
+          "type": "planner"
+        },
+        {
+          "dependencies": [
+            "planner"
+          ],
+          "estimatedDurationMs": 1000,
+          "id": "architecture",
+          "maxRetry": 1,
+          "priority": 90,
+          "resume": true,
+          "rollback": true,
+          "type": "architecture"
+        },
+        {
+          "dependencies": [
+            "architecture"
+          ],
+          "estimatedDurationMs": 1500,
+          "id": "generate",
+          "maxRetry": 2,
+          "priority": 80,
+          "resume": true,
+          "rollback": true,
+          "type": "generate"
+        },
+        {
+          "dependencies": [
+            "generate"
+          ],
+          "estimatedDurationMs": 2000,
+          "id": "compile",
+          "maxRetry": 2,
+          "priority": 70,
+          "resume": true,
+          "rollback": true,
+          "type": "compile"
+        },
+        {
+          "dependencies": [
+            "compile"
+          ],
+          "estimatedDurationMs": 2000,
+          "id": "test",
+          "maxRetry": 2,
+          "priority": 60,
+          "resume": true,
+          "rollback": true,
+          "type": "test"
+        },
+        {
+          "dependencies": [
+            "test"
+          ],
+          "estimatedDurationMs": 1000,
+          "id": "verify",
+          "maxRetry": 1,
+          "priority": 50,
+          "resume": true,
+          "rollback": true,
+          "type": "verify"
+        }
+      ]
+    },
+    "taskQueue": {
+      "logs": [
+        {
+          "id": "test-progress",
+          "message": "completed"
+        }
+      ],
+      "progress": {
+        "completed": 1,
+        "etaMs": 0,
+        "pending": 0,
+        "total": 1
+      }
+    },
+    "test": {
+      "coverage": 90,
+      "durationMs": 1349,
+      "e2eExitCode": null,
+      "failedTests": [
+        "'tsx' is not recognized as an internal or external command,\r",
+        "operable program or batch file.\r",
+        "'tsx' is not recognized as an internal or external command,\r",
+        "operable program or batch file.\r"
+      ],
+      "integrationExitCode": 1,
+      "logs": [
+        "undefined\n[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsx\" not found\n",
+        "'tsx' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n",
+        "undefined\n[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsx\" not found\n",
+        "'tsx' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+      ],
+      "unitExitCode": 1
+    },
+    "testing": {
+      "integration": [
+        "API integration tests"
+      ],
+      "performance": [
+        "Smoke performance checks"
+      ],
+      "regression": [
+        "Regression fixtures"
+      ],
+      "reliability": [
+        "Deterministic reliability checks"
+      ],
+      "unit": [
+        "Core unit tests"
+      ]
+    },
+    "turbo": {
+      "cache": null,
+      "configExists": false,
+      "configPath": null,
+      "exists": false,
+      "globalDependencies": null,
+      "globalEnv": null,
+      "outputs": null,
+      "packageManager": null,
+      "persistentTasks": null,
+      "pipeline": null,
+      "remoteCache": null,
+      "tasks": null
+    },
+    "typescript": {
+      "allowJs": null,
+      "baseUrl": null,
+      "compilerOptions": null,
+      "configExists": false,
+      "configPath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\tsconfig.json",
+      "esModuleInterop": null,
+      "exclude": null,
+      "exists": false,
+      "include": null,
+      "incremental": null,
+      "jsx": null,
+      "module": null,
+      "moduleResolution": null,
+      "paths": null,
+      "references": null,
+      "resolveJsonModule": null,
+      "skipLibCheck": null,
+      "strict": null,
+      "target": null,
+      "version": null
+    },
+    "validation": {
+      "status": "passed"
+    },
+    "worker": {
+      "executed": [
+        "artifact-generation",
+        "compile",
+        "test",
+        "verification"
+      ],
+      "status": "ready"
+    },
+    "workflow": {
+      "stages": [
+        "Idea",
+        "Planning",
+        "Architecture",
+        "Generation",
+        "Compilation",
+        "Testing",
+        "Repair",
+        "Verification",
+        "Deployment",
+        "Documentation"
+      ],
+      "status": "ready"
+    }
+  },
+  "projectName": "CMS",
+  "repairLog": [
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\tsconfig.json",
+      "id": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b-6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1-applied-1785048655189",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "retryCount": 1,
+      "rootCauseId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "status": "applied",
+      "stepId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1",
+      "timestamp": "2026-07-26T06:50:55.189Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\tsconfig.json",
+      "id": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b-6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1-applied-1785048655809",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "rollbackStatus": "none",
+      "rootCauseId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "status": "applied",
+      "stepId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1",
+      "timestamp": "2026-07-26T06:50:55.809Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\tsconfig.json",
+      "id": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b-6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1-applied-1785048656411",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "rollbackStatus": "none",
+      "rootCauseId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "status": "applied",
+      "stepId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1",
+      "timestamp": "2026-07-26T06:50:56.411Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\tsconfig.json",
+      "id": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b-6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1-applied-1785048657014",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "rollbackStatus": "none",
+      "rootCauseId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "status": "applied",
+      "stepId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1",
+      "timestamp": "2026-07-26T06:50:57.014Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\tsconfig.json",
+      "id": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b-6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1-applied-1785048669433",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "rollbackStatus": "none",
+      "rootCauseId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "status": "applied",
+      "stepId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1",
+      "timestamp": "2026-07-26T06:51:09.433Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\tsconfig.json",
+      "id": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b-6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1-applied-1785048670067",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "rollbackStatus": "none",
+      "rootCauseId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "status": "applied",
+      "stepId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1",
+      "timestamp": "2026-07-26T06:51:10.067Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\tsconfig.json",
+      "id": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b-6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1-applied-1785048670661",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "rollbackStatus": "none",
+      "rootCauseId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "status": "applied",
+      "stepId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1",
+      "timestamp": "2026-07-26T06:51:10.661Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\tsconfig.json",
+      "id": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b-6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1-applied-1785048671966",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "rollbackStatus": "none",
+      "rootCauseId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "status": "applied",
+      "stepId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1",
+      "timestamp": "2026-07-26T06:51:11.966Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\tsconfig.json",
+      "id": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b-6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1-applied-1785048672566",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "rollbackStatus": "none",
+      "rootCauseId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "status": "applied",
+      "stepId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1",
+      "timestamp": "2026-07-26T06:51:12.566Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\tsconfig.json",
+      "id": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b-6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1-applied-1785048673190",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "rollbackStatus": "none",
+      "rootCauseId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "status": "applied",
+      "stepId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1",
+      "timestamp": "2026-07-26T06:51:13.190Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\tsconfig.json",
+      "id": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b-6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1-applied-1785048674553",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "rollbackStatus": "none",
+      "rootCauseId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "status": "applied",
+      "stepId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1",
+      "timestamp": "2026-07-26T06:51:14.553Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\tsconfig.json",
+      "id": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b-6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1-applied-1785048675156",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "rollbackStatus": "none",
+      "rootCauseId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "status": "applied",
+      "stepId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1",
+      "timestamp": "2026-07-26T06:51:15.156Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\CMS\\tsconfig.json",
+      "id": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b-6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1-applied-1785048675746",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "rollbackStatus": "none",
+      "rootCauseId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "status": "applied",
+      "stepId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1",
+      "timestamp": "2026-07-26T06:51:15.746Z",
+      "title": "Run prisma generate in the project root."
+    }
+  ],
+  "repairLoop": {
+    "attempt": 3,
+    "completed": true,
+    "reason": "no-repair-needed"
+  },
+  "repairPlans": [
+    {
+      "description": "Grouped 2 related issues",
+      "id": "repair-plan:6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "priority": 100,
+      "rootCauseId": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "steps": [
+        {
+          "automatic": false,
+          "dependsOn": [
+          ],
+          "description": "Run prisma generate in the project root.",
+          "estimatedTime": 60,
+          "id": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b-step-1",
+          "risk": "low",
+          "title": "Run prisma generate in the project root."
+        }
+      ],
+      "title": "Repair plan for Prisma (2 issues)",
+      "totalEstimatedTime": 60
+    }
+  ],
+  "repairSummary": {
+    "afterHealth": 0,
+    "afterIssueCount": 2,
+    "beforeHealth": 0,
+    "beforeIssueCount": 2,
+    "durationMs": 1858,
+    "fixedIssueCount": 0,
+    "remainingIssueCount": 2,
+    "rollbackStatus": "none"
+  },
+  "rootCauses": [
+    {
+      "causes": [
+        "Prisma Client Integrity Failed",
+        "Prisma Client Integrity Failed"
+      ],
+      "confidence": 100,
+      "description": "Grouped 2 related issues",
+      "evidence": [
+        {
+          "category": "Prisma",
+          "evidence": [
+            {
+              "description": "Integrity indication from Prisma metadata for schema.prisma",
+              "file": "schema.prisma",
+              "id": "prisma-integrity-source",
+              "type": "file"
+            }
+          ],
+          "fixes": [
+            {
+              "automatic": false,
+              "description": "Regenerate the Prisma Client to restore integrity.",
+              "id": "generate-prisma-client",
+              "risk": "low",
+              "steps": [
+                "Run prisma generate in the project root."
+              ],
+              "title": "Generate ulang Prisma Client"
+            }
+          ],
+          "id": "prisma-integrity-failed",
+          "message": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists, schemaExists, hasGenerator, hasDatasource",
+          "severity": "critical",
+          "title": "Prisma Client Integrity Failed"
+        },
+        {
+          "category": "Prisma",
+          "evidence": [
+            {
+              "description": "Integrity indication from Prisma metadata for schema.prisma",
+              "file": "schema.prisma",
+              "id": "prisma-integrity-source",
+              "type": "file"
+            }
+          ],
+          "fixes": [
+            {
+              "automatic": false,
+              "description": "Regenerate the Prisma Client to restore integrity.",
+              "id": "generate-prisma-client",
+              "risk": "low",
+              "steps": [
+                "Run prisma generate in the project root."
+              ],
+              "title": "Generate ulang Prisma Client"
+            }
+          ],
+          "id": "prisma-integrity-failed-unknown-file-0-d917ce7b82f1",
+          "message": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists, schemaExists, hasGenerator, hasDatasource",
+          "severity": "critical",
+          "title": "Prisma Client Integrity Failed"
+        }
+      ],
+      "id": "6eadcf1a59ad46533e14660ba3d7149e69a4b83b",
+      "priority": 100,
+      "repairSteps": [
+        "Run prisma generate in the project root."
+      ],
+      "title": "Prisma (2 issues)"
+    }
+  ],
+  "scanId": "1",
+  "timestamp": "2026-07-26T06:51:19.239Z",
+  "verification": {
+    "checks": [
+      {
+        "name": "diagnosis",
+        "passed": true,
+        "reason": "Diagnosis entries are consistent with detected issues."
+      },
+      {
+        "name": "repairPlan",
+        "passed": true,
+        "reason": "Repair plans are consistent with identified root causes."
+      },
+      {
+        "name": "issueConsistency",
+        "passed": true,
+        "reason": "Issue metadata and references are consistent."
+      },
+      {
+        "name": "healthScore",
+        "passed": false,
+        "reason": "Health summary is missing from context."
+      }
+    ],
+    "passed": false,
+    "reasons": [
+      "Health summary is missing from context."
+    ]
+  }
+}

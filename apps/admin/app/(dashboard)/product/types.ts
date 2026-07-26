@@ -1,4 +1,4 @@
-﻿export interface productItem{
+export interface productItem{
     id:number;
 }
 

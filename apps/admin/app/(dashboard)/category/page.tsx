@@ -1,38 +1,128 @@
-﻿export default function Page() {
+"use client";
+
+import { useActionState, useEffect, useState, useTransition } from "react";
+
+import { createCategory, deleteCategory, updateCategory } from "./actions";
+import Form from "./components/Form";
+
+type CategoryRecord = {
+  id: number;
+  name: string;
+};
+
+const initialState = {
+  success: false,
+  message: "",
+};
+
+export default function Page() {
+  const [categories, setCategories] = useState<CategoryRecord[]>([]);
+  const [editingCategory, setEditingCategory] = useState<CategoryRecord | null>(null);
+  const [isPending, startTransition] = useTransition();
+  const [state, formAction] = useActionState(async (_prev: typeof initialState, formData: FormData) => {
+    const name = String(formData.get("name") ?? "").trim();
+    if (!name) {
+      return { success: false, message: "Nama wajib diisi" };
+    }
+
+    try {
+      if (editingCategory) {
+        await updateCategory(editingCategory.id, { name });
+        return { success: true, message: "Kategori berhasil diperbarui" };
+      }
+
+      await createCategory({ name });
+      return { success: true, message: "Kategori berhasil dibuat" };
+    } catch (error) {
+      return { success: false, message: error instanceof Error ? error.message : "Terjadi kesalahan" };
+    }
+  }, initialState);
+
+  async function loadCategories() {
+    const response = await fetch("/api/category", { credentials: "same-origin" });
+    if (!response.ok) {
+      throw new Error("Gagal memuat kategori");
+    }
+    setCategories((await response.json()) as CategoryRecord[]);
+  }
+
+  useEffect(() => {
+    void loadCategories().catch(() => {
+      setCategories([]);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (state.success) {
+      void loadCategories();
+      setEditingCategory(null);
+    }
+  }, [state.success]);
+
+  async function handleDelete(id: number) {
+    try {
+      await deleteCategory(id);
+      await loadCategories();
+    } catch {
+      // Keep the current list when deletion fails.
+    }
+  }
+
   return (
-    <div style={{padding:24}}>
-      <h1 style={{fontSize:30,fontWeight:"bold"}}>
-        category
-      </h1>
+    <div style={{ padding: 24 }}>
+      <h1 style={{ fontSize: 30, fontWeight: "bold" }}>Kategori</h1>
 
-      <div style={{
-        marginTop:20,
-        padding:20,
-        background:"#fff",
-        borderRadius:12,
-        border:"1px solid #e5e7eb"
-      }}>
-        <button>Tambah Data</button>
+      {state.message ? <p style={{ marginTop: 12, color: state.success ? "#2563eb" : "#dc2626" }}>{state.message}</p> : null}
 
-        <table style={{width:"100%",marginTop:20}}>
+      <div
+        style={{
+          marginTop: 20,
+          padding: 20,
+          background: "#fff",
+          borderRadius: 12,
+          border: "1px solid #e5e7eb",
+        }}
+      >
+        <Form
+          initialData={editingCategory ? { name: editingCategory.name } : {}}
+          onSubmit={(data) => {
+            startTransition(() => {
+              const formData = new FormData();
+              formData.set("name", data.name);
+              void formAction(formData);
+            });
+          }}
+          submitLabel={isPending ? "Menyimpan..." : editingCategory ? "Simpan" : "Tambah"}
+          onCancel={editingCategory ? () => setEditingCategory(null) : undefined}
+        />
+
+        <table style={{ width: "100%", marginTop: 20, borderCollapse: "collapse" }}>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Nama</th>
-              <th>Aksi</th>
+              <th style={{ borderBottom: "1px solid #e5e7eb", padding: 8, textAlign: "left" }}>ID</th>
+              <th style={{ borderBottom: "1px solid #e5e7eb", padding: 8, textAlign: "left" }}>Nama</th>
+              <th style={{ borderBottom: "1px solid #e5e7eb", padding: 8, textAlign: "left" }}>Aksi</th>
             </tr>
           </thead>
-
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Contoh</td>
-              <td>Edit | Hapus</td>
-            </tr>
+            {categories.map((category) => (
+              <tr key={category.id}>
+                <td style={{ padding: 8 }}>{category.id}</td>
+                <td style={{ padding: 8 }}>{category.name}</td>
+                <td style={{ padding: 8 }}>
+                  <button type="button" onClick={() => setEditingCategory(category)} style={{ marginRight: 8 }}>
+                    Edit
+                  </button>
+                  <button type="button" onClick={() => void handleDelete(category.id)}>
+                    Hapus
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
     </div>
-  )
+  );
 }
 

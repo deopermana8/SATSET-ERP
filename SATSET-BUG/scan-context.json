@@ -1,0 +1,246 @@
+{
+  "issues": [
+    {
+      "id": "prisma-integrity-failed",
+      "title": "Prisma Client Integrity Failed",
+      "category": "Prisma",
+      "severity": "critical",
+      "message": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists",
+      "fixes": [
+        {
+          "id": "generate-prisma-client",
+          "title": "Generate ulang Prisma Client",
+          "description": "Regenerate the Prisma Client to restore integrity.",
+          "risk": "low",
+          "automatic": false,
+          "steps": [
+            "Run prisma generate in the project root."
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "root": "G:/SATSET AI/POS WISATA",
+    "packageJson": {
+      "name": "satset-erp",
+      "version": "0.1.0",
+      "packageManager": "pnpm@11.13.1",
+      "workspaces": [
+        "apps/*",
+        "packages/*"
+      ],
+      "dependencies": {
+        "@prisma/client": "^5.15.0",
+        "next": "^15.2.0",
+        "react": "^18.3.0",
+        "react-dom": "^18.3.0"
+      },
+      "devDependencies": {
+        "@tailwindcss/postcss": "^4.3.3",
+        "@types/node": "^20.14.0",
+        "@types/react": "^18.3.3",
+        "@types/react-dom": "^18.3.0",
+        "@typescript-eslint/eslint-plugin": "^8.64.0",
+        "@typescript-eslint/parser": "^8.64.0",
+        "autoprefixer": "^10.4.19",
+        "eslint": "^8.57.0",
+        "eslint-config-next": "^15.5.20",
+        "eslint-plugin-tailwindcss": "^4.2.0",
+        "postcss": "^8.4.40",
+        "prisma": "^5.15.0",
+        "tailwindcss": "^4.3.3",
+        "turbo": "^1.12.3",
+        "turbo-windows-64": "1.13.4",
+        "typescript": "^5.7.0"
+      },
+      "scripts": {
+        "dev": "pnpm -r --filter ./apps/* run dev",
+        "build": "pnpm --filter @satset/shared run build && pnpm --filter @satset/ticketing run build && pnpm --filter @satset/reservation run build && pnpm -r --filter ./packages/* --filter ./apps/* run build",
+        "lint": "pnpm -r --filter ./packages/* --filter ./apps/* run lint",
+        "typecheck": "pnpm -r --filter ./packages/* --filter ./apps/* run typecheck"
+      }
+    },
+    "prisma": {
+      "prismaFolderExists": false,
+      "schemaExists": true,
+      "schemaFolder": "G:\\SATSET AI\\POS WISATA\\apps\\admin\\prisma",
+      "schemaPath": "G:\\SATSET AI\\POS WISATA\\apps\\admin\\prisma\\schema.prisma",
+      "generatorProvider": "prisma-client-js",
+      "generatorOutput": "../generated/prisma",
+      "datasourceProvider": "sqlite",
+      "datasourceUrl": "file:./dev.db",
+      "engineType": "binary",
+      "modelCount": 10,
+      "modelNames": [
+        "Role",
+        "User",
+        "Ticket",
+        "Category",
+        "Destination",
+        "Facility",
+        "Gate",
+        "Visitor",
+        "Reservation",
+        "Payment"
+      ],
+      "generatedPrismaExists": false,
+      "generatedPrismaPath": null,
+      "generatedHash": null,
+      "runtimeLibraryExists": false,
+      "runtimeLibraryPath": null,
+      "runtimeExists": false,
+      "libraryDtsSize": null,
+      "libraryLineCount": null,
+      "libraryHash": null,
+      "indexDtsExists": false,
+      "indexDtsPath": null,
+      "indexDtsSize": null,
+      "indexLineCount": null,
+      "indexHash": null,
+      "hasRuntimeFolder": false,
+      "hasGeneratorFolder": false,
+      "hasBinary": false,
+      "hasQueryEngine": false,
+      "hasSchemaModels": true,
+      "hasDatasource": true,
+      "hasGenerator": true,
+      "hasNamespacePrisma": false,
+      "hasPrismaClient": false,
+      "hasKnownRequestError": false,
+      "hasPrismaPromise": false,
+      "prismaVersion": "^5.15.0",
+      "generatorPackageVersion": "^5.15.0",
+      "clientPackageVersion": "^5.15.0",
+      "schemaHash": "73e5538bf71cefa1fd51f703b3daacbf1dd7787d7ba4b072234e64e77a503afc",
+      "schemaCount": 3
+    }
+  },
+  "diagnosis": [
+    {
+      "id": "prisma-integrity-failed",
+      "title": "Prisma Client Integrity Failed",
+      "rootCause": "Prisma",
+      "confidence": 90,
+      "description": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists",
+      "affectedFiles": [],
+      "recommendedFixes": [
+        {
+          "id": "generate-prisma-client",
+          "title": "Generate ulang Prisma Client",
+          "description": "Regenerate the Prisma Client to restore integrity.",
+          "risk": "low",
+          "automatic": false,
+          "steps": [
+            "Run prisma generate in the project root."
+          ]
+        }
+      ],
+      "estimatedRepairTime": 30,
+      "automaticFixAvailable": false
+    }
+  ],
+  "rootCauses": [
+    {
+      "id": "c5a1b60ca9d4d2f53833f5e0f39ef61612834e28",
+      "title": "Prisma (1 issues)",
+      "confidence": 100,
+      "description": "Grouped 1 related issues",
+      "causes": [
+        "Prisma Client Integrity Failed"
+      ],
+      "evidence": [
+        {
+          "id": "prisma-integrity-failed",
+          "title": "Prisma Client Integrity Failed",
+          "category": "Prisma",
+          "severity": "critical",
+          "message": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists",
+          "evidence": [
+            {
+              "id": "prisma-integrity-source",
+              "type": "file",
+              "file": "library.d.ts",
+              "description": "Integrity indication from Prisma metadata for library.d.ts"
+            }
+          ],
+          "fixes": [
+            {
+              "id": "generate-prisma-client",
+              "title": "Generate ulang Prisma Client",
+              "description": "Regenerate the Prisma Client to restore integrity.",
+              "risk": "low",
+              "automatic": false,
+              "steps": [
+                "Run prisma generate in the project root."
+              ]
+            }
+          ]
+        }
+      ],
+      "repairSteps": [
+        "Run prisma generate in the project root."
+      ],
+      "priority": 100
+    }
+  ],
+  "repairPlans": [
+    {
+      "id": "repair-plan:c5a1b60ca9d4d2f53833f5e0f39ef61612834e28",
+      "rootCauseId": "c5a1b60ca9d4d2f53833f5e0f39ef61612834e28",
+      "title": "Repair plan for Prisma (1 issues)",
+      "description": "Grouped 1 related issues",
+      "steps": [
+        {
+          "id": "c5a1b60ca9d4d2f53833f5e0f39ef61612834e28-step-1",
+          "title": "Run prisma generate in the project root.",
+          "description": "Run prisma generate in the project root.",
+          "estimatedTime": 60,
+          "automatic": false,
+          "risk": "low",
+          "dependsOn": []
+        }
+      ],
+      "totalEstimatedTime": 60,
+      "priority": 100
+    }
+  ],
+  "verification": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "diagnosis",
+        "passed": true,
+        "reason": "Diagnosis entries are consistent with detected issues."
+      },
+      {
+        "name": "repairPlan",
+        "passed": true,
+        "reason": "Repair plans are consistent with identified root causes."
+      },
+      {
+        "name": "issueConsistency",
+        "passed": true,
+        "reason": "Issue metadata and references are consistent."
+      },
+      {
+        "name": "healthScore",
+        "passed": true,
+        "reason": "Health score and summary are consistent with diagnostics and repair state."
+      }
+    ],
+    "reasons": []
+  },
+  "health": {
+    "score": 99,
+    "grade": "A",
+    "status": "Excellent",
+    "recommendation": "Excellent health. Keep the diagnosis, repair coverage, and verification status aligned.",
+    "critical": 1,
+    "error": 0,
+    "warning": 0,
+    "info": 0,
+    "autoRepairAvailable": false,
+    "diagnosisConfidence": 90
+  }
+}

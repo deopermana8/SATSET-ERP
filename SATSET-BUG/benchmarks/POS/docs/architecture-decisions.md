@@ -1,0 +1,5 @@
+
+
+# Architecture Decisions
+
+- POS uses the existing Context-driven pipeline.

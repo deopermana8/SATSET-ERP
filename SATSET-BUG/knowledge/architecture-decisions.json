@@ -1,0 +1,10 @@
+{
+  "decisions": [
+    {
+      "id": "arch-1785058305382",
+      "name": "Monolith",
+      "confidence": 0.74,
+      "rationale": "Selected small architecture with single-service deployment"
+    }
+  ]
+}

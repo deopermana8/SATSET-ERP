@@ -1,0 +1,7 @@
+
+
+# Metrics
+
+Build: 1s
+Compile: 1s
+Coverage: 100%

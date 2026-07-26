@@ -1,0 +1,1230 @@
+{
+  "projectName": "POS",
+  "metadata": {
+    "root": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS",
+    "packageJson": {
+      "name": "POS",
+      "version": "1.0.0"
+    },
+    "prisma": {
+      "prismaFolderExists": true,
+      "schemaExists": true,
+      "schemaFolder": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\prisma",
+      "schemaPath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\prisma\\schema.prisma",
+      "generatorProvider": "prisma-client-js",
+      "generatorOutput": null,
+      "datasourceProvider": "sqlite",
+      "datasourceUrl": "file:./dev.db",
+      "engineType": null,
+      "modelCount": 3,
+      "modelNames": [
+        "User",
+        "Project",
+        "AuditEntry"
+      ],
+      "generatedPrismaExists": false,
+      "generatedPrismaPath": null,
+      "generatedHash": null,
+      "runtimeLibraryExists": false,
+      "runtimeLibraryPath": null,
+      "runtimeExists": false,
+      "libraryDtsSize": null,
+      "libraryLineCount": null,
+      "libraryHash": null,
+      "indexDtsExists": false,
+      "indexDtsPath": null,
+      "indexDtsSize": null,
+      "indexLineCount": null,
+      "indexHash": null,
+      "hasRuntimeFolder": false,
+      "hasGeneratorFolder": false,
+      "hasBinary": false,
+      "hasQueryEngine": false,
+      "hasSchemaModels": true,
+      "hasDatasource": true,
+      "hasGenerator": true,
+      "hasNamespacePrisma": false,
+      "hasPrismaClient": false,
+      "hasKnownRequestError": false,
+      "hasPrismaPromise": false,
+      "prismaVersion": null,
+      "generatorPackageVersion": null,
+      "clientPackageVersion": null,
+      "schemaHash": "f00877916830d5d7aa3768bf8907f2a311cba52bef25d7797382c7c7b4f09d76",
+      "schemaCount": 1
+    },
+    "react": {
+      "exists": true,
+      "reactVersion": null,
+      "reactDomVersion": null,
+      "jsxRuntime": null,
+      "strictMode": null,
+      "reactCompiler": null,
+      "serverComponents": null,
+      "clientComponents": null,
+      "hooksDetected": null
+    },
+    "dependencies": {
+      "exists": true,
+      "totalPackages": 1,
+      "duplicatePackages": [],
+      "workspacePackages": [],
+      "peerDependencies": [],
+      "optionalDependencies": [],
+      "devDependencies": [],
+      "dependencyTree": {
+        "POS": {
+          "dependencies": [],
+          "devDependencies": [],
+          "peerDependencies": [],
+          "optionalDependencies": []
+        }
+      },
+      "circularCandidates": [],
+      "unusedCandidates": [
+        "POS"
+      ],
+      "versionConflicts": {}
+    },
+    "pnpm": {
+      "exists": true,
+      "workspaceExists": false,
+      "workspaceFile": null,
+      "lockfileExists": false,
+      "lockfileVersion": null,
+      "packageManager": null,
+      "workspacePackages": null,
+      "catalogs": null,
+      "onlyBuiltDependencies": null,
+      "patchedDependencies": null,
+      "overrides": null,
+      "peerDependencyRules": null,
+      "registries": null,
+      "packageCount": null,
+      "workspaceGlobs": null
+    },
+    "turbo": {
+      "exists": true,
+      "configExists": false,
+      "configPath": null,
+      "pipeline": null,
+      "tasks": null,
+      "globalDependencies": null,
+      "globalEnv": null,
+      "remoteCache": null,
+      "outputs": null,
+      "cache": null,
+      "persistentTasks": null,
+      "packageManager": null
+    },
+    "environment": {
+      "exists": true,
+      "files": [
+        ".env.example"
+      ],
+      "variables": {
+        "NODE_ENV": "development"
+      },
+      "duplicateVariables": [],
+      "missingVariables": [
+        "DATABASE_URL",
+        "NEXTAUTH_SECRET",
+        "OPENAI_API_KEY",
+        "OPENAI_KEY",
+        "GEMINI_API_KEY",
+        "GEMINI_KEY",
+        "ANTHROPIC_API_KEY",
+        "ANTHROPIC_KEY",
+        "SUPABASE_URL",
+        "SUPABASE_KEY"
+      ],
+      "hasDatabaseUrl": false,
+      "hasNextAuthSecret": false,
+      "hasNextPublicVariables": false,
+      "hasOpenAIKey": false,
+      "hasGeminiKey": false,
+      "hasAnthropicKey": false,
+      "hasSupabaseUrl": false,
+      "hasSupabaseKey": false
+    },
+    "git": {
+      "exists": false,
+      "branch": null,
+      "remoteOrigin": null,
+      "hasGitignore": true,
+      "hasGitAttributes": false,
+      "ignoredNodeModules": true,
+      "ignoredEnv": false,
+      "ignoredBuild": true,
+      "ignoredGenerated": false,
+      "hooksDetected": false
+    },
+    "next": {
+      "exists": false,
+      "version": null,
+      "configExists": false,
+      "configPath": null,
+      "appRouter": false,
+      "pagesRouter": false,
+      "turbopack": null,
+      "typescript": null,
+      "eslint": null,
+      "reactVersion": null,
+      "nextVersion": null,
+      "output": null,
+      "images": null,
+      "experimental": null
+    },
+    "typescript": {
+      "exists": false,
+      "version": null,
+      "configExists": true,
+      "configPath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tsconfig.json",
+      "compilerOptions": {
+        "target": "ES2020",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "strict": false
+      },
+      "baseUrl": null,
+      "paths": null,
+      "strict": false,
+      "module": "NodeNext",
+      "moduleResolution": "NodeNext",
+      "target": "ES2020",
+      "jsx": null,
+      "incremental": null,
+      "skipLibCheck": null,
+      "resolveJsonModule": null,
+      "esModuleInterop": null,
+      "allowJs": null,
+      "references": null,
+      "include": null,
+      "exclude": null
+    },
+    "tailwind": {
+      "exists": true,
+      "version": null,
+      "configExists": false,
+      "configPath": null,
+      "postcssExists": false,
+      "postcssPath": null,
+      "plugins": null,
+      "content": null,
+      "theme": null,
+      "presets": null,
+      "darkMode": null,
+      "usesTailwindV4": null,
+      "cssEntryDetected": false
+    },
+    "artifacts": [
+      {
+        "id": "build-loop-progress",
+        "name": "build-loop-progress",
+        "templatePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\templates\\build-progress.json.tpl",
+        "outputPath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\.progress.json",
+        "variables": {
+          "currentStage": "build",
+          "progress": "70",
+          "currentTask": "running build loop",
+          "estimatedRemaining": "15s"
+        }
+      }
+    ],
+    "taskQueue": {
+      "progress": {
+        "completed": 1,
+        "total": 1,
+        "pending": 0,
+        "etaMs": 0
+      },
+      "logs": [
+        {
+          "id": "build-loop-progress",
+          "message": "completed"
+        }
+      ]
+    },
+    "reasoningBrain": {
+      "intent": "Intent analysis for POS",
+      "domain": "travel-and-tourism",
+      "features": [
+        "booking",
+        "checkout",
+        "inventory",
+        "analytics"
+      ],
+      "constraints": [
+        "offline-first",
+        "secure",
+        "scalable"
+      ],
+      "architecture": "modular-service-based",
+      "tasks": [
+        "scaffold",
+        "implement",
+        "verify"
+      ],
+      "prompt": "Generate a production-ready implementation for POS",
+      "reflection": "Review the plan for POS",
+      "critic": "No critical blockers identified",
+      "confidence": 0.91
+    },
+    "planning": {
+      "functionalRequirements": [
+        "Capture core application workflows",
+        "Support user management",
+        "Expose documented APIs"
+      ],
+      "nonFunctionalRequirements": [
+        "Maintain deterministic builds",
+        "Ensure testable architecture",
+        "Support diagnostics and repair"
+      ],
+      "entities": [
+        "User",
+        "Project",
+        "AuditEntry"
+      ],
+      "modules": [
+        "Core",
+        "API",
+        "UI",
+        "Tests"
+      ],
+      "pages": [
+        "Home",
+        "Dashboard",
+        "Settings"
+      ],
+      "userRoles": [
+        "Admin",
+        "User"
+      ],
+      "database": [
+        "Postgres",
+        "Prisma"
+      ],
+      "api": [
+        "REST",
+        "OpenAPI"
+      ],
+      "folderStructure": [
+        "src",
+        "tests",
+        "docs",
+        "scripts"
+      ],
+      "taskBreakdown": [
+        "Plan",
+        "Generate",
+        "Compile",
+        "Test",
+        "Repair",
+        "Verify"
+      ],
+      "dependencies": [
+        "Node.js",
+        "pnpm",
+        "Prisma",
+        "TypeScript"
+      ],
+      "risks": [
+        "Missing runtime dependencies",
+        "Inconsistent configs"
+      ],
+      "complexity": "medium"
+    },
+    "architecture": {
+      "folderStructure": [
+        "src/core",
+        "src/doctor",
+        "src/planner",
+        "src/autofix",
+        "tests"
+      ],
+      "projectStructure": [
+        "Engine-based pipeline",
+        "Context-driven state",
+        "Deterministic repair"
+      ],
+      "namingConvention": [
+        "PascalCase for engines",
+        "camelCase for helpers",
+        "kebab-case for folders"
+      ],
+      "moduleBoundaries": [
+        "Scanner owns discovery",
+        "Analyzer owns rules",
+        "Repair owns file mutations"
+      ],
+      "dependencyGraph": [
+        "Scanner -> Analyzer -> Diagnostic -> Root Cause -> Repair -> Verification"
+      ],
+      "validation": [
+        "Compile step",
+        "Test step",
+        "History step"
+      ]
+    },
+    "database": {
+      "erd": [
+        "User",
+        "Project",
+        "AuditEntry"
+      ],
+      "prismaSchema": [
+        "model User { id String @id }",
+        "model Project { id String @id }",
+        "model AuditEntry { id String @id }"
+      ],
+      "migrations": [
+        "create_user_table",
+        "create_project_table",
+        "create_auditentry_table"
+      ],
+      "seed": [
+        "seed admin user"
+      ],
+      "indexes": [
+        "@@index([id])"
+      ],
+      "relations": [
+        "User has many Project"
+      ],
+      "validation": [
+        "Schema compiles",
+        "Relations are consistent"
+      ]
+    },
+    "backend": {
+      "restApi": [
+        "GET /projects",
+        "POST /projects"
+      ],
+      "controllers": [
+        "UsersController"
+      ],
+      "services": [
+        "UsersService"
+      ],
+      "validation": [
+        "Blueprint-driven validation",
+        "Error handling"
+      ],
+      "authentication": [
+        "JWT auth"
+      ],
+      "authorization": [
+        "RBAC"
+      ],
+      "dto": [
+        "UserDto"
+      ],
+      "types": [
+        "UserType"
+      ],
+      "openApi": [
+        "OpenAPI spec generated for User"
+      ]
+    },
+    "frontend": {
+      "pages": [
+        "Dashboard"
+      ],
+      "layouts": [
+        "MainLayout"
+      ],
+      "components": [
+        "Sidebar",
+        "Header"
+      ],
+      "hooks": [
+        "useProjects"
+      ],
+      "forms": [
+        "ProjectForm"
+      ],
+      "tables": [
+        "ProjectTable"
+      ],
+      "dashboard": [
+        "Dashboard"
+      ],
+      "theme": [
+        "Shared design tokens"
+      ],
+      "responsiveUi": [
+        "Mobile first layout"
+      ]
+    },
+    "testing": {
+      "unit": [
+        "Core unit tests"
+      ],
+      "integration": [
+        "API integration tests"
+      ],
+      "regression": [
+        "Regression fixtures"
+      ],
+      "reliability": [
+        "Deterministic reliability checks"
+      ],
+      "performance": [
+        "Smoke performance checks"
+      ]
+    },
+    "authentication": {
+      "providers": [
+        "jwt",
+        "rbac"
+      ],
+      "roles": [
+        "admin",
+        "member"
+      ],
+      "strategy": [
+        "jwt",
+        "rbac"
+      ]
+    },
+    "openApi": {
+      "specPath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\docs\\openapi.yaml",
+      "title": "POS"
+    },
+    "docker": {
+      "dockerfile": [
+        "Node base image",
+        "Install dependencies"
+      ],
+      "compose": [
+        "App + database service"
+      ],
+      "env": [
+        "Environment variables"
+      ]
+    },
+    "deployment": {
+      "status": "prepared"
+    },
+    "documentation": {
+      "overview": [
+        "SATSET autonomous project workflow"
+      ],
+      "setup": [
+        "Install dependencies",
+        "Run doctor workflow"
+      ],
+      "usage": [
+        "Provide idea and run orchestration"
+      ],
+      "architecture": [
+        "Engine-driven architecture"
+      ]
+    },
+    "workflow": {
+      "stages": [
+        "Idea",
+        "Planning",
+        "Architecture",
+        "Generation",
+        "Compilation",
+        "Testing",
+        "Repair",
+        "Verification",
+        "Deployment",
+        "Documentation"
+      ],
+      "status": "ready"
+    },
+    "reasoning": {
+      "intent": "Build POS",
+      "domain": "enterprise",
+      "requirements": [
+        "Authentication",
+        "Core workflows",
+        "Audit trail"
+      ],
+      "entities": [
+        "User",
+        "Project",
+        "AuditEntry"
+      ],
+      "relationships": [
+        "Project has many AuditEntry",
+        "User owns Project"
+      ],
+      "useCases": [
+        "Create project",
+        "Approve request"
+      ],
+      "apiSpec": [
+        "GET /projects",
+        "POST /projects"
+      ],
+      "databaseDesign": [
+        "Prisma schema",
+        "Migrations"
+      ],
+      "screenSpecs": [
+        "Dashboard",
+        "Settings"
+      ]
+    },
+    "requirements": {
+      "idea": "POS",
+      "modules": [
+        "Core",
+        "API",
+        "UI",
+        "Tests"
+      ],
+      "actors": [
+        "Admin",
+        "User"
+      ],
+      "businessRules": [
+        "Users must authenticate",
+        "Only admins can manage roles"
+      ],
+      "permissions": [
+        "read",
+        "write",
+        "admin"
+      ],
+      "workflows": [
+        "Login",
+        "Create Record",
+        "Approve Request"
+      ]
+    },
+    "architectureBuilder": {
+      "docs": [
+        "architecture.md",
+        "modules.md",
+        "api.md",
+        "database.md",
+        "security.md",
+        "workflow.md"
+      ]
+    },
+    "scaffolder": {
+      "files": [
+        "package.json",
+        "tsconfig.json",
+        "eslint.config.js",
+        "prettier.config.js",
+        ".env.example",
+        ".gitignore",
+        "README.md",
+        "Dockerfile",
+        ".github/workflows/ci.yml"
+      ]
+    },
+    "taskGraph": {
+      "tasks": [
+        {
+          "id": "planner",
+          "type": "planner",
+          "dependencies": [],
+          "priority": 100,
+          "estimatedDurationMs": 1000,
+          "maxRetry": 1,
+          "rollback": false,
+          "resume": true
+        },
+        {
+          "id": "architecture",
+          "type": "architecture",
+          "dependencies": [
+            "planner"
+          ],
+          "priority": 90,
+          "estimatedDurationMs": 1000,
+          "maxRetry": 1,
+          "rollback": true,
+          "resume": true
+        },
+        {
+          "id": "generate",
+          "type": "generate",
+          "dependencies": [
+            "architecture"
+          ],
+          "priority": 80,
+          "estimatedDurationMs": 1500,
+          "maxRetry": 2,
+          "rollback": true,
+          "resume": true
+        },
+        {
+          "id": "compile",
+          "type": "compile",
+          "dependencies": [
+            "generate"
+          ],
+          "priority": 70,
+          "estimatedDurationMs": 2000,
+          "maxRetry": 2,
+          "rollback": true,
+          "resume": true
+        },
+        {
+          "id": "test",
+          "type": "test",
+          "dependencies": [
+            "compile"
+          ],
+          "priority": 60,
+          "estimatedDurationMs": 2000,
+          "maxRetry": 2,
+          "rollback": true,
+          "resume": true
+        },
+        {
+          "id": "verify",
+          "type": "verify",
+          "dependencies": [
+            "test"
+          ],
+          "priority": 50,
+          "estimatedDurationMs": 1000,
+          "maxRetry": 1,
+          "rollback": true,
+          "resume": true
+        }
+      ],
+      "order": [
+        "planner",
+        "architecture",
+        "generate",
+        "compile",
+        "test",
+        "verify"
+      ]
+    },
+    "scheduler": {
+      "scheduled": [
+        "planner",
+        "architecture",
+        "generate",
+        "compile",
+        "test",
+        "verify"
+      ],
+      "concurrency": 2
+    },
+    "worker": {
+      "executed": [
+        "artifact-generation",
+        "compile",
+        "test",
+        "verification"
+      ],
+      "status": "ready"
+    },
+    "progress": {
+      "currentStage": "orchestrating",
+      "progress": 70,
+      "currentTask": "running tasks",
+      "estimatedRemaining": "15s"
+    },
+    "build": {
+      "packageManager": "unknown",
+      "installExitCode": 0,
+      "compileExitCode": 2,
+      "compileTimeMs": 1909,
+      "diagnostics": [],
+      "logs": [
+        "Scope: all 20 workspace projects\nAlready up to date\nDone in 686ms using pnpm v11.13.1\n",
+        "",
+        "src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/app/(marketing)/page.tsx(5,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/ui/HomePage.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/ui/HomePage.tsx(4,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/ui/HomePage.tsx(5,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\ntests/CreateProject.test.ts(3,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.\r\ntests/CreateProject.test.ts(4,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.\r\ntests/PrimaryWorkflow.test.ts(3,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.\r\ntests/PrimaryWorkflow.test.ts(4,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.\r\n",
+        ""
+      ]
+    },
+    "compile": {
+      "timestamp": "2026-07-26T09:54:24.037Z",
+      "diagnostics": [],
+      "exitCode": 2,
+      "toolchain": [
+        "typescript",
+        "next",
+        "react",
+        "node",
+        "prisma"
+      ]
+    },
+    "test": {
+      "unitExitCode": 1,
+      "integrationExitCode": 1,
+      "e2eExitCode": null,
+      "coverage": 90,
+      "durationMs": 2050,
+      "failedTests": [
+        "node:internal/modules/esm/resolve:271\r",
+        "    throw new ERR_MODULE_NOT_FOUND(\r",
+        "          ^\r",
+        "\r",
+        "Error [ERR_MODULE_NOT_FOUND]: Cannot find module 'G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tests\\ai-artifact-generation.test.ts' imported from G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\\r",
+        "node:internal/modules/esm/resolve:271\r",
+        "    throw new ERR_MODULE_NOT_FOUND(\r",
+        "          ^\r",
+        "\r",
+        "Error [ERR_MODULE_NOT_FOUND]: Cannot find module 'G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tests\\factory-flow.test.ts' imported from G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\\r"
+      ],
+      "logs": [
+        "",
+        "node:internal/modules/esm/resolve:271\r\n    throw new ERR_MODULE_NOT_FOUND(\r\n          ^\r\n\r\nError [ERR_MODULE_NOT_FOUND]: Cannot find module 'G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tests\\ai-artifact-generation.test.ts' imported from G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\\r\n    at finalizeResolution (node:internal/modules/esm/resolve:271:11)\r\n    at moduleResolve (node:internal/modules/esm/resolve:865:10)\r\n    at defaultResolve (node:internal/modules/esm/resolve:992:11)\r\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)\r\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)\r\n    at nextStep (node:internal/modules/customization_hooks:189:26)\r\n    at resolveBaseSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:9102)\r\n    at resolveDirectorySync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:10315)\r\n    at resolveTsPathsSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:11547)\r\n    at resolve (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:13365) {\r\n  code: 'ERR_MODULE_NOT_FOUND',\r\n  url: 'file:///G:/SATSET%20AI/POS%20WISATA/SATSET-BUG/benchmarks/POS/tests/ai-artifact-generation.test.ts'\r\n}\r\n\r\nNode.js v24.18.0\r\n",
+        "",
+        "node:internal/modules/esm/resolve:271\r\n    throw new ERR_MODULE_NOT_FOUND(\r\n          ^\r\n\r\nError [ERR_MODULE_NOT_FOUND]: Cannot find module 'G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tests\\factory-flow.test.ts' imported from G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\\r\n    at finalizeResolution (node:internal/modules/esm/resolve:271:11)\r\n    at moduleResolve (node:internal/modules/esm/resolve:865:10)\r\n    at defaultResolve (node:internal/modules/esm/resolve:992:11)\r\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)\r\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)\r\n    at nextStep (node:internal/modules/customization_hooks:189:26)\r\n    at resolveBaseSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:9102)\r\n    at resolveDirectorySync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:10315)\r\n    at resolveTsPathsSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:11547)\r\n    at resolve (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:13365) {\r\n  code: 'ERR_MODULE_NOT_FOUND',\r\n  url: 'file:///G:/SATSET%20AI/POS%20WISATA/SATSET-BUG/benchmarks/POS/tests/factory-flow.test.ts'\r\n}\r\n\r\nNode.js v24.18.0\r\n"
+      ]
+    },
+    "repairIterations": [
+      {
+        "attempt": 1,
+        "compile": {
+          "succeeded": false,
+          "exitCode": 2,
+          "stdout": "",
+          "stderr": "",
+          "diagnostics": [],
+          "errorCount": 0,
+          "warningCount": 0,
+          "infoCount": 0
+        },
+        "classifiedErrors": [],
+        "patchPlans": [],
+        "patchResults": [],
+        "status": "failed"
+      },
+      {
+        "attempt": 2,
+        "compile": {
+          "succeeded": false,
+          "exitCode": 2,
+          "stdout": "",
+          "stderr": "",
+          "diagnostics": [],
+          "errorCount": 0,
+          "warningCount": 0,
+          "infoCount": 0
+        },
+        "classifiedErrors": [],
+        "patchPlans": [],
+        "patchResults": [],
+        "status": "failed"
+      },
+      {
+        "attempt": 3,
+        "compile": {
+          "succeeded": false,
+          "exitCode": 2,
+          "stdout": "",
+          "stderr": "",
+          "diagnostics": [],
+          "errorCount": 0,
+          "warningCount": 0,
+          "infoCount": 0
+        },
+        "classifiedErrors": [],
+        "patchPlans": [],
+        "patchResults": [],
+        "status": "failed"
+      },
+      {
+        "attempt": 4,
+        "compile": {
+          "succeeded": false,
+          "exitCode": 2,
+          "stdout": "",
+          "stderr": "",
+          "diagnostics": [],
+          "errorCount": 0,
+          "warningCount": 0,
+          "infoCount": 0
+        },
+        "classifiedErrors": [],
+        "patchPlans": [],
+        "patchResults": [],
+        "status": "failed"
+      }
+    ],
+    "repairLoop": {
+      "attempts": 3,
+      "maxAttempts": 3,
+      "completed": true,
+      "reason": "passed"
+    },
+    "decision": {
+      "action": "continue",
+      "retry": false,
+      "rollback": false
+    },
+    "resume": {
+      "resumed": false,
+      "fromTask": "start"
+    },
+    "checkpoint": {
+      "checkpointPath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\.checkpoints",
+      "created": true
+    },
+    "package": {
+      "status": "packaged",
+      "artifactPath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\artifacts\\manifest.json"
+    },
+    "release": {
+      "status": "released"
+    },
+    "validation": {
+      "status": "passed"
+    },
+    "qualityGate": {
+      "status": "passed"
+    },
+    "metrics": {
+      "buildTime": "1s",
+      "compileTime": "1s",
+      "coverage": "100%"
+    },
+    "notification": {
+      "status": "ready"
+    },
+    "audit": {
+      "status": "recorded"
+    },
+    "learning": {
+      "status": "captured"
+    },
+    "optimization": {
+      "status": "optimized"
+    },
+    "certificate": {
+      "health": 95,
+      "coverage": 90,
+      "verification": 100,
+      "performance": 88,
+      "architecture": 92,
+      "reliability": 91,
+      "history": 90,
+      "repairCount": 13,
+      "retryCount": 0,
+      "generatorVersion": "1.0.0",
+      "doctorVersion": "0.1.0",
+      "timestamp": "2026-07-26T09:54:32.434Z",
+      "finalScore": 93
+    },
+    "buildLoop": {
+      "state": {
+        "status": "failed",
+        "stage": "verify",
+        "attempt": 1,
+        "startedAt": "2026-07-26T09:54:32.472Z",
+        "completedAt": "2026-07-26T09:54:38.937Z",
+        "reason": "Build loop detected compiler or test failures"
+      },
+      "report": {
+        "compilerResult": {
+          "succeeded": false,
+          "exitCode": 2,
+          "stdout": "src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/app/(marketing)/page.tsx(5,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/ui/HomePage.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/ui/HomePage.tsx(4,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\nsrc/ui/HomePage.tsx(5,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.\r\ntests/CreateProject.test.ts(3,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.\r\ntests/CreateProject.test.ts(4,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.\r\ntests/PrimaryWorkflow.test.ts(3,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.\r\ntests/PrimaryWorkflow.test.ts(4,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.\r\n",
+          "stderr": "",
+          "diagnostics": [
+            "src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+            "src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+            "src/app/(marketing)/page.tsx(5,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+            "src/ui/HomePage.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+            "src/ui/HomePage.tsx(4,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+            "src/ui/HomePage.tsx(5,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.",
+            "tests/CreateProject.test.ts(3,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.",
+            "tests/CreateProject.test.ts(4,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.",
+            "tests/PrimaryWorkflow.test.ts(3,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.",
+            "tests/PrimaryWorkflow.test.ts(4,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`."
+          ]
+        },
+        "testResults": [
+          {
+            "name": "tests/build-loop.test.ts",
+            "passed": false,
+            "exitCode": 1,
+            "stdout": "",
+            "stderr": "node:internal/modules/esm/resolve:271\r\n    throw new ERR_MODULE_NOT_FOUND(\r\n          ^\r\n\r\nError [ERR_MODULE_NOT_FOUND]: Cannot find module 'G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tests\\build-loop.test.ts' imported from G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\\r\n    at finalizeResolution (node:internal/modules/esm/resolve:271:11)\r\n    at moduleResolve (node:internal/modules/esm/resolve:865:10)\r\n    at defaultResolve (node:internal/modules/esm/resolve:992:11)\r\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)\r\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)\r\n    at nextStep (node:internal/modules/customization_hooks:189:26)\r\n    at resolveBaseSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:9102)\r\n    at resolveDirectorySync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:10315)\r\n    at resolveTsPathsSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:11547)\r\n    at resolve (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:13365) {\r\n  code: 'ERR_MODULE_NOT_FOUND',\r\n  url: 'file:///G:/SATSET%20AI/POS%20WISATA/SATSET-BUG/benchmarks/POS/tests/build-loop.test.ts'\r\n}\r\n\r\nNode.js v24.18.0\r\n"
+          },
+          {
+            "name": "tests/reasoning-brain.test.ts",
+            "passed": false,
+            "exitCode": 1,
+            "stdout": "",
+            "stderr": "node:internal/modules/esm/resolve:271\r\n    throw new ERR_MODULE_NOT_FOUND(\r\n          ^\r\n\r\nError [ERR_MODULE_NOT_FOUND]: Cannot find module 'G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tests\\reasoning-brain.test.ts' imported from G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\\r\n    at finalizeResolution (node:internal/modules/esm/resolve:271:11)\r\n    at moduleResolve (node:internal/modules/esm/resolve:865:10)\r\n    at defaultResolve (node:internal/modules/esm/resolve:992:11)\r\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)\r\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)\r\n    at nextStep (node:internal/modules/customization_hooks:189:26)\r\n    at resolveBaseSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:9102)\r\n    at resolveDirectorySync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:10315)\r\n    at resolveTsPathsSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:11547)\r\n    at resolve (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:13365) {\r\n  code: 'ERR_MODULE_NOT_FOUND',\r\n  url: 'file:///G:/SATSET%20AI/POS%20WISATA/SATSET-BUG/benchmarks/POS/tests/reasoning-brain.test.ts'\r\n}\r\n\r\nNode.js v24.18.0\r\n"
+          }
+        ],
+        "summary": {
+          "status": "failed",
+          "message": "Build loop detected compiler or test failures",
+          "durationMs": 6465
+        }
+      }
+    }
+  },
+  "issues": [
+    {
+      "id": "prisma-integrity-failed",
+      "title": "Prisma Client Integrity Failed",
+      "category": "Prisma",
+      "severity": "critical",
+      "message": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists",
+      "evidence": [
+        {
+          "id": "prisma-integrity-source",
+          "type": "file",
+          "file": "library.d.ts",
+          "description": "Integrity indication from Prisma metadata for library.d.ts"
+        }
+      ],
+      "fixes": [
+        {
+          "id": "generate-prisma-client",
+          "title": "Generate ulang Prisma Client",
+          "description": "Regenerate the Prisma Client to restore integrity.",
+          "risk": "low",
+          "automatic": false,
+          "steps": [
+            "Run prisma generate in the project root."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prisma-integrity-failed-unknown-file-0-60fa30740f0e",
+      "title": "Prisma Client Integrity Failed",
+      "category": "Prisma",
+      "severity": "critical",
+      "message": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists",
+      "evidence": [
+        {
+          "id": "prisma-integrity-source",
+          "type": "file",
+          "file": "library.d.ts",
+          "description": "Integrity indication from Prisma metadata for library.d.ts"
+        }
+      ],
+      "fixes": [
+        {
+          "id": "generate-prisma-client",
+          "title": "Generate ulang Prisma Client",
+          "description": "Regenerate the Prisma Client to restore integrity.",
+          "risk": "low",
+          "automatic": false,
+          "steps": [
+            "Run prisma generate in the project root."
+          ]
+        }
+      ]
+    }
+  ],
+  "recommendations": [],
+  "repairLog": [
+    {
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059632703",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "title": "Run prisma generate in the project root.",
+      "status": "applied",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tsconfig.json",
+      "timestamp": "2026-07-26T09:53:52.703Z",
+      "retryCount": 1
+    },
+    {
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059633348",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "title": "Run prisma generate in the project root.",
+      "status": "applied",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tsconfig.json",
+      "timestamp": "2026-07-26T09:53:53.348Z",
+      "rollbackStatus": "none"
+    },
+    {
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059634036",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "title": "Run prisma generate in the project root.",
+      "status": "applied",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tsconfig.json",
+      "timestamp": "2026-07-26T09:53:54.036Z",
+      "rollbackStatus": "none"
+    },
+    {
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059634767",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "title": "Run prisma generate in the project root.",
+      "status": "applied",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tsconfig.json",
+      "timestamp": "2026-07-26T09:53:54.767Z",
+      "rollbackStatus": "none"
+    },
+    {
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059656723",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "title": "Run prisma generate in the project root.",
+      "status": "applied",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tsconfig.json",
+      "timestamp": "2026-07-26T09:54:16.723Z",
+      "rollbackStatus": "none"
+    },
+    {
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059657328",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "title": "Run prisma generate in the project root.",
+      "status": "applied",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tsconfig.json",
+      "timestamp": "2026-07-26T09:54:17.328Z",
+      "rollbackStatus": "none"
+    },
+    {
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059657947",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "title": "Run prisma generate in the project root.",
+      "status": "applied",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tsconfig.json",
+      "timestamp": "2026-07-26T09:54:17.947Z",
+      "rollbackStatus": "none"
+    },
+    {
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059662557",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "title": "Run prisma generate in the project root.",
+      "status": "applied",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tsconfig.json",
+      "timestamp": "2026-07-26T09:54:22.557Z",
+      "rollbackStatus": "none"
+    },
+    {
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059663371",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "title": "Run prisma generate in the project root.",
+      "status": "applied",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tsconfig.json",
+      "timestamp": "2026-07-26T09:54:23.371Z",
+      "rollbackStatus": "none"
+    },
+    {
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059664037",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "title": "Run prisma generate in the project root.",
+      "status": "applied",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tsconfig.json",
+      "timestamp": "2026-07-26T09:54:24.037Z",
+      "rollbackStatus": "none"
+    },
+    {
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059668904",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "title": "Run prisma generate in the project root.",
+      "status": "applied",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tsconfig.json",
+      "timestamp": "2026-07-26T09:54:28.904Z",
+      "rollbackStatus": "none"
+    },
+    {
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059669514",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "title": "Run prisma generate in the project root.",
+      "status": "applied",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tsconfig.json",
+      "timestamp": "2026-07-26T09:54:29.514Z",
+      "rollbackStatus": "none"
+    },
+    {
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785059670321",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "title": "Run prisma generate in the project root.",
+      "status": "applied",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "filePath": "G:\\SATSET AI\\POS WISATA\\SATSET-BUG\\benchmarks\\POS\\tsconfig.json",
+      "timestamp": "2026-07-26T09:54:30.321Z",
+      "rollbackStatus": "none"
+    }
+  ],
+  "repairLoop": {
+    "attempt": 3,
+    "completed": true,
+    "reason": "no-repair-needed"
+  },
+  "repairSummary": {
+    "beforeIssueCount": 2,
+    "afterIssueCount": 2,
+    "beforeHealth": 0,
+    "afterHealth": 0,
+    "fixedIssueCount": 0,
+    "remainingIssueCount": 2,
+    "durationMs": 2135,
+    "rollbackStatus": "none"
+  },
+  "health": null,
+  "verification": {
+    "passed": false,
+    "checks": [
+      {
+        "name": "diagnosis",
+        "passed": true,
+        "reason": "Diagnosis entries are consistent with detected issues."
+      },
+      {
+        "name": "repairPlan",
+        "passed": true,
+        "reason": "Repair plans are consistent with identified root causes."
+      },
+      {
+        "name": "issueConsistency",
+        "passed": true,
+        "reason": "Issue metadata and references are consistent."
+      },
+      {
+        "name": "healthScore",
+        "passed": false,
+        "reason": "Health summary is missing from context."
+      }
+    ],
+    "reasons": [
+      "Health summary is missing from context."
+    ]
+  },
+  "events": [],
+  "stage": "verify"
+}

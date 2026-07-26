@@ -1,0 +1,8 @@
+<!-- satset-artifact-metadata {"projectId":"HRIS","projectName":"HRIS","runtimeId":"satset-doctor","timestamp":"2026-07-26T08:52:15.201Z","benchmarkScore":0,"qualityScore":0,"validationScore":0,"knowledgeVersion":"1.0.0"} -->
+
+services:
+  app:
+    build: .
+    image: HRIS:latest
+    ports:
+      - "3000:3000"

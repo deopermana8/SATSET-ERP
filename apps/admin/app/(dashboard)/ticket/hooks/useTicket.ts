@@ -1,4 +1,4 @@
-﻿export function useTicket(){
+export function useTicket(){
   return {};
 }
 

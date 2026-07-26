@@ -1,0 +1,14 @@
+{
+  "projectName": "VillageSystem",
+  "status": "pass",
+  "metadata": {
+    "projectId": "VillageSystem",
+    "projectName": "VillageSystem",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:48:05.836Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

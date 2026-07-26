@@ -1,4 +1,4 @@
-﻿export const schema = {
+export const schema = {
   id: 'number',
   name: 'string',
   email: 'string',

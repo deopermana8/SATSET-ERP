@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: POS WISATA
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: POS WISATA
+  template:
+    metadata:
+      labels:
+        app: POS WISATA
+    spec:
+      containers:
+        - name: POS WISATA
+          image: POS WISATA:latest
+          ports:
+            - containerPort: 3000

@@ -19,10 +19,21 @@ try {
     New-SatsetModule -Name $ModuleName -Force:$Force
 
     $CrudFiles = Get-SatsetCrudTemplateDefinitions
+    $ExtendedCrudFiles = Get-SatsetCrudExtendedTemplateDefinitions -ModuleName $ModuleName
 
     Write-Host "[INFO] Adding CRUD files" -ForegroundColor Cyan
     foreach ($File in $CrudFiles) {
         New-SatsetRenderedFile -ModuleName $ModuleName -TemplateName $File.Template -TargetName $File.Target -Force:$Force | Out-Null
+    }
+
+    Write-Host "[INFO] Adding API and server action scaffolding" -ForegroundColor Cyan
+    foreach ($File in $ExtendedCrudFiles) {
+        New-SatsetRenderedFile `
+            -ModuleName $ModuleName `
+            -TemplateName $File.Template `
+            -TargetName $File.Target `
+            -OutputRoot $File.OutputRoot `
+            -Force:$Force | Out-Null
     }
 
     Write-Host "[ OK ] CRUD generation completed" -ForegroundColor Green

@@ -1,0 +1,361 @@
+{
+  "nodes": [
+    {
+      "id": "problem:typescript",
+      "kind": "problem",
+      "label": "typescript"
+    },
+    {
+      "id": "repair:repair:typescript:'tsc' is not recognized as an internal or external command,|operable program or batch file.|undefined|[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsc\" not found",
+      "kind": "repair",
+      "label": "repair typescript issue with minimal patch"
+    },
+    {
+      "id": "file:typescript",
+      "kind": "file",
+      "label": "typescript"
+    },
+    {
+      "id": "engine:repair",
+      "kind": "engine",
+      "label": "RepairMemoryEngine"
+    },
+    {
+      "id": "artifact:typescript",
+      "kind": "artifact",
+      "label": "typescript-artifact"
+    },
+    {
+      "id": "problem:test",
+      "kind": "problem",
+      "label": "test"
+    },
+    {
+      "id": "repair:repair:test:src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.|src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX u",
+      "kind": "repair",
+      "label": "repair test issue with minimal patch"
+    },
+    {
+      "id": "file:test",
+      "kind": "file",
+      "label": "test"
+    },
+    {
+      "id": "artifact:test",
+      "kind": "artifact",
+      "label": "test-artifact"
+    },
+    {
+      "id": "repair:repair:typescript:",
+      "kind": "repair",
+      "label": "repair typescript issue with minimal patch"
+    },
+    {
+      "id": "repair:repair:typescript:src/api/health/health.controller.ts(1,3): error TS1110: Type expected.|src/api/health/health.controller.ts(1,31): error TS1005: ';' expected.|src/api/health/healt",
+      "kind": "repair",
+      "label": "repair typescript issue with minimal patch"
+    },
+    {
+      "id": "agent:ArchitectAgent",
+      "kind": "engine",
+      "label": "ArchitectAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.85
+      }
+    },
+    {
+      "id": "performance:ArchitectAgent",
+      "kind": "artifact",
+      "label": "ArchitectAgent performance",
+      "metadata": {
+        "confidence": 0.85
+      }
+    },
+    {
+      "id": "agent:BackendAgent",
+      "kind": "engine",
+      "label": "BackendAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.82
+      }
+    },
+    {
+      "id": "performance:BackendAgent",
+      "kind": "artifact",
+      "label": "BackendAgent performance",
+      "metadata": {
+        "confidence": 0.82
+      }
+    },
+    {
+      "id": "agent:FrontendAgent",
+      "kind": "engine",
+      "label": "FrontendAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.8
+      }
+    },
+    {
+      "id": "performance:FrontendAgent",
+      "kind": "artifact",
+      "label": "FrontendAgent performance",
+      "metadata": {
+        "confidence": 0.8
+      }
+    },
+    {
+      "id": "agent:DatabaseAgent",
+      "kind": "engine",
+      "label": "DatabaseAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.83
+      }
+    },
+    {
+      "id": "performance:DatabaseAgent",
+      "kind": "artifact",
+      "label": "DatabaseAgent performance",
+      "metadata": {
+        "confidence": 0.83
+      }
+    },
+    {
+      "id": "agent:QAAgent",
+      "kind": "engine",
+      "label": "QAAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.78
+      }
+    },
+    {
+      "id": "performance:QAAgent",
+      "kind": "artifact",
+      "label": "QAAgent performance",
+      "metadata": {
+        "confidence": 0.78
+      }
+    },
+    {
+      "id": "agent:RepairAgent",
+      "kind": "engine",
+      "label": "RepairAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.81
+      }
+    },
+    {
+      "id": "performance:RepairAgent",
+      "kind": "artifact",
+      "label": "RepairAgent performance",
+      "metadata": {
+        "confidence": 0.81
+      }
+    },
+    {
+      "id": "agent:SecurityAgent",
+      "kind": "engine",
+      "label": "SecurityAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.84
+      }
+    },
+    {
+      "id": "performance:SecurityAgent",
+      "kind": "artifact",
+      "label": "SecurityAgent performance",
+      "metadata": {
+        "confidence": 0.84
+      }
+    },
+    {
+      "id": "agent:PerformanceAgent",
+      "kind": "engine",
+      "label": "PerformanceAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.79
+      }
+    },
+    {
+      "id": "performance:PerformanceAgent",
+      "kind": "artifact",
+      "label": "PerformanceAgent performance",
+      "metadata": {
+        "confidence": 0.79
+      }
+    },
+    {
+      "id": "agent:DocumentationAgent",
+      "kind": "engine",
+      "label": "DocumentationAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.77
+      }
+    },
+    {
+      "id": "performance:DocumentationAgent",
+      "kind": "artifact",
+      "label": "DocumentationAgent performance",
+      "metadata": {
+        "confidence": 0.77
+      }
+    },
+    {
+      "id": "agent:DevOpsAgent",
+      "kind": "engine",
+      "label": "DevOpsAgent",
+      "metadata": {
+        "status": "completed",
+        "confidence": 0.8
+      }
+    },
+    {
+      "id": "performance:DevOpsAgent",
+      "kind": "artifact",
+      "label": "DevOpsAgent performance",
+      "metadata": {
+        "confidence": 0.8
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "problem:typescript",
+      "to": "repair:repair:typescript:'tsc' is not recognized as an internal or external command,|operable program or batch file.|undefined|[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsc\" not found",
+      "kind": "causes"
+    },
+    {
+      "from": "repair:repair:typescript:'tsc' is not recognized as an internal or external command,|operable program or batch file.|undefined|[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsc\" not found",
+      "to": "file:typescript",
+      "kind": "touches"
+    },
+    {
+      "from": "repair:repair:typescript:'tsc' is not recognized as an internal or external command,|operable program or batch file.|undefined|[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsc\" not found",
+      "to": "engine:repair",
+      "kind": "generated-by"
+    },
+    {
+      "from": "repair:repair:typescript:'tsc' is not recognized as an internal or external command,|operable program or batch file.|undefined|[ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command \"tsc\" not found",
+      "to": "artifact:typescript",
+      "kind": "produces"
+    },
+    {
+      "from": "problem:test",
+      "to": "repair:repair:test:src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.|src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX u",
+      "kind": "causes"
+    },
+    {
+      "from": "repair:repair:test:src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.|src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX u",
+      "to": "file:test",
+      "kind": "touches"
+    },
+    {
+      "from": "repair:repair:test:src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.|src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX u",
+      "to": "engine:repair",
+      "kind": "generated-by"
+    },
+    {
+      "from": "repair:repair:test:src/app/(marketing)/page.tsx(3,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.|src/app/(marketing)/page.tsx(4,7): error TS17004: Cannot use JSX u",
+      "to": "artifact:test",
+      "kind": "produces"
+    },
+    {
+      "from": "problem:typescript",
+      "to": "repair:repair:typescript:",
+      "kind": "causes"
+    },
+    {
+      "from": "repair:repair:typescript:",
+      "to": "file:typescript",
+      "kind": "touches"
+    },
+    {
+      "from": "repair:repair:typescript:",
+      "to": "engine:repair",
+      "kind": "generated-by"
+    },
+    {
+      "from": "repair:repair:typescript:",
+      "to": "artifact:typescript",
+      "kind": "produces"
+    },
+    {
+      "from": "problem:typescript",
+      "to": "repair:repair:typescript:src/api/health/health.controller.ts(1,3): error TS1110: Type expected.|src/api/health/health.controller.ts(1,31): error TS1005: ';' expected.|src/api/health/healt",
+      "kind": "causes"
+    },
+    {
+      "from": "repair:repair:typescript:src/api/health/health.controller.ts(1,3): error TS1110: Type expected.|src/api/health/health.controller.ts(1,31): error TS1005: ';' expected.|src/api/health/healt",
+      "to": "file:typescript",
+      "kind": "touches"
+    },
+    {
+      "from": "repair:repair:typescript:src/api/health/health.controller.ts(1,3): error TS1110: Type expected.|src/api/health/health.controller.ts(1,31): error TS1005: ';' expected.|src/api/health/healt",
+      "to": "engine:repair",
+      "kind": "generated-by"
+    },
+    {
+      "from": "repair:repair:typescript:src/api/health/health.controller.ts(1,3): error TS1110: Type expected.|src/api/health/health.controller.ts(1,31): error TS1005: ';' expected.|src/api/health/healt",
+      "to": "artifact:typescript",
+      "kind": "produces"
+    },
+    {
+      "from": "agent:ArchitectAgent",
+      "to": "performance:ArchitectAgent",
+      "kind": "performed"
+    },
+    {
+      "from": "agent:BackendAgent",
+      "to": "performance:BackendAgent",
+      "kind": "performed"
+    },
+    {
+      "from": "agent:FrontendAgent",
+      "to": "performance:FrontendAgent",
+      "kind": "performed"
+    },
+    {
+      "from": "agent:DatabaseAgent",
+      "to": "performance:DatabaseAgent",
+      "kind": "performed"
+    },
+    {
+      "from": "agent:QAAgent",
+      "to": "performance:QAAgent",
+      "kind": "performed"
+    },
+    {
+      "from": "agent:RepairAgent",
+      "to": "performance:RepairAgent",
+      "kind": "performed"
+    },
+    {
+      "from": "agent:SecurityAgent",
+      "to": "performance:SecurityAgent",
+      "kind": "performed"
+    },
+    {
+      "from": "agent:PerformanceAgent",
+      "to": "performance:PerformanceAgent",
+      "kind": "performed"
+    },
+    {
+      "from": "agent:DocumentationAgent",
+      "to": "performance:DocumentationAgent",
+      "kind": "performed"
+    },
+    {
+      "from": "agent:DevOpsAgent",
+      "to": "performance:DevOpsAgent",
+      "kind": "performed"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+
+
+# Architecture Decisions
+
+- Inventory uses the existing Context-driven pipeline.

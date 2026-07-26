@@ -1,0 +1,16 @@
+<!-- satset-artifact-metadata {"projectId":"runtime-test","projectName":"runtime-test","runtimeId":"satset-doctor","timestamp":"2026-07-26T08:49:49.659Z","benchmarkScore":0,"qualityScore":0,"validationScore":0,"knowledgeVersion":"1.0.0"} -->
+
+# Architecture
+
+## Project Structure
+- Engine-based pipeline
+- Context-driven state
+- Deterministic repair
+
+## Module Boundaries
+- Scanner owns discovery
+- Analyzer owns rules
+- Repair owns file mutations
+
+## Dependency Graph
+- Scanner -> Analyzer -> Diagnostic -> Root Cause -> Repair -> Verification

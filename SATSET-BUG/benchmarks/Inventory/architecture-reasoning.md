@@ -1,0 +1,6 @@
+
+
+# Architecture Reasoning
+
+Idea: Inventory
+Architecture: modular-service-based

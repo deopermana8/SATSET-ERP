@@ -1,0 +1,5 @@
+{
+  "name": "{{projectName}}",
+  "private": true,
+  "version": "1.0.0"
+}

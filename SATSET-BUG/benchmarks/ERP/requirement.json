@@ -1,0 +1,28 @@
+{
+  "idea": "Build ERP",
+  "modules": [
+    "User,Project,AuditEntry"
+  ],
+  "actors": [
+    "Admin,User"
+  ],
+  "businessRules": [
+    "Authentication,Core workflows,Audit trail"
+  ],
+  "permissions": [
+    "read,write,admin"
+  ],
+  "workflows": [
+    "Create project,Approve request"
+  ],
+  "metadata": {
+    "projectId": "ERP",
+    "projectName": "ERP",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:46:03.864Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

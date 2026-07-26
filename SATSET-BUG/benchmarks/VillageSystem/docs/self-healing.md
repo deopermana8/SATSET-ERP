@@ -1,0 +1,5 @@
+
+
+# Self Healing
+
+VillageSystem uses deterministic repair loops.

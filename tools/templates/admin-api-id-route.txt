@@ -1,0 +1,96 @@
+import { NextResponse } from "next/server";
+
+import { requireAuth } from "@/lib/auth/require-auth";
+
+const NOT_CONNECTED_MESSAGE =
+  "API scaffold untuk {{MODULE}} sudah dibuat. Hubungkan ke Prisma model {{MODULE_CAMEL}} sebelum dipakai di production.";
+
+function parseId(rawId: string): number | null {
+  const parsed = Number(rawId);
+  if (!Number.isFinite(parsed) || parsed <= 0) {
+    return null;
+  }
+
+  return parsed;
+}
+
+export async function GET(_request: Request, { params }: { params: Promise<{ id: string }> }) {
+  try {
+    await requireAuth();
+
+    const { id } = await params;
+    const parsedId = parseId(id);
+    if (!parsedId) {
+      return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });
+    }
+
+    return NextResponse.json(
+      {
+        success: false,
+        message: NOT_CONNECTED_MESSAGE,
+      },
+      { status: 501 }
+    );
+  } catch (error) {
+    return NextResponse.json(
+      { message: error instanceof Error ? error.message : "Gagal memuat data" },
+      { status: 500 }
+    );
+  }
+}
+
+export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  try {
+    await requireAuth();
+
+    const { id } = await params;
+    const parsedId = parseId(id);
+    if (!parsedId) {
+      return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });
+    }
+
+    const body = (await request.json().catch(() => null)) as { name?: unknown } | null;
+    const name = String(body?.name ?? "").trim();
+    if (!name) {
+      return NextResponse.json({ message: "Nama wajib diisi" }, { status: 400 });
+    }
+
+    return NextResponse.json(
+      {
+        success: false,
+        message: NOT_CONNECTED_MESSAGE,
+      },
+      { status: 501 }
+    );
+  } catch (error) {
+    return NextResponse.json(
+      { message: error instanceof Error ? error.message : "Gagal memperbarui data" },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(_request: Request, { params }: { params: Promise<{ id: string }> }) {
+  try {
+    await requireAuth();
+
+    const { id } = await params;
+    const parsedId = parseId(id);
+    if (!parsedId) {
+      return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });
+    }
+
+    return NextResponse.json(
+      {
+        success: false,
+        message: NOT_CONNECTED_MESSAGE,
+      },
+      { status: 501 }
+    );
+  } catch (error) {
+    return NextResponse.json(
+      { message: error instanceof Error ? error.message : "Gagal menghapus data" },
+      { status: 500 }
+    );
+  }
+}

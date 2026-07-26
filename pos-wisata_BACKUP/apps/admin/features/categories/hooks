@@ -1,0 +1,38 @@
+export const useCategories = () => {
+  // Custom hook to fetch categories using TanStack Query
+  const { data, error, isLoading } = useQuery('categories', fetchCategories);
+
+  return {
+    categories: data,
+    isLoading,
+    error,
+  };
+};
+
+export const useCategory = (id) => {
+  // Custom hook to fetch a single category by ID
+  const { data, error, isLoading } = useQuery(['category', id], () => fetchCategoryById(id));
+
+  return {
+    category: data,
+    isLoading,
+    error,
+  };
+};
+
+// Example API functions (to be implemented in services)
+const fetchCategories = async () => {
+  const response = await fetch('/api/categories');
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json();
+};
+
+const fetchCategoryById = async (id) => {
+  const response = await fetch(`/api/categories/${id}`);
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json();
+};

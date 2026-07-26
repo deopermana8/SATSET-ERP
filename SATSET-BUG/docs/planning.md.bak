@@ -1,0 +1,19 @@
+<!-- satset-artifact-metadata {"projectId":"runtime-test","projectName":"runtime-test","runtimeId":"satset-doctor","timestamp":"2026-07-26T08:49:49.463Z","benchmarkScore":0,"qualityScore":0,"validationScore":0,"knowledgeVersion":"1.0.0"} -->
+
+# Planning
+
+## Functional Requirements
+- Capture core application workflows
+- Support user management
+- Expose documented APIs
+
+## Non Functional Requirements
+- Maintain deterministic builds
+- Ensure testable architecture
+- Support diagnostics and repair
+
+## Modules
+- Core
+- API
+- UI
+- Tests

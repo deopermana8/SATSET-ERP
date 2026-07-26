@@ -1,0 +1,5 @@
+
+
+# Business Rules
+
+- Inventory must follow deterministic workflow rules.

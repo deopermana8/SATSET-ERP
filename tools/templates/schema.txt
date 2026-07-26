@@ -1,1 +1,16 @@
-export const schema = {};
+import { z } from "zod";
+
+import { {{MODULE_CAMEL}}Schema } from "./validation";
+
+export const {{MODULE_CAMEL}}RecordSchema = {{MODULE_CAMEL}}Schema.extend({
+	id: z.number(),
+	slug: z.string().nullable().optional(),
+});
+
+export const {{MODULE_CAMEL}}ListSchema = z.array({{MODULE_CAMEL}}RecordSchema);
+
+export const {{MODULE_CAMEL}}MutationResponseSchema = z.object({
+	success: z.boolean(),
+	message: z.string().optional(),
+	data: {{MODULE_CAMEL}}RecordSchema.optional(),
+});

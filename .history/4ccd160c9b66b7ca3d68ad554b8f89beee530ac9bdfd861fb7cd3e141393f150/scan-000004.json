@@ -1,0 +1,2131 @@
+{
+  "diagnosis": [
+    {
+      "affectedFiles": [
+      ],
+      "automaticFixAvailable": false,
+      "confidence": 90,
+      "description": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists",
+      "estimatedRepairTime": 30,
+      "id": "prisma-integrity-failed",
+      "recommendedFixes": [
+        {
+          "automatic": false,
+          "description": "Regenerate the Prisma Client to restore integrity.",
+          "id": "generate-prisma-client",
+          "risk": "low",
+          "steps": [
+            "Run prisma generate in the project root."
+          ],
+          "title": "Generate ulang Prisma Client"
+        }
+      ],
+      "rootCause": "Prisma",
+      "title": "Prisma Client Integrity Failed"
+    },
+    {
+      "affectedFiles": [
+      ],
+      "automaticFixAvailable": false,
+      "confidence": 90,
+      "description": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists",
+      "estimatedRepairTime": 30,
+      "id": "prisma-integrity-failed-unknown-file-0-60fa30740f0e",
+      "recommendedFixes": [
+        {
+          "automatic": false,
+          "description": "Regenerate the Prisma Client to restore integrity.",
+          "id": "generate-prisma-client",
+          "risk": "low",
+          "steps": [
+            "Run prisma generate in the project root."
+          ],
+          "title": "Generate ulang Prisma Client"
+        }
+      ],
+      "rootCause": "Prisma",
+      "title": "Prisma Client Integrity Failed"
+    }
+  ],
+  "doctorVersion": "unknown",
+  "durationMs": 0,
+  "fingerprint": {
+    "database": "supabase",
+    "dependencyCount": 1,
+    "framework": "next",
+    "hash": "4ccd160c9b66b7ca3d68ad554b8f89beee530ac9bdfd861fb7cd3e141393f150",
+    "next": null,
+    "nodeVersion": "v24.18.0",
+    "packageManager": null,
+    "prisma": null,
+    "react": null,
+    "signature": "next:unknown:4ccd160c9b66b7ca3d68ad554b8f89beee530ac9bdfd861fb7cd3e141393f150",
+    "tailwind": null,
+    "trackedFileCount": 1598,
+    "trackedFilesHash": "e1c3d2f6522ed44c2c22f598a27dc1e58b7150d9b4380e99c67aeebcf6c681e0",
+    "turbo": null,
+    "typescript": null,
+    "workspace": false,
+    "workspaceCount": 0
+  },
+  "health": null,
+  "issues": [
+    {
+      "category": "Prisma",
+      "evidence": [
+        {
+          "description": "Integrity indication from Prisma metadata for library.d.ts",
+          "file": "library.d.ts",
+          "id": "prisma-integrity-source",
+          "type": "file"
+        }
+      ],
+      "fixes": [
+        {
+          "automatic": false,
+          "description": "Regenerate the Prisma Client to restore integrity.",
+          "id": "generate-prisma-client",
+          "risk": "low",
+          "steps": [
+            "Run prisma generate in the project root."
+          ],
+          "title": "Generate ulang Prisma Client"
+        }
+      ],
+      "id": "prisma-integrity-failed",
+      "message": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists",
+      "severity": "critical",
+      "title": "Prisma Client Integrity Failed"
+    },
+    {
+      "category": "Prisma",
+      "evidence": [
+        {
+          "description": "Integrity indication from Prisma metadata for library.d.ts",
+          "file": "library.d.ts",
+          "id": "prisma-integrity-source",
+          "type": "file"
+        }
+      ],
+      "fixes": [
+        {
+          "automatic": false,
+          "description": "Regenerate the Prisma Client to restore integrity.",
+          "id": "generate-prisma-client",
+          "risk": "low",
+          "steps": [
+            "Run prisma generate in the project root."
+          ],
+          "title": "Generate ulang Prisma Client"
+        }
+      ],
+      "id": "prisma-integrity-failed-unknown-file-0-60fa30740f0e",
+      "message": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists",
+      "severity": "critical",
+      "title": "Prisma Client Integrity Failed"
+    }
+  ],
+  "metadata": {
+    "architecture": {
+      "dependencyGraph": [
+        "Scanner -> Analyzer -> Diagnostic -> Root Cause -> Repair -> Verification"
+      ],
+      "folderStructure": [
+        "src/core",
+        "src/doctor",
+        "src/planner",
+        "src/autofix",
+        "tests"
+      ],
+      "moduleBoundaries": [
+        "Scanner owns discovery",
+        "Analyzer owns rules",
+        "Repair owns file mutations"
+      ],
+      "namingConvention": [
+        "PascalCase for engines",
+        "camelCase for helpers",
+        "kebab-case for folders"
+      ],
+      "projectStructure": [
+        "Engine-based pipeline",
+        "Context-driven state",
+        "Deterministic repair"
+      ],
+      "validation": [
+        "Compile step",
+        "Test step",
+        "History step"
+      ]
+    },
+    "architectureBuilder": {
+      "docs": [
+        "architecture.md",
+        "modules.md",
+        "api.md",
+        "database.md",
+        "security.md",
+        "workflow.md"
+      ]
+    },
+    "artifacts": [
+      {
+        "id": "test-progress",
+        "name": "test-progress",
+        "outputPath": "G:\\SATSET AI\\POS WISATA\\.progress.json",
+        "templatePath": "G:\\SATSET AI\\POS WISATA\\templates\\test-progress.json.tpl",
+        "variables": {
+          "currentStage": "test",
+          "currentTask": "running tests",
+          "estimatedRemaining": "20s",
+          "progress": "60"
+        }
+      }
+    ],
+    "audit": {
+      "status": "recorded"
+    },
+    "authentication": {
+      "providers": [
+        "jwt",
+        "rbac"
+      ],
+      "roles": [
+        "admin",
+        "member"
+      ],
+      "strategy": [
+        "jwt",
+        "rbac"
+      ]
+    },
+    "backend": {
+      "authentication": [
+        "JWT auth"
+      ],
+      "authorization": [
+        "RBAC"
+      ],
+      "controllers": [
+        "UsersController"
+      ],
+      "dto": [
+        "UserDto"
+      ],
+      "openApi": [
+        "OpenAPI spec generated for User"
+      ],
+      "restApi": [
+        "GET /projects",
+        "POST /projects"
+      ],
+      "services": [
+        "UsersService"
+      ],
+      "types": [
+        "UserType"
+      ],
+      "validation": [
+        "Blueprint-driven validation",
+        "Error handling"
+      ]
+    },
+    "benchmarkResult": [
+    ],
+    "build": {
+      "compileExitCode": 2,
+      "compileTimeMs": 2909,
+      "diagnostics": [
+      ],
+      "installExitCode": 0,
+      "logs": [
+        "Scope: all 20 workspace projects\nAlready up to date\nDone in 577ms using pnpm v11.13.1\n",
+        "",
+        "tools/templates-tsx/hook.ts(1,20): error TS1005: '(' expected.\r\ntools/templates-tsx/hook.ts(1,32): error TS1005: '=>' expected.\r\ntools/templates-tsx/service.ts(1,15): error TS1180: Property destructuring pattern expected.\r\ntools/templates-tsx/service.ts(1,23): error TS1128: Declaration or statement expected.\r\ntools/templates-tsx/types.ts(1,1): error TS1128: Declaration or statement expected.\r\ntools/templates-tsx/types.ts(1,18): error TS1438: Interface must be given a name.\r\ntools/templates-tsx/types.ts(1,28): error TS1434: Unexpected keyword or identifier.\r\n",
+        ""
+      ],
+      "packageManager": "pnpm"
+    },
+    "buildLoop": {
+      "report": {
+        "compilerResult": {
+          "diagnostics": [
+            "tools/templates-tsx/hook.ts(1,20): error TS1005: '(' expected.",
+            "tools/templates-tsx/hook.ts(1,32): error TS1005: '=>' expected.",
+            "tools/templates-tsx/service.ts(1,15): error TS1180: Property destructuring pattern expected.",
+            "tools/templates-tsx/service.ts(1,23): error TS1128: Declaration or statement expected.",
+            "tools/templates-tsx/types.ts(1,1): error TS1128: Declaration or statement expected.",
+            "tools/templates-tsx/types.ts(1,18): error TS1438: Interface must be given a name.",
+            "tools/templates-tsx/types.ts(1,28): error TS1434: Unexpected keyword or identifier."
+          ],
+          "exitCode": 2,
+          "stderr": "",
+          "stdout": "tools/templates-tsx/hook.ts(1,20): error TS1005: '(' expected.\r\ntools/templates-tsx/hook.ts(1,32): error TS1005: '=>' expected.\r\ntools/templates-tsx/service.ts(1,15): error TS1180: Property destructuring pattern expected.\r\ntools/templates-tsx/service.ts(1,23): error TS1128: Declaration or statement expected.\r\ntools/templates-tsx/types.ts(1,1): error TS1128: Declaration or statement expected.\r\ntools/templates-tsx/types.ts(1,18): error TS1438: Interface must be given a name.\r\ntools/templates-tsx/types.ts(1,28): error TS1434: Unexpected keyword or identifier.\r\n",
+          "succeeded": false
+        },
+        "summary": {
+          "durationMs": 4781,
+          "message": "Build loop detected compiler or test failures",
+          "status": "failed"
+        },
+        "testResults": [
+          {
+            "exitCode": 1,
+            "name": "tests/build-loop.test.ts",
+            "passed": false,
+            "stderr": "node:internal/modules/esm/resolve:271\r\n    throw new ERR_MODULE_NOT_FOUND(\r\n          ^\r\n\r\nError [ERR_MODULE_NOT_FOUND]: Cannot find module 'G:\\SATSET AI\\POS WISATA\\tests\\build-loop.test.ts' imported from G:\\SATSET AI\\POS WISATA\\\r\n    at finalizeResolution (node:internal/modules/esm/resolve:271:11)\r\n    at moduleResolve (node:internal/modules/esm/resolve:865:10)\r\n    at defaultResolve (node:internal/modules/esm/resolve:992:11)\r\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)\r\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)\r\n    at nextStep (node:internal/modules/customization_hooks:189:26)\r\n    at resolveBaseSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:9102)\r\n    at resolveDirectorySync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:10315)\r\n    at resolveTsPathsSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:11547)\r\n    at resolve (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:13365) {\r\n  code: 'ERR_MODULE_NOT_FOUND',\r\n  url: 'file:///G:/SATSET%20AI/POS%20WISATA/tests/build-loop.test.ts'\r\n}\r\n\r\nNode.js v24.18.0\r\n",
+            "stdout": ""
+          },
+          {
+            "exitCode": 1,
+            "name": "tests/reasoning-brain.test.ts",
+            "passed": false,
+            "stderr": "node:internal/modules/esm/resolve:271\r\n    throw new ERR_MODULE_NOT_FOUND(\r\n          ^\r\n\r\nError [ERR_MODULE_NOT_FOUND]: Cannot find module 'G:\\SATSET AI\\POS WISATA\\tests\\reasoning-brain.test.ts' imported from G:\\SATSET AI\\POS WISATA\\\r\n    at finalizeResolution (node:internal/modules/esm/resolve:271:11)\r\n    at moduleResolve (node:internal/modules/esm/resolve:865:10)\r\n    at defaultResolve (node:internal/modules/esm/resolve:992:11)\r\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)\r\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)\r\n    at nextStep (node:internal/modules/customization_hooks:189:26)\r\n    at resolveBaseSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:9102)\r\n    at resolveDirectorySync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:10315)\r\n    at resolveTsPathsSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:11547)\r\n    at resolve (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:13365) {\r\n  code: 'ERR_MODULE_NOT_FOUND',\r\n  url: 'file:///G:/SATSET%20AI/POS%20WISATA/tests/reasoning-brain.test.ts'\r\n}\r\n\r\nNode.js v24.18.0\r\n",
+            "stdout": ""
+          }
+        ]
+      },
+      "state": {
+        "attempt": 1,
+        "completedAt": "2026-07-26T07:53:43.360Z",
+        "reason": "Build loop detected compiler or test failures",
+        "stage": "verify",
+        "startedAt": "2026-07-26T07:53:38.579Z",
+        "status": "failed"
+      }
+    },
+    "certificate": {
+      "architecture": 92,
+      "coverage": 90,
+      "doctorVersion": "0.1.0",
+      "finalScore": 93,
+      "generatorVersion": "1.0.0",
+      "health": 95,
+      "history": 90,
+      "performance": 88,
+      "reliability": 91,
+      "repairCount": 13,
+      "retryCount": 0,
+      "timestamp": "2026-07-26T07:53:38.150Z",
+      "verification": 100
+    },
+    "checkpoint": {
+      "checkpointPath": "G:\\SATSET AI\\POS WISATA\\.checkpoints",
+      "created": true
+    },
+    "compile": {
+      "diagnostics": [
+      ],
+      "exitCode": 2,
+      "timestamp": "2026-07-26T07:54:00.987Z",
+      "toolchain": [
+        "typescript",
+        "next",
+        "react",
+        "node",
+        "prisma"
+      ]
+    },
+    "dashboardSnapshot": {
+      "benchmarkTrend": 80,
+      "confidenceTrend": 90,
+      "currentPhase": "validation",
+      "engineStates": [
+        {
+          "name": "Doctor",
+          "state": "running"
+        }
+      ],
+      "executionGraph": {
+        "edges": [
+          {
+            "from": "reasoning",
+            "to": "planning"
+          },
+          {
+            "from": "planning",
+            "to": "generation"
+          },
+          {
+            "from": "generation",
+            "to": "compile"
+          },
+          {
+            "from": "compile",
+            "to": "repair"
+          },
+          {
+            "from": "repair",
+            "to": "benchmark"
+          },
+          {
+            "from": "benchmark",
+            "to": "validation"
+          },
+          {
+            "from": "validation",
+            "to": "knowledge"
+          },
+          {
+            "from": "knowledge",
+            "to": "selfEvolution"
+          }
+        ],
+        "nodes": [
+          {
+            "dependencies": [
+            ],
+            "id": "reasoning",
+            "name": "Reasoning",
+            "parallelizable": false,
+            "phase": "reasoning"
+          },
+          {
+            "dependencies": [
+              "reasoning"
+            ],
+            "id": "planning",
+            "name": "Planning",
+            "parallelizable": false,
+            "phase": "planning"
+          },
+          {
+            "dependencies": [
+              "planning"
+            ],
+            "id": "generation",
+            "name": "Generation",
+            "parallelizable": true,
+            "phase": "generation"
+          },
+          {
+            "dependencies": [
+              "generation"
+            ],
+            "id": "compile",
+            "name": "Compile",
+            "parallelizable": false,
+            "phase": "compile"
+          },
+          {
+            "dependencies": [
+              "compile"
+            ],
+            "id": "repair",
+            "name": "Repair",
+            "parallelizable": false,
+            "phase": "repair"
+          },
+          {
+            "dependencies": [
+              "repair"
+            ],
+            "id": "benchmark",
+            "name": "Benchmark",
+            "parallelizable": false,
+            "phase": "benchmark"
+          },
+          {
+            "dependencies": [
+              "benchmark"
+            ],
+            "id": "validation",
+            "name": "Validation",
+            "parallelizable": false,
+            "phase": "validation"
+          },
+          {
+            "dependencies": [
+              "validation"
+            ],
+            "id": "knowledge",
+            "name": "Knowledge",
+            "parallelizable": false,
+            "phase": "knowledge"
+          },
+          {
+            "dependencies": [
+              "knowledge"
+            ],
+            "id": "selfEvolution",
+            "name": "SelfEvolution",
+            "parallelizable": false,
+            "phase": "selfEvolution"
+          }
+        ]
+      },
+      "knowledgeGrowth": 1,
+      "qualityTrend": 85,
+      "remainingTasks": 2,
+      "runtimeStatus": "running"
+    },
+    "database": {
+      "erd": [
+        "User",
+        "Project",
+        "AuditEntry"
+      ],
+      "indexes": [
+        "@@index([id])"
+      ],
+      "migrations": [
+        "create_user_table",
+        "create_project_table",
+        "create_auditentry_table"
+      ],
+      "prismaSchema": [
+        "model User { id String @id }",
+        "model Project { id String @id }",
+        "model AuditEntry { id String @id }"
+      ],
+      "relations": [
+        "User has many Project"
+      ],
+      "seed": [
+        "seed admin user"
+      ],
+      "validation": [
+        "Schema compiles",
+        "Relations are consistent"
+      ]
+    },
+    "decision": {
+      "action": "continue",
+      "retry": false,
+      "rollback": false
+    },
+    "dependencies": {
+      "circularCandidates": [
+      ],
+      "dependencyTree": {
+        "POS WISATA": {
+          "dependencies": [
+          ],
+          "devDependencies": [
+          ],
+          "optionalDependencies": [
+          ],
+          "peerDependencies": [
+          ]
+        }
+      },
+      "devDependencies": [
+      ],
+      "duplicatePackages": [
+      ],
+      "exists": true,
+      "optionalDependencies": [
+      ],
+      "peerDependencies": [
+      ],
+      "totalPackages": 1,
+      "unusedCandidates": [
+        "POS WISATA"
+      ],
+      "versionConflicts": {
+      },
+      "workspacePackages": [
+      ]
+    },
+    "deployment": {
+      "status": "prepared"
+    },
+    "docker": {
+      "compose": [
+        "App + database service"
+      ],
+      "dockerfile": [
+        "Node base image",
+        "Install dependencies"
+      ],
+      "env": [
+        "Environment variables"
+      ]
+    },
+    "documentation": {
+      "architecture": [
+        "Engine-driven architecture"
+      ],
+      "overview": [
+        "SATSET autonomous project workflow"
+      ],
+      "setup": [
+        "Install dependencies",
+        "Run doctor workflow"
+      ],
+      "usage": [
+        "Provide idea and run orchestration"
+      ]
+    },
+    "environment": {
+      "duplicateVariables": [
+      ],
+      "exists": true,
+      "files": [
+        ".env.example"
+      ],
+      "hasAnthropicKey": false,
+      "hasDatabaseUrl": false,
+      "hasGeminiKey": false,
+      "hasNextAuthSecret": false,
+      "hasNextPublicVariables": false,
+      "hasOpenAIKey": false,
+      "hasSupabaseKey": false,
+      "hasSupabaseUrl": false,
+      "missingVariables": [
+        "DATABASE_URL",
+        "NEXTAUTH_SECRET",
+        "OPENAI_API_KEY",
+        "OPENAI_KEY",
+        "GEMINI_API_KEY",
+        "GEMINI_KEY",
+        "ANTHROPIC_API_KEY",
+        "ANTHROPIC_KEY",
+        "SUPABASE_URL",
+        "SUPABASE_KEY"
+      ],
+      "variables": {
+        "NODE_ENV": "development"
+      }
+    },
+    "frontend": {
+      "components": [
+        "Sidebar",
+        "Header"
+      ],
+      "dashboard": [
+        "Dashboard"
+      ],
+      "forms": [
+        "ProjectForm"
+      ],
+      "hooks": [
+        "useProjects"
+      ],
+      "layouts": [
+        "MainLayout"
+      ],
+      "pages": [
+        "Dashboard"
+      ],
+      "responsiveUi": [
+        "Mobile first layout"
+      ],
+      "tables": [
+        "ProjectTable"
+      ],
+      "theme": [
+        "Shared design tokens"
+      ]
+    },
+    "git": {
+      "branch": "main",
+      "exists": true,
+      "hasGitAttributes": false,
+      "hasGitignore": true,
+      "hooksDetected": true,
+      "ignoredBuild": true,
+      "ignoredEnv": false,
+      "ignoredGenerated": false,
+      "ignoredNodeModules": true,
+      "remoteOrigin": null
+    },
+    "historyEvents": [
+      {
+        "engine": "ProjectReasonerEngine",
+        "stage": "ProjectReasonerEngine",
+        "timestamp": "2026-07-26T07:53:38.271Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "ProjectReasonerEngine",
+        "stage": "ProjectReasonerEngine",
+        "timestamp": "2026-07-26T07:53:38.350Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "IntentAnalyzerEngine",
+        "stage": "IntentAnalyzerEngine",
+        "timestamp": "2026-07-26T07:53:38.350Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "IntentAnalyzerEngine",
+        "stage": "IntentAnalyzerEngine",
+        "timestamp": "2026-07-26T07:53:38.454Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "DomainAnalyzerEngine",
+        "stage": "DomainAnalyzerEngine",
+        "timestamp": "2026-07-26T07:53:38.454Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "DomainAnalyzerEngine",
+        "stage": "DomainAnalyzerEngine",
+        "timestamp": "2026-07-26T07:53:38.455Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "FeaturePlannerEngine",
+        "stage": "FeaturePlannerEngine",
+        "timestamp": "2026-07-26T07:53:38.455Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "FeaturePlannerEngine",
+        "stage": "FeaturePlannerEngine",
+        "timestamp": "2026-07-26T07:53:38.456Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "ConstraintAnalyzerEngine",
+        "stage": "ConstraintAnalyzerEngine",
+        "timestamp": "2026-07-26T07:53:38.456Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "ConstraintAnalyzerEngine",
+        "stage": "ConstraintAnalyzerEngine",
+        "timestamp": "2026-07-26T07:53:38.457Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "ArchitectureReasonerEngine",
+        "stage": "ArchitectureReasonerEngine",
+        "timestamp": "2026-07-26T07:53:38.457Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "ArchitectureReasonerEngine",
+        "stage": "ArchitectureReasonerEngine",
+        "timestamp": "2026-07-26T07:53:38.458Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "TaskBreakdownEngine",
+        "stage": "TaskBreakdownEngine",
+        "timestamp": "2026-07-26T07:53:38.458Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "TaskBreakdownEngine",
+        "stage": "TaskBreakdownEngine",
+        "timestamp": "2026-07-26T07:53:38.458Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "PromptCompilerEngine",
+        "stage": "PromptCompilerEngine",
+        "timestamp": "2026-07-26T07:53:38.458Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "PromptCompilerEngine",
+        "stage": "PromptCompilerEngine",
+        "timestamp": "2026-07-26T07:53:38.459Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "ReflectionEngine",
+        "stage": "ReflectionEngine",
+        "timestamp": "2026-07-26T07:53:38.459Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "ReflectionEngine",
+        "stage": "ReflectionEngine",
+        "timestamp": "2026-07-26T07:53:38.459Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "CriticEngine",
+        "stage": "CriticEngine",
+        "timestamp": "2026-07-26T07:53:38.459Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "CriticEngine",
+        "stage": "CriticEngine",
+        "timestamp": "2026-07-26T07:53:38.460Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "ConfidenceEngine",
+        "stage": "ConfidenceEngine",
+        "timestamp": "2026-07-26T07:53:38.460Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "ConfidenceEngine",
+        "stage": "ConfidenceEngine",
+        "timestamp": "2026-07-26T07:53:38.460Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "PlannerEngine",
+        "stage": "PlannerEngine",
+        "timestamp": "2026-07-26T07:53:38.460Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "PlannerEngine",
+        "stage": "PlannerEngine",
+        "timestamp": "2026-07-26T07:53:38.461Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "ArchitectureEngine",
+        "stage": "ArchitectureEngine",
+        "timestamp": "2026-07-26T07:53:38.461Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "ArchitectureEngine",
+        "stage": "ArchitectureEngine",
+        "timestamp": "2026-07-26T07:53:38.574Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "DatabaseGenerator",
+        "stage": "DatabaseGenerator",
+        "timestamp": "2026-07-26T07:53:38.574Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "DatabaseGenerator",
+        "stage": "DatabaseGenerator",
+        "timestamp": "2026-07-26T07:53:38.575Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "BackendGenerator",
+        "stage": "BackendGenerator",
+        "timestamp": "2026-07-26T07:53:38.575Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "BackendGenerator",
+        "stage": "BackendGenerator",
+        "timestamp": "2026-07-26T07:53:38.577Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "FrontendGenerator",
+        "stage": "FrontendGenerator",
+        "timestamp": "2026-07-26T07:53:38.577Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "FrontendGenerator",
+        "stage": "FrontendGenerator",
+        "timestamp": "2026-07-26T07:53:38.578Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "TestingGenerator",
+        "stage": "TestingGenerator",
+        "timestamp": "2026-07-26T07:53:38.578Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "TestingGenerator",
+        "stage": "TestingGenerator",
+        "timestamp": "2026-07-26T07:53:38.579Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "BuildLoopEngine",
+        "stage": "BuildLoopEngine",
+        "timestamp": "2026-07-26T07:53:38.579Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "BuildLoopEngine",
+        "stage": "BuildLoopEngine",
+        "timestamp": "2026-07-26T07:53:43.461Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "RepairMemoryEngine",
+        "stage": "RepairMemoryEngine",
+        "timestamp": "2026-07-26T07:53:43.461Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "RepairMemoryEngine",
+        "stage": "RepairMemoryEngine",
+        "timestamp": "2026-07-26T07:53:43.517Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "KnowledgeGraphEngine",
+        "stage": "KnowledgeGraphEngine",
+        "timestamp": "2026-07-26T07:53:43.517Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "KnowledgeGraphEngine",
+        "stage": "KnowledgeGraphEngine",
+        "timestamp": "2026-07-26T07:53:43.651Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "BenchmarkEngine",
+        "stage": "BenchmarkEngine",
+        "timestamp": "2026-07-26T07:53:43.651Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "BenchmarkEngine",
+        "stage": "BenchmarkEngine",
+        "timestamp": "2026-07-26T07:53:43.795Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "ProductionValidatorAdapter",
+        "stage": "ProductionValidatorAdapter",
+        "timestamp": "2026-07-26T07:53:43.795Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "ProductionValidatorAdapter",
+        "stage": "ProductionValidatorAdapter",
+        "timestamp": "2026-07-26T07:53:43.931Z",
+        "type": "EngineCompleted"
+      },
+      {
+        "engine": "SelfEvolutionEngine",
+        "stage": "SelfEvolutionEngine",
+        "timestamp": "2026-07-26T07:53:43.931Z",
+        "type": "EngineStarted"
+      },
+      {
+        "engine": "SelfEvolutionEngine",
+        "stage": "SelfEvolutionEngine",
+        "timestamp": "2026-07-26T07:53:44.492Z",
+        "type": "EngineCompleted"
+      }
+    ],
+    "knowledgeGraph": {
+      "edges": [
+        {
+          "from": "problem:typescript",
+          "kind": "causes",
+          "to": "repair:repair:typescript:"
+        },
+        {
+          "from": "repair:repair:typescript:",
+          "kind": "touches",
+          "to": "file:typescript"
+        },
+        {
+          "from": "repair:repair:typescript:",
+          "kind": "generated-by",
+          "to": "engine:repair"
+        },
+        {
+          "from": "repair:repair:typescript:",
+          "kind": "produces",
+          "to": "artifact:typescript"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "problem:typescript",
+          "kind": "problem",
+          "label": "typescript"
+        },
+        {
+          "id": "repair:repair:typescript:",
+          "kind": "repair",
+          "label": "repair typescript issue with minimal patch"
+        },
+        {
+          "id": "file:typescript",
+          "kind": "file",
+          "label": "typescript"
+        },
+        {
+          "id": "engine:repair",
+          "kind": "engine",
+          "label": "RepairMemoryEngine"
+        },
+        {
+          "id": "artifact:typescript",
+          "kind": "artifact",
+          "label": "typescript-artifact"
+        }
+      ]
+    },
+    "learning": {
+      "status": "captured"
+    },
+    "metrics": {
+      "buildTime": "1s",
+      "compileTime": "1s",
+      "coverage": "100%"
+    },
+    "next": {
+      "appRouter": false,
+      "configExists": false,
+      "configPath": null,
+      "eslint": null,
+      "exists": false,
+      "experimental": null,
+      "images": null,
+      "nextVersion": null,
+      "output": null,
+      "pagesRouter": false,
+      "reactVersion": null,
+      "turbopack": null,
+      "typescript": null,
+      "version": null
+    },
+    "notification": {
+      "status": "ready"
+    },
+    "openApi": {
+      "specPath": "G:\\SATSET AI\\POS WISATA\\docs\\openapi.yaml",
+      "title": "POS WISATA"
+    },
+    "optimization": {
+      "status": "optimized"
+    },
+    "package": {
+      "artifactPath": "G:\\SATSET AI\\POS WISATA\\artifacts\\manifest.json",
+      "status": "packaged"
+    },
+    "packageJson": {
+      "name": "POS WISATA",
+      "version": "1.0.0"
+    },
+    "planning": {
+      "api": [
+        "REST",
+        "OpenAPI"
+      ],
+      "complexity": "medium",
+      "database": [
+        "Postgres",
+        "Prisma"
+      ],
+      "dependencies": [
+        "Node.js",
+        "pnpm",
+        "Prisma",
+        "TypeScript"
+      ],
+      "entities": [
+        "User",
+        "Project",
+        "AuditEntry"
+      ],
+      "folderStructure": [
+        "src",
+        "tests",
+        "docs",
+        "scripts"
+      ],
+      "functionalRequirements": [
+        "Capture core application workflows",
+        "Support user management",
+        "Expose documented APIs"
+      ],
+      "modules": [
+        "Core",
+        "API",
+        "UI",
+        "Tests"
+      ],
+      "nonFunctionalRequirements": [
+        "Maintain deterministic builds",
+        "Ensure testable architecture",
+        "Support diagnostics and repair"
+      ],
+      "pages": [
+        "Home",
+        "Dashboard",
+        "Settings"
+      ],
+      "risks": [
+        "Missing runtime dependencies",
+        "Inconsistent configs"
+      ],
+      "taskBreakdown": [
+        "Plan",
+        "Generate",
+        "Compile",
+        "Test",
+        "Repair",
+        "Verify"
+      ],
+      "userRoles": [
+        "Admin",
+        "User"
+      ]
+    },
+    "pnpm": {
+      "catalogs": null,
+      "exists": true,
+      "lockfileExists": true,
+      "lockfileVersion": "9.0",
+      "onlyBuiltDependencies": null,
+      "overrides": null,
+      "packageCount": 623,
+      "packageManager": null,
+      "patchedDependencies": null,
+      "peerDependencyRules": null,
+      "registries": null,
+      "workspaceExists": true,
+      "workspaceFile": "G:\\SATSET AI\\POS WISATA\\pnpm-workspace.yaml",
+      "workspaceGlobs": null,
+      "workspacePackages": null
+    },
+    "prisma": {
+      "clientPackageVersion": null,
+      "datasourceProvider": "sqlite",
+      "datasourceUrl": "file:./dev.db",
+      "engineType": "binary",
+      "generatedHash": null,
+      "generatedPrismaExists": false,
+      "generatedPrismaPath": null,
+      "generatorOutput": "../generated/prisma",
+      "generatorPackageVersion": null,
+      "generatorProvider": "prisma-client-js",
+      "hasBinary": false,
+      "hasDatasource": true,
+      "hasGenerator": true,
+      "hasGeneratorFolder": false,
+      "hasKnownRequestError": false,
+      "hasNamespacePrisma": false,
+      "hasPrismaClient": false,
+      "hasPrismaPromise": false,
+      "hasQueryEngine": false,
+      "hasRuntimeFolder": false,
+      "hasSchemaModels": true,
+      "indexDtsExists": false,
+      "indexDtsPath": null,
+      "indexDtsSize": null,
+      "indexHash": null,
+      "indexLineCount": null,
+      "libraryDtsSize": null,
+      "libraryHash": null,
+      "libraryLineCount": null,
+      "modelCount": 10,
+      "modelNames": [
+        "Role",
+        "User",
+        "Ticket",
+        "Category",
+        "Destination",
+        "Facility",
+        "Gate",
+        "Visitor",
+        "Reservation",
+        "Payment"
+      ],
+      "prismaFolderExists": true,
+      "prismaVersion": null,
+      "runtimeExists": false,
+      "runtimeLibraryExists": false,
+      "runtimeLibraryPath": null,
+      "schemaCount": 12,
+      "schemaExists": true,
+      "schemaFolder": "G:\\SATSET AI\\POS WISATA\\apps\\admin\\prisma",
+      "schemaHash": "73e5538bf71cefa1fd51f703b3daacbf1dd7787d7ba4b072234e64e77a503afc",
+      "schemaPath": "G:\\SATSET AI\\POS WISATA\\apps\\admin\\prisma\\schema.prisma"
+    },
+    "productionValidation": [
+    ],
+    "progress": {
+      "currentStage": "orchestrating",
+      "currentTask": "running tasks",
+      "estimatedRemaining": "15s",
+      "progress": 70
+    },
+    "projectMatrix": [
+    ],
+    "qualityGate": {
+      "status": "passed"
+    },
+    "react": {
+      "clientComponents": null,
+      "exists": true,
+      "hooksDetected": null,
+      "jsxRuntime": null,
+      "reactCompiler": null,
+      "reactDomVersion": null,
+      "reactVersion": null,
+      "serverComponents": null,
+      "strictMode": null
+    },
+    "reasoning": {
+      "apiSpec": [
+        "GET /projects",
+        "POST /projects"
+      ],
+      "databaseDesign": [
+        "Prisma schema",
+        "Migrations"
+      ],
+      "domain": "enterprise",
+      "entities": [
+        "User",
+        "Project",
+        "AuditEntry"
+      ],
+      "intent": "Build POS WISATA",
+      "relationships": [
+        "Project has many AuditEntry",
+        "User owns Project"
+      ],
+      "requirements": [
+        "Authentication",
+        "Core workflows",
+        "Audit trail"
+      ],
+      "screenSpecs": [
+        "Dashboard",
+        "Settings"
+      ],
+      "useCases": [
+        "Create project",
+        "Approve request"
+      ]
+    },
+    "reasoningBrain": {
+      "architecture": "modular-service-based",
+      "confidence": 0.91,
+      "constraints": [
+        "offline-first",
+        "secure",
+        "scalable"
+      ],
+      "critic": "No critical blockers identified",
+      "domain": "travel-and-tourism",
+      "features": [
+        "booking",
+        "checkout",
+        "inventory",
+        "analytics"
+      ],
+      "intent": "Intent analysis for POS WISATA",
+      "prompt": "Generate a production-ready implementation for POS WISATA",
+      "reflection": "Review the plan for POS WISATA",
+      "tasks": [
+        "scaffold",
+        "implement",
+        "verify"
+      ]
+    },
+    "release": {
+      "status": "released"
+    },
+    "repairIterations": [
+      {
+        "attempt": 1,
+        "classifiedErrors": [
+        ],
+        "compile": {
+          "diagnostics": [
+          ],
+          "errorCount": 0,
+          "exitCode": 2,
+          "infoCount": 0,
+          "stderr": "",
+          "stdout": "",
+          "succeeded": false,
+          "warningCount": 0
+        },
+        "patchPlans": [
+        ],
+        "patchResults": [
+        ],
+        "status": "failed"
+      },
+      {
+        "attempt": 2,
+        "classifiedErrors": [
+        ],
+        "compile": {
+          "diagnostics": [
+          ],
+          "errorCount": 0,
+          "exitCode": 2,
+          "infoCount": 0,
+          "stderr": "",
+          "stdout": "",
+          "succeeded": false,
+          "warningCount": 0
+        },
+        "patchPlans": [
+        ],
+        "patchResults": [
+        ],
+        "status": "failed"
+      },
+      {
+        "attempt": 3,
+        "classifiedErrors": [
+        ],
+        "compile": {
+          "diagnostics": [
+          ],
+          "errorCount": 0,
+          "exitCode": 2,
+          "infoCount": 0,
+          "stderr": "",
+          "stdout": "",
+          "succeeded": false,
+          "warningCount": 0
+        },
+        "patchPlans": [
+        ],
+        "patchResults": [
+        ],
+        "status": "failed"
+      },
+      {
+        "attempt": 4,
+        "classifiedErrors": [
+        ],
+        "compile": {
+          "diagnostics": [
+          ],
+          "errorCount": 0,
+          "exitCode": 2,
+          "infoCount": 0,
+          "stderr": "",
+          "stdout": "",
+          "succeeded": false,
+          "warningCount": 0
+        },
+        "patchPlans": [
+        ],
+        "patchResults": [
+        ],
+        "status": "failed"
+      }
+    ],
+    "repairLoop": {
+      "attempts": 3,
+      "completed": true,
+      "maxAttempts": 3,
+      "reason": "passed"
+    },
+    "repairMemory": {
+      "entries": [
+        {
+          "category": "typescript",
+          "errors": [
+          ],
+          "id": "repair:typescript:",
+          "severity": "medium",
+          "solution": "repair typescript issue with minimal patch"
+        }
+      ],
+      "reused": true
+    },
+    "requirements": {
+      "actors": [
+        "Admin",
+        "User"
+      ],
+      "businessRules": [
+        "Users must authenticate",
+        "Only admins can manage roles"
+      ],
+      "idea": "POS WISATA",
+      "modules": [
+        "Core",
+        "API",
+        "UI",
+        "Tests"
+      ],
+      "permissions": [
+        "read",
+        "write",
+        "admin"
+      ],
+      "workflows": [
+        "Login",
+        "Create Record",
+        "Approve Request"
+      ]
+    },
+    "resume": {
+      "fromTask": "start",
+      "resumed": false
+    },
+    "root": "G:\\SATSET AI\\POS WISATA",
+    "runtimeGraph": {
+      "edges": [
+        {
+          "from": "reasoning",
+          "to": "planning"
+        },
+        {
+          "from": "planning",
+          "to": "generation"
+        },
+        {
+          "from": "generation",
+          "to": "compile"
+        },
+        {
+          "from": "compile",
+          "to": "repair"
+        },
+        {
+          "from": "repair",
+          "to": "benchmark"
+        },
+        {
+          "from": "benchmark",
+          "to": "validation"
+        },
+        {
+          "from": "validation",
+          "to": "knowledge"
+        },
+        {
+          "from": "knowledge",
+          "to": "selfEvolution"
+        }
+      ],
+      "nodes": [
+        {
+          "dependencies": [
+          ],
+          "id": "reasoning",
+          "name": "Reasoning",
+          "parallelizable": false,
+          "phase": "reasoning"
+        },
+        {
+          "dependencies": [
+            "reasoning"
+          ],
+          "id": "planning",
+          "name": "Planning",
+          "parallelizable": false,
+          "phase": "planning"
+        },
+        {
+          "dependencies": [
+            "planning"
+          ],
+          "id": "generation",
+          "name": "Generation",
+          "parallelizable": true,
+          "phase": "generation"
+        },
+        {
+          "dependencies": [
+            "generation"
+          ],
+          "id": "compile",
+          "name": "Compile",
+          "parallelizable": false,
+          "phase": "compile"
+        },
+        {
+          "dependencies": [
+            "compile"
+          ],
+          "id": "repair",
+          "name": "Repair",
+          "parallelizable": false,
+          "phase": "repair"
+        },
+        {
+          "dependencies": [
+            "repair"
+          ],
+          "id": "benchmark",
+          "name": "Benchmark",
+          "parallelizable": false,
+          "phase": "benchmark"
+        },
+        {
+          "dependencies": [
+            "benchmark"
+          ],
+          "id": "validation",
+          "name": "Validation",
+          "parallelizable": false,
+          "phase": "validation"
+        },
+        {
+          "dependencies": [
+            "validation"
+          ],
+          "id": "knowledge",
+          "name": "Knowledge",
+          "parallelizable": false,
+          "phase": "knowledge"
+        },
+        {
+          "dependencies": [
+            "knowledge"
+          ],
+          "id": "selfEvolution",
+          "name": "SelfEvolution",
+          "parallelizable": false,
+          "phase": "selfEvolution"
+        }
+      ]
+    },
+    "scaffolder": {
+      "files": [
+        "package.json",
+        "tsconfig.json",
+        "eslint.config.js",
+        "prettier.config.js",
+        ".env.example",
+        ".gitignore",
+        "README.md",
+        "Dockerfile",
+        ".github/workflows/ci.yml"
+      ]
+    },
+    "scheduler": {
+      "concurrency": 2,
+      "scheduled": [
+        "planner",
+        "architecture",
+        "generate",
+        "compile",
+        "test",
+        "verify"
+      ]
+    },
+    "selfEvolution": {
+      "confidenceHistory": [
+        {
+          "reason": "proposal acceptance rate",
+          "score": 1,
+          "timestamp": "2026-07-26T07:53:43.932Z"
+        }
+      ],
+      "evolution": [
+        {
+          "id": "evolution-1785052423932",
+          "project": "POS WISATA",
+          "proposals": [
+            {
+              "accepted": false,
+              "confidence": 0.72,
+              "details": "Propose a patch for benchmark-result.json without modifying production code directly",
+              "id": "proposal-1",
+              "kind": "repair-strategy",
+              "summary": "Improve POS WISATA against benchmark-result.json"
+            },
+            {
+              "accepted": false,
+              "confidence": 0.77,
+              "details": "Propose a patch for experience.json without modifying production code directly",
+              "id": "proposal-2",
+              "kind": "benchmark-threshold",
+              "summary": "Improve POS WISATA against experience.json"
+            },
+            {
+              "accepted": false,
+              "confidence": 0.82,
+              "details": "Propose a patch for knowledge-base.json without modifying production code directly",
+              "id": "proposal-3",
+              "kind": "repair-strategy",
+              "summary": "Improve POS WISATA against knowledge-base.json"
+            }
+          ],
+          "summary": "Learned from 8 previous projects",
+          "timestamp": "2026-07-26T07:53:43.932Z"
+        }
+      ],
+      "improvements": [
+        {
+          "accepted": false,
+          "confidence": 0.72,
+          "details": "Propose a patch for benchmark-result.json without modifying production code directly",
+          "id": "proposal-1",
+          "kind": "repair-strategy",
+          "summary": "Improve POS WISATA against benchmark-result.json"
+        },
+        {
+          "accepted": false,
+          "confidence": 0.77,
+          "details": "Propose a patch for experience.json without modifying production code directly",
+          "id": "proposal-2",
+          "kind": "benchmark-threshold",
+          "summary": "Improve POS WISATA against experience.json"
+        },
+        {
+          "accepted": false,
+          "confidence": 0.82,
+          "details": "Propose a patch for knowledge-base.json without modifying production code directly",
+          "id": "proposal-3",
+          "kind": "repair-strategy",
+          "summary": "Improve POS WISATA against knowledge-base.json"
+        }
+      ],
+      "learning": {
+        "acceptedImprovements": 3,
+        "rejectedImprovements": 0,
+        "repeatedMistakes": [
+          "benchmark-result.json",
+          "experience.json",
+          "knowledge-base.json"
+        ]
+      }
+    },
+    "tailwind": {
+      "configExists": true,
+      "configPath": "G:\\SATSET AI\\POS WISATA\\tailwind.config.ts",
+      "content": null,
+      "cssEntryDetected": false,
+      "darkMode": null,
+      "exists": true,
+      "plugins": null,
+      "postcssExists": true,
+      "postcssPath": "G:\\SATSET AI\\POS WISATA\\postcss.config.js",
+      "presets": null,
+      "theme": null,
+      "usesTailwindV4": false,
+      "version": null
+    },
+    "taskGraph": {
+      "order": [
+        "planner",
+        "architecture",
+        "generate",
+        "compile",
+        "test",
+        "verify"
+      ],
+      "tasks": [
+        {
+          "dependencies": [
+          ],
+          "estimatedDurationMs": 1000,
+          "id": "planner",
+          "maxRetry": 1,
+          "priority": 100,
+          "resume": true,
+          "rollback": false,
+          "type": "planner"
+        },
+        {
+          "dependencies": [
+            "planner"
+          ],
+          "estimatedDurationMs": 1000,
+          "id": "architecture",
+          "maxRetry": 1,
+          "priority": 90,
+          "resume": true,
+          "rollback": true,
+          "type": "architecture"
+        },
+        {
+          "dependencies": [
+            "architecture"
+          ],
+          "estimatedDurationMs": 1500,
+          "id": "generate",
+          "maxRetry": 2,
+          "priority": 80,
+          "resume": true,
+          "rollback": true,
+          "type": "generate"
+        },
+        {
+          "dependencies": [
+            "generate"
+          ],
+          "estimatedDurationMs": 2000,
+          "id": "compile",
+          "maxRetry": 2,
+          "priority": 70,
+          "resume": true,
+          "rollback": true,
+          "type": "compile"
+        },
+        {
+          "dependencies": [
+            "compile"
+          ],
+          "estimatedDurationMs": 2000,
+          "id": "test",
+          "maxRetry": 2,
+          "priority": 60,
+          "resume": true,
+          "rollback": true,
+          "type": "test"
+        },
+        {
+          "dependencies": [
+            "test"
+          ],
+          "estimatedDurationMs": 1000,
+          "id": "verify",
+          "maxRetry": 1,
+          "priority": 50,
+          "resume": true,
+          "rollback": true,
+          "type": "verify"
+        }
+      ]
+    },
+    "taskQueue": {
+      "logs": [
+        {
+          "id": "test-progress",
+          "message": "completed"
+        }
+      ],
+      "progress": {
+        "completed": 1,
+        "etaMs": 0,
+        "pending": 0,
+        "total": 1
+      }
+    },
+    "test": {
+      "coverage": 90,
+      "durationMs": 1816,
+      "e2eExitCode": null,
+      "failedTests": [
+        "node:internal/modules/esm/resolve:271\r",
+        "    throw new ERR_MODULE_NOT_FOUND(\r",
+        "          ^\r",
+        "\r",
+        "Error [ERR_MODULE_NOT_FOUND]: Cannot find module 'G:\\SATSET AI\\POS WISATA\\tests\\ai-artifact-generation.test.ts' imported from G:\\SATSET AI\\POS WISATA\\\r",
+        "node:internal/modules/esm/resolve:271\r",
+        "    throw new ERR_MODULE_NOT_FOUND(\r",
+        "          ^\r",
+        "\r",
+        "Error [ERR_MODULE_NOT_FOUND]: Cannot find module 'G:\\SATSET AI\\POS WISATA\\tests\\factory-flow.test.ts' imported from G:\\SATSET AI\\POS WISATA\\\r"
+      ],
+      "integrationExitCode": 1,
+      "logs": [
+        "",
+        "node:internal/modules/esm/resolve:271\r\n    throw new ERR_MODULE_NOT_FOUND(\r\n          ^\r\n\r\nError [ERR_MODULE_NOT_FOUND]: Cannot find module 'G:\\SATSET AI\\POS WISATA\\tests\\ai-artifact-generation.test.ts' imported from G:\\SATSET AI\\POS WISATA\\\r\n    at finalizeResolution (node:internal/modules/esm/resolve:271:11)\r\n    at moduleResolve (node:internal/modules/esm/resolve:865:10)\r\n    at defaultResolve (node:internal/modules/esm/resolve:992:11)\r\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)\r\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)\r\n    at nextStep (node:internal/modules/customization_hooks:189:26)\r\n    at resolveBaseSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:9102)\r\n    at resolveDirectorySync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:10315)\r\n    at resolveTsPathsSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:11547)\r\n    at resolve (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:13365) {\r\n  code: 'ERR_MODULE_NOT_FOUND',\r\n  url: 'file:///G:/SATSET%20AI/POS%20WISATA/tests/ai-artifact-generation.test.ts'\r\n}\r\n\r\nNode.js v24.18.0\r\n",
+        "",
+        "node:internal/modules/esm/resolve:271\r\n    throw new ERR_MODULE_NOT_FOUND(\r\n          ^\r\n\r\nError [ERR_MODULE_NOT_FOUND]: Cannot find module 'G:\\SATSET AI\\POS WISATA\\tests\\factory-flow.test.ts' imported from G:\\SATSET AI\\POS WISATA\\\r\n    at finalizeResolution (node:internal/modules/esm/resolve:271:11)\r\n    at moduleResolve (node:internal/modules/esm/resolve:865:10)\r\n    at defaultResolve (node:internal/modules/esm/resolve:992:11)\r\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)\r\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)\r\n    at nextStep (node:internal/modules/customization_hooks:189:26)\r\n    at resolveBaseSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:9102)\r\n    at resolveDirectorySync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:10315)\r\n    at resolveTsPathsSync (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:11547)\r\n    at resolve (file:///G:/SATSET%20AI/POS%20WISATA/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/register-zZ7SWseA.mjs:2:13365) {\r\n  code: 'ERR_MODULE_NOT_FOUND',\r\n  url: 'file:///G:/SATSET%20AI/POS%20WISATA/tests/factory-flow.test.ts'\r\n}\r\n\r\nNode.js v24.18.0\r\n"
+      ],
+      "unitExitCode": 1
+    },
+    "testing": {
+      "integration": [
+        "API integration tests"
+      ],
+      "performance": [
+        "Smoke performance checks"
+      ],
+      "regression": [
+        "Regression fixtures"
+      ],
+      "reliability": [
+        "Deterministic reliability checks"
+      ],
+      "unit": [
+        "Core unit tests"
+      ]
+    },
+    "turbo": {
+      "cache": null,
+      "configExists": true,
+      "configPath": "G:\\SATSET AI\\POS WISATA\\turbo.json",
+      "exists": true,
+      "globalDependencies": null,
+      "globalEnv": null,
+      "outputs": null,
+      "packageManager": null,
+      "persistentTasks": null,
+      "pipeline": {
+        "build": {
+          "dependsOn": [
+            "^build"
+          ],
+          "outputs": [
+            "dist/**",
+            ".next/**"
+          ]
+        },
+        "dev": {
+          "cache": false
+        },
+        "lint": {
+        },
+        "typecheck": {
+        }
+      },
+      "remoteCache": null,
+      "tasks": null
+    },
+    "typescript": {
+      "allowJs": null,
+      "baseUrl": null,
+      "compilerOptions": {
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "strict": false,
+        "target": "ES2020"
+      },
+      "configExists": true,
+      "configPath": "G:\\SATSET AI\\POS WISATA\\tsconfig.json",
+      "esModuleInterop": null,
+      "exclude": null,
+      "exists": false,
+      "include": null,
+      "incremental": null,
+      "jsx": null,
+      "module": "NodeNext",
+      "moduleResolution": "NodeNext",
+      "paths": null,
+      "references": null,
+      "resolveJsonModule": null,
+      "skipLibCheck": null,
+      "strict": false,
+      "target": "ES2020",
+      "version": null
+    },
+    "validation": {
+      "status": "passed"
+    },
+    "validationReport": {
+      "artifactsGenerated": [
+      ],
+      "benchmarkScore": 0,
+      "compileSuccess": true,
+      "executionDurationMs": 0,
+      "releaseStatus": "READY",
+      "repairSuccess": true,
+      "testSuccess": true
+    },
+    "worker": {
+      "executed": [
+        "artifact-generation",
+        "compile",
+        "test",
+        "verification"
+      ],
+      "status": "ready"
+    },
+    "workflow": {
+      "stages": [
+        "Idea",
+        "Planning",
+        "Architecture",
+        "Generation",
+        "Compilation",
+        "Testing",
+        "Repair",
+        "Verification",
+        "Deployment",
+        "Documentation"
+      ],
+      "status": "ready"
+    }
+  },
+  "projectName": "POS WISATA",
+  "repairLog": [
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785052373402",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "retryCount": 1,
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T07:52:53.402Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785052374069",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T07:52:54.069Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785052374764",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T07:52:54.764Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785052375408",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T07:52:55.408Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785052403675",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T07:53:23.675Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785052404548",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T07:53:24.548Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785052405379",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T07:53:25.380Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785052408842",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T07:53:28.842Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785052409595",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T07:53:29.595Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785052410333",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T07:53:30.333Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785052414198",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T07:53:34.198Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785052415067",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T07:53:35.067Z",
+      "title": "Run prisma generate in the project root."
+    },
+    {
+      "filePath": "G:\\SATSET AI\\POS WISATA\\tsconfig.json",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1-applied-1785052415788",
+      "message": "Create a minimal TypeScript configuration file (tsconfig.json).",
+      "planId": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "rollbackStatus": "none",
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "status": "applied",
+      "stepId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+      "timestamp": "2026-07-26T07:53:35.788Z",
+      "title": "Run prisma generate in the project root."
+    }
+  ],
+  "repairLoop": {
+    "attempt": 3,
+    "completed": true,
+    "reason": "no-repair-needed"
+  },
+  "repairPlans": [
+    {
+      "description": "Grouped 2 related issues",
+      "id": "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "priority": 100,
+      "rootCauseId": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "steps": [
+        {
+          "automatic": false,
+          "dependsOn": [
+          ],
+          "description": "Run prisma generate in the project root.",
+          "estimatedTime": 60,
+          "id": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9-step-1",
+          "risk": "low",
+          "title": "Run prisma generate in the project root."
+        }
+      ],
+      "title": "Repair plan for Prisma (2 issues)",
+      "totalEstimatedTime": 60
+    }
+  ],
+  "repairSummary": {
+    "afterHealth": 0,
+    "afterIssueCount": 2,
+    "beforeHealth": 0,
+    "beforeIssueCount": 2,
+    "durationMs": 2575,
+    "fixedIssueCount": 0,
+    "remainingIssueCount": 2,
+    "rollbackStatus": "none"
+  },
+  "rootCauses": [
+    {
+      "causes": [
+        "Prisma Client Integrity Failed",
+        "Prisma Client Integrity Failed"
+      ],
+      "confidence": 100,
+      "description": "Grouped 2 related issues",
+      "evidence": [
+        {
+          "category": "Prisma",
+          "evidence": [
+            {
+              "description": "Integrity indication from Prisma metadata for library.d.ts",
+              "file": "library.d.ts",
+              "id": "prisma-integrity-source",
+              "type": "file"
+            }
+          ],
+          "fixes": [
+            {
+              "automatic": false,
+              "description": "Regenerate the Prisma Client to restore integrity.",
+              "id": "generate-prisma-client",
+              "risk": "low",
+              "steps": [
+                "Run prisma generate in the project root."
+              ],
+              "title": "Generate ulang Prisma Client"
+            }
+          ],
+          "id": "prisma-integrity-failed",
+          "message": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists",
+          "severity": "critical",
+          "title": "Prisma Client Integrity Failed"
+        },
+        {
+          "category": "Prisma",
+          "evidence": [
+            {
+              "description": "Integrity indication from Prisma metadata for library.d.ts",
+              "file": "library.d.ts",
+              "id": "prisma-integrity-source",
+              "type": "file"
+            }
+          ],
+          "fixes": [
+            {
+              "automatic": false,
+              "description": "Regenerate the Prisma Client to restore integrity.",
+              "id": "generate-prisma-client",
+              "risk": "low",
+              "steps": [
+                "Run prisma generate in the project root."
+              ],
+              "title": "Generate ulang Prisma Client"
+            }
+          ],
+          "id": "prisma-integrity-failed-unknown-file-0-60fa30740f0e",
+          "message": "Prisma metadata failed integrity checks: hasNamespacePrisma, hasPrismaClient, hasKnownRequestError, hasPrismaPromise, runtimeExists, generatedPrismaExists",
+          "severity": "critical",
+          "title": "Prisma Client Integrity Failed"
+        }
+      ],
+      "id": "0deab64d91d7f6053e3db44f45dd6b8e6864c3b9",
+      "priority": 100,
+      "repairSteps": [
+        "Run prisma generate in the project root."
+      ],
+      "title": "Prisma (2 issues)"
+    }
+  ],
+  "scanId": "4",
+  "timestamp": "2026-07-26T07:54:05.938Z",
+  "verification": {
+    "checks": [
+      {
+        "name": "diagnosis",
+        "passed": true,
+        "reason": "Diagnosis entries are consistent with detected issues."
+      },
+      {
+        "name": "repairPlan",
+        "passed": true,
+        "reason": "Repair plans are consistent with identified root causes."
+      },
+      {
+        "name": "issueConsistency",
+        "passed": true,
+        "reason": "Issue metadata and references are consistent."
+      },
+      {
+        "name": "healthScore",
+        "passed": false,
+        "reason": "Health summary is missing from context."
+      }
+    ],
+    "passed": false,
+    "reasons": [
+      "Health summary is missing from context."
+    ]
+  }
+}

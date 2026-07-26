@@ -1,0 +1,18 @@
+{
+  "projectName": "ERP",
+  "generated": [
+    "source",
+    "assembly",
+    "tests"
+  ],
+  "metadata": {
+    "projectId": "ERP",
+    "projectName": "ERP",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:46:05.311Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

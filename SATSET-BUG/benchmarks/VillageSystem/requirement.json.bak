@@ -1,0 +1,28 @@
+{
+  "idea": "Build VillageSystem",
+  "modules": [
+    "User,Project,AuditEntry"
+  ],
+  "actors": [
+    "Admin,User"
+  ],
+  "businessRules": [
+    "Authentication,Core workflows,Audit trail"
+  ],
+  "permissions": [
+    "read,write,admin"
+  ],
+  "workflows": [
+    "Create project,Approve request"
+  ],
+  "metadata": {
+    "projectId": "VillageSystem",
+    "projectName": "VillageSystem",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:42:25.417Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

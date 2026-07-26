@@ -1,0 +1,16 @@
+{
+  "currentStage": "compile",
+  "progress": 40,
+  "currentTask": "compiling project",
+  "estimatedRemaining": "25s",
+  "metadata": {
+    "projectId": "POS",
+    "projectName": "POS",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:54:56.404Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

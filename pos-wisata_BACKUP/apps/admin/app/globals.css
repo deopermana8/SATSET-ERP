@@ -1,0 +1,54 @@
+:root {
+  --color-bg: #ffffff;
+  --color-bg-dark: #1a1a1a;
+  --color-text: #333333;
+  --color-text-dark: #ffffff;
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-secondary: #fbbf24;
+  --color-secondary-dark: #f59e0b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-color-bg text-color-text dark:bg-color-bg-dark dark:text-color-text-dark;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold;
+}
+
+a {
+  @apply text-color-primary hover:text-color-primary-dark;
+}
+
+button {
+  @apply bg-color-primary text-white font-semibold py-2 px-4 rounded;
+}
+
+table {
+  @apply w-full border-collapse;
+}
+
+th, td {
+  @apply border border-gray-300 p-2;
+}
+
+th {
+  @apply bg-gray-100;
+}
+
+.dark th {
+  @apply bg-gray-700;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply bg-color-bg-dark text-color-text-dark;
+  }
+}

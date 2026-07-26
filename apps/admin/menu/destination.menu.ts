@@ -1,4 +1,4 @@
-﻿export const destinationMenu = {
+export const destinationMenu = {
     entity: 'destination',
     table: 'destination',
     fields: []

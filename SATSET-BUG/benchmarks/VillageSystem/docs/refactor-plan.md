@@ -1,0 +1,5 @@
+
+
+# Refactor Plan
+
+Refactor VillageSystem using deterministic repair loops.

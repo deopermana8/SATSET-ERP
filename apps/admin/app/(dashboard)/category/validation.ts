@@ -1,22 +1,7 @@
-﻿export type CategoryValidationResult = {
-  valid: boolean;
-  errors: Record<string, string>;
-};
+import { z } from "zod";
 
-export function validateCategory(
-  data: Record<string, unknown>
-): CategoryValidationResult {
-  const errors: Record<string, string> = {};
+export const categorySchema = z.object({
+  name: z.string().trim().min(1, "Nama wajib diisi"),
+});
 
-  if (
-    data.name !== undefined &&
-    String(data.name).trim() === ""
-  ) {
-    errors.name = "Nama wajib diisi";
-  }
-
-  return {
-    valid: Object.keys(errors).length === 0,
-    errors,
-  };
-}
+export type CategoryFormValues = z.infer<typeof categorySchema>;

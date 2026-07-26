@@ -1,4 +1,4 @@
-﻿export default function Form(){
+export default function Form(){
     return <div>Form product</div>;
 }
 

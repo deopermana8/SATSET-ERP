@@ -1,4 +1,4 @@
-﻿export interface supplierItem{
+export interface supplierItem{
     id:number;
 }
 

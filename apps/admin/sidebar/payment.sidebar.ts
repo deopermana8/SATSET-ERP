@@ -1,4 +1,4 @@
-﻿export const paymentSidebar = {
+export const paymentSidebar = {
     entity: 'payment',
     table: 'payment',
     fields: []

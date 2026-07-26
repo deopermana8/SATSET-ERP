@@ -1,0 +1,36 @@
+{
+  "goals": [
+    {
+      "id": "goal-1",
+      "title": "Autonomous coding task for HRIS",
+      "description": "Autonomous coding task for HRIS",
+      "status": "completed",
+      "createdAt": "2026-07-26T08:44:23.892Z",
+      "updatedAt": "2026-07-26T08:44:23.922Z"
+    },
+    {
+      "id": "goal-2",
+      "title": "Autonomous coding task for HRIS",
+      "description": "Autonomous coding task for HRIS",
+      "status": "completed",
+      "createdAt": "2026-07-26T09:36:44.279Z",
+      "updatedAt": "2026-07-26T09:36:45.199Z"
+    },
+    {
+      "id": "goal-3",
+      "title": "Autonomous coding task for HRIS",
+      "description": "Autonomous coding task for HRIS",
+      "status": "completed",
+      "createdAt": "2026-07-26T09:39:10.666Z",
+      "updatedAt": "2026-07-26T09:39:11.499Z"
+    },
+    {
+      "id": "goal-4",
+      "title": "Autonomous coding task for HRIS",
+      "description": "Autonomous coding task for HRIS",
+      "status": "completed",
+      "createdAt": "2026-07-26T09:49:59.715Z",
+      "updatedAt": "2026-07-26T09:49:59.739Z"
+    }
+  ]
+}

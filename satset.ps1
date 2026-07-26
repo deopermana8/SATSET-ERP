@@ -1,21 +1,37 @@
-param(
-    [Parameter(Mandatory=$true)]
-    [ValidateSet("doctor","ticket","wahana","kuliner","kasir","report")]
-    [string]$Command
+﻿param(
+    [string]$Command,
+    [string]$Argument
 )
 
-$Root = Split-Path -Parent $MyInvocation.MyCommand.Path
-$Module = Join-Path $Root "satset\$Command.ps1"
+$Root = Join-Path $PSScriptRoot "satset\modules"
 
-Write-Host ""
-Write-Host "=====================================" -ForegroundColor Cyan
-Write-Host " SATSET POS WISATA CLI v1.0" -ForegroundColor Green
-Write-Host "=====================================" -ForegroundColor Cyan
-Write-Host ""
+switch($Command){
 
-if(Test-Path $Module){
-    & $Module
-}
-else{
-    Write-Host "Module $Command belum tersedia." -ForegroundColor Red
+    "doctor"{
+        & (Join-Path $Root "doctor.ps1")
+    }
+
+    "scan"{
+        & (Join-Path $Root "scan.ps1")
+    }
+
+    "generate"{
+        & (Join-Path $Root "generate.ps1")
+    }
+
+    "crud"{
+        & (Join-Path $Root "crud.ps1") $Argument
+    }
+
+    default{
+        Write-Host ""
+        Write-Host "SATSET Framework v2" -ForegroundColor Cyan
+        Write-Host ""
+        Write-Host "Commands:"
+        Write-Host "  doctor"
+        Write-Host "  scan"
+        Write-Host "  generate"
+        Write-Host "  crud <module>"
+        Write-Host ""
+    }
 }

@@ -1,0 +1,14 @@
+{
+  "idea": "runtime",
+  "domain": "travel-and-tourism",
+  "metadata": {
+    "projectId": "runtime-test",
+    "projectName": "runtime-test",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:29:01.785Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

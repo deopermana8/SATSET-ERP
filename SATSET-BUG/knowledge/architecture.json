@@ -1,0 +1,39 @@
+{
+  "architecture": "Microservice",
+  "score": 0.9,
+  "complexity": "small",
+  "scalability": 0.6,
+  "maintainability": 0.72,
+  "risk": 0.1,
+  "deploymentStrategy": "single-service",
+  "dataStrategy": "sqlite",
+  "apiStrategy": "rest",
+  "securityStrategy": "basic-auth",
+  "testingStrategy": "unit-first",
+  "moduleBoundaries": [
+    "domain",
+    "application",
+    "infrastructure",
+    "interface"
+  ],
+  "packageOrganization": [
+    "src/domain",
+    "src/application",
+    "src/infrastructure",
+    "src/interface"
+  ],
+  "namingConvention": "camelCase",
+  "decisions": [
+    {
+      "id": "arch-1785058305382",
+      "name": "Monolith",
+      "confidence": 0.74,
+      "rationale": "Selected small architecture with single-service deployment"
+    }
+  ],
+  "patterns": [
+    "Modular Monolith",
+    "DDD",
+    "Hexagonal"
+  ]
+}

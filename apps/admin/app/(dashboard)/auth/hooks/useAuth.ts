@@ -1,4 +1,4 @@
-﻿export function useAuth() {
+export function useAuth() {
   return {
     module: 'auth',
     label: 'Auth',

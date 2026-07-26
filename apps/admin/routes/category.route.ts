@@ -1,4 +1,4 @@
-﻿export const categoryRoute = {
+export const categoryRoute = {
     entity: 'category',
     table: 'category',
     fields: []

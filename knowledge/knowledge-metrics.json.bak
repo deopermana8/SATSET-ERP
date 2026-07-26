@@ -1,0 +1,8 @@
+{
+  "totalEntries": 30,
+  "reuseRate": 1,
+  "repairSuccessRate": 0.9,
+  "averageRetries": 1,
+  "confidenceTrend": 0.5155555555555558,
+  "duplicateRatio": 0.1
+}

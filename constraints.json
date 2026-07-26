@@ -1,0 +1,16 @@
+{
+  "idea": "POS WISATA",
+  "constraints": [
+    "offline-first,secure,scalable"
+  ],
+  "metadata": {
+    "projectId": "POS WISATA",
+    "projectName": "POS WISATA",
+    "runtimeId": "satset-doctor",
+    "timestamp": "2026-07-26T09:23:44.132Z",
+    "benchmarkScore": 0,
+    "qualityScore": 0,
+    "validationScore": 0,
+    "knowledgeVersion": "1.0.0"
+  }
+}

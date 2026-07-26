@@ -1,0 +1,10 @@
+{
+  "architectureScore": 100,
+  "performanceScore": 100,
+  "coverageScore": 100,
+  "determinismScore": 100,
+  "historyScore": 0,
+  "memoryScore": 100,
+  "verificationScore": 100,
+  "overallReliability": 86
+}

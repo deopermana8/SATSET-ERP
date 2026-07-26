@@ -1,0 +1,632 @@
+{
+  "projectRoot": "G:\\SATSET AI\\POS WISATA",
+  "runs": [
+    {
+      "runIndex": 1,
+      "stageDurationsMs": {
+        "Engine": 0,
+        "PluginEngine": 0,
+        "Scanner": 216,
+        "Analyzer": 0,
+        "AnalyzerEngine": 0,
+        "Diagnosis": 15,
+        "Root Cause": 1,
+        "Repair Planner": 1,
+        "HealthEngine": 0,
+        "Verification": 1,
+        "Reporter": 1,
+        "History": 117
+      },
+      "totalDurationMs": 352,
+      "fingerprint": "941a9af48332424fe35b7430ecbc5d8c387bf14071dc42c7d63c076f5dd9fcde",
+      "healthScore": 79,
+      "issueCount": 2,
+      "repairPlanCount": 1,
+      "verification": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "diagnosis",
+            "passed": true,
+            "reason": "Diagnosis entries are consistent with detected issues."
+          },
+          {
+            "name": "repairPlan",
+            "passed": true,
+            "reason": "Repair plans are consistent with identified root causes."
+          },
+          {
+            "name": "issueConsistency",
+            "passed": true,
+            "reason": "Issue metadata and references are consistent."
+          },
+          {
+            "name": "healthScore",
+            "passed": true,
+            "reason": "Health score and summary are consistent with diagnostics and repair state."
+          }
+        ],
+        "reasons": []
+      },
+      "issueIds": [
+        "prisma-integrity-failed",
+        "prisma-integrity-failed-unknown-file-0-60fa30740f0e"
+      ],
+      "repairPlanIds": [
+        "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9"
+      ],
+      "memoryAfter": {
+        "rss": 80994304,
+        "heapTotal": 20946944,
+        "heapUsed": 13446504,
+        "external": 4894150,
+        "arrayBuffers": 2311647
+      }
+    },
+    {
+      "runIndex": 2,
+      "stageDurationsMs": {
+        "Engine": 1,
+        "PluginEngine": 0,
+        "Scanner": 201,
+        "Analyzer": 0,
+        "AnalyzerEngine": 0,
+        "Diagnosis": 0,
+        "Root Cause": 0,
+        "Repair Planner": 0,
+        "HealthEngine": 0,
+        "Verification": 0,
+        "Reporter": 2,
+        "History": 104
+      },
+      "totalDurationMs": 308,
+      "fingerprint": "941a9af48332424fe35b7430ecbc5d8c387bf14071dc42c7d63c076f5dd9fcde",
+      "healthScore": 79,
+      "issueCount": 2,
+      "repairPlanCount": 1,
+      "verification": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "diagnosis",
+            "passed": true,
+            "reason": "Diagnosis entries are consistent with detected issues."
+          },
+          {
+            "name": "repairPlan",
+            "passed": true,
+            "reason": "Repair plans are consistent with identified root causes."
+          },
+          {
+            "name": "issueConsistency",
+            "passed": true,
+            "reason": "Issue metadata and references are consistent."
+          },
+          {
+            "name": "healthScore",
+            "passed": true,
+            "reason": "Health score and summary are consistent with diagnostics and repair state."
+          }
+        ],
+        "reasons": []
+      },
+      "issueIds": [
+        "prisma-integrity-failed",
+        "prisma-integrity-failed-unknown-file-0-60fa30740f0e"
+      ],
+      "repairPlanIds": [
+        "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9"
+      ],
+      "memoryAfter": {
+        "rss": 90255360,
+        "heapTotal": 30031872,
+        "heapUsed": 18179488,
+        "external": 4896230,
+        "arrayBuffers": 2313727
+      }
+    },
+    {
+      "runIndex": 3,
+      "stageDurationsMs": {
+        "Engine": 0,
+        "PluginEngine": 0,
+        "Scanner": 199,
+        "Analyzer": 1,
+        "AnalyzerEngine": 0,
+        "Diagnosis": 0,
+        "Root Cause": 0,
+        "Repair Planner": 0,
+        "HealthEngine": 0,
+        "Verification": 0,
+        "Reporter": 1,
+        "History": 106
+      },
+      "totalDurationMs": 307,
+      "fingerprint": "941a9af48332424fe35b7430ecbc5d8c387bf14071dc42c7d63c076f5dd9fcde",
+      "healthScore": 79,
+      "issueCount": 2,
+      "repairPlanCount": 1,
+      "verification": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "diagnosis",
+            "passed": true,
+            "reason": "Diagnosis entries are consistent with detected issues."
+          },
+          {
+            "name": "repairPlan",
+            "passed": true,
+            "reason": "Repair plans are consistent with identified root causes."
+          },
+          {
+            "name": "issueConsistency",
+            "passed": true,
+            "reason": "Issue metadata and references are consistent."
+          },
+          {
+            "name": "healthScore",
+            "passed": true,
+            "reason": "Health score and summary are consistent with diagnostics and repair state."
+          }
+        ],
+        "reasons": []
+      },
+      "issueIds": [
+        "prisma-integrity-failed",
+        "prisma-integrity-failed-unknown-file-0-60fa30740f0e"
+      ],
+      "repairPlanIds": [
+        "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9"
+      ],
+      "memoryAfter": {
+        "rss": 91164672,
+        "heapTotal": 31252480,
+        "heapUsed": 14283728,
+        "external": 4898310,
+        "arrayBuffers": 2315807
+      }
+    },
+    {
+      "runIndex": 4,
+      "stageDurationsMs": {
+        "Engine": 0,
+        "PluginEngine": 0,
+        "Scanner": 191,
+        "Analyzer": 0,
+        "AnalyzerEngine": 0,
+        "Diagnosis": 0,
+        "Root Cause": 0,
+        "Repair Planner": 0,
+        "HealthEngine": 0,
+        "Verification": 0,
+        "Reporter": 1,
+        "History": 90
+      },
+      "totalDurationMs": 282,
+      "fingerprint": "941a9af48332424fe35b7430ecbc5d8c387bf14071dc42c7d63c076f5dd9fcde",
+      "healthScore": 79,
+      "issueCount": 2,
+      "repairPlanCount": 1,
+      "verification": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "diagnosis",
+            "passed": true,
+            "reason": "Diagnosis entries are consistent with detected issues."
+          },
+          {
+            "name": "repairPlan",
+            "passed": true,
+            "reason": "Repair plans are consistent with identified root causes."
+          },
+          {
+            "name": "issueConsistency",
+            "passed": true,
+            "reason": "Issue metadata and references are consistent."
+          },
+          {
+            "name": "healthScore",
+            "passed": true,
+            "reason": "Health score and summary are consistent with diagnostics and repair state."
+          }
+        ],
+        "reasons": []
+      },
+      "issueIds": [
+        "prisma-integrity-failed",
+        "prisma-integrity-failed-unknown-file-0-60fa30740f0e"
+      ],
+      "repairPlanIds": [
+        "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9"
+      ],
+      "memoryAfter": {
+        "rss": 92282880,
+        "heapTotal": 31686656,
+        "heapUsed": 16043416,
+        "external": 4900390,
+        "arrayBuffers": 2317887
+      }
+    },
+    {
+      "runIndex": 5,
+      "stageDurationsMs": {
+        "Engine": 0,
+        "PluginEngine": 0,
+        "Scanner": 191,
+        "Analyzer": 0,
+        "AnalyzerEngine": 0,
+        "Diagnosis": 0,
+        "Root Cause": 0,
+        "Repair Planner": 0,
+        "HealthEngine": 0,
+        "Verification": 0,
+        "Reporter": 1,
+        "History": 98
+      },
+      "totalDurationMs": 290,
+      "fingerprint": "941a9af48332424fe35b7430ecbc5d8c387bf14071dc42c7d63c076f5dd9fcde",
+      "healthScore": 79,
+      "issueCount": 2,
+      "repairPlanCount": 1,
+      "verification": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "diagnosis",
+            "passed": true,
+            "reason": "Diagnosis entries are consistent with detected issues."
+          },
+          {
+            "name": "repairPlan",
+            "passed": true,
+            "reason": "Repair plans are consistent with identified root causes."
+          },
+          {
+            "name": "issueConsistency",
+            "passed": true,
+            "reason": "Issue metadata and references are consistent."
+          },
+          {
+            "name": "healthScore",
+            "passed": true,
+            "reason": "Health score and summary are consistent with diagnostics and repair state."
+          }
+        ],
+        "reasons": []
+      },
+      "issueIds": [
+        "prisma-integrity-failed",
+        "prisma-integrity-failed-unknown-file-0-60fa30740f0e"
+      ],
+      "repairPlanIds": [
+        "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9"
+      ],
+      "memoryAfter": {
+        "rss": 93642752,
+        "heapTotal": 32382976,
+        "heapUsed": 18092728,
+        "external": 4902470,
+        "arrayBuffers": 2319967
+      }
+    },
+    {
+      "runIndex": 6,
+      "stageDurationsMs": {
+        "Engine": 0,
+        "PluginEngine": 0,
+        "Scanner": 188,
+        "Analyzer": 0,
+        "AnalyzerEngine": 0,
+        "Diagnosis": 0,
+        "Root Cause": 0,
+        "Repair Planner": 0,
+        "HealthEngine": 0,
+        "Verification": 0,
+        "Reporter": 2,
+        "History": 90
+      },
+      "totalDurationMs": 280,
+      "fingerprint": "941a9af48332424fe35b7430ecbc5d8c387bf14071dc42c7d63c076f5dd9fcde",
+      "healthScore": 79,
+      "issueCount": 2,
+      "repairPlanCount": 1,
+      "verification": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "diagnosis",
+            "passed": true,
+            "reason": "Diagnosis entries are consistent with detected issues."
+          },
+          {
+            "name": "repairPlan",
+            "passed": true,
+            "reason": "Repair plans are consistent with identified root causes."
+          },
+          {
+            "name": "issueConsistency",
+            "passed": true,
+            "reason": "Issue metadata and references are consistent."
+          },
+          {
+            "name": "healthScore",
+            "passed": true,
+            "reason": "Health score and summary are consistent with diagnostics and repair state."
+          }
+        ],
+        "reasons": []
+      },
+      "issueIds": [
+        "prisma-integrity-failed",
+        "prisma-integrity-failed-unknown-file-0-60fa30740f0e"
+      ],
+      "repairPlanIds": [
+        "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9"
+      ],
+      "memoryAfter": {
+        "rss": 94625792,
+        "heapTotal": 33603584,
+        "heapUsed": 20161040,
+        "external": 4904550,
+        "arrayBuffers": 2322047
+      }
+    },
+    {
+      "runIndex": 7,
+      "stageDurationsMs": {
+        "Engine": 0,
+        "PluginEngine": 0,
+        "Scanner": 191,
+        "Analyzer": 0,
+        "AnalyzerEngine": 0,
+        "Diagnosis": 0,
+        "Root Cause": 0,
+        "Repair Planner": 0,
+        "HealthEngine": 0,
+        "Verification": 0,
+        "Reporter": 2,
+        "History": 99
+      },
+      "totalDurationMs": 292,
+      "fingerprint": "941a9af48332424fe35b7430ecbc5d8c387bf14071dc42c7d63c076f5dd9fcde",
+      "healthScore": 79,
+      "issueCount": 2,
+      "repairPlanCount": 1,
+      "verification": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "diagnosis",
+            "passed": true,
+            "reason": "Diagnosis entries are consistent with detected issues."
+          },
+          {
+            "name": "repairPlan",
+            "passed": true,
+            "reason": "Repair plans are consistent with identified root causes."
+          },
+          {
+            "name": "issueConsistency",
+            "passed": true,
+            "reason": "Issue metadata and references are consistent."
+          },
+          {
+            "name": "healthScore",
+            "passed": true,
+            "reason": "Health score and summary are consistent with diagnostics and repair state."
+          }
+        ],
+        "reasons": []
+      },
+      "issueIds": [
+        "prisma-integrity-failed",
+        "prisma-integrity-failed-unknown-file-0-60fa30740f0e"
+      ],
+      "repairPlanIds": [
+        "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9"
+      ],
+      "memoryAfter": {
+        "rss": 108675072,
+        "heapTotal": 50814976,
+        "heapUsed": 21375712,
+        "external": 4970504,
+        "arrayBuffers": 2324127
+      }
+    },
+    {
+      "runIndex": 8,
+      "stageDurationsMs": {
+        "Engine": 0,
+        "PluginEngine": 0,
+        "Scanner": 202,
+        "Analyzer": 0,
+        "AnalyzerEngine": 0,
+        "Diagnosis": 0,
+        "Root Cause": 0,
+        "Repair Planner": 0,
+        "HealthEngine": 0,
+        "Verification": 0,
+        "Reporter": 1,
+        "History": 92
+      },
+      "totalDurationMs": 295,
+      "fingerprint": "941a9af48332424fe35b7430ecbc5d8c387bf14071dc42c7d63c076f5dd9fcde",
+      "healthScore": 79,
+      "issueCount": 2,
+      "repairPlanCount": 1,
+      "verification": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "diagnosis",
+            "passed": true,
+            "reason": "Diagnosis entries are consistent with detected issues."
+          },
+          {
+            "name": "repairPlan",
+            "passed": true,
+            "reason": "Repair plans are consistent with identified root causes."
+          },
+          {
+            "name": "issueConsistency",
+            "passed": true,
+            "reason": "Issue metadata and references are consistent."
+          },
+          {
+            "name": "healthScore",
+            "passed": true,
+            "reason": "Health score and summary are consistent with diagnostics and repair state."
+          }
+        ],
+        "reasons": []
+      },
+      "issueIds": [
+        "prisma-integrity-failed",
+        "prisma-integrity-failed-unknown-file-0-60fa30740f0e"
+      ],
+      "repairPlanIds": [
+        "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9"
+      ],
+      "memoryAfter": {
+        "rss": 113049600,
+        "heapTotal": 50987008,
+        "heapUsed": 22266736,
+        "external": 4985064,
+        "arrayBuffers": 2326207
+      }
+    },
+    {
+      "runIndex": 9,
+      "stageDurationsMs": {
+        "Engine": 0,
+        "PluginEngine": 0,
+        "Scanner": 186,
+        "Analyzer": 1,
+        "AnalyzerEngine": 0,
+        "Diagnosis": 0,
+        "Root Cause": 0,
+        "Repair Planner": 0,
+        "HealthEngine": 0,
+        "Verification": 0,
+        "Reporter": 1,
+        "History": 97
+      },
+      "totalDurationMs": 285,
+      "fingerprint": "941a9af48332424fe35b7430ecbc5d8c387bf14071dc42c7d63c076f5dd9fcde",
+      "healthScore": 79,
+      "issueCount": 2,
+      "repairPlanCount": 1,
+      "verification": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "diagnosis",
+            "passed": true,
+            "reason": "Diagnosis entries are consistent with detected issues."
+          },
+          {
+            "name": "repairPlan",
+            "passed": true,
+            "reason": "Repair plans are consistent with identified root causes."
+          },
+          {
+            "name": "issueConsistency",
+            "passed": true,
+            "reason": "Issue metadata and references are consistent."
+          },
+          {
+            "name": "healthScore",
+            "passed": true,
+            "reason": "Health score and summary are consistent with diagnostics and repair state."
+          }
+        ],
+        "reasons": []
+      },
+      "issueIds": [
+        "prisma-integrity-failed",
+        "prisma-integrity-failed-unknown-file-0-60fa30740f0e"
+      ],
+      "repairPlanIds": [
+        "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9"
+      ],
+      "memoryAfter": {
+        "rss": 113332224,
+        "heapTotal": 51421184,
+        "heapUsed": 23560464,
+        "external": 5000456,
+        "arrayBuffers": 2328287
+      }
+    },
+    {
+      "runIndex": 10,
+      "stageDurationsMs": {
+        "Engine": 0,
+        "PluginEngine": 0,
+        "Scanner": 186,
+        "Analyzer": 0,
+        "AnalyzerEngine": 0,
+        "Diagnosis": 0,
+        "Root Cause": 0,
+        "Repair Planner": 0,
+        "HealthEngine": 0,
+        "Verification": 0,
+        "Reporter": 2,
+        "History": 91
+      },
+      "totalDurationMs": 279,
+      "fingerprint": "941a9af48332424fe35b7430ecbc5d8c387bf14071dc42c7d63c076f5dd9fcde",
+      "healthScore": 79,
+      "issueCount": 2,
+      "repairPlanCount": 1,
+      "verification": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "diagnosis",
+            "passed": true,
+            "reason": "Diagnosis entries are consistent with detected issues."
+          },
+          {
+            "name": "repairPlan",
+            "passed": true,
+            "reason": "Repair plans are consistent with identified root causes."
+          },
+          {
+            "name": "issueConsistency",
+            "passed": true,
+            "reason": "Issue metadata and references are consistent."
+          },
+          {
+            "name": "healthScore",
+            "passed": true,
+            "reason": "Health score and summary are consistent with diagnostics and repair state."
+          }
+        ],
+        "reasons": []
+      },
+      "issueIds": [
+        "prisma-integrity-failed",
+        "prisma-integrity-failed-unknown-file-0-60fa30740f0e"
+      ],
+      "repairPlanIds": [
+        "repair-plan:0deab64d91d7f6053e3db44f45dd6b8e6864c3b9"
+      ],
+      "memoryAfter": {
+        "rss": 114503680,
+        "heapTotal": 52641792,
+        "heapUsed": 24747600,
+        "external": 5016888,
+        "arrayBuffers": 2330367
+      }
+    }
+  ],
+  "validation": {
+    "fingerprintsIdentical": true,
+    "healthScoresIdentical": true,
+    "issueIdsIdentical": true,
+    "repairPlansIdentical": true,
+    "verificationIdentical": true
+  }
+}

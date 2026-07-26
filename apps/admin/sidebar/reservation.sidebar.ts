@@ -1,4 +1,4 @@
-﻿export const reservationSidebar = {
+export const reservationSidebar = {
     entity: 'reservation',
     table: 'reservation',
     fields: []

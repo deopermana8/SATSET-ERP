@@ -1,4 +1,4 @@
-﻿type EmployeeRow = {
+type EmployeeRow = {
   id: number
   name: string
   email: string

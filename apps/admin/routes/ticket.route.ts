@@ -1,4 +1,4 @@
-﻿export const ticketRoute = {
+export const ticketRoute = {
     entity: 'ticket',
     table: 'ticket',
     fields: []

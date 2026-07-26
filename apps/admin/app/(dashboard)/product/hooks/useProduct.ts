@@ -1,4 +1,4 @@
-﻿export function useProduct(){
+export function useProduct(){
   return {};
 }
 

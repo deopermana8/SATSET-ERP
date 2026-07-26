@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Inventory
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Inventory
+  template:
+    metadata:
+      labels:
+        app: Inventory
+    spec:
+      containers:
+        - name: Inventory
+          image: Inventory:latest
+          ports:
+            - containerPort: 3000

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { Bell, Clock3, UserCircle2 } from "lucide-react";

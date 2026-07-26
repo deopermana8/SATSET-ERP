@@ -10,7 +10,7 @@ export class TicketController {
     }
 
     async findById(req: Request, res: Response) {
-        const id = req.params.id
+        const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id
         const item = await this.service.findById(id)
         if (!item) {
             return res.status(404).json({ message: 'Ticket not found' })
@@ -25,14 +25,14 @@ export class TicketController {
     }
 
     async update(req: Request, res: Response) {
-        const id = req.params.id
+        const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id
         const payload = req.body
         const updated = await this.service.update(id, payload)
         res.json(updated)
     }
 
     async delete(req: Request, res: Response) {
-        const id = req.params.id
+        const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id
         await this.service.delete(id)
         res.status(204).send()
     }

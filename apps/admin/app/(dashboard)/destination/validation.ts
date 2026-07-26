@@ -3,6 +3,16 @@ export type DestinationValidationResult = {
   errors: Record<string, string>;
 };
 
+export type CreateDestinationInput = {
+  name: string;
+  description?: string | null;
+  address?: string | null;
+  phone?: string | null;
+  email?: string | null;
+};
+
+export type UpdateDestinationInput = Partial<CreateDestinationInput>;
+
 export function validateDestination(
   data: Record<string, unknown>
 ): DestinationValidationResult {
