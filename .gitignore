@@ -2,7 +2,7 @@
 node_modules/
 .pnpm-store/
 
-# Build outputs
+# Build and output directories
 .next/
 dist/
 build/
@@ -10,11 +10,13 @@ out/
 coverage/
 *.tsbuildinfo
 
-# Logs and temp files
+# Runtime artifacts, caches, and temporary state
+.history/
+**/.history/
+.progress.json
+.satset-checkpoint.json
+typecheck.log
 *.log
-*.pid
-*.seed
-*.tmp
 *.bak
 
 # Environment files
@@ -23,37 +25,50 @@ coverage/
 !.env.example
 !.env.example.bak
 
-# Editor and OS files
-.DS_Store
-Thumbs.db
-.history/
-.vscode/
-.idea/
-
-# Runtime and generated artifacts
+# Generated project artifacts
 knowledge/
 reports/
 artifacts/
 release/
-
-# Prisma generated output
-prisma/generated/
-!prisma/schema.prisma
-
-# Benchmark and runtime output
-benchmark-output/
 benchmarks/
-*.benchmark.*
-runtime-*.json
-execution-*.json
-factory-*.json
-validation-*.json
-repair-*.json
-benchmark-*.json
+benchmark*
 
-# Monorepo / app-specific generated files
-**/.turbo/
-**/.cache/
+# SATSET runtime and workspace outputs
+SATSET-BUG/knowledge/
+SATSET-BUG/benchmarks/
+SATSET-BUG/.progress.json
+SATSET-BUG/.satset-checkpoint.json
+SATSET-BUG/confidence.json
+SATSET-BUG/constraints.json
+SATSET-BUG/domain.json
+SATSET-BUG/features.json
+SATSET-BUG/intent.json
+SATSET-BUG/*.bak
+
+# Top-level generated runtime artifacts
+api.json
+confidence.json
+constraints.json
+database.json
+domain.json
+entities.json
+failure-report.json
+features.json
+intent.json
+project-certificate.json
+release.json
+requirement.json
+requirements/refined-requirements.json
+requirements/requirement.json
+retry-report.json
+screens.json
+src/generated/source-manifest.json
+usecases.json
+workflow.json
+
+# Cache/build metadata
+apps/**/tsconfig.tsbuildinfo
+packages/**/tsconfig.tsbuildinfo
 
 # Keep source and config tracked
 !src/

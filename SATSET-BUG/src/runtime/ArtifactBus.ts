@@ -8,7 +8,7 @@ export interface ArtifactMessage {
   id: string;
   engine: string;
   kind: string;
-  payload: Record<string, unknown>;
+  payload: Record<string, unknown> | unknown;
   outputPath: string;
   timestamp: string;
 }
