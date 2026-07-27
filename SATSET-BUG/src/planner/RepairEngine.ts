@@ -23,11 +23,13 @@ export class RepairEngine implements IEngine {
     const repairOptions = context.repairOptions ?? {};
     const maxSteps = repairOptions.maxSteps ?? Number.MAX_SAFE_INTEGER;
     let stepCount = 0;
+    let hitMaxSteps = false;
 
     for (const plan of repairPlans) {
       for (const step of plan.steps) {
         if (stepCount >= maxSteps) {
           this.pushLog(context, plan.id, plan.rootCauseId, step.id, step.title, "skipped", "Reached the configured repair-step limit.", undefined);
+          hitMaxSteps = true;
           break;
         }
 
@@ -64,6 +66,12 @@ export class RepairEngine implements IEngine {
         stepCount += 1;
       }
     }
+
+    // Store execution completeness flag in metadata for downstream consumers
+    context.metadata = {
+      ...context.metadata,
+      repairExecutionCompleted: !hitMaxSteps,
+    } as typeof context.metadata & { repairExecutionCompleted?: boolean };
   }
 
   private canAutoApply(step: { title: string; description: string; automatic?: boolean }): boolean {

@@ -42,14 +42,36 @@ export class RepairLoopEngine implements IEngine {
       loop.attempts = index + 1;
       const compileEngine = new CompileEngine();
       await compileEngine.run(context);
-      const verification = context.verification as { passed?: boolean } | undefined;
-      if (verification?.passed) {
-        loopReason = context.repairLoop?.reason ?? "no-issues";
+
+      // Check if compilation succeeded and no issues remain
+      const currentIssues = context.getIssues();
+      if (currentIssues.length === 0) {
+        loopReason = "no-issues";
         break;
       }
+
+      // Attempt repair if issues are present
       const repairEngine = new AutoRepairEngine();
       await repairEngine.run(context);
-      loopReason = context.repairLoop?.reason ?? "passed";
+
+      // Check the repair outcome from the repair loop metadata
+      const repairOutcome = context.repairLoop?.reason;
+      loopReason = repairOutcome ?? "passed";
+
+      // Stop looping if repair was successful or fully resolved
+      if (repairOutcome === "resolved" || repairOutcome === "no-issues") {
+        break;
+      }
+
+      // Stop looping on terminal failure states
+      if (repairOutcome === "failed" || repairOutcome === "ineffective") {
+        break;
+      }
+
+      // Stop if no repair attempts were made
+      if (repairOutcome === "no-repair-plans" || repairOutcome === "no-change") {
+        break;
+      }
     }
 
     loop.reason = loopReason;

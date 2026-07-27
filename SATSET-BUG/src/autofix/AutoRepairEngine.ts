@@ -136,6 +136,8 @@ export class AutoRepairEngine implements IEngine {
     }
 
     const afterIssues = context.getIssues();
+    // Check if repair execution was incomplete (e.g., due to maxSteps limit)
+    const executionCompleted = (context.metadata as Record<string, unknown>)?.repairExecutionCompleted !== false;
     const lifecycle = deriveRepairLifecycleState({
       beforeIssues,
       afterIssues,
@@ -145,6 +147,7 @@ export class AutoRepairEngine implements IEngine {
       repairAttemptCount: attempts,
       actualRepairAction,
       failedIssueIds,
+      executionCompleted,
     });
 
     context.repairLoop = {

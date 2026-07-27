@@ -25,6 +25,7 @@ export function deriveRepairLifecycleState(params: {
   repairAttemptCount?: number;
   actualRepairAction?: string;
   failedIssueIds?: readonly string[];
+  executionCompleted?: boolean;
 }): RepairLifecycleState {
   const beforeIssueIds = uniqueIds(params.beforeIssues);
   const afterIssueIds = uniqueIds(params.afterIssues);
@@ -42,7 +43,9 @@ export function deriveRepairLifecycleState(params: {
   } else if (beforeIssueIds.length === 0) {
     repairStatus = "ALREADY_HEALTHY";
   } else if (afterIssueIds.length === 0) {
-    repairStatus = "RESOLVED";
+    // If execution was incomplete (e.g., hit maxSteps limit), do not report RESOLVED
+    // Report as PARTIALLY_RESOLVED instead to indicate incomplete work
+    repairStatus = params.executionCompleted === false ? "PARTIALLY_RESOLVED" : "RESOLVED";
   } else if (resolvedIssueIds.length > 0 && remainingIssueIds.length > 0) {
     repairStatus = "PARTIALLY_RESOLVED";
   } else {
