@@ -57,3 +57,8 @@ screens.json
 usecases.json
 workflow.json
 api.json
+
+# SATSET AI generated artifacts
+release.json
+requirements/
+src/generated/

@@ -3,6 +3,7 @@ import type { Issue } from "../core/Issue.js";
 import type { Diagnosis } from "../diagnostic/Diagnosis.js";
 import type { HealthSummary, HealthGrade, HealthStatus } from "./HealthSummary.js";
 import type { IEngine } from "../core/IEngine.js";
+import { reasonToStatus } from "../repair/RepairLifecycle.js";
 
 interface SeverityCounts {
   critical: number;
@@ -27,8 +28,9 @@ export class HealthEngine implements IEngine {
         "passed" in context.verification &&
         (context.verification as { passed: boolean }).passed
     );
+    const repairStatus = reasonToStatus(context.repairLoop?.reason);
 
-    const score = this.calculateScore(counts, diagnosisConfidence, rootCauseCount, repairPlans.length, verificationPassed);
+    const score = this.calculateScore(counts, diagnosisConfidence, rootCauseCount, repairPlans.length, verificationPassed, repairStatus);
     const grade = this.determineGrade(score);
     const status = this.determineStatus(score);
     const recommendation = this.buildRecommendation(score, counts, diagnoses, repairPlans.length, verificationPassed);
@@ -75,7 +77,8 @@ export class HealthEngine implements IEngine {
     diagnosisConfidence: number,
     rootCauseCount: number,
     repairPlanCount: number,
-    verificationPassed: boolean
+    verificationPassed: boolean,
+    repairStatus: string
   ): number {
     let score = 100;
     score -= counts.critical * 20;
@@ -93,6 +96,12 @@ export class HealthEngine implements IEngine {
 
     if (verificationPassed) {
       score += 10;
+    }
+
+    if (repairStatus === "PARTIALLY_RESOLVED") {
+      score -= 5;
+    } else if (repairStatus === "FAILED" || repairStatus === "INEFFECTIVE") {
+      score -= 10;
     }
 
     return Math.max(0, Math.min(100, score));

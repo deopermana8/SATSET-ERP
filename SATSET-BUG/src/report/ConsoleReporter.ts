@@ -1,6 +1,7 @@
 import type { Context } from "../core/Context.js";
 import type { Issue } from "../core/Issue.js";
 import type { IReporter } from "./IReporter.js";
+import { reasonToStatus } from "../repair/RepairLifecycle.js";
 
 export class ConsoleReporter implements IReporter {
   public readonly name = "Console Reporter";
@@ -84,6 +85,7 @@ export class ConsoleReporter implements IReporter {
     if (repairSummary) {
       console.log(`Before issues: ${repairSummary.beforeIssueCount ?? "n/a"}`);
       console.log(`After issues: ${repairSummary.afterIssueCount ?? "n/a"}`);
+      console.log(`Repair status: ${reasonToStatus(repairLoop?.reason)}`);
       console.log(`Health delta: ${(repairSummary.afterHealth ?? 0) - (repairSummary.beforeHealth ?? 0)}`);
       console.log(`Rollback: ${repairSummary.rollbackStatus ?? "none"}`);
     }

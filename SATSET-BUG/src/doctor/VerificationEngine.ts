@@ -4,7 +4,9 @@ import type { Issue } from "../core/Issue.js";
 import type { Diagnosis } from "../diagnostic/Diagnosis.js";
 // RepairPlan type is inferred from planner output and not required here
 import type { RootCause } from "../rootcause/RootCause.js";
+import { HealthEngine } from "../health/HealthEngine.js";
 import type { HealthSummary } from "../health/HealthSummary.js";
+import { deriveRepairLifecycleState, reasonToStatus, statusToLoopReason } from "../repair/RepairLifecycle.js";
 
 export interface VerificationCheck {
   name: string;
@@ -25,6 +27,9 @@ export class VerificationEngine implements IEngine {
   async run(context: Context): Promise<void> {
     const result = this.verifyAll(context);
     context.verification = result;
+
+    const healthEngine = new HealthEngine();
+    await healthEngine.run(context);
   }
 
   private verifyAll(context: Context): VerificationResult {
@@ -32,6 +37,7 @@ export class VerificationEngine implements IEngine {
       this.verifyDiagnosis(context),
       this.verifyRepairPlan(context),
       this.verifyIssueConsistency(context),
+      this.verifyRepairOutcome(context),
       this.verifyHealthScore(context),
     ];
 
@@ -190,6 +196,14 @@ export class VerificationEngine implements IEngine {
     }
 
     if (rootCauses.length > 0) {
+      if (issueIds.size === 0) {
+        return {
+          name: "issueConsistency",
+          passed: true,
+          reason: "No active issues remain; historical root cause evidence is not relevant.",
+        };
+      }
+
       const evidenceIds = new Set(rootCauses.flatMap((rootCause) => rootCause.evidence.map((issue) => issue.id)));
       const invalidEvidence = Array.from(evidenceIds).filter((id) => !issueIds.has(id));
       if (invalidEvidence.length > 0) {
@@ -209,6 +223,70 @@ export class VerificationEngine implements IEngine {
     };
   }
 
+  private verifyRepairOutcome(context: Context): VerificationCheck {
+    const repairLoop = context.repairLoop;
+    const beforeIssueCount = context.repairSummary?.beforeIssueCount ?? context.getIssues().length;
+    const afterIssueCount = context.repairSummary?.afterIssueCount ?? context.getIssues().length;
+    const repairStatus = reasonToStatus(repairLoop?.reason);
+
+    if (!repairLoop || repairLoop.reason === "started") {
+      return {
+        name: "repairOutcome",
+        passed: true,
+        reason: "No repair outcome was recorded yet.",
+      };
+    }
+
+    if (repairStatus === "ALREADY_HEALTHY") {
+      return {
+        name: "repairOutcome",
+        passed: true,
+        reason: "No repair was required because the issue state was already healthy.",
+      };
+    }
+
+    if (repairStatus === "RESOLVED") {
+      if (beforeIssueCount > 0 && afterIssueCount > 0 && afterIssueCount < beforeIssueCount) {
+        return {
+          name: "repairOutcome",
+          passed: false,
+          reason: `Repair partially resolved the issue state: before=${beforeIssueCount}, after=${afterIssueCount}.`,
+          details: { beforeIssueCount, afterIssueCount, reason: repairLoop.reason },
+        };
+      }
+
+      return {
+        name: "repairOutcome",
+        passed: true,
+        reason: "Repair outcome indicates the targeted issue was resolved.",
+      };
+    }
+
+    if (repairStatus === "PARTIALLY_RESOLVED") {
+      return {
+        name: "repairOutcome",
+        passed: false,
+        reason: `Repair partially resolved the issue state: before=${beforeIssueCount}, after=${afterIssueCount}.`,
+        details: { beforeIssueCount, afterIssueCount, reason: repairLoop.reason },
+      };
+    }
+
+    if (beforeIssueCount > 0 && afterIssueCount >= beforeIssueCount && (repairStatus === "INEFFECTIVE" || repairStatus === "FAILED" || repairStatus === "SKIPPED" || repairLoop.reason === "no-change" || repairLoop.reason === "no-repair-needed")) {
+      return {
+        name: "repairOutcome",
+        passed: false,
+        reason: `Repair did not improve the issue state: before=${beforeIssueCount}, after=${afterIssueCount}.`,
+        details: { beforeIssueCount, afterIssueCount, reason: repairLoop.reason },
+      };
+    }
+
+    return {
+        name: "repairOutcome",
+        passed: true,
+        reason: "Repair outcome is consistent with the current issue state.",
+      };
+  }
+
   private verifyHealthScore(context: Context): VerificationCheck {
     const health = context.health;
     const issues = context.getIssues();
@@ -216,19 +294,21 @@ export class VerificationEngine implements IEngine {
     const repairPlans = context.repairPlans ?? [];
     const rootCauses = context.rootCauses ?? [];
 
+    const counts = this.countBySeverity(issues);
+    const diagnosisConfidence = diagnosis.length > 0 ? Math.max(...diagnosis.map((d) => d.confidence ?? 0)) : 0;
+    const verificationPassed = reasonToStatus(context.repairLoop?.reason) === "RESOLVED" || reasonToStatus(context.repairLoop?.reason) === "ALREADY_HEALTHY";
+    const expectedScore = this.calculateScore(counts, diagnosisConfidence, rootCauses.length, repairPlans.length, verificationPassed);
+    const expectedGrade = this.determineGrade(expectedScore);
+    const expectedStatus = this.determineStatus(expectedScore);
+
     if (!health) {
       return {
         name: "healthScore",
-        passed: false,
-        reason: "Health summary is missing from context.",
+        passed: true,
+        reason: "Health summary will be generated from the current diagnostics and repair state.",
+        details: { expectedScore, expectedGrade, expectedStatus },
       };
     }
-
-    const counts = this.countBySeverity(issues);
-    const diagnosisConfidence = diagnosis.length > 0 ? Math.max(...diagnosis.map((d) => d.confidence ?? 0)) : 0;
-    const expectedScore = this.calculateScore(counts, diagnosisConfidence, rootCauses.length, repairPlans.length, false);
-    const expectedGrade = this.determineGrade(expectedScore);
-    const expectedStatus = this.determineStatus(expectedScore);
 
     if (health.score !== expectedScore) {
       return {

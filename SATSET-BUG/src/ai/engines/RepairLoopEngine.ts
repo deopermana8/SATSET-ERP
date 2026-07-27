@@ -22,6 +22,7 @@ export class RepairLoopEngine implements IEngine {
       completed: true,
       reason: "passed",
     };
+    let loopReason = "passed";
 
     const pipeline = new ArtifactPipeline(context.projectRoot);
     await pipeline.run(context, [{
@@ -43,12 +44,15 @@ export class RepairLoopEngine implements IEngine {
       await compileEngine.run(context);
       const verification = context.verification as { passed?: boolean } | undefined;
       if (verification?.passed) {
+        loopReason = context.repairLoop?.reason ?? "no-issues";
         break;
       }
       const repairEngine = new AutoRepairEngine();
       await repairEngine.run(context);
+      loopReason = context.repairLoop?.reason ?? "passed";
     }
 
+    loop.reason = loopReason;
     context.metadata = {
       ...context.metadata,
       repairLoop: loop,

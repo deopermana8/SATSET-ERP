@@ -2,21 +2,10 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { test } from "node:test";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import "./register-globals.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const globals = globalThis as typeof globalThis & {
-  describe?: (name: string, fn: () => void | Promise<void>) => void;
-  it?: (name: string, fn: () => void | Promise<void>) => void;
-};
-
-globals.describe = (name, fn) => {
-  void test(name, fn);
-};
-
-globals.it = (name, fn) => {
-  void test(name, fn);
-};
 
 async function main(): Promise<void> {
   const entries = await fs.readdir(__dirname);

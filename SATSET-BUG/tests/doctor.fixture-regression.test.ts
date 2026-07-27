@@ -70,6 +70,12 @@ async function main(): Promise<void> {
     assert.ok((context.rootCauses ?? []).some((rootCause) => rootCause.title.toLowerCase().includes(fixture.expectedRootCause.toLowerCase())), `${fixture.name} should produce a ${fixture.expectedRootCause} root cause`);
     assert.ok((context.repairPlans ?? []).length > 0, `${fixture.name} should produce repair plans`);
     assert.ok(context.verification !== undefined, `${fixture.name} should produce a verification result`);
+
+    const verification = context.verification as { passed?: boolean } | undefined;
+    if (fixture.name === "broken-prisma") {
+      assert.equal(verification?.passed, false, `${fixture.name} should fail verification when the Prisma issue remains unresolved`);
+      assert.equal(context.repairLoop?.reason, "failed", `${fixture.name} should report failed repair when the execution path itself fails`);
+    }
   }
 
   console.log("fixture regression test passed");
