@@ -11,7 +11,7 @@ import { EngineMetrics } from "../src/runtime/EngineMetrics.js";
 async function main(): Promise<void> {
   const context = new Context({ projectRoot: process.cwd(), projectName: "runtime-test", nodeVersion: process.version, pnpmVersion: "9.0.0", typescriptVersion: "5.8.3", prismaVersion: "5.0.0", nextVersion: "14.0.0", issues: [], recommendations: [], metadata: { root: process.cwd(), idea: "runtime" } });
   const orchestrator = new AutonomousOrchestrator();
-  const state = await orchestrator.run(context, []);
+  const state = await orchestrator.execute(context, []);
   assert.equal(state.status, "completed");
   assert.ok(state.executionGraph.nodes.length >= 1);
 
