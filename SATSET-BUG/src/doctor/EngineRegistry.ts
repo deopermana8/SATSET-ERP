@@ -1,17 +1,23 @@
 import type { IEngine } from "../core/IEngine.js";
+import { EngineRegistry as RuntimeEngineRegistry } from "../runtime/EngineRegistry.js";
 
 export class EngineRegistry {
-  private readonly engines = new Map<string, IEngine>();
+  private readonly registry: RuntimeEngineRegistry;
+
+  constructor(registry: RuntimeEngineRegistry = new RuntimeEngineRegistry()) {
+    this.registry = registry;
+  }
 
   register(engine: IEngine): void {
-    this.engines.set(engine.name, engine);
+    this.registry.register(engine);
   }
 
   get(name: string): IEngine | undefined {
-    return this.engines.get(name);
+    const registration = this.registry.get(name);
+    return registration ? ({ name: registration.name } as IEngine) : undefined;
   }
 
   list(): IEngine[] {
-    return Array.from(this.engines.values());
+    return this.registry.list().map((registration) => ({ name: registration.name } as IEngine));
   }
 }

@@ -73,10 +73,6 @@ import { SwarmCoordinatorEngine } from "../swarm/SwarmCoordinatorEngine.js";
 import { SelfEvolutionEngine } from "../selfevolution/SelfEvolutionEngine.js";
 import { AutonomousOrchestrator } from "../runtime/AutonomousOrchestrator.js";
 import { AgentMeshEngine } from "../agents/AgentMeshEngine.js";
-import { PipelineResolver } from "../runtime/PipelineResolver.js";
-import { ExecutionScheduler } from "../runtime/ExecutionScheduler.js";
-import { ArtifactBus } from "../runtime/ArtifactBus.js";
-import { RuntimeMetricsEngine } from "../runtime/RuntimeMetricsEngine.js";
 
 export interface DoctorOptions {
   scannerRegistry?: ScannerRegistry;
@@ -97,9 +93,6 @@ export class Doctor {
   private readonly pipeline: IEngine[];
   private readonly params: ContextParams;
   private readonly options: DoctorOptions;
-  private readonly executionScheduler: ExecutionScheduler;
-  private readonly artifactBus: ArtifactBus;
-  private readonly runtimeMetrics: RuntimeMetricsEngine;
 
   constructor(params: ContextParams, options: DoctorOptions = {}) {
     this.params = params;
@@ -182,12 +175,8 @@ export class Doctor {
     const autonomousOrchestrator = new AutonomousOrchestrator();
     const agentMeshEngine = new AgentMeshEngine(autonomousOrchestrator);
     const repairCoordinator = new RepairCoordinator(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, historyEngine);
-    const pipelineResolver = new PipelineResolver();
-    const executionScheduler = new ExecutionScheduler();
-    const artifactBus = new ArtifactBus();
-    const runtimeMetrics = new RuntimeMetricsEngine();
 
-    const resolvedPipeline = pipelineResolver.resolve([
+    const resolvedPipeline = [
       engine,
       pluginEngine,
       scannerEngine,
@@ -250,12 +239,9 @@ export class Doctor {
       healthEngine,
       verificationEngine,
       reporterEngine,
-    ]);
+    ];
 
     this.pipeline = resolvedPipeline;
-    this.executionScheduler = executionScheduler;
-    this.artifactBus = artifactBus;
-    this.runtimeMetrics = runtimeMetrics;
     this.historyEngine = historyEngine;
     this.pluginEngine = pluginEngine;
   }
