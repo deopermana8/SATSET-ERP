@@ -112,7 +112,7 @@ export class ProductionValidator {
         const benchmarkScore = (projectContext.metadata as Record<string, unknown>).benchmarkResult as Array<{ score?: number }> | undefined;
         const compileSuccess = (projectContext.metadata as Record<string, unknown>).buildLoop as { report?: { compilerResult?: { succeeded?: boolean } } } | undefined;
         const testSuccess = (projectContext.metadata as Record<string, unknown>).buildLoop as { report?: { testResults?: Array<{ passed?: boolean }> } } | undefined;
-        const repairSuccess = (projectContext.metadata as Record<string, unknown>).repairLoop as { completed?: boolean; attempts?: number } | undefined;
+        const repairSuccess = projectContext.repairLoop;
 
         const result: ProductionValidationResult = {
           project,

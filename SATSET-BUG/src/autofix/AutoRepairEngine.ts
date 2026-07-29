@@ -155,6 +155,10 @@ export class AutoRepairEngine implements IEngine {
       completed: true,
       reason: statusToLoopReason(lifecycle.repairStatus),
     };
+    context.metadata = {
+      ...context.metadata,
+      repairExecutionCompleted: executionCompleted,
+    } as typeof context.metadata & { repairExecutionCompleted?: boolean };
     context.repairSummary = {
       beforeIssueCount,
       afterIssueCount: afterIssues.length,
@@ -175,29 +179,6 @@ export class AutoRepairEngine implements IEngine {
       verificationPassed: lifecycle.verificationPassed,
       verificationReasons: lifecycle.verificationReasons,
     };
-  }
-
-  private normalizeRepairState(context: Context): void {
-    const activeIssues = context.getIssues();
-    const activeIssueIds = new Set(activeIssues.map((issue) => issue.id));
-
-    if (activeIssues.length === 0) {
-      context.diagnosis = [];
-      context.rootCauses = [];
-      context.repairPlans = [];
-      return;
-    }
-
-    context.diagnosis = (context.diagnosis ?? []).filter((entry) => activeIssueIds.has(entry.id));
-
-    const activeRootCauses = (context.rootCauses ?? []).filter((rootCause) => {
-      const evidenceIds = new Set(rootCause.evidence.map((issue) => issue.id));
-      return Array.from(evidenceIds).some((issueId) => activeIssueIds.has(issueId));
-    });
-
-    const activeRootCauseIds = new Set(activeRootCauses.map((rootCause) => rootCause.id));
-    context.rootCauses = activeRootCauses;
-    context.repairPlans = (context.repairPlans ?? []).filter((plan) => activeRootCauseIds.has(plan.rootCauseId));
   }
 
   private async recheckIssueResolution(context: Context): Promise<boolean> {

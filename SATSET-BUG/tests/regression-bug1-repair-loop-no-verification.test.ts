@@ -26,14 +26,14 @@ async function main(): Promise<void> {
   await new RepairLoopEngine().run(context);
 
   // The repair loop should have completed successfully despite verification being undefined
-  const repairLoop = (context.metadata as Record<string, unknown>).repairLoop as { reason?: string; attempts?: number } | undefined;
-  assert.ok(repairLoop, "repair loop metadata should be populated");
+  const repairLoop = context.repairLoop as { reason?: string; attempt?: number } | undefined;
+  assert.ok(repairLoop, "repair loop state should be populated");
   assert.equal(repairLoop?.reason, "no-issues", "repair loop should complete with 'no-issues' when no issues are present");
-  assert.ok(repairLoop?.attempts && repairLoop.attempts > 0, "repair loop should have made at least one attempt");
+  assert.ok(repairLoop?.attempt && repairLoop.attempt > 0, "repair loop should have made at least one attempt");
 
   console.log("✓ Regression Test 1 PASSED: RepairLoopEngine stops correctly without context.verification");
   console.log(`  - Loop reason: ${repairLoop?.reason}`);
-  console.log(`  - Loop attempts: ${repairLoop?.attempts}`);
+  console.log(`  - Loop attempts: ${repairLoop?.attempt}`);
 }
 
 void main().catch((error) => {

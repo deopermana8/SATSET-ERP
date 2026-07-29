@@ -22,6 +22,25 @@ export class RepairLoopEngine implements IEngine {
       completed: true,
       reason: "passed",
     };
+
+    const existingReason = context.repairLoop?.reason;
+    const currentIssues = context.getIssues();
+    const canShortCircuit =
+      context.repairLoop?.completed &&
+      currentIssues.length === 0 &&
+      existingReason !== undefined &&
+      ["resolved", "no-issues"].includes(existingReason);
+
+    if (canShortCircuit) {
+      loop.attempts = context.repairLoop?.attempt ?? 1;
+      loop.reason = existingReason;
+      context.repairLoop = {
+        attempt: loop.attempts,
+        completed: loop.completed,
+        reason: loop.reason,
+      };
+      return;
+    }
     let loopReason = "passed";
 
     const pipeline = new ArtifactPipeline(context.projectRoot);
@@ -54,7 +73,7 @@ export class RepairLoopEngine implements IEngine {
       const repairEngine = new AutoRepairEngine();
       await repairEngine.run(context);
 
-      // Check the repair outcome from the repair loop metadata
+      // Check the repair outcome from the repair loop state
       const repairOutcome = context.repairLoop?.reason;
       loopReason = repairOutcome ?? "passed";
 
@@ -75,9 +94,10 @@ export class RepairLoopEngine implements IEngine {
     }
 
     loop.reason = loopReason;
-    context.metadata = {
-      ...context.metadata,
-      repairLoop: loop,
-    } as typeof context.metadata & { repairLoop?: RepairLoopMetrics };
+    context.repairLoop = {
+      attempt: loop.attempts,
+      completed: loop.completed,
+      reason: loop.reason,
+    };
   }
 }

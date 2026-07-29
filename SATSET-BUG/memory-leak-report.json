@@ -1,0 +1,7 @@
+{
+  "cycles": 1000,
+  "baselineHeapUsedMb": 9.154464721679688,
+  "peakHeapUsedMb": 11.934974670410156,
+  "growthMb": 2.7805099487304688,
+  "stable": true
+}

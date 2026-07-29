@@ -22,8 +22,8 @@ async function main(): Promise<void> {
 
   await new RepairLoopEngine().run(context);
 
-  const repairLoop = (context.metadata as Record<string, unknown>).repairLoop as { reason?: string } | undefined;
-  assert.equal(repairLoop?.reason, "no-issues", "repair loop metadata should reflect the actual lifecycle reason when no repair is needed");
+  const repairLoop = context.repairLoop as { reason?: string } | undefined;
+  assert.equal(repairLoop?.reason, "no-issues", "repair loop state should reflect the actual lifecycle reason when no repair is needed");
 
   console.log("repair loop engine test passed");
 }

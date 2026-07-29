@@ -26,6 +26,12 @@ export interface RepairLogEntry {
   retryCount?: number;
 }
 
+export interface RepairLoopState {
+  attempt: number;
+  completed: boolean;
+  reason?: string;
+}
+
 export interface ContextParams {
   projectRoot: string;
   projectName: string;
@@ -42,11 +48,7 @@ export interface ContextParams {
   repairPlans?: RepairPlan[];
   repairOptions?: RepairOptions;
   repairLog?: RepairLogEntry[];
-  repairLoop?: {
-    attempt: number;
-    completed: boolean;
-    reason?: string;
-  };
+  repairLoop?: RepairLoopState;
   repairSummary?: {
     beforeIssueCount?: number;
     afterIssueCount?: number;
@@ -87,11 +89,7 @@ export class Context {
   repairPlans?: RepairPlan[];
   repairOptions?: RepairOptions;
   repairLog?: RepairLogEntry[];
-  repairLoop?: {
-    attempt: number;
-    completed: boolean;
-    reason?: string;
-  };
+  repairLoop?: RepairLoopState;
   repairSummary?: {
     beforeIssueCount?: number;
     afterIssueCount?: number;

@@ -1,0 +1,60 @@
+﻿{
+    "generatedAt":  "2026-07-29T17:43:15.7735116+07:00",
+    "results":  [
+                    {
+                        "stage":  "Compile",
+                        "runsMs":  [
+                                       3454.58,
+                                       2999.77,
+                                       2936.84
+                                   ],
+                        "averageMs":  3130.4,
+                        "minMs":  2936.84,
+                        "maxMs":  3454.58
+                    },
+                    {
+                        "stage":  "RepairLoop",
+                        "runsMs":  [
+                                       1509.65,
+                                       1488.36,
+                                       1504.89
+                                   ],
+                        "averageMs":  1500.97,
+                        "minMs":  1488.36,
+                        "maxMs":  1509.65
+                    },
+                    {
+                        "stage":  "Verification",
+                        "runsMs":  [
+                                       882.75,
+                                       894.35,
+                                       902.95
+                                   ],
+                        "averageMs":  893.35,
+                        "minMs":  882.75,
+                        "maxMs":  902.95
+                    },
+                    {
+                        "stage":  "DoctorPipeline",
+                        "runsMs":  [
+                                       13006.03,
+                                       13047.87,
+                                       13249.77
+                                   ],
+                        "averageMs":  13101.22,
+                        "minMs":  13006.03,
+                        "maxMs":  13249.77
+                    },
+                    {
+                        "stage":  "FullTestSuite",
+                        "runsMs":  [
+                                       1156720.06,
+                                       1238127.09,
+                                       1263791.55
+                                   ],
+                        "averageMs":  1219546.23,
+                        "minMs":  1156720.06,
+                        "maxMs":  1263791.55
+                    }
+                ]
+}

@@ -1,0 +1,17 @@
+{
+  "projects": 100,
+  "issuesPerProject": 500,
+  "loopRepeats": 5,
+  "startedAt": "2026-07-29T09:25:52.626Z",
+  "endedAt": "2026-07-29T09:26:58.302Z",
+  "totalMs": 65676.88,
+  "avgProjectMs": 650.86,
+  "minProjectMs": 608.99,
+  "maxProjectMs": 704.07,
+  "crashCount": 0,
+  "timeoutCount": 0,
+  "deadlockCount": 0,
+  "peakHeapMb": 21.49,
+  "finalHeapMb": 10.99,
+  "completedProjects": 100
+}

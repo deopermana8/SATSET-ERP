@@ -225,8 +225,9 @@ export class VerificationEngine implements IEngine {
 
   private verifyRepairOutcome(context: Context): VerificationCheck {
     const repairLoop = context.repairLoop;
-    const beforeIssueCount = context.repairSummary?.beforeIssueCount ?? context.getIssues().length;
-    const afterIssueCount = context.repairSummary?.afterIssueCount ?? context.getIssues().length;
+    const currentIssueCount = context.getIssues().length;
+    const beforeIssueCount = context.repairSummary?.beforeIssueCount ?? context.repairSummary?.beforeIssueIds?.length ?? currentIssueCount;
+    const afterIssueCount = context.repairSummary?.afterIssueCount ?? currentIssueCount;
     const repairStatus = reasonToStatus(repairLoop?.reason);
 
     if (!repairLoop || repairLoop.reason === "started") {
@@ -238,6 +239,15 @@ export class VerificationEngine implements IEngine {
     }
 
     if (repairStatus === "ALREADY_HEALTHY") {
+      if (currentIssueCount > 0) {
+        return {
+          name: "repairOutcome",
+          passed: false,
+          reason: `Repair reported already healthy but the current issue state still contains ${currentIssueCount} unresolved issue(s).`,
+          details: { beforeIssueCount, afterIssueCount, currentIssueCount, reason: repairLoop.reason },
+        };
+      }
+
       return {
         name: "repairOutcome",
         passed: true,
@@ -246,12 +256,21 @@ export class VerificationEngine implements IEngine {
     }
 
     if (repairStatus === "RESOLVED") {
+      if (currentIssueCount > 0) {
+        return {
+          name: "repairOutcome",
+          passed: false,
+          reason: `Repair reported resolved but the current issue state still contains ${currentIssueCount} unresolved issue(s).`,
+          details: { beforeIssueCount, afterIssueCount, currentIssueCount, reason: repairLoop.reason },
+        };
+      }
+
       if (beforeIssueCount > 0 && afterIssueCount > 0 && afterIssueCount < beforeIssueCount) {
         return {
           name: "repairOutcome",
           passed: false,
           reason: `Repair partially resolved the issue state: before=${beforeIssueCount}, after=${afterIssueCount}.`,
-          details: { beforeIssueCount, afterIssueCount, reason: repairLoop.reason },
+          details: { beforeIssueCount, afterIssueCount, currentIssueCount, reason: repairLoop.reason },
         };
       }
 
@@ -267,7 +286,7 @@ export class VerificationEngine implements IEngine {
         name: "repairOutcome",
         passed: false,
         reason: `Repair partially resolved the issue state: before=${beforeIssueCount}, after=${afterIssueCount}.`,
-        details: { beforeIssueCount, afterIssueCount, reason: repairLoop.reason },
+        details: { beforeIssueCount, afterIssueCount, currentIssueCount, reason: repairLoop.reason },
       };
     }
 
@@ -276,7 +295,7 @@ export class VerificationEngine implements IEngine {
         name: "repairOutcome",
         passed: false,
         reason: `Repair did not improve the issue state: before=${beforeIssueCount}, after=${afterIssueCount}.`,
-        details: { beforeIssueCount, afterIssueCount, reason: repairLoop.reason },
+        details: { beforeIssueCount, afterIssueCount, currentIssueCount, reason: repairLoop.reason },
       };
     }
 

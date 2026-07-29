@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-07-28T23:41:13.041Z",
+  "results": [
+    {
+      "cycles": 100,
+      "averageExecutionTimeMs": 0.23924899999999996,
+      "averageRepairIterations": 1,
+      "averageMemoryUsageMb": 9.87310432434082,
+      "peakMemoryMb": 11.292343139648438,
+      "averageReportGenerationMs": 0.007073999999999996,
+      "totalDurationMs": 53.6517
+    },
+    {
+      "cycles": 500,
+      "averageExecutionTimeMs": 0.23351439999999973,
+      "averageRepairIterations": 1,
+      "averageMemoryUsageMb": 10.109886337280274,
+      "peakMemoryMb": 12.317062377929688,
+      "averageReportGenerationMs": 0.004209999999999998,
+      "totalDurationMs": 259.2623
+    },
+    {
+      "cycles": 1000,
+      "averageExecutionTimeMs": 0.2578636000000003,
+      "averageRepairIterations": 1,
+      "averageMemoryUsageMb": 10.44154384613037,
+      "peakMemoryMb": 12.054901123046875,
+      "averageReportGenerationMs": 0.0019642000000000192,
+      "totalDurationMs": 542.6589
+    },
+    {
+      "cycles": 5000,
+      "averageExecutionTimeMs": 0.20668556000000027,
+      "averageRepairIterations": 1,
+      "averageMemoryUsageMb": 10.725768739318848,
+      "peakMemoryMb": 12.566673278808594,
+      "averageReportGenerationMs": 0.0016035799999999515,
+      "totalDurationMs": 2160.7498
+    },
+    {
+      "cycles": 10000,
+      "averageExecutionTimeMs": 0.19951089000000027,
+      "averageRepairIterations": 1,
+      "averageMemoryUsageMb": 11.410872888183594,
+      "peakMemoryMb": 13.261375427246094,
+      "averageReportGenerationMs": 0.0014941900000002015,
+      "totalDurationMs": 4060.0296
+    }
+  ]
+}

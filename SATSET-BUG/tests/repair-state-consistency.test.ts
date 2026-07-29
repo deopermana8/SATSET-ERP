@@ -142,6 +142,32 @@ test("already healthy repair state verifies and requires no repair", async () =>
   assert.equal((context.verification as { passed?: boolean } | undefined)?.passed, true);
 });
 
+test("verification rejects a stale resolved outcome when current issues remain", async () => {
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), "repair-stale-resolved-"));
+  const context = await createContext(root, [{ id: "prisma-issue", title: "Prisma issue", category: "Prisma", severity: "critical", message: "Issue is still present" }]);
+  const verificationEngine = new VerificationEngine();
+
+  context.repairLoop = { attempt: 1, completed: true, reason: "resolved" };
+  context.repairSummary = {
+    beforeIssueCount: 1,
+    afterIssueCount: 1,
+    beforeHealth: 80,
+    afterHealth: 80,
+    fixedIssueCount: 0,
+    remainingIssueCount: 1,
+    repairStatus: "RESOLVED",
+    repairAttemptCount: 1,
+    verificationPassed: true,
+    verificationReasons: [],
+  };
+
+  await verificationEngine.run(context);
+
+  const verification = context.verification as { passed?: boolean; reasons?: string[] } | undefined;
+  assert.equal(verification?.passed, false);
+  assert.ok((verification?.reasons ?? []).some((reason) => reason.toLowerCase().includes("current issue state")));
+});
+
 test("ineffective repair leaves issue unresolved and verification fails", async () => {
   const root = await fs.mkdtemp(path.join(os.tmpdir(), "repair-ineffective-"));
   const context = await createContext(root, [{ id: "prisma-issue", title: "Prisma issue", category: "Prisma", severity: "critical", message: "Prisma issue remains" }]);
