@@ -1,9 +1,10 @@
-import type { Context } from "../core/Context.js";
+﻿import type { Context } from "../core/Context.js";
 import type { IEngine } from "../core/IEngine.js";
 import { FactoryRuntime } from "../doctor/FactoryRuntime.js";
 import { EngineRegistry } from "./EngineRegistry.js";
 import { ExecutionGraph } from "./ExecutionGraph.js";
 import { RuntimeMonitor } from "./RuntimeMonitor.js";
+import { RuntimeCapabilityRegistry } from "./RuntimeCapabilityRegistry.js";
 import { EventBus } from "../doctor/EventBus.js";
 import { ProjectReasonerEngine, IntentAnalyzerEngine, DomainAnalyzerEngine, FeaturePlannerEngine, ConstraintAnalyzerEngine, ArchitectureReasonerEngine, TaskBreakdownEngine, PromptCompilerEngine, ReflectionEngine, CriticEngine, ConfidenceEngine } from "../ai/engines/ReasoningBrainEngines.js";
 import { PlannerEngine } from "../ai/engines/PlannerEngine.js";
@@ -40,6 +41,7 @@ export interface OrchestratorState {
 
 export class AutonomousOrchestrator implements IEngine {
   public readonly name = "AutonomousOrchestrator";
+  private readonly capabilities = new RuntimeCapabilityRegistry();
 
   constructor(
     private readonly engineRegistry: EngineRegistry = new EngineRegistry(),
@@ -50,7 +52,7 @@ export class AutonomousOrchestrator implements IEngine {
   ) {}
 
   registerEngine(engine: IEngine): void {
-    this.engineRegistry.register(engine);
+    this.engineRegistry.registerIfMissing(engine);
   }
 
   async run(context: Context): Promise<void> {
@@ -60,7 +62,7 @@ export class AutonomousOrchestrator implements IEngine {
   async execute(context: Context, engines: IEngine[] = []): Promise<OrchestratorState> {
     const runtimeEngines = engines.length > 0 ? engines : this.buildDefaultEngines();
     for (const engine of runtimeEngines) {
-      this.engineRegistry.register(engine);
+      this.engineRegistry.registerIfMissing(engine);
     }
 
     const graph = this.executionGraph.createGraph(runtimeEngines);
@@ -115,3 +117,4 @@ export class AutonomousOrchestrator implements IEngine {
     ];
   }
 }
+

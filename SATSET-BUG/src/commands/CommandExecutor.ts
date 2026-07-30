@@ -1,4 +1,5 @@
 import { spawn } from "node:child_process";
+import type { ResolvedCommand } from "../runtime/CommandResolver.js";
 
 export interface CommandExecutionResult {
   command: string;
@@ -10,6 +11,10 @@ export interface CommandExecutionResult {
 }
 
 export class CommandExecutor {
+  public async execute(command: ResolvedCommand, options: { env?: NodeJS.ProcessEnv } = {}): Promise<CommandExecutionResult> {
+    return this.run(command.command, command.args, { cwd: command.cwd, env: options.env });
+  }
+
   public async run(command: string, args: string[] = [], options: { cwd?: string; env?: NodeJS.ProcessEnv } = {}): Promise<CommandExecutionResult> {
     const startedAt = Date.now();
     const child = spawn(command, args, {

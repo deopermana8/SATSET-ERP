@@ -1,20 +1,35 @@
-import type { PluginEngine } from "./PluginEngine.js";
 import type { IPlugin } from "./IPlugin.js";
 
 export class PluginManager {
-  private readonly plugins: IPlugin[] = [];
+  private readonly plugins = new Map<string, IPlugin>();
 
   register(plugin: IPlugin): void {
-    this.plugins.push(plugin);
+    if (this.plugins.has(plugin.id)) {
+      throw new Error(`Duplicate plugin id ${plugin.id}`);
+    }
+
+    this.plugins.set(plugin.id, plugin);
   }
 
-  getPlugins(): IPlugin[] {
-    return [...this.plugins];
+  unregister(id: string): void {
+    this.plugins.delete(id);
   }
 
-  loadAll(engine: PluginEngine): void {
-    for (const plugin of this.plugins) {
-      plugin.register(engine);
+  has(id: string): boolean {
+    return this.plugins.has(id);
+  }
+
+  get(id: string): IPlugin | undefined {
+    return this.plugins.get(id);
+  }
+
+  list(): IPlugin[] {
+    return Array.from(this.plugins.values());
+  }
+
+  registerAll(): void {
+    for (const plugin of this.plugins.values()) {
+      plugin.register();
     }
   }
 }

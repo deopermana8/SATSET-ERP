@@ -9,4 +9,5 @@ export interface PluginManifest {
   engines: string[];
   dependencies: string[];
   permissions: string[];
+  capabilities: string[];
 }

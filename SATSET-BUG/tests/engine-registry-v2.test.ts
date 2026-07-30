@@ -15,6 +15,20 @@ async function main(): Promise<void> {
   registry.register(engine);
   const discovered = registry.discover();
   assert.ok(discovered.some((item) => item.name === "Demo"));
+
+  // has() returns true for registered engine, false for unknown
+  assert.equal(registry.has("demo"), true);
+  assert.equal(registry.has("nonexistent"), false);
+
+  // registerIfMissing() registers when absent, skips when present
+  const registry2 = new EngineRegistry();
+  const e1 = new DemoEngine("Alpha");
+  const registered = registry2.registerIfMissing(e1);
+  assert.equal(registered, true);
+  const skipped = registry2.registerIfMissing(new DemoEngine("Alpha"));
+  assert.equal(skipped, false);
+  assert.equal(registry2.discover().filter((e) => e.name === "Alpha").length, 1);
+
   console.log("engine registry v2 test passed");
 }
 

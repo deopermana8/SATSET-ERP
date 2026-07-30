@@ -20,7 +20,8 @@ async function main(): Promise<void> {
     enabled: true,
     engines: ["DemoEngine"],
     dependencies: [],
-    permissions: ["filesystem.read"]
+    permissions: ["filesystem.read"],
+    capabilities: []
   }, null, 2));
   writeFileSync(join(dir, "index.js"), `export default {
     manifest: {

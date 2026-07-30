@@ -18,3 +18,6 @@ export class ReporterEngine implements IEngine {
     this.manager.reportAll(context);
   }
 }
+
+/** @alias ReporterEngine — canonical contract alias used in architecture docs */
+export { ReporterEngine as ReportEngine };

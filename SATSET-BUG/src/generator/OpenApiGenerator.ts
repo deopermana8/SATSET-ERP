@@ -1,0 +1,172 @@
+import fs from "node:fs";
+import path from "node:path";
+import type { ApiPlan, ApiEndpoint } from "../planner/ApiPlanner.js";
+
+export interface OpenApiGenerateResult {
+  written: string[];
+  errors: string[];
+}
+
+function toOpenApiSchema(type: string): Record<string, unknown> {
+  switch (type) {
+    case "integer": return { type: "integer" };
+    case "float":   return { type: "number" };
+    case "boolean": return { type: "boolean" };
+    default:        return { type: "string" };
+  }
+}
+
+function buildPaths(endpoints: ApiEndpoint[]): Record<string, unknown> {
+  const paths: Record<string, Record<string, unknown>> = {};
+
+  for (const ep of endpoints) {
+    const p = ep.path;
+    if (!paths[p]) paths[p] = {};
+
+    const parameters = ep.parameters
+      .filter((param) => param.in !== "body")
+      .map((param) => ({
+        name: param.name,
+        in: param.in,
+        required: param.required,
+        schema: toOpenApiSchema(param.type),
+        description: param.description,
+      }));
+
+    const bodyParam = ep.parameters.find((param) => param.in === "body");
+
+    const operation: Record<string, unknown> = {
+      tags: ep.tags,
+      summary: ep.summary,
+      operationId: ep.operationId,
+      parameters,
+      security: ep.auth ? [{ BearerAuth: [] }] : [],
+      responses: Object.fromEntries(
+        ep.responses.map((r) => [
+          String(r.status),
+          { description: r.description, ...(r.schema ? { content: { "application/json": { schema: { $ref: `#/components/schemas/${r.schema}` } } } } : {}) },
+        ])
+      ),
+    };
+
+    if (bodyParam) {
+      operation.requestBody = {
+        required: true,
+        content: { "application/json": { schema: { $ref: `#/components/schemas/${bodyParam.type}` } } },
+      };
+    }
+
+    (paths[p] as Record<string, unknown>)[ep.method.toLowerCase()] = operation;
+  }
+
+  return paths;
+}
+
+function buildOpenApiJson(plan: ApiPlan): Record<string, unknown> {
+  return {
+    openapi: plan.swagger.openapi,
+    info: { title: plan.swagger.title, version: plan.swagger.version },
+    servers: [{ url: plan.swagger.basePath }],
+    tags: plan.swagger.tags,
+    paths: buildPaths(plan.endpoints),
+    components: {
+      securitySchemes: {
+        BearerAuth: { type: "http", scheme: "bearer", bearerFormat: "JWT" },
+      },
+      schemas: {},
+    },
+  };
+}
+
+function jsonToYaml(obj: unknown, indent = 0): string {
+  const pad = "  ".repeat(indent);
+  if (obj === null || obj === undefined) return "null";
+  if (typeof obj === "boolean" || typeof obj === "number") return String(obj);
+  if (typeof obj === "string") {
+    if (/[:{}\[\],&*#?|<>=!%@`\n]/.test(obj) || obj === "") return `"${obj.replace(/"/g, '\\"')}"`;
+    return obj;
+  }
+  if (Array.isArray(obj)) {
+    if (obj.length === 0) return "[]";
+    return "\n" + obj.map((v) => `${pad}- ${jsonToYaml(v, indent + 1).trimStart()}`).join("\n");
+  }
+  if (typeof obj === "object") {
+    const entries = Object.entries(obj as Record<string, unknown>);
+    if (entries.length === 0) return "{}";
+    return "\n" + entries.map(([k, v]) => {
+      const val = jsonToYaml(v, indent + 1);
+      return val.startsWith("\n") ? `${pad}${k}:${val}` : `${pad}${k}: ${val}`;
+    }).join("\n");
+  }
+  return String(obj);
+}
+
+function buildPostmanCollection(plan: ApiPlan, title: string): Record<string, unknown> {
+  const items = plan.endpoints.map((ep) => ({
+    name: ep.summary,
+    request: {
+      method: ep.method,
+      header: ep.auth ? [{ key: "Authorization", value: "Bearer {{token}}" }] : [],
+      url: {
+        raw: `{{base_url}}${ep.path}`,
+        host: ["{{base_url}}"],
+        path: ep.path.split("/").filter(Boolean),
+      },
+      body: ep.parameters.find((p) => p.in === "body")
+        ? { mode: "raw", raw: "{}", options: { raw: { language: "json" } } }
+        : undefined,
+    },
+  }));
+
+  return {
+    info: { name: title, schema: "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" },
+    variable: [
+      { key: "base_url", value: "http://localhost:3000" },
+      { key: "token", value: "" },
+    ],
+    item: items,
+  };
+}
+
+export class OpenApiGenerator {
+  generate(plan: ApiPlan, outputDir: string): OpenApiGenerateResult {
+    const written: string[] = [];
+    const errors: string[] = [];
+    const docsDir = path.join(outputDir, "docs", "api");
+
+    try { fs.mkdirSync(docsDir, { recursive: true }); } catch { /* exists */ }
+
+    const openApiObj = buildOpenApiJson(plan);
+
+    // openapi.json
+    const jsonPath = path.join(docsDir, "openapi.json");
+    try {
+      fs.writeFileSync(jsonPath, JSON.stringify(openApiObj, null, 2), "utf8");
+      written.push(jsonPath);
+    } catch (err) {
+      errors.push(`openapi.json: ${err instanceof Error ? err.message : String(err)}`);
+    }
+
+    // swagger.yaml
+    const yamlPath = path.join(docsDir, "swagger.yaml");
+    try {
+      const yaml = `# Auto-generated by SATSET\n${jsonToYaml(openApiObj).trim()}\n`;
+      fs.writeFileSync(yamlPath, yaml, "utf8");
+      written.push(yamlPath);
+    } catch (err) {
+      errors.push(`swagger.yaml: ${err instanceof Error ? err.message : String(err)}`);
+    }
+
+    // postman_collection.json
+    const postmanPath = path.join(docsDir, "postman_collection.json");
+    try {
+      const postman = buildPostmanCollection(plan, plan.swagger.title);
+      fs.writeFileSync(postmanPath, JSON.stringify(postman, null, 2), "utf8");
+      written.push(postmanPath);
+    } catch (err) {
+      errors.push(`postman_collection.json: ${err instanceof Error ? err.message : String(err)}`);
+    }
+
+    return { written, errors };
+  }
+}

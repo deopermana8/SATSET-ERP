@@ -4,8 +4,11 @@ import { CommandExecutor } from "../commands/CommandExecutor.js";
 import type { Context, RepairLogEntry } from "../core/Context.js";
 import type { IEngine } from "../core/IEngine.js";
 import { RollbackManager } from "../fixer/RollbackManager.js";
+import type { IPlugin } from "../plugins/IPlugin.js";
+import { PluginManager } from "../plugins/PluginManager.js";
 import { PrismaScanner } from "../scanner/PrismaScanner.js";
 import { deriveRepairLifecycleState, normalizeRepairState, statusToLoopReason } from "../repair/RepairLifecycle.js";
+import { CommandResolver } from "../runtime/CommandResolver.js";
 
 interface RepairExecutionResult {
   attempted: boolean;
@@ -27,16 +30,37 @@ interface RepairAction {
   operation?: string;
 }
 
+type RepairActionHandler = (context: Context, action: RepairAction) => Promise<RepairExecutionResult>;
+
+class RepairActionPlugin implements IPlugin {
+  constructor(
+    public readonly id: string,
+    public readonly name: string,
+    private readonly registerHandler: () => void
+  ) {}
+
+  register(): void {
+    this.registerHandler();
+  }
+}
+
 export class AutoRepairEngine implements IEngine {
   public readonly name = "AutoRepairEngine";
   private readonly executor: CommandExecutor;
+  private readonly commandResolver: CommandResolver;
   private readonly rollbackManager: RollbackManager;
   private readonly scanner: PrismaScanner;
+  private readonly pluginManager: PluginManager;
+  private readonly actionHandlers: Map<RepairAction["kind"], RepairActionHandler>;
 
-  constructor(executor?: CommandExecutor, rollbackManager?: RollbackManager, scanner?: PrismaScanner) {
+  constructor(executor?: CommandExecutor, rollbackManager?: RollbackManager, scanner?: PrismaScanner, commandResolver?: CommandResolver) {
     this.executor = executor ?? new CommandExecutor();
+    this.commandResolver = commandResolver ?? new CommandResolver();
     this.rollbackManager = rollbackManager ?? new RollbackManager();
     this.scanner = scanner ?? new PrismaScanner();
+    this.pluginManager = new PluginManager();
+    this.actionHandlers = new Map<RepairAction["kind"], RepairActionHandler>();
+    this.registerRepairActionPlugins();
   }
 
   async run(context: Context): Promise<void> {
@@ -276,17 +300,9 @@ export class AutoRepairEngine implements IEngine {
   }
 
   private async dispatchAction(context: Context, action: RepairAction): Promise<RepairExecutionResult> {
-    if (action.kind === "prisma-generate") {
-      const result = await this.executor.prisma(action.args ?? ["generate"], context.projectRoot);
-      return {
-        attempted: true,
-        action: action.description,
-        command: action.command,
-        operation: action.operation,
-        success: result.exitCode === 0,
-        changed: result.exitCode === 0,
-        error: result.exitCode === 0 ? undefined : result.stderr || result.stdout || "Prisma generation failed",
-      };
+    const handler = this.actionHandlers.get(action.kind);
+    if (handler) {
+      return handler(context, action);
     }
 
     if (!action.filePath || !action.content) {
@@ -301,6 +317,28 @@ export class AutoRepairEngine implements IEngine {
     } catch (error) {
       return { attempted: true, action: action.description, operation: action.operation, success: false, changed: false, error: error instanceof Error ? error.message : String(error) };
     }
+  }
+
+  private registerRepairActionPlugins(): void {
+    this.pluginManager.register(
+      new RepairActionPlugin("autofix-prisma-dispatch", "AutoFix Prisma Dispatch", () => {
+        this.actionHandlers.set("prisma-generate", async (context, action) => {
+          const args = action.args ?? ["generate"];
+          const result = await this.executor.prisma(args, context.projectRoot);
+          return {
+            attempted: true,
+            action: action.description,
+            command: `prisma ${args.join(" ")}`.trim(),
+            operation: action.operation,
+            success: result.exitCode === 0,
+            changed: result.exitCode === 0,
+            error: result.exitCode === 0 ? undefined : result.stderr || result.stdout || "Prisma generation failed",
+          };
+        });
+      })
+    );
+
+    this.pluginManager.registerAll();
   }
 
   private pushLog(context: Context, planId: string | undefined, rootCauseId: string | undefined, stepId: string | undefined, title: string, status: RepairLogEntry["status"], message: string, filePath: string | undefined, rollbackStatus?: RepairLogEntry["rollbackStatus"]): void {

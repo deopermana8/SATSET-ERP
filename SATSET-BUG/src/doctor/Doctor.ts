@@ -1,6 +1,7 @@
 import { Context, ContextParams } from "../core/Context.js";
 import type { IEngine } from "../core/IEngine.js";
 import { Engine } from "../core/Engine.js";
+import { registerDefaultPlugins } from "../bootstrap/registerDefaultPlugins.js";
 import { PluginEngine } from "../plugins/PluginEngine.js";
 import { PluginManager } from "../plugins/PluginManager.js";
 import { ScannerEngine } from "../scanner/ScannerEngine.js";
@@ -101,6 +102,7 @@ export class Doctor {
 
     const pluginManager = new PluginManager();
     const pluginEngine = new PluginEngine(pluginManager, { eventBus: new EventBus() });
+    registerDefaultPlugins(pluginEngine);
 
     const scannerManager = new ScannerManager();
     (options.scannerRegistry ?? new ScannerRegistry()).registerDefaults(scannerManager);

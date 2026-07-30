@@ -1,4 +1,5 @@
 import path from "node:path";
+import fs from "node:fs";
 import { Command } from "commander";
 import { Doctor } from "../doctor/Doctor.js";
 import { Context } from "../core/Context.js";
@@ -6,6 +7,39 @@ import { AIRequirementEngine } from "../ai/engines/AIRequirementEngine.js";
 import { ArchitectureBuilder } from "../ai/engines/ArchitectureBuilder.js";
 import { ProjectScaffolder } from "../ai/engines/ProjectScaffolder.js";
 import { CertificationEngine } from "../ai/engines/CertificationEngine.js";
+
+const TEMPLATE_NAMES = ["react", "next", "prisma"] as const;
+type TemplateName = typeof TEMPLATE_NAMES[number];
+
+function isTemplateName(value: string): value is TemplateName {
+  return (TEMPLATE_NAMES as readonly string[]).includes(value);
+}
+
+function createFromTemplate(template: TemplateName, outputDir: string): void {
+  const templateDir = path.resolve(
+    new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1"),
+    "../../../templates",
+    template
+  );
+  if (!fs.existsSync(templateDir)) {
+    throw new Error(`Template not found: ${template}`);
+  }
+  fs.mkdirSync(outputDir, { recursive: true });
+  const copyDir = (src: string, dest: string): void => {
+    fs.mkdirSync(dest, { recursive: true });
+    for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
+      const srcPath = path.join(src, entry.name);
+      const destPath = path.join(dest, entry.name);
+      if (entry.isDirectory()) {
+        copyDir(srcPath, destPath);
+      } else {
+        fs.copyFileSync(srcPath, destPath);
+      }
+    }
+  };
+  copyDir(templateDir, outputDir);
+  console.log(`Created ${template} project in ${outputDir}`);
+}
 
 const program = new Command();
 
@@ -60,6 +94,12 @@ program
   .description("Create a deterministic project scaffold from an idea")
   .action(async (idea: string) => {
     try {
+      if (isTemplateName(idea)) {
+        const outputDir = path.join(process.cwd(), idea);
+        createFromTemplate(idea, outputDir);
+        process.exitCode = 0;
+        return;
+      }
       const projectRoot = process.cwd();
       const params = {
         projectRoot,

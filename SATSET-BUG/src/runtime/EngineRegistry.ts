@@ -35,6 +35,25 @@ export class EngineRegistry {
     });
   }
 
+  has(id: string): boolean {
+    return this.resolve(id) !== undefined;
+  }
+
+  registerIfMissing(
+    engine: IEngine,
+    registration: Partial<EngineRegistration> = {}
+  ): boolean {
+    const manifest = this.getManifest(engine);
+    const key = registration.id ?? manifest.id ?? engine.name;
+
+    if (this.has(key)) {
+      return false;
+    }
+
+    this.register(engine, registration);
+    return true;
+  }
+
   unregister(name: string): void {
     this.registrations.delete(name);
   }

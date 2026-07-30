@@ -21,12 +21,52 @@ export class PluginRegistry {
     });
   }
 
+  public registerIfMissing(plugin: {
+    id: string;
+    manifest: PluginManifest;
+    module: PluginModule;
+    enabled?: boolean;
+  }): boolean {
+    if (this.plugins.has(plugin.id)) {
+      return false;
+    }
+
+    this.register(plugin.manifest, plugin.module, plugin.enabled ?? true);
+    return true;
+  }
+
   public get(id: string): PluginInstance | undefined {
     return this.plugins.get(id);
   }
 
   public list(): PluginInstance[] {
     return [...this.plugins.values()];
+  }
+
+  public validate(): string[] {
+    const errors: string[] = [];
+    const seenIds = new Set<string>();
+
+    for (const [mapId, plugin] of this.plugins.entries()) {
+      const id = (plugin.manifest.id ?? "").trim();
+      const name = (plugin.manifest.name ?? "").trim();
+
+      if (id.length === 0) {
+        errors.push("Plugin id is empty");
+      }
+
+      if (name.length === 0) {
+        errors.push(`Plugin name is empty for id '${mapId}'`);
+      }
+
+      if (seenIds.has(id)) {
+        errors.push(`Duplicate plugin id '${id}'`);
+      } else if (id.length > 0) {
+        seenIds.add(id);
+      }
+    }
+
+    return errors;
   }
 
   public enable(id: string): void {
