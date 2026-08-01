@@ -7,6 +7,7 @@ import { requirePermission } from "@/lib/auth/requirePermission";
 export async function GET() {
   try {
     await requireAuth();
+    await requirePermission("category.view");
 
     const categories = await prisma.category.findMany({
       where: { deletedAt: null },
@@ -43,3 +44,5 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: error instanceof Error ? error.message : "Gagal membuat kategori" }, { status: 500 });
   }
 }
+
+
