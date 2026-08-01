@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import { prisma } from "@/lib/prisma";
 import { requireAuth } from "@/lib/auth/require-auth";
+import { requirePermission } from "@/lib/auth/requirePermission";
 
 export async function GET() {
   try {
@@ -21,6 +22,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     await requireAuth();
+    await requirePermission("category.create");
 
     const body = await request.json();
     const name = String(body?.name ?? "").trim();

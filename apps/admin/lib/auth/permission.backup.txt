@@ -1,0 +1,75 @@
+import { prisma } from "../prisma";
+
+export async function hasPermission(
+  userId: number,
+  permission: string,
+): Promise<boolean> {
+  // Single query: fetch user→role→rolePermissions and userPermissions in one shot.
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+    select: {
+      role: {
+        select: {
+          rolePermissions: {
+            select: {
+              permission: { select: { name: true } },
+            },
+          },
+        },
+      },
+      userPermissions: {
+        select: {
+          granted: true,
+          permission: { select: { name: true } },
+        },
+        where: {
+          permission: { name: permission },
+        },
+      },
+    },
+  });
+
+  if (!user) return false;
+
+  // Task 018 step 2: explicit user-level override takes precedence.
+  if (user.userPermissions.length > 0) {
+    return user.userPermissions[0].granted;
+  }
+
+  // Task 018 step 3-4: fall back to role-level grant.
+  return user.role?.rolePermissions.some(
+    (rp) => rp.permission.name === permission,
+  ) ?? false;
+}
+
+
+export function hasRole(
+  user: SessionUser | null | undefined,
+  role: string
+) {
+  return user?.role === role
+}
+
+export function hasPermission(
+  user: SessionUser | null | undefined,
+  permission: string
+) {
+  if (!user) return false
+
+  if (user.role === "SUPER_ADMIN") return true
+
+  return (user.permissions ?? []).includes(permission)
+}
+
+export function canAccess(
+  user: SessionUser | null | undefined,
+  permissions: string[]
+) {
+  if (!user) return false
+
+  if (user.role === "SUPER_ADMIN") return true
+
+  return permissions.every(p =>
+    (user.permissions ?? []).includes(p)
+  )
+}

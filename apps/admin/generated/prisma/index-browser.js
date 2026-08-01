@@ -231,6 +231,30 @@ exports.Prisma.PaymentScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.PermissionScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  name: 'name',
+  module: 'module',
+  description: 'description',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.RolePermissionScalarFieldEnum = {
+  id: 'id',
+  roleId: 'roleId',
+  permissionId: 'permissionId',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.UserPermissionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  permissionId: 'permissionId',
+  granted: 'granted',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -252,7 +276,10 @@ exports.Prisma.ModelName = {
   Gate: 'Gate',
   Visitor: 'Visitor',
   Reservation: 'Reservation',
-  Payment: 'Payment'
+  Payment: 'Payment',
+  Permission: 'Permission',
+  RolePermission: 'RolePermission',
+  UserPermission: 'UserPermission'
 };
 
 /**

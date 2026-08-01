@@ -2,10 +2,12 @@ import { NextResponse } from "next/server";
 
 import { prisma } from "@/lib/prisma";
 import { requireAuth } from "@/lib/auth/require-auth";
+import { requirePermission } from "@/lib/auth/requirePermission";
 
 export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAuth();
+    await requirePermission("category.update");
 
     const { id } = await params;
     const body = await request.json();
@@ -32,6 +34,7 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
 export async function DELETE(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAuth();
+    await requirePermission("category.delete");
 
     const { id } = await params;
     await prisma.category.update({

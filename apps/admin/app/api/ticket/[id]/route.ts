@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Prisma } from "@/generated/prisma";
 
 import { requireAuth } from "@/lib/auth/require-auth";
+import { requirePermission } from "@/lib/auth/requirePermission";
 import { prisma } from "@/lib/prisma";
 
 function parseId(rawId: string): number | null {
@@ -35,6 +36,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAuth();
+    await requirePermission("ticket.update");
 
     const { id } = await params;
     const parsedId = parseId(id);
@@ -74,6 +76,7 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
 export async function DELETE(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAuth();
+    await requirePermission("ticket.delete");
 
     const { id } = await params;
     const parsedId = parseId(id);

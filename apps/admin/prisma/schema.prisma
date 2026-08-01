@@ -9,22 +9,24 @@ datasource db {
 }
 
 model Role {
-  id        Int      @id @default(autoincrement())
-  name      String   @unique
-  users     User[]
-  createdAt DateTime @default(now())
+  id              Int              @id @default(autoincrement())
+  name            String           @unique
+  users           User[]
+  rolePermissions RolePermission[]
+  createdAt       DateTime         @default(now())
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String   @unique
-  password  String
-  roleId    Int
+  id              Int              @id @default(autoincrement())
+  name            String
+  email           String           @unique
+  password        String
+  roleId          Int
 
-  role      Role     @relation(fields: [roleId], references: [id])
+  role            Role             @relation(fields: [roleId], references: [id])
+  userPermissions UserPermission[]
 
-  createdAt DateTime @default(now())
+  createdAt       DateTime         @default(now())
 }
 
 model Ticket {
@@ -160,5 +162,49 @@ model Payment {
   reservation Reservation @relation(fields: [reservationId], references: [id])
 
   @@map("payments")
+}
+
+// ─── RBAC ─────────────────────────────────────────────────────────────────────
+
+model Permission {
+  id          Int      @id @default(autoincrement())
+  code        String   @unique
+  name        String
+  module      String
+  description String?
+  createdAt   DateTime @default(now())
+
+  rolePermissions RolePermission[]
+  userPermissions UserPermission[]
+
+  @@map("permissions")
+}
+
+model RolePermission {
+  id           Int        @id @default(autoincrement())
+  roleId       Int
+  permissionId Int
+  createdAt    DateTime   @default(now())
+
+  role       Role       @relation(fields: [roleId],       references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@unique([roleId, permissionId])
+  @@map("role_permissions")
+}
+
+// granted=true means explicit GRANT; granted=false means explicit DENY (overrides role permission)
+model UserPermission {
+  id           Int      @id @default(autoincrement())
+  userId       Int
+  permissionId Int
+  granted      Boolean  @default(true)
+  createdAt    DateTime @default(now())
+
+  user       User       @relation(fields: [userId],       references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, permissionId])
+  @@map("user_permissions")
 }
 

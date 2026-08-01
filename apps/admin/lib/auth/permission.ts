@@ -1,4 +1,4 @@
-export type SessionUser = {
+﻿export type SessionUser = {
   role?: string
   permissions?: string[]
 }
@@ -22,7 +22,7 @@ export function hasPermission(
 }
 
 export function canAccess(
-  user: SessionUser | null | undefined,
+  user: SessionUser | null |undefined,
   permissions: string[]
 ) {
   if (!user) return false

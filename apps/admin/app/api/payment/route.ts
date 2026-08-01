@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Prisma } from "@/generated/prisma";
 
 import { requireAuth } from "@/lib/auth/require-auth";
+import { requirePermission } from "@/lib/auth/requirePermission";
 import { prisma } from "@/lib/prisma";
 
 export async function GET() {
@@ -17,6 +18,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     await requireAuth();
+    await requirePermission("payment.create");
     const body = (await request.json().catch(() => null)) as { reservationId?: unknown; amount?: unknown; method?: unknown; status?: unknown; paidAt?: unknown } | null;
     const reservationId = Number(body?.reservationId ?? NaN);
     const amount = Number(body?.amount ?? NaN);
