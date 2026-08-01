@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePermission } from "@/hooks/usePermission";
 
 type UserRecord = {
   id: number;
@@ -9,15 +10,34 @@ type UserRecord = {
   role?: { id: number; name: string } | null;
 };
 
-export default function Page() {
+export default function Page(
+){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
   const [items, setItems] = useState<UserRecord[]>([]);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
 
-  async function load() {
+  async function load(){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
     setLoading(true);
     const response = await fetch("/api/user", { credentials: "same-origin" });
-    if (!response.ok) {
+    if (!response.ok){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
       throw new Error("Gagal memuat user");
     }
     setItems(await response.json());

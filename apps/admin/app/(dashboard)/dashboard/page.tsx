@@ -2,7 +2,14 @@ import StatCard from "../../../components/StatCard";
 import DashboardChart from "../../../components/DashboardChart";
 import RecentActivity from "../../../components/RecentActivity";
 
-export default function DashboardPage() {
+export default function DashboardPage(
+){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
   return (
     <div style={{display:"grid",gap:24}}>
 

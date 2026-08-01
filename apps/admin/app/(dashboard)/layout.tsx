@@ -1,13 +1,21 @@
 import type { ReactNode } from "react";
+import { usePermission } from "@/hooks/usePermission";
 
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
 
-export default function DashboardLayout({
+export default function DashboardLayout(
+{
   children,
 }: {
   children: ReactNode;
-}) {
+}){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
   return (
     <div
       style={{

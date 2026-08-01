@@ -10,7 +10,14 @@ type TableProps = {
   rows: EmployeeRow[]
 }
 
-export default function Table({ rows }: TableProps) {
+export default function Table(
+{ rows }: TableProps){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
   return (
     <table style={{ width: '100%', borderCollapse: 'collapse' }}>
       <thead>

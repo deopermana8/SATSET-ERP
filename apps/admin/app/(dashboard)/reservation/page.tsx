@@ -1,6 +1,13 @@
 import DataTable from "../../../components/DataTable";
 
-export default function ReservationPage(){
+export default function ReservationPage(
+){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
 
   return(
 

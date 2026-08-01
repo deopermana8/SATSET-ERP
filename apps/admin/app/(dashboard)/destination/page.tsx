@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePermission } from "@/hooks/usePermission";
 
 type DestinationRecord = {
   id: number;
@@ -8,14 +9,27 @@ type DestinationRecord = {
   slug?: string | null;
 };
 
-export default function Page() {
+export default function Page(
+){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
   const [items, setItems] = useState<DestinationRecord[]>([]);
   const [loading, setLoading] = useState(true);
   const [name, setName] = useState("");
   const [editingId, setEditingId] = useState<number | null>(null);
   const [message, setMessage] = useState("");
 
-  async function load() {
+  async function load(){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
     setLoading(true);
     const response = await fetch("/api/destination", { credentials: "same-origin" });
     if (!response.ok) throw new Error("Gagal memuat destinasi");
@@ -30,9 +44,21 @@ export default function Page() {
     });
   }, []);
 
-  async function save() {
+  async function save(){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
     const trimmed = name.trim();
-    if (!trimmed) {
+    if (!trimmed){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
       setMessage("Nama wajib diisi");
       return;
     }
@@ -42,7 +68,13 @@ export default function Page() {
       ? await fetch(`/api/destination/${editingId}`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ name: trimmed }), credentials: "same-origin" })
       : await fetch("/api/destination", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ name: trimmed }), credentials: "same-origin" });
 
-    if (!response.ok) {
+    if (!response.ok){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
       const data = await response.json().catch(() => ({}));
       setMessage(data.message || "Gagal menyimpan");
       return;
@@ -53,9 +85,21 @@ export default function Page() {
     await load();
   }
 
-  async function remove(id: number) {
+  async function remove(id: number){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
     const response = await fetch(`/api/destination/${id}`, { method: "DELETE", credentials: "same-origin" });
-    if (!response.ok) {
+    if (!response.ok){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
       const data = await response.json().catch(() => ({}));
       setMessage(data.message || "Gagal menghapus");
       return;

@@ -1,4 +1,11 @@
-export default function Page() {
+export default function Page(
+){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
   return (
     <div style={{padding:24}}>
       <h1 style={{fontSize:30,fontWeight:"bold"}}>
@@ -12,7 +19,7 @@ export default function Page() {
         borderRadius:12,
         border:"1px solid #e5e7eb"
       }}>
-        <button>Tambah Data</button>
+        <Button disabled={!canCreate}>Tambah Data</button>
 
         <table style={{width:"100%",marginTop:20}}>
           <thead>

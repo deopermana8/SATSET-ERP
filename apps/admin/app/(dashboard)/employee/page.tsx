@@ -6,7 +6,14 @@ import Table from './components/Table'
 import { useEmployee } from './hooks/useEmployee'
 import type { EmployeeFormData } from './types'
 
-export default function Page() {
+export default function Page(
+){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
   const { rows, refresh } = useEmployee()
   const [error, setError] = useState<string | null>(null)
   const [search, setSearch] = useState('')
@@ -22,13 +29,25 @@ export default function Page() {
           body: JSON.stringify(payload),
         })
 
-        if (!response.ok) {
+        if (!response.ok){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
           throw new Error('Gagal menyimpan data karyawan')
         }
 
         await refresh()
         setPage(1)
-      } catch (err) {
+      } catch (err){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
         setError(err instanceof Error ? err.message : 'Unknown error')
       }
     },

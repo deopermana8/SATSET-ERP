@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePermission } from "@/hooks/usePermission";
 
 type GateRecord = {
   id: number;
@@ -9,7 +10,14 @@ type GateRecord = {
   destination?: { id: number; name: string } | null;
 };
 
-export default function Page() {
+export default function Page(
+){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
   const [items, setItems] = useState<GateRecord[]>([]);
   const [loading, setLoading] = useState(true);
   const [name, setName] = useState("");
@@ -18,7 +26,13 @@ export default function Page() {
   const [editingId, setEditingId] = useState<number | null>(null);
   const [message, setMessage] = useState("");
 
-  async function load() {
+  async function load(){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
     setLoading(true);
     const response = await fetch("/api/gate", { credentials: "same-origin" });
     if (!response.ok) throw new Error("Gagal memuat gate");
@@ -33,19 +47,43 @@ export default function Page() {
     });
   }, []);
 
-  async function save() {
+  async function save(){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
     const trimmedName = name.trim();
     const trimmedCode = code.trim();
-    if (!trimmedName) {
+    if (!trimmedName){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
       setMessage("Nama wajib diisi");
       return;
     }
-    if (!trimmedCode) {
+    if (!trimmedCode){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
       setMessage("Kode wajib diisi");
       return;
     }
     const destId = Number(destinationId);
-    if (!Number.isFinite(destId) || destId <= 0) {
+    if (!Number.isFinite(destId) || destId <= 0){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
       setMessage("DestinationId tidak valid");
       return;
     }
@@ -55,7 +93,13 @@ export default function Page() {
       ? await fetch(`/api/gate/${editingId}`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ name: trimmedName, code: trimmedCode, destinationId: destId }), credentials: "same-origin" })
       : await fetch("/api/gate", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ name: trimmedName, code: trimmedCode, destinationId: destId }), credentials: "same-origin" });
 
-    if (!response.ok) {
+    if (!response.ok){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
       const data = await response.json().catch(() => ({}));
       setMessage(data.message || "Gagal menyimpan");
       return;
@@ -68,9 +112,21 @@ export default function Page() {
     await load();
   }
 
-  async function remove(id: number) {
+  async function remove(id: number){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
     const response = await fetch(`/api/gate/${id}`, { method: "DELETE", credentials: "same-origin" });
-    if (!response.ok) {
+    if (!response.ok){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
       const data = await response.json().catch(() => ({}));
       setMessage(data.message || "Gagal menghapus");
       return;

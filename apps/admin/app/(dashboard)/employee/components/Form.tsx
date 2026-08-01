@@ -15,7 +15,14 @@ const emptyValue: EmployeeFormData = {
   role: 'Staff',
 }
 
-export default function Form({ onSubmit }: EmployeeFormProps) {
+export default function Form(
+{ onSubmit }: EmployeeFormProps){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
   const [form, setForm] = useState<EmployeeFormData>(emptyValue)
   const [errors, setErrors] = useState<Partial<Record<keyof EmployeeFormData, string>>>({})
 
@@ -24,22 +31,52 @@ export default function Form({ onSubmit }: EmployeeFormProps) {
 
     const nextErrors: Partial<Record<keyof EmployeeFormData, string>> = {}
 
-    if (!validation.name(form.name)) {
+    if (!validation.name(form.name)){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
       nextErrors.name = 'Nama harus diisi minimal 2 karakter'
     }
-    if (!validation.email(form.email)) {
+    if (!validation.email(form.email)){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
       nextErrors.email = 'Email tidak valid'
     }
-    if (!validation.phone(form.phone)) {
+    if (!validation.phone(form.phone)){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
       nextErrors.phone = 'Telepon harus diisi minimal 8 karakter'
     }
-    if (!validation.role(form.role)) {
+    if (!validation.role(form.role)){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
       nextErrors.role = 'Jabatan harus dipilih'
     }
 
     setErrors(nextErrors)
 
-    if (Object.keys(nextErrors).length === 0) {
+    if (Object.keys(nextErrors).length === 0){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
       onSubmit?.(form)
       setForm(emptyValue)
     }

@@ -1,3 +1,10 @@
-export default function Form(){
+export default function Form(
+){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
   return <div>Form Component</div>
 }

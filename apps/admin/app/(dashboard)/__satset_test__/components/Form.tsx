@@ -1,20 +1,34 @@
 "use client";
 
 import { useState } from "react";
+import { usePermission } from "@/hooks/usePermission";
 
 type __satset_test__FormProps = {
   initialData?: Record<string, unknown>;
   onSubmit?: (data: Record<string, unknown>) => void;
 };
 
-export default function Form({
+export default function Form(
+{
   initialData = {},
   onSubmit,
-}: __satset_test__FormProps) {
+}: __satset_test__FormProps){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
   const [data, setData] =
     useState<Record<string, unknown>>(initialData);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
     event.preventDefault();
     onSubmit?.(data);
   }

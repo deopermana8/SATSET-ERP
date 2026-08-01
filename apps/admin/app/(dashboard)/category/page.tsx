@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState, useEffect, useState, useTransition } from "react";
+import { usePermission } from "@/hooks/usePermission";
 
 import { createCategory, deleteCategory, updateCategory } from "./actions";
 import Form from "./components/Form";
@@ -15,32 +16,69 @@ const initialState = {
   message: "",
 };
 
-export default function Page() {
+export default function Page(
+){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
   const [categories, setCategories] = useState<CategoryRecord[]>([]);
   const [editingCategory, setEditingCategory] = useState<CategoryRecord | null>(null);
   const [isPending, startTransition] = useTransition();
   const [state, formAction] = useActionState(async (_prev: typeof initialState, formData: FormData) => {
     const name = String(formData.get("name") ?? "").trim();
-    if (!name) {
+    if (!name){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
       return { success: false, message: "Nama wajib diisi" };
     }
 
     try {
-      if (editingCategory) {
+      if (editingCategory){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
         await updateCategory(editingCategory.id, { name });
         return { success: true, message: "Kategori berhasil diperbarui" };
       }
 
       await createCategory({ name });
       return { success: true, message: "Kategori berhasil dibuat" };
-    } catch (error) {
+    } catch (error){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
       return { success: false, message: error instanceof Error ? error.message : "Terjadi kesalahan" };
     }
   }, initialState);
 
-  async function loadCategories() {
+  async function loadCategories(){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
     const response = await fetch("/api/category", { credentials: "same-origin" });
-    if (!response.ok) {
+    if (!response.ok){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
       throw new Error("Gagal memuat kategori");
     }
     setCategories((await response.json()) as CategoryRecord[]);
@@ -53,13 +91,25 @@ export default function Page() {
   }, []);
 
   useEffect(() => {
-    if (state.success) {
+    if (state.success){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
       void loadCategories();
       setEditingCategory(null);
     }
   }, [state.success]);
 
-  async function handleDelete(id: number) {
+  async function handleDelete(id: number){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
     try {
       await deleteCategory(id);
       await loadCategories();

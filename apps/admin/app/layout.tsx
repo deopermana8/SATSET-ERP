@@ -6,7 +6,14 @@ export const metadata = {
   description: 'SATSET ERP foundation application'
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout(
+{ children }: { children: ReactNode }){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
   return (
     <html lang="en">
       <body>{children}</body>

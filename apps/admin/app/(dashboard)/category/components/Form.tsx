@@ -2,6 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
+import { usePermission } from "@/hooks/usePermission";
 import { useForm } from "react-hook-form";
 
 import { categorySchema, type CategoryFormValues } from "../validation";
@@ -14,13 +15,20 @@ type CategoryFormProps = {
   onCancel?: () => void;
 };
 
-export default function Form({
+export default function Form(
+{
   initialData,
   onSubmit,
   submitLabel = "Simpan",
   cancelLabel = "Batal",
   onCancel,
-}: CategoryFormProps) {
+}: CategoryFormProps){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
   const {
     register,
     handleSubmit,

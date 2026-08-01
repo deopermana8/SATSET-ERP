@@ -1,14 +1,28 @@
 "use client";
 
 import { useState } from "react";
+import { usePermission } from "@/hooks/usePermission";
 
-export default function LoginPage(){
+export default function LoginPage(
+){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
 
 const [email,setEmail]=useState("");
 const [password,setPassword]=useState("");
 const [loading,setLoading]=useState(false);
 
 async function login(){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
 
 setLoading(true);
 
@@ -34,6 +48,12 @@ console.log(data);
 setLoading(false);
 
 if(!res.ok){
+    const {
+        canView,
+        canCreate,
+        canUpdate,
+        canDelete
+    } = usePermission();
 alert(data.message);
 return;
 }
