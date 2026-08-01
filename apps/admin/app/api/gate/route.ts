@@ -8,7 +8,7 @@ import { prisma } from "@/lib/prisma";
 export async function GET() {
   try {
     await requireAuth();
-
+    await requirePermission("gate.view");
     const items = await prisma.gate.findMany({
       where: { deletedAt: null },
       include: { destination: { select: { id: true, name: true } } },
@@ -57,4 +57,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: error instanceof Error ? error.message : "Gagal membuat data" }, { status: 500 });
   }
 }
+
+
 
