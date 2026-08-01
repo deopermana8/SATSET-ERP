@@ -8,7 +8,8 @@ import { prisma } from "@/lib/prisma";
 export async function GET() {
   try {
     await requireAuth();
-    const items = await prisma.visitor.findMany({ where: { deletedAt: null }, orderBy: { id: "asc" } });
+    await requirePermission("visitor.view");
+const items = await prisma.visitor.findMany({ where: { deletedAt: null }, orderBy: { id: "asc" } });
     return NextResponse.json(items);
   } catch (error) {
     return NextResponse.json({ message: error instanceof Error ? error.message : "Unauthorized" }, { status: 401 });
@@ -36,5 +37,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: error instanceof Error ? error.message : "Gagal membuat data" }, { status: 500 });
   }
 }
+
+
 
 

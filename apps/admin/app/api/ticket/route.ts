@@ -9,7 +9,8 @@ export async function GET() {
   try {
     await requireAuth();
 
-    const items = await prisma.ticket.findMany({
+    await requirePermission("ticket.view");
+const items = await prisma.ticket.findMany({
       where: { deletedAt: null },
       include: { destination: { select: { id: true, name: true } } },
       orderBy: { id: "asc" },
@@ -64,4 +65,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: error instanceof Error ? error.message : "Gagal membuat data" }, { status: 500 });
   }
 }
+
+
 
