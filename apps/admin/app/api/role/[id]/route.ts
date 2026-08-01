@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import { requireAuth } from "@/lib/auth/require-auth";
+import { requirePermission } from "@/lib/auth/requirePermission";
 import { prisma } from "@/lib/prisma";
 
 export async function GET(
@@ -9,7 +10,7 @@ export async function GET(
 ) {
   try {
     await requireAuth();
-
+    await requirePermission("role.view");
     const { id } = await params;
 
     const role = await prisma.role.findUnique({
@@ -37,7 +38,7 @@ export async function PUT(
 ) {
   try {
     await requireAuth();
-
+    await requirePermission("role.update");
     const { id } = await params;
     const body = await request.json();
 
@@ -61,7 +62,7 @@ export async function DELETE(
 ) {
   try {
     await requireAuth();
-
+    await requirePermission("role.delete");
     const { id } = await params;
 
     await prisma.role.delete({
@@ -76,3 +77,6 @@ export async function DELETE(
     );
   }
 }
+
+
+
