@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
 import { Prisma } from "@/generated/prisma";
 
 import { requireAuth } from "@/lib/auth/require-auth";
@@ -30,7 +30,11 @@ const { id } = await params;
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAuth();
+    
+    
     await requirePermission("reservation.update");
+await requirePermission("reservation.view");
+await requirePermission("reservation.update");
     const { id } = await params;
     const parsedId = parseId(id);
     if (!parsedId) return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });
@@ -54,7 +58,11 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
 export async function DELETE(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAuth();
+    
+    
     await requirePermission("reservation.delete");
+await requirePermission("reservation.view");
+await requirePermission("reservation.delete");
     const { id } = await params;
     const parsedId = parseId(id);
     if (!parsedId) return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });
@@ -70,6 +78,7 @@ export async function DELETE(_request: Request, { params }: { params: Promise<{ 
     return NextResponse.json({ message: error instanceof Error ? error.message : "Gagal menghapus data" }, { status: 500 });
   }
 }
+
 
 
 
