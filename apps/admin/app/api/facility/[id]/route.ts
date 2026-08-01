@@ -36,7 +36,11 @@ const { id } = await params;
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAuth();
+    
+    
     await requirePermission("facility.update");
+await requirePermission("facility.view");
+await requirePermission("facility.update");
 
     const { id } = await params;
     const parsedId = parseId(id);
@@ -74,7 +78,11 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
 export async function DELETE(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAuth();
+    
+    
     await requirePermission("facility.delete");
+await requirePermission("facility.view");
+await requirePermission("facility.delete");
 
     const { id } = await params;
     const parsedId = parseId(id);

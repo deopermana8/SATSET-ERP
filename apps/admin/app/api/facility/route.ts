@@ -25,7 +25,11 @@ const items = await prisma.facility.findMany({
 export async function POST(request: Request) {
   try {
     await requireAuth();
+    
+    
     await requirePermission("facility.create");
+await requirePermission("facility.view");
+await requirePermission("facility.create");
 
     const body = (await request.json().catch(() => null)) as {
       name?: unknown;

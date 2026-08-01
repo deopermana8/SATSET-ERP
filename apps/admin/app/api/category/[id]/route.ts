@@ -7,7 +7,9 @@ import { requirePermission } from "@/lib/auth/requirePermission";
 export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAuth();
-    await requirePermission("category.view");
+    
+    await requirePermission("category.update");
+await requirePermission("category.view");
 await requirePermission("category.update");
 
     const { id } = await params;
@@ -35,7 +37,9 @@ await requirePermission("category.update");
 export async function DELETE(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAuth();
-    await requirePermission("category.view");
+    
+    await requirePermission("category.delete");
+await requirePermission("category.view");
 await requirePermission("category.delete");
 
     const { id } = await params;

@@ -23,7 +23,11 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     await requireAuth();
+    
+    
     await requirePermission("category.create");
+await requirePermission("category.view");
+await requirePermission("category.create");
 
     const body = await request.json();
     const name = String(body?.name ?? "").trim();

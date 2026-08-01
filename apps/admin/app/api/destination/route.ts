@@ -26,7 +26,11 @@ const destinations = await prisma.destination.findMany({
 export async function POST(request: Request) {
   try {
     await requireAuth();
+    
+    
     await requirePermission("destination.create");
+await requirePermission("destination.view");
+await requirePermission("destination.create");
 
     const body = (await request.json().catch(() => null)) as Record<string, unknown> | null;
     const name = String(body?.name ?? "").trim();

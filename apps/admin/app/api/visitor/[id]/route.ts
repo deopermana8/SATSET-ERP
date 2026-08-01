@@ -30,7 +30,11 @@ const { id } = await params;
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAuth();
+    
+    
     await requirePermission("visitor.update");
+await requirePermission("visitor.view");
+await requirePermission("visitor.update");
     const { id } = await params;
     const parsedId = parseId(id);
     if (!parsedId) return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });
@@ -53,7 +57,11 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
 export async function DELETE(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAuth();
+    
+    
     await requirePermission("visitor.delete");
+await requirePermission("visitor.view");
+await requirePermission("visitor.delete");
     const { id } = await params;
     const parsedId = parseId(id);
     if (!parsedId) return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });

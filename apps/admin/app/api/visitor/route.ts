@@ -19,7 +19,11 @@ const items = await prisma.visitor.findMany({ where: { deletedAt: null }, orderB
 export async function POST(request: Request) {
   try {
     await requireAuth();
+    
+    
     await requirePermission("visitor.create");
+await requirePermission("visitor.view");
+await requirePermission("visitor.create");
     const body = (await request.json().catch(() => null)) as { name?: unknown; email?: unknown; phone?: unknown; idCard?: unknown } | null;
     const name = String(body?.name ?? "").trim();
     if (!name) return NextResponse.json({ message: "Nama wajib diisi" }, { status: 400 });
