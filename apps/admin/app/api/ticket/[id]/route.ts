@@ -1,4 +1,4 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { Prisma } from "@/generated/prisma";
 
 import { requireAuth } from "@/lib/auth/require-auth";
@@ -18,6 +18,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
   try {
     await requireAuth();
 
+    
     await requirePermission("ticket.view");
 const { id } = await params;
     const parsedId = parseId(id);
@@ -39,11 +40,9 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
     await requireAuth();
     
     
+    
     await requirePermission("ticket.update");
-await requirePermission("ticket.view");
-await requirePermission("ticket.update");
-
-    const { id } = await params;
+const { id } = await params;
     const parsedId = parseId(id);
     if (!parsedId) {
       return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });
@@ -83,11 +82,9 @@ export async function DELETE(_request: Request, { params }: { params: Promise<{ 
     await requireAuth();
     
     
+    
     await requirePermission("ticket.delete");
-await requirePermission("ticket.view");
-await requirePermission("ticket.delete");
-
-    const { id } = await params;
+const { id } = await params;
     const parsedId = parseId(id);
     if (!parsedId) {
       return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });

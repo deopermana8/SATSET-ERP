@@ -15,6 +15,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
   try {
     await requireAuth();
 
+    
     await requirePermission("facility.view");
 const { id } = await params;
     const parsedId = parseId(id);
@@ -38,11 +39,9 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
     await requireAuth();
     
     
+    
     await requirePermission("facility.update");
-await requirePermission("facility.view");
-await requirePermission("facility.update");
-
-    const { id } = await params;
+const { id } = await params;
     const parsedId = parseId(id);
     if (!parsedId) return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });
 
@@ -80,11 +79,9 @@ export async function DELETE(_request: Request, { params }: { params: Promise<{ 
     await requireAuth();
     
     
+    
     await requirePermission("facility.delete");
-await requirePermission("facility.view");
-await requirePermission("facility.delete");
-
-    const { id } = await params;
+const { id } = await params;
     const parsedId = parseId(id);
     if (!parsedId) return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });
 

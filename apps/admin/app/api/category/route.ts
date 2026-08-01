@@ -7,9 +7,9 @@ import { requirePermission } from "@/lib/auth/requirePermission";
 export async function GET() {
   try {
     await requireAuth();
+    
     await requirePermission("category.view");
-
-    const categories = await prisma.category.findMany({
+const categories = await prisma.category.findMany({
       where: { deletedAt: null },
       orderBy: { id: "asc" },
     });
@@ -25,11 +25,9 @@ export async function POST(request: Request) {
     await requireAuth();
     
     
+    
     await requirePermission("category.create");
-await requirePermission("category.view");
-await requirePermission("category.create");
-
-    const body = await request.json();
+const body = await request.json();
     const name = String(body?.name ?? "").trim();
 
     if (!name) {

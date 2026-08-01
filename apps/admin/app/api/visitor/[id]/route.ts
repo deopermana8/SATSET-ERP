@@ -14,6 +14,7 @@ function parseId(rawId: string): number | null {
 export async function GET(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAuth();
+    
     await requirePermission("visitor.view");
 const { id } = await params;
     const parsedId = parseId(id);
@@ -32,10 +33,9 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
     await requireAuth();
     
     
+    
     await requirePermission("visitor.update");
-await requirePermission("visitor.view");
-await requirePermission("visitor.update");
-    const { id } = await params;
+const { id } = await params;
     const parsedId = parseId(id);
     if (!parsedId) return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });
 
@@ -59,10 +59,9 @@ export async function DELETE(_request: Request, { params }: { params: Promise<{ 
     await requireAuth();
     
     
+    
     await requirePermission("visitor.delete");
-await requirePermission("visitor.view");
-await requirePermission("visitor.delete");
-    const { id } = await params;
+const { id } = await params;
     const parsedId = parseId(id);
     if (!parsedId) return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });
 

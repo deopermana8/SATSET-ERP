@@ -7,8 +7,9 @@ import { prisma } from "@/lib/prisma";
 export async function GET() {
   try {
     await requireAuth();
+    
     await requirePermission("role.view");
-    const roles = await prisma.role.findMany({ orderBy: { id: "asc" } });
+const roles = await prisma.role.findMany({ orderBy: { id: "asc" } });
     return NextResponse.json(roles);
   } catch (error) {
     return NextResponse.json({ message: error instanceof Error ? error.message : "Unauthorized" }, { status: 401 });

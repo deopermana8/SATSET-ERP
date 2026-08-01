@@ -10,8 +10,9 @@ export async function GET(
 ) {
   try {
     await requireAuth();
+    
     await requirePermission("role.view");
-    const { id } = await params;
+const { id } = await params;
 
     const role = await prisma.role.findUnique({
       where: { id: Number(id) },
@@ -38,8 +39,9 @@ export async function PUT(
 ) {
   try {
     await requireAuth();
+    
     await requirePermission("role.update");
-    const { id } = await params;
+const { id } = await params;
     const body = await request.json();
 
     const role = await prisma.role.update({
@@ -62,8 +64,9 @@ export async function DELETE(
 ) {
   try {
     await requireAuth();
+    
     await requirePermission("role.delete");
-    const { id } = await params;
+const { id } = await params;
 
     await prisma.role.delete({
       where: { id: Number(id) },

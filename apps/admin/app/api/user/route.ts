@@ -7,9 +7,9 @@ import { prisma } from "@/lib/prisma";
 export async function GET() {
   try {
     await requireAuth();
+    
     await requirePermission("user.view");
-
-    const users = await prisma.user.findMany({
+const users = await prisma.user.findMany({
       include: { role: { select: { id: true, name: true } } },
       orderBy: { id: "asc" },
     });

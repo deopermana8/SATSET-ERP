@@ -1,4 +1,4 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { Prisma } from "@/generated/prisma";
 
 import { requireAuth } from "@/lib/auth/require-auth";
@@ -9,6 +9,7 @@ export async function GET() {
   try {
     await requireAuth();
 
+    
     await requirePermission("ticket.view");
 const items = await prisma.ticket.findMany({
       where: { deletedAt: null },
@@ -27,11 +28,9 @@ export async function POST(request: Request) {
     await requireAuth();
     
     
+    
     await requirePermission("ticket.create");
-await requirePermission("ticket.view");
-await requirePermission("ticket.create");
-
-    const body = (await request.json().catch(() => null)) as {
+const body = (await request.json().catch(() => null)) as {
       name?: unknown;
       type?: unknown;
       price?: unknown;

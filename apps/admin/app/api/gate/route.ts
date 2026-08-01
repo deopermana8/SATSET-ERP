@@ -1,4 +1,4 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { Prisma } from "@/generated/prisma";
 
 import { requireAuth } from "@/lib/auth/require-auth";
@@ -8,8 +8,9 @@ import { prisma } from "@/lib/prisma";
 export async function GET() {
   try {
     await requireAuth();
+    
     await requirePermission("gate.view");
-    const items = await prisma.gate.findMany({
+const items = await prisma.gate.findMany({
       where: { deletedAt: null },
       include: { destination: { select: { id: true, name: true } } },
       orderBy: { id: "asc" },
@@ -24,9 +25,9 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     await requireAuth();
+    
     await requirePermission("gate.create");
-
-    const body = (await request.json().catch(() => null)) as {
+const body = (await request.json().catch(() => null)) as {
       name?: unknown;
       code?: unknown;
       destinationId?: unknown;

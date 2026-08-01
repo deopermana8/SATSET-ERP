@@ -8,11 +8,9 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
   try {
     await requireAuth();
     
+    
     await requirePermission("category.update");
-await requirePermission("category.view");
-await requirePermission("category.update");
-
-    const { id } = await params;
+const { id } = await params;
     const body = await request.json();
     const name = String(body?.name ?? "").trim();
 
@@ -38,11 +36,9 @@ export async function DELETE(_request: Request, { params }: { params: Promise<{ 
   try {
     await requireAuth();
     
+    
     await requirePermission("category.delete");
-await requirePermission("category.view");
-await requirePermission("category.delete");
-
-    const { id } = await params;
+const { id } = await params;
     await prisma.category.update({
       where: { id: Number(id) },
       data: { deletedAt: new Date() },

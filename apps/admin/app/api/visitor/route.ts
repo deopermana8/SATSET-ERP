@@ -8,6 +8,7 @@ import { prisma } from "@/lib/prisma";
 export async function GET() {
   try {
     await requireAuth();
+    
     await requirePermission("visitor.view");
 const items = await prisma.visitor.findMany({ where: { deletedAt: null }, orderBy: { id: "asc" } });
     return NextResponse.json(items);
@@ -21,10 +22,9 @@ export async function POST(request: Request) {
     await requireAuth();
     
     
+    
     await requirePermission("visitor.create");
-await requirePermission("visitor.view");
-await requirePermission("visitor.create");
-    const body = (await request.json().catch(() => null)) as { name?: unknown; email?: unknown; phone?: unknown; idCard?: unknown } | null;
+const body = (await request.json().catch(() => null)) as { name?: unknown; email?: unknown; phone?: unknown; idCard?: unknown } | null;
     const name = String(body?.name ?? "").trim();
     if (!name) return NextResponse.json({ message: "Nama wajib diisi" }, { status: 400 });
 

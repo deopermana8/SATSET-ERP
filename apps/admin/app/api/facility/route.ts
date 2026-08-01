@@ -9,6 +9,7 @@ export async function GET() {
   try {
     await requireAuth();
 
+    
     await requirePermission("facility.view");
 const items = await prisma.facility.findMany({
       where: { deletedAt: null },
@@ -27,11 +28,9 @@ export async function POST(request: Request) {
     await requireAuth();
     
     
+    
     await requirePermission("facility.create");
-await requirePermission("facility.view");
-await requirePermission("facility.create");
-
-    const body = (await request.json().catch(() => null)) as {
+const body = (await request.json().catch(() => null)) as {
       name?: unknown;
       description?: unknown;
       destinationId?: unknown;

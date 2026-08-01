@@ -1,4 +1,4 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { Prisma } from "@/generated/prisma";
 
 import { requireAuth } from "@/lib/auth/require-auth";
@@ -8,6 +8,7 @@ import { prisma } from "@/lib/prisma";
 export async function GET() {
   try {
     await requireAuth();
+    
     await requirePermission("reservation.view");
 const items = await prisma.reservation.findMany({ where: { deletedAt: null }, include: { visitor: true, destination: { select: { id: true, name: true } }, ticket: { select: { id: true, name: true } }, payment: true }, orderBy: { id: "desc" } });
     return NextResponse.json(items);
@@ -21,10 +22,9 @@ export async function POST(request: Request) {
     await requireAuth();
     
     
+    
     await requirePermission("reservation.create");
-await requirePermission("reservation.view");
-await requirePermission("reservation.create");
-    const body = (await request.json().catch(() => null)) as { code?: unknown; visitorId?: unknown; destinationId?: unknown; ticketId?: unknown; quantity?: unknown; totalPrice?: unknown; status?: unknown; visitDate?: unknown } | null;
+const body = (await request.json().catch(() => null)) as { code?: unknown; visitorId?: unknown; destinationId?: unknown; ticketId?: unknown; quantity?: unknown; totalPrice?: unknown; status?: unknown; visitDate?: unknown } | null;
 
     const code = String(body?.code ?? "").trim();
     const visitorId = Number(body?.visitorId ?? NaN);

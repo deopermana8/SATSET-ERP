@@ -1,4 +1,4 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { Prisma } from "@/generated/prisma";
 
 import { requireAuth } from "@/lib/auth/require-auth";
@@ -14,8 +14,9 @@ function parseId(rawId: string): number | null {
 export async function GET(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAuth();
+    
     await requirePermission("payment.view");
-    const { id } = await params;
+const { id } = await params;
     const parsedId = parseId(id);
     if (!parsedId) return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });
 
@@ -30,8 +31,9 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAuth();
+    
     await requirePermission("payment.update");
-    const { id } = await params;
+const { id } = await params;
     const parsedId = parseId(id);
     if (!parsedId) return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });
 
@@ -54,8 +56,9 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
 export async function DELETE(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAuth();
+    
     await requirePermission("payment.delete");
-    const { id } = await params;
+const { id } = await params;
     const parsedId = parseId(id);
     if (!parsedId) return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });
 

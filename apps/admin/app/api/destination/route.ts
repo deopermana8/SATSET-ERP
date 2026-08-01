@@ -8,6 +8,7 @@ export async function GET() {
   try {
     await requireAuth();
 
+    
     await requirePermission("destination.view");
 const destinations = await prisma.destination.findMany({
       where: { deletedAt: null },
@@ -28,11 +29,9 @@ export async function POST(request: Request) {
     await requireAuth();
     
     
+    
     await requirePermission("destination.create");
-await requirePermission("destination.view");
-await requirePermission("destination.create");
-
-    const body = (await request.json().catch(() => null)) as Record<string, unknown> | null;
+const body = (await request.json().catch(() => null)) as Record<string, unknown> | null;
     const name = String(body?.name ?? "").trim();
 
     if (!name) {
