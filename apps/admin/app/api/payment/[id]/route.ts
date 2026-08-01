@@ -14,6 +14,7 @@ function parseId(rawId: string): number | null {
 export async function GET(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAuth();
+    await requirePermission("payment.view");
     const { id } = await params;
     const parsedId = parseId(id);
     if (!parsedId) return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });
@@ -69,4 +70,5 @@ export async function DELETE(_request: Request, { params }: { params: Promise<{ 
     return NextResponse.json({ message: error instanceof Error ? error.message : "Gagal menghapus data" }, { status: 500 });
   }
 }
+
 

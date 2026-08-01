@@ -8,6 +8,7 @@ import { prisma } from "@/lib/prisma";
 export async function GET() {
   try {
     await requireAuth();
+    await requirePermission("payment.view");
     const items = await prisma.payment.findMany({ where: { deletedAt: null }, include: { reservation: true }, orderBy: { id: "desc" } });
     return NextResponse.json(items);
   } catch (error) {
@@ -38,5 +39,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: error instanceof Error ? error.message : "Gagal membuat data" }, { status: 500 });
   }
 }
+
 
 
