@@ -1,4 +1,4 @@
-export default function LoginPage(
+﻿export default function LoginPage(
 ){
     const {
         canView,
@@ -12,4 +12,5 @@ export default function LoginPage(
     </main>
   );
 }
+
 

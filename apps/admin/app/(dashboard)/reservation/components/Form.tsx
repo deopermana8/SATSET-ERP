@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
-import { usePermission } from "@/hooks/usePermission";
+import PermissionGuard from "@/components/auth/PermissionGuard";import { usePermission } from "@/hooks/usePermission";
 
 type ReservationFormProps = {
   initialData?: Record<string, unknown>;

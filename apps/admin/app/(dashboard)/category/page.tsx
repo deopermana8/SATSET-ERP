@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 import { useActionState, useEffect, useState, useTransition } from "react";
-import { usePermission } from "@/hooks/usePermission";
+import PermissionGuard from "@/components/auth/PermissionGuard";import { usePermission } from "@/hooks/usePermission";
 
 import { createCategory, deleteCategory, updateCategory } from "./actions";
 import Form from "./components/Form";
@@ -175,4 +175,5 @@ export default function Page(
     </div>
   );
 }
+
 

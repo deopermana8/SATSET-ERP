@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
-import { usePermission } from "@/hooks/usePermission";
+﻿import type { ReactNode } from "react";
+import PermissionGuard from "@/components/auth/PermissionGuard";import { usePermission } from "@/hooks/usePermission";
 
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
@@ -48,3 +48,4 @@ export default function DashboardLayout(
     </div>
   );
 }
+

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 export default function Error(
 ){
@@ -10,4 +10,5 @@ export default function Error(
     } = usePermission();
   return <div>Terjadi kesalahan.</div>
 }
+
 

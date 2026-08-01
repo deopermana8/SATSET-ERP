@@ -1,8 +1,8 @@
-"use client";
+﻿"use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
-import { usePermission } from "@/hooks/usePermission";
+import PermissionGuard from "@/components/auth/PermissionGuard";import { usePermission } from "@/hooks/usePermission";
 import { useForm } from "react-hook-form";
 
 import { categorySchema, type CategoryFormValues } from "../validation";
@@ -82,3 +82,4 @@ export default function Form(
     </form>
   );
 }
+

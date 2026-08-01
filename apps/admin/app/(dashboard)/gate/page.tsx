@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
-import { usePermission } from "@/hooks/usePermission";
+import PermissionGuard from "@/components/auth/PermissionGuard";import { usePermission } from "@/hooks/usePermission";
 
 type GateRecord = {
   id: number;
@@ -181,4 +181,5 @@ export default function Page(
     </div>
   );
 }
+
 

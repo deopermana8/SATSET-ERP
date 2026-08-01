@@ -1,4 +1,4 @@
-export default function Loading(
+﻿export default function Loading(
 ){
     const {
         canView,
@@ -8,4 +8,5 @@ export default function Loading(
     } = usePermission();
     return <div>Loading...</div>;
 }
+
 

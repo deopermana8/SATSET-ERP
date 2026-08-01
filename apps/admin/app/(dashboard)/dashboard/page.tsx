@@ -1,4 +1,4 @@
-import StatCard from "../../../components/StatCard";
+﻿import StatCard from "../../../components/StatCard";
 import DashboardChart from "../../../components/DashboardChart";
 import RecentActivity from "../../../components/RecentActivity";
 
@@ -107,5 +107,6 @@ export default function DashboardPage(
     </div>
   );
 }
+
 
 

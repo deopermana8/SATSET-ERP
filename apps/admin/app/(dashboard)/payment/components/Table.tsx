@@ -1,4 +1,4 @@
-export default function Table(
+﻿export default function Table(
 ){
     const {
         canView,
@@ -8,4 +8,5 @@ export default function Table(
     } = usePermission();
   return <div>Table Component</div>
 }
+
 

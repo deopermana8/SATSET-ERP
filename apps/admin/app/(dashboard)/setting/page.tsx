@@ -1,4 +1,4 @@
-export default function Page(
+﻿export default function Page(
 ){
     const {
         canView,
@@ -12,3 +12,4 @@ export default function Page(
     </div>
   )
 }
+

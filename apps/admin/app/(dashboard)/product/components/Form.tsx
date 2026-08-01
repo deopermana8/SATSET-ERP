@@ -1,4 +1,4 @@
-export default function Form(
+﻿export default function Form(
 ){
     const {
         canView,
@@ -8,4 +8,5 @@ export default function Form(
     } = usePermission();
     return <div>Form product</div>;
 }
+
 

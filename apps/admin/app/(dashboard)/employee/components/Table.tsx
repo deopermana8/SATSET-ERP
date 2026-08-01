@@ -1,4 +1,4 @@
-type EmployeeRow = {
+﻿type EmployeeRow = {
   id: number
   name: string
   email: string
@@ -43,4 +43,5 @@ export default function Table(
     </table>
   )
 }
+
 

@@ -1,4 +1,4 @@
-// TODO: Connected in Phase-2
+﻿// TODO: Connected in Phase-2
 
 export default function Table(
 ){
@@ -10,4 +10,5 @@ export default function Table(
     } = usePermission();
   return <div>Table Component</div>;
 }
+
 

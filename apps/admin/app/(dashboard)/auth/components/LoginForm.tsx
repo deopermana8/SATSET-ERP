@@ -1,4 +1,4 @@
-export function LoginForm(){
+﻿export function LoginForm(){
     const {
         canView,
         canCreate,
@@ -7,4 +7,5 @@ export function LoginForm(){
     } = usePermission();
   return <form>{'Auth'} login form</form>;
 }
+
 
