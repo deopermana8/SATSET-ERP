@@ -17,7 +17,8 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
   try {
     await requireAuth();
 
-    const { id } = await params;
+    await requirePermission("destination.view");
+const { id } = await params;
     const parsedId = parseId(id);
     if (!parsedId) {
       return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });
@@ -102,3 +103,5 @@ export async function DELETE(_request: Request, { params }: { params: Promise<{ 
     );
   }
 }
+
+

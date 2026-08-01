@@ -8,7 +8,8 @@ export async function GET() {
   try {
     await requireAuth();
 
-    const destinations = await prisma.destination.findMany({
+    await requirePermission("destination.view");
+const destinations = await prisma.destination.findMany({
       where: { deletedAt: null },
       orderBy: { id: "asc" },
     });
@@ -54,3 +55,5 @@ export async function POST(request: Request) {
     );
   }
 }
+
+

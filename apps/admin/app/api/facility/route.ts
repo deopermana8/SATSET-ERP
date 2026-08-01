@@ -9,7 +9,8 @@ export async function GET() {
   try {
     await requireAuth();
 
-    const items = await prisma.facility.findMany({
+    await requirePermission("facility.view");
+const items = await prisma.facility.findMany({
       where: { deletedAt: null },
       include: { destination: { select: { id: true, name: true } } },
       orderBy: { id: "asc" },
@@ -62,4 +63,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: error instanceof Error ? error.message : "Gagal membuat data" }, { status: 500 });
   }
 }
+
+
 

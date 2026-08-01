@@ -15,7 +15,8 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
   try {
     await requireAuth();
 
-    const { id } = await params;
+    await requirePermission("facility.view");
+const { id } = await params;
     const parsedId = parseId(id);
     if (!parsedId) return NextResponse.json({ message: "ID tidak valid" }, { status: 400 });
 
@@ -86,3 +87,5 @@ export async function DELETE(_request: Request, { params }: { params: Promise<{ 
     return NextResponse.json({ message: error instanceof Error ? error.message : "Gagal menghapus data" }, { status: 500 });
   }
 }
+
+
