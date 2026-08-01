@@ -14,6 +14,7 @@ setLoading(true);
 
 const res=await fetch("/api/auth/login",{
 method:"POST",
+credentials:"same-origin",
 headers:{
 "Content-Type":"application/json"
 },
@@ -23,7 +24,12 @@ password
 })
 });
 
+console.log("STATUS",res.status);
+console.log("SET_COOKIE",res.headers.get("set-cookie"));
+
 const data=await res.json();
+
+console.log(data);
 
 setLoading(false);
 

@@ -1,0 +1,163 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Role {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  users     User[]
+  createdAt DateTime @default(now())
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  name     String
+  email    String @unique
+  password String
+  roleId   Int
+
+  role Role @relation(fields: [roleId], references: [id])
+
+  createdAt DateTime @default(now())
+}
+
+model Ticket {
+  id            Int       @id @default(autoincrement())
+  name          String
+  type          String
+  price         Int
+  destinationId Int?
+  active        Boolean   @default(true)
+  deletedAt     DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  destination  Destination?  @relation(fields: [destinationId], references: [id])
+  reservations Reservation[]
+
+  @@map("tickets")
+}
+
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
+  slug      String?   @unique
+  deletedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@map("categories")
+}
+
+model Destination {
+  id          Int       @id @default(autoincrement())
+  name        String    @unique
+  slug        String    @unique
+  description String?
+  address     String?
+  phone       String?
+  email       String?
+  active      Boolean   @default(true)
+  deletedAt   DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  facilities   Facility[]
+  gates        Gate[]
+  tickets      Ticket[]
+  reservations Reservation[]
+
+  @@map("destinations")
+}
+
+model Facility {
+  id            Int       @id @default(autoincrement())
+  name          String
+  slug          String
+  description   String?
+  destinationId Int
+  active        Boolean   @default(true)
+  deletedAt     DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  destination Destination @relation(fields: [destinationId], references: [id])
+
+  @@unique([destinationId, slug])
+  @@map("facilities")
+}
+
+model Gate {
+  id            Int       @id @default(autoincrement())
+  name          String
+  code          String    @unique
+  destinationId Int
+  active        Boolean   @default(true)
+  deletedAt     DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  destination Destination @relation(fields: [destinationId], references: [id])
+
+  @@map("gates")
+}
+
+model Visitor {
+  id        Int       @id @default(autoincrement())
+  name      String
+  email     String?   @unique
+  phone     String?
+  idCard    String?   @unique
+  deletedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  reservations Reservation[]
+
+  @@map("visitors")
+}
+
+model Reservation {
+  id            Int       @id @default(autoincrement())
+  code          String    @unique
+  visitorId     Int
+  destinationId Int
+  ticketId      Int
+  quantity      Int
+  totalPrice    Int
+  status        String    @default("pending")
+  reservedAt    DateTime  @default(now())
+  visitDate     DateTime?
+  deletedAt     DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  visitor     Visitor     @relation(fields: [visitorId], references: [id])
+  destination Destination @relation(fields: [destinationId], references: [id])
+  ticket      Ticket      @relation(fields: [ticketId], references: [id])
+  payment     Payment?
+
+  @@map("reservations")
+}
+
+model Payment {
+  id            Int       @id @default(autoincrement())
+  reservationId Int       @unique
+  amount        Int
+  method        String    @default("cash")
+  status        String    @default("pending")
+  paidAt        DateTime?
+  deletedAt     DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  reservation Reservation @relation(fields: [reservationId], references: [id])
+
+  @@map("payments")
+}
