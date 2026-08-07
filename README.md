@@ -17,7 +17,7 @@ Modern Enterprise Resource Planning (ERP) System built with TypeScript, Node.js,
 
 ## Booking
 
-![Booking](docs/sprint-27-screenshots/booking.png)
+![Booking](docs/screenshots/Booking.png)
 
 ## Ticketing
 
