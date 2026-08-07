@@ -1,0 +1,93 @@
+module: CRM
+entity:
+  - pelanggan
+  - prospek
+  - interaksi
+description: Customer relationship management domain for pipeline, touchpoints, and retention.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: fullname
+    type: String
+    required: true
+    unique: false
+    label: Full Name
+    searchable: true
+    filterable: true
+    input: text
+  - name: stage
+    type: String
+    required: true
+    unique: false
+    default: '"lead"'
+    label: Stage
+    searchable: true
+    filterable: true
+    input: select
+relations:
+  - name: owner
+    target: SalesUser
+    kind: many-to-one
+permissions:
+  - key: crm.read
+    description: Read CRM records.
+  - key: crm.write
+    description: Manage CRM records.
+dashboard:
+  widgets:
+    - name: leadPipeline
+      type: chart
+      metric: count(stage)
+reports:
+  - name: crm-pipeline
+    title: CRM Pipeline
+    metrics:
+      - count(stage)
+menu:
+  - label: CRM
+    path: /crm
+    icon: users
+mobile:
+  screen: CrmHome
+  offline: true
+scanner:
+  provider: crm-sync
+  schedule: 0 */4 * * *
+workflow:
+  - name: ProspectToCustomer
+    steps:
+      - name: Prospect
+        actor: sales
+        next: [Offer]
+      - name: Offer
+        actor: sales
+        next: [Deal]
+      - name: Deal
+        actor: manager
+        next: [Retention]
+      - name: Retention
+        actor: cs
+        next: []
+api:
+  - name: listCustomers
+    method: GET
+    path: /api/crm/customers
+    permission: crm.read
+validation:
+  - field: fullname
+    rule: required
+    message: Full Name is required.
+seed:
+  - name: DefaultCustomer
+    fields:
+      id: cust-001
+      fullname: PT SATSET
+      stage: customer
+metadata:
+  domain: crm

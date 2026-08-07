@@ -1,0 +1,89 @@
+module: Wisata
+entity:
+  - reservasi
+  - tiket
+  - gate
+description: Wisata domain for booking, ticketing, QR entry, gate, audit, and reporting.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: Booking ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: visitDate
+    type: DateTime
+    required: true
+    unique: false
+    label: Visit Date
+    searchable: false
+    filterable: true
+    input: date
+relations:
+  - name: destination
+    target: Destination
+    kind: many-to-one
+permissions:
+  - key: wisata.read
+    description: Read wisata domain.
+  - key: wisata.write
+    description: Manage wisata domain.
+dashboard:
+  widgets:
+    - name: visitCount
+      type: metric
+      metric: count(id)
+reports:
+  - name: wisata-summary
+    title: Wisata Summary
+    metrics:
+      - count(id)
+menu:
+  - label: Wisata
+    path: /wisata
+    icon: ticket
+mobile:
+  screen: WisataHome
+  offline: true
+scanner:
+  provider: wisata-qr
+  schedule: 0 */3 * * *
+workflow:
+  - name: WisataJourney
+    steps:
+      - name: Reservasi
+        actor: customer
+        next: [Pembayaran]
+      - name: Pembayaran
+        actor: cashier
+        next: [QR]
+      - name: QR
+        actor: system
+        next: [Gate]
+      - name: Gate
+        actor: gatekeeper
+        next: [Audit]
+      - name: Audit
+        actor: auditor
+        next: [Laporan]
+      - name: Laporan
+        actor: manager
+        next: []
+api:
+  - name: listBookings
+    method: GET
+    path: /api/wisata/bookings
+    permission: wisata.read
+validation:
+  - field: visitDate
+    rule: required
+    message: Visit Date is required.
+seed:
+  - name: DefaultDestination
+    fields:
+      id: dest-001
+      visitDate: 2026-01-01T00:00:00Z
+metadata:
+  domain: wisata

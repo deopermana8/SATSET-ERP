@@ -1,0 +1,82 @@
+module: Report
+entity:
+  - laporan
+  - audit
+description: Reporting domain for formatted summaries, audits, and export flows.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: Report ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: title
+    type: String
+    required: true
+    unique: false
+    label: Title
+    searchable: true
+    filterable: true
+    input: text
+relations:
+  - name: owner
+    target: User
+    kind: many-to-one
+permissions:
+  - key: report.read
+    description: Read reports.
+  - key: report.write
+    description: Manage reports.
+dashboard:
+  widgets:
+    - name: totalReports
+      type: metric
+      metric: count(id)
+reports:
+  - name: report-master
+    title: Report Master
+    metrics:
+      - count(id)
+menu:
+  - label: Report
+    path: /report
+    icon: file-chart-column
+mobile:
+  screen: ReportHome
+  offline: false
+scanner:
+  provider: report-validator
+  schedule: 0 */24 * * *
+workflow:
+  - name: ReportingFlow
+    steps:
+      - name: Prepare
+        actor: analyst
+        next: [Review]
+      - name: Review
+        actor: manager
+        next: [Publish]
+      - name: Publish
+        actor: manager
+        next: [Archive]
+      - name: Archive
+        actor: system
+        next: []
+api:
+  - name: listReports
+    method: GET
+    path: /api/report/items
+    permission: report.read
+validation:
+  - field: title
+    rule: required
+    message: Title is required.
+seed:
+  - name: DefaultReport
+    fields:
+      id: rpt-001
+      title: Default Report
+metadata:
+  domain: report

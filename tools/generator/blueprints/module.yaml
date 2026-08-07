@@ -1,0 +1,76 @@
+module: Finance
+entity: Transaction
+description: Finance module for transactional bookkeeping, approvals, and reporting.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: Transaction ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: referenceNo
+    type: String
+    required: true
+    unique: true
+    label: Reference Number
+    searchable: true
+    filterable: true
+    input: text
+  - name: amount
+    type: Decimal
+    required: true
+    unique: false
+    default: "0"
+    label: Amount
+    searchable: false
+    filterable: true
+    input: number
+  - name: status
+    type: String
+    required: true
+    unique: false
+    default: '"draft"'
+    label: Status
+    searchable: true
+    filterable: true
+    input: select
+relations:
+  - name: account
+    target: Account
+    kind: many-to-one
+permissions:
+  - key: finance.read
+    description: Read finance records.
+  - key: finance.write
+    description: Create and update finance records.
+  - key: finance.approve
+    description: Approve finance transactions.
+dashboard:
+  widgets:
+    - name: revenue
+      type: metric
+      metric: sum(amount)
+    - name: statusBreakdown
+      type: chart
+      metric: count(status)
+reports:
+  - name: finance-summary
+    title: Finance Summary
+    metrics:
+      - amount
+      - status
+menu:
+  - label: Finance
+    path: /finance
+    icon: wallet
+mobile:
+  screen: FinanceHome
+  offline: true
+scanner:
+  provider: finance-ingestion
+  schedule: 0 */6 * * *
+metadata:
+  domain: backoffice
+  owner: finance-team

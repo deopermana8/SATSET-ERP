@@ -1,0 +1,82 @@
+module: Finance Analytics
+entity:
+  - kas
+  - forecasting
+  - laporan
+description: Combined finance and analytics domain for forecasting and executive dashboards.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: Analytics ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: forecast
+    type: Decimal
+    required: true
+    unique: false
+    default: "0"
+    label: Forecast
+    searchable: false
+    filterable: true
+    input: number
+relations:
+  - name: source
+    target: FinanceLedger
+    kind: many-to-one
+permissions:
+  - key: finance.analytics.read
+    description: Read finance analytics.
+dashboard:
+  widgets:
+    - name: forecastHealth
+      type: chart
+      metric: sum(forecast)
+reports:
+  - name: finance-analytics
+    title: Finance Analytics
+    metrics:
+      - sum(forecast)
+menu:
+  - label: Finance Analytics
+    path: /finance-analytics
+    icon: chart-area
+mobile:
+  screen: FinanceAnalyticsHome
+  offline: false
+scanner:
+  provider: finance-analytics-feed
+  schedule: 0 */6 * * *
+workflow:
+  - name: FinanceAnalyticsFlow
+    steps:
+      - name: Collect
+        actor: system
+        next: [Forecast]
+      - name: Forecast
+        actor: analyst
+        next: [Approve]
+      - name: Approve
+        actor: cfo
+        next: [Laporan]
+      - name: Laporan
+        actor: board
+        next: []
+api:
+  - name: listForecasts
+    method: GET
+    path: /api/finance-analytics
+    permission: finance.analytics.read
+validation:
+  - field: forecast
+    rule: min:0
+    message: Forecast must be positive.
+seed:
+  - name: DefaultForecast
+    fields:
+      id: fa-001
+      forecast: "0"
+metadata:
+  domain: finance-analytics

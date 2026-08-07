@@ -1,0 +1,88 @@
+module: Finance
+entity:
+  - akun
+  - jurnal
+  - transaksi
+  - kas
+description: Finance domain for ledger, journal, transaction, and cash management.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: Journal ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: amount
+    type: Decimal
+    required: true
+    unique: false
+    default: "0"
+    label: Amount
+    searchable: false
+    filterable: true
+    input: number
+relations:
+  - name: ledger
+    target: Ledger
+    kind: many-to-one
+permissions:
+  - key: finance.read
+    description: Read finance domain.
+  - key: finance.write
+    description: Manage finance domain.
+dashboard:
+  widgets:
+    - name: cashFlow
+      type: metric
+      metric: sum(amount)
+reports:
+  - name: finance-cashflow
+    title: Finance Cash Flow
+    metrics:
+      - sum(amount)
+menu:
+  - label: Finance
+    path: /finance
+    icon: wallet
+mobile:
+  screen: FinanceHome
+  offline: true
+scanner:
+  provider: finance-validator
+  schedule: 0 */6 * * *
+workflow:
+  - name: FinancePosting
+    steps:
+      - name: Draft
+        actor: finance-staff
+        next: [Review]
+      - name: Review
+        actor: controller
+        next: [Posting]
+      - name: Posting
+        actor: finance-manager
+        next: [Audit]
+      - name: Audit
+        actor: auditor
+        next: [Laporan]
+      - name: Laporan
+        actor: cfo
+        next: []
+api:
+  - name: postJournal
+    method: POST
+    path: /api/finance/journals
+    permission: finance.write
+validation:
+  - field: amount
+    rule: min:0
+    message: Amount must be positive.
+seed:
+  - name: DefaultCash
+    fields:
+      id: cash-001
+      amount: "1000000"
+metadata:
+  domain: finance

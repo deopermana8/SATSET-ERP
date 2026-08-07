@@ -1,0 +1,66 @@
+﻿# ======================
+# Dependencies
+# ======================
+node_modules/
+**/node_modules/
+
+# ======================
+# Build
+# ======================
+dist/
+**/dist/
+coverage/
+test-results/
+playwright-report/
+.cache/
+.next/
+out/
+build/
+
+# ======================
+# TypeScript
+# ======================
+*.tsbuildinfo
+**/*.tsbuildinfo
+
+# ======================
+# Logs
+# ======================
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log*
+
+# ======================
+# Environment
+# ======================
+.env
+.env.*
+!.env.example
+
+# ======================
+# VSCode
+# ======================
+.vscode/
+.idea/
+
+# ======================
+# OS
+# ======================
+.DS_Store
+Thumbs.db
+
+# ======================
+# Generator
+# ======================
+tools/**/output/
+tools/**/test-artifacts/
+tools/**/.cache/
+tools/**/node_modules/
+
+# ======================
+# Temp
+# ======================
+tmp/
+temp/
+*.tmp

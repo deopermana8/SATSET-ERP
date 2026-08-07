@@ -1,0 +1,6 @@
+{
+  "module": "ErpWisata",
+  "provider": "wisata-ingestion",
+  "schedule": "0 */4 * * *",
+  "entity": "Destinasi"
+}

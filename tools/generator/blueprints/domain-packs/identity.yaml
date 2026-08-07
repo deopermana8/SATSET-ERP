@@ -1,0 +1,44 @@
+module: Identity
+entity:
+  - User
+  - Role
+  - Permission
+description: Identity foundation pack for auth, RBAC, session, audit, security, and MFA.
+fields:
+  - name: email
+    type: string
+    required: true
+    unique: true
+    label: Email
+    searchable: true
+    filterable: true
+    input: email
+  - name: username
+    type: string
+    required: true
+    unique: true
+    label: Username
+    searchable: true
+    filterable: true
+    input: text
+  - name: passwordHash
+    type: string
+    required: true
+    unique: false
+    label: Password Hash
+    searchable: false
+    filterable: false
+    input: password
+permissions:
+  - key: identity.read
+    description: Read identity data
+  - key: identity.write
+    description: Manage identity data
+  - key: identity.session
+    description: Manage session data
+  - key: identity.audit
+    description: Read audit data
+  - key: identity.mfa
+    description: Manage MFA policies
+metadata:
+  foundation: IdentityGenerator

@@ -1,0 +1,38 @@
+{
+  "name": "blueprint",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "node ./scripts/start.mjs dev",
+    "start": "node ./scripts/start.mjs start",
+    "customer:dev": "npm run dev --workspace @satset/blueprint-customer",
+    "customer:start": "npm run start --workspace @satset/blueprint-customer",
+    "test": "npm run build",
+    "test:unit": "npm run test",
+    "playwright:smoke": "playwright test --grep @smoke",
+    "playwright:regression": "playwright test",
+    "smoke": "npm run build && npm run lint && npm run test:unit && npm run playwright:smoke && npm run playwright:regression",
+    "migrate": "npm run migrate --workspace @satset/blueprint-api",
+    "seed": "npm run seed --workspace @satset/blueprint-api",
+    "lint": "tsc --noEmit -p tsconfig.json",
+    "doctor": "prisma validate && prisma migrate status"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@prisma/client": "^7.9.1",
+    "@types/node": "^22.13.10",
+    "pixelmatch": "^7.2.0",
+    "pngjs": "^7.0.0",
+    "prisma": "^7.9.1",
+    "typescript": "^5.6.2"
+  },
+  "allowScripts": {
+    "@prisma/engines@7.9.1": true,
+    "prisma@7.9.1": true
+  }
+}

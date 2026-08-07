@@ -1,0 +1,523 @@
+{
+  "generatedAt": "2026-08-05T15:45:30.528Z",
+  "module": "ErpWisata",
+  "entity": "Destinasi",
+  "workflow": [
+    {
+      "name": "DestinasiWorkflow",
+      "steps": [
+        {
+          "actor": "requester",
+          "name": "Reservasi",
+          "next": [
+            "Pembayaran"
+          ]
+        },
+        {
+          "actor": "cashier",
+          "name": "Pembayaran",
+          "next": [
+            "QR"
+          ]
+        },
+        {
+          "actor": "system",
+          "name": "QR",
+          "next": [
+            "Gate",
+            "Audit"
+          ]
+        },
+        {
+          "actor": "gate",
+          "name": "Gate",
+          "next": [
+            "Laporan"
+          ]
+        },
+        {
+          "actor": "audit",
+          "name": "Audit",
+          "next": [
+            "Laporan"
+          ]
+        },
+        {
+          "actor": "manager",
+          "name": "Laporan",
+          "next": []
+        }
+      ]
+    }
+  ],
+  "api": [
+    {
+      "method": "GET",
+      "name": "list",
+      "path": "/api/erp-wisata",
+      "permission": "erp-wisata.read"
+    }
+  ],
+  "validation": [
+    {
+      "field": "id",
+      "message": "ID must be valid",
+      "rule": "required"
+    },
+    {
+      "field": "kode",
+      "message": "Kode must be valid",
+      "rule": "required"
+    },
+    {
+      "field": "nama",
+      "message": "Nama must be valid",
+      "rule": "required"
+    },
+    {
+      "field": "status",
+      "message": "Status must be valid",
+      "rule": "required"
+    },
+    {
+      "field": "keterangan",
+      "message": "Keterangan must be valid",
+      "rule": "optional"
+    }
+  ],
+  "pluginOrder": [
+    "IdentityGeneratorPlugin",
+    "CrudGenerator",
+    "PrismaGenerator",
+    "MigrationGenerator",
+    "RepositoryGenerator",
+    "ServiceGenerator",
+    "ApiRouteGenerator",
+    "ActionGenerator",
+    "HookGenerator",
+    "ValidationGenerator",
+    "PermissionGenerator",
+    "FormGenerator",
+    "TableGenerator",
+    "PageGenerator",
+    "SeederGenerator",
+    "TestGenerator",
+    "DocumentationGenerator",
+    "RequirementArchitectPlugin",
+    "RefactorPlugin",
+    "ProjectAnalyzerPlugin",
+    "BusinessRulePlugin",
+    "ApiDesignerPlugin",
+    "UIDesignerPlugin",
+    "DatabaseDesignerPlugin",
+    "WorkflowPlugin",
+    "CrudPlugin",
+    "PrismaPlugin",
+    "MigrationPlugin",
+    "RepositoryPlugin",
+    "ServicePlugin",
+    "ApiPlugin",
+    "ActionPlugin",
+    "FormPlugin",
+    "TablePlugin",
+    "DashboardPlugin",
+    "MenuPlugin",
+    "PermissionPlugin",
+    "SeedPlugin",
+    "ReportPlugin",
+    "DocumentationPlugin",
+    "ChartPlugin",
+    "MobilePlugin",
+    "ScannerPlugin",
+    "SidebarPlugin",
+    "RolePlugin",
+    "AutoFixPlugin",
+    "SolutionPlugin"
+  ],
+  "artifacts": [
+    {
+      "contentHash": "b68467c6",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\identity\\config\\identity.features.ts",
+      "plugin": "IdentityGeneratorPlugin",
+      "template": "identity/features.ts.tpl"
+    },
+    {
+      "contentHash": "dd4c4f87",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\identity\\prisma\\identity.prisma",
+      "plugin": "IdentityGeneratorPlugin",
+      "template": "identity/prisma.prisma.tpl"
+    },
+    {
+      "contentHash": "c92ad62a",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\identity\\prisma\\migrations\\0001_identity_init.sql",
+      "plugin": "IdentityGeneratorPlugin",
+      "template": "identity/migration.sql.tpl"
+    },
+    {
+      "contentHash": "f88fd5cf",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\identity\\seed\\identity.seed.ts",
+      "plugin": "IdentityGeneratorPlugin",
+      "template": "identity/seeder.ts.tpl"
+    },
+    {
+      "contentHash": "299c3b70",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\identity\\domain\\UserIdentity.ts",
+      "plugin": "IdentityGeneratorPlugin",
+      "template": "identity/entity.ts.tpl"
+    },
+    {
+      "contentHash": "af196690",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\identity\\domain\\Role.ts",
+      "plugin": "IdentityGeneratorPlugin",
+      "template": "identity/entity.ts.tpl"
+    },
+    {
+      "contentHash": "5a8507f0",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\identity\\domain\\Permission.ts",
+      "plugin": "IdentityGeneratorPlugin",
+      "template": "identity/entity.ts.tpl"
+    },
+    {
+      "contentHash": "b2f85bdd",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\identity\\repository\\IdentityRepository.ts",
+      "plugin": "IdentityGeneratorPlugin",
+      "template": "identity/repository.ts.tpl"
+    },
+    {
+      "contentHash": "81148acb",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\identity\\service\\IdentityService.ts",
+      "plugin": "IdentityGeneratorPlugin",
+      "template": "identity/service.ts.tpl"
+    },
+    {
+      "contentHash": "7e11b33c",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\identity\\validation\\identity.validation.ts",
+      "plugin": "IdentityGeneratorPlugin",
+      "template": "identity/validation.ts.tpl"
+    },
+    {
+      "contentHash": "84db1f99",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\identity\\api\\identity.api.ts",
+      "plugin": "IdentityGeneratorPlugin",
+      "template": "identity/api.ts.tpl"
+    },
+    {
+      "contentHash": "67357754",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\identity\\hooks\\useIdentity.ts",
+      "plugin": "IdentityGeneratorPlugin",
+      "template": "identity/hook.ts.tpl"
+    },
+    {
+      "contentHash": "65cd2888",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\identity\\components\\IdentityPanel.tsx",
+      "plugin": "IdentityGeneratorPlugin",
+      "template": "identity/component.tsx.tpl"
+    },
+    {
+      "contentHash": "8cd507f2",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\identity\\pages\\IdentityPage.tsx",
+      "plugin": "IdentityGeneratorPlugin",
+      "template": "identity/page.tsx.tpl"
+    },
+    {
+      "contentHash": "c8cbaf48",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\identity\\tests\\identity.test.ts",
+      "plugin": "IdentityGeneratorPlugin",
+      "template": "identity/test.ts.tpl"
+    },
+    {
+      "contentHash": "421d558e",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\identity\\README.md",
+      "plugin": "IdentityGeneratorPlugin",
+      "template": "identity/documentation.md.tpl"
+    },
+    {
+      "contentHash": "62e04aaa",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\docs\\generator\\identity.md",
+      "plugin": "IdentityGeneratorPlugin",
+      "template": "identity/generator-identity.md.tpl"
+    },
+    {
+      "contentHash": "20381ace",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\prisma\\kendaraan.prisma",
+      "plugin": "PrismaGenerator",
+      "template": "crud-universal/prisma.prisma.tpl"
+    },
+    {
+      "contentHash": "01350dbc",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\prisma\\migrations\\0001_kendaraan.sql",
+      "plugin": "MigrationGenerator",
+      "template": "crud-universal/migration.sql.tpl"
+    },
+    {
+      "contentHash": "18498412",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\domain\\KendaraanRepository.ts",
+      "plugin": "RepositoryGenerator",
+      "template": "crud-universal/repository.ts.tpl"
+    },
+    {
+      "contentHash": "9d57194e",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\domain\\KendaraanService.ts",
+      "plugin": "ServiceGenerator",
+      "template": "crud-universal/service.ts.tpl"
+    },
+    {
+      "contentHash": "a30d90b7",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\api\\kendaraan.route.ts",
+      "plugin": "ApiRouteGenerator",
+      "template": "crud-universal/api-route.ts.tpl"
+    },
+    {
+      "contentHash": "2e292746",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\application\\kendaraan.actions.ts",
+      "plugin": "ActionGenerator",
+      "template": "crud-universal/actions.ts.tpl"
+    },
+    {
+      "contentHash": "2e292746",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\application\\kendaraan.delete.ts",
+      "plugin": "ActionGenerator",
+      "template": "crud-universal/actions.ts.tpl"
+    },
+    {
+      "contentHash": "b41aef5e",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\hooks\\useKendaraan.ts",
+      "plugin": "HookGenerator",
+      "template": "crud-universal/hook.ts.tpl"
+    },
+    {
+      "contentHash": "a04d8211",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\validation\\kendaraan.validation.ts",
+      "plugin": "ValidationGenerator",
+      "template": "crud-universal/validation.ts.tpl"
+    },
+    {
+      "contentHash": "fe6cf17e",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\security\\kendaraan.permission.ts",
+      "plugin": "PermissionGenerator",
+      "template": "crud-universal/permission.ts.tpl"
+    },
+    {
+      "contentHash": "eb0511ff",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\ui\\kendaraan.form.tsx",
+      "plugin": "FormGenerator",
+      "template": "crud-universal/form.tsx.tpl"
+    },
+    {
+      "contentHash": "77d85397",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\ui\\kendaraan.table.tsx",
+      "plugin": "TableGenerator",
+      "template": "crud-universal/table.tsx.tpl"
+    },
+    {
+      "contentHash": "0f132cbf",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\pages\\kendaraan.list.page.tsx",
+      "plugin": "PageGenerator",
+      "template": "crud-universal/page-list.tsx.tpl"
+    },
+    {
+      "contentHash": "a65eff7f",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\pages\\kendaraan.detail.page.tsx",
+      "plugin": "PageGenerator",
+      "template": "crud-universal/page-detail.tsx.tpl"
+    },
+    {
+      "contentHash": "dd1bdf3f",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\pages\\kendaraan.create.page.tsx",
+      "plugin": "PageGenerator",
+      "template": "crud-universal/page-create.tsx.tpl"
+    },
+    {
+      "contentHash": "029f173f",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\pages\\kendaraan.edit.page.tsx",
+      "plugin": "PageGenerator",
+      "template": "crud-universal/page-edit.tsx.tpl"
+    },
+    {
+      "contentHash": "b3c5c8cd",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\seed\\kendaraan.seed.ts",
+      "plugin": "SeederGenerator",
+      "template": "crud-universal/seeder.ts.tpl"
+    },
+    {
+      "contentHash": "2b9eae23",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\tests\\kendaraan.unit.test.ts",
+      "plugin": "TestGenerator",
+      "template": "crud-universal/test-unit.ts.tpl"
+    },
+    {
+      "contentHash": "bc6091bd",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\tests\\kendaraan.snapshot.test.ts",
+      "plugin": "TestGenerator",
+      "template": "crud-universal/test-snapshot.ts.tpl"
+    },
+    {
+      "contentHash": "3bec46fd",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\tests\\kendaraan.regression.test.ts",
+      "plugin": "TestGenerator",
+      "template": "crud-universal/test-regression.ts.tpl"
+    },
+    {
+      "contentHash": "c6be8bf6",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\docs\\kendaraan.md",
+      "plugin": "DocumentationGenerator",
+      "template": "crud-universal/documentation.md.tpl"
+    },
+    {
+      "contentHash": "5c0ae8b2",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\api\\KendaraanApiDesign.md",
+      "plugin": "ApiDesignerPlugin",
+      "template": "api/api-design.md.tpl"
+    },
+    {
+      "contentHash": "cc964c2e",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\ui\\KendaraanUiDesign.md",
+      "plugin": "UIDesignerPlugin",
+      "template": "ui/ui-design.md.tpl"
+    },
+    {
+      "contentHash": "b25e24eb",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\database\\KendaraanDatabase.md",
+      "plugin": "DatabaseDesignerPlugin",
+      "template": "database/database-design.md.tpl"
+    },
+    {
+      "contentHash": "c6c0751d",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\workflow\\KendaraanWorkflow.ts",
+      "plugin": "WorkflowPlugin",
+      "template": "workflow/workflow.ts.tpl"
+    },
+    {
+      "contentHash": "719925a1",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\core\\ErpWisataModule.ts",
+      "plugin": "CrudPlugin",
+      "template": "crud/module.ts.tpl"
+    },
+    {
+      "contentHash": "d6f1e6fc",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\kendaraan\\prisma\\kendaraan.prisma",
+      "plugin": "PrismaPlugin",
+      "template": "prisma/model.prisma.tpl"
+    },
+    {
+      "contentHash": "0eb0b651",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\prisma\\migrations\\erp-wisata.sql",
+      "plugin": "MigrationPlugin",
+      "template": "migration/migration.sql.tpl"
+    },
+    {
+      "contentHash": "c473a700",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\data\\KendaraanRepository.ts",
+      "plugin": "RepositoryPlugin",
+      "template": "repository/repository.ts.tpl"
+    },
+    {
+      "contentHash": "8c8027f5",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\domain\\KendaraanService.ts",
+      "plugin": "ServicePlugin",
+      "template": "service/service.ts.tpl"
+    },
+    {
+      "contentHash": "a274df95",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\api\\kendaraan.api.ts",
+      "plugin": "ApiPlugin",
+      "template": "api/api.ts.tpl"
+    },
+    {
+      "contentHash": "0fdba4b6",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\application\\kendaraan.actions.ts",
+      "plugin": "ActionPlugin",
+      "template": "action/action.ts.tpl"
+    },
+    {
+      "contentHash": "d16bc07f",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\ui\\KendaraanForm.ts",
+      "plugin": "FormPlugin",
+      "template": "form/form.ts.tpl"
+    },
+    {
+      "contentHash": "be58aa48",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\ui\\KendaraanTable.ts",
+      "plugin": "TablePlugin",
+      "template": "table/table.ts.tpl"
+    },
+    {
+      "contentHash": "002b639c",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\dashboard\\ErpWisataDashboard.ts",
+      "plugin": "DashboardPlugin",
+      "template": "dashboard/dashboard.ts.tpl"
+    },
+    {
+      "contentHash": "04e6394d",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\navigation\\menu.ts",
+      "plugin": "MenuPlugin",
+      "template": "menu/menu.ts.tpl"
+    },
+    {
+      "contentHash": "8468117d",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\security\\permissions.ts",
+      "plugin": "PermissionPlugin",
+      "template": "permission/permissions.ts.tpl"
+    },
+    {
+      "contentHash": "8468117d",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\lib\\rbac\\permissions.ts",
+      "plugin": "PermissionPlugin",
+      "template": "permission/permissions.ts.tpl"
+    },
+    {
+      "contentHash": "105086ca",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\prisma\\kendaraan.seed.ts",
+      "plugin": "SeedPlugin",
+      "template": "seed/seed.ts.tpl"
+    },
+    {
+      "contentHash": "35754cd2",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\reports\\erp-wisata-report.md",
+      "plugin": "ReportPlugin",
+      "template": "report/report.md.tpl"
+    },
+    {
+      "contentHash": "9ccd9604",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\docs\\README.md",
+      "plugin": "DocumentationPlugin",
+      "template": "documentation/readme.md.tpl"
+    },
+    {
+      "contentHash": "749de642",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\dashboard\\ErpWisataChart.ts",
+      "plugin": "ChartPlugin",
+      "template": "chart/chart.ts.tpl"
+    },
+    {
+      "contentHash": "d04d288b",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\mobile\\WisataHome.ts",
+      "plugin": "MobilePlugin",
+      "template": "mobile/mobile.ts.tpl"
+    },
+    {
+      "contentHash": "9130643b",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\scanner\\erp-wisata.scanner.json",
+      "plugin": "ScannerPlugin",
+      "template": "scanner/scanner.json.tpl"
+    },
+    {
+      "contentHash": "b1fb2b7c",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\navigation\\sidebar.ts",
+      "plugin": "SidebarPlugin",
+      "template": "sidebar/sidebar.ts.tpl"
+    },
+    {
+      "contentHash": "158c4e2e",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\security\\roles.ts",
+      "plugin": "RolePlugin",
+      "template": "role/roles.ts.tpl"
+    },
+    {
+      "contentHash": "64e69abb",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\modules\\erp-wisata\\autofix\\request.json",
+      "plugin": "AutoFixPlugin",
+      "template": "autofix/request.json.tpl"
+    }
+  ]
+}

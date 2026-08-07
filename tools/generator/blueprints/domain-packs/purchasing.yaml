@@ -1,0 +1,90 @@
+module: Purchasing
+entity:
+  - permintaan
+  - vendor
+  - po
+description: Purchasing domain for requisition, vendor, PO, receiving, and payment.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: Request ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: amount
+    type: Decimal
+    required: true
+    unique: false
+    default: "0"
+    label: Amount
+    searchable: false
+    filterable: true
+    input: number
+relations:
+  - name: vendor
+    target: Vendor
+    kind: many-to-one
+permissions:
+  - key: purchasing.read
+    description: Read purchasing domain.
+  - key: purchasing.write
+    description: Manage purchasing domain.
+dashboard:
+  widgets:
+    - name: poValue
+      type: metric
+      metric: sum(amount)
+reports:
+  - name: purchasing-summary
+    title: Purchasing Summary
+    metrics:
+      - sum(amount)
+menu:
+  - label: Purchasing
+    path: /purchasing
+    icon: cart-shopping
+mobile:
+  screen: PurchasingHome
+  offline: true
+scanner:
+  provider: purchasing-inbox
+  schedule: 0 */6 * * *
+workflow:
+  - name: PurchasingFlow
+    steps:
+      - name: Request
+        actor: requester
+        next: [Approve]
+      - name: Approve
+        actor: manager
+        next: [PO]
+      - name: PO
+        actor: buyer
+        next: [Receive]
+      - name: Receive
+        actor: warehouse
+        next: [Payment]
+      - name: Payment
+        actor: finance
+        next: [Laporan]
+      - name: Laporan
+        actor: manager
+        next: []
+api:
+  - name: createPurchaseOrder
+    method: POST
+    path: /api/purchasing/orders
+    permission: purchasing.write
+validation:
+  - field: amount
+    rule: min:0
+    message: Amount must be positive.
+seed:
+  - name: DefaultVendor
+    fields:
+      id: po-001
+      amount: "500000"
+metadata:
+  domain: purchasing

@@ -1,0 +1,9 @@
+{
+  "name": "@satset/{{names.module.kebab}}-shared",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b",
+    "test": "npm run build"
+  }
+}

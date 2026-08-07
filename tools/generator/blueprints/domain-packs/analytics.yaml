@@ -1,0 +1,84 @@
+module: Analytics
+entity:
+  - metric
+  - dashboard
+  - report
+description: Analytics domain for KPI, chart, forecast, and insight distribution.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: Metric ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: value
+    type: Decimal
+    required: true
+    unique: false
+    default: "0"
+    label: Value
+    searchable: false
+    filterable: true
+    input: number
+relations:
+  - name: source
+    target: DataSource
+    kind: many-to-one
+permissions:
+  - key: analytics.read
+    description: Read analytics domain.
+  - key: analytics.write
+    description: Manage analytics domain.
+dashboard:
+  widgets:
+    - name: trend
+      type: chart
+      metric: sum(value)
+reports:
+  - name: analytics-summary
+    title: Analytics Summary
+    metrics:
+      - sum(value)
+menu:
+  - label: Analytics
+    path: /analytics
+    icon: chart-pie
+mobile:
+  screen: AnalyticsHome
+  offline: false
+scanner:
+  provider: analytics-pipeline
+  schedule: 0 */1 * * *
+workflow:
+  - name: InsightFlow
+    steps:
+      - name: Collect
+        actor: system
+        next: [Aggregate]
+      - name: Aggregate
+        actor: analyst
+        next: [Publish]
+      - name: Publish
+        actor: manager
+        next: [Laporan]
+      - name: Laporan
+        actor: director
+        next: []
+api:
+  - name: listMetrics
+    method: GET
+    path: /api/analytics/metrics
+    permission: analytics.read
+validation:
+  - field: value
+    rule: min:0
+    message: Value must be positive.
+seed:
+  - name: DefaultMetric
+    fields:
+      id: metric-001
+      value: "0"
+metadata:
+  domain: analytics

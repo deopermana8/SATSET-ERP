@@ -1,0 +1,84 @@
+module: Inventory
+entity:
+  - item
+  - gudang
+  - stok
+description: Inventory domain for stock, warehouse, and movement control.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: Item ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: qty
+    type: Int
+    required: true
+    unique: false
+    default: "0"
+    label: Quantity
+    searchable: false
+    filterable: true
+    input: number
+relations:
+  - name: warehouse
+    target: Warehouse
+    kind: many-to-one
+permissions:
+  - key: inventory.read
+    description: Read inventory domain.
+  - key: inventory.write
+    description: Manage inventory domain.
+dashboard:
+  widgets:
+    - name: stockBalance
+      type: metric
+      metric: sum(qty)
+reports:
+  - name: inventory-balance
+    title: Inventory Balance
+    metrics:
+      - sum(qty)
+menu:
+  - label: Inventory
+    path: /inventory
+    icon: boxes-stacked
+mobile:
+  screen: InventoryHome
+  offline: true
+scanner:
+  provider: inventory-scanner
+  schedule: 0 */4 * * *
+workflow:
+  - name: InventoryFlow
+    steps:
+      - name: Receive
+        actor: warehouse
+        next: [Store]
+      - name: Store
+        actor: warehouse
+        next: [Audit]
+      - name: Audit
+        actor: auditor
+        next: [Laporan]
+      - name: Laporan
+        actor: manager
+        next: []
+api:
+  - name: listStock
+    method: GET
+    path: /api/inventory/stocks
+    permission: inventory.read
+validation:
+  - field: qty
+    rule: min:0
+    message: Quantity must be positive.
+seed:
+  - name: DefaultItem
+    fields:
+      id: item-001
+      qty: "100"
+metadata:
+  domain: inventory

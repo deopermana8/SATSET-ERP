@@ -1,0 +1,249 @@
+{
+  "generatedAt": "2026-08-05T15:55:37.841Z",
+  "module": "Blueprint",
+  "entity": "Transaction",
+  "workflow": [
+    {
+      "name": "TransactionWorkflow",
+      "steps": [
+        {
+          "actor": "requester",
+          "name": "Reservasi",
+          "next": [
+            "Pembayaran"
+          ]
+        },
+        {
+          "actor": "cashier",
+          "name": "Pembayaran",
+          "next": [
+            "QR"
+          ]
+        },
+        {
+          "actor": "system",
+          "name": "QR",
+          "next": [
+            "Gate",
+            "Audit"
+          ]
+        },
+        {
+          "actor": "gate",
+          "name": "Gate",
+          "next": [
+            "Laporan"
+          ]
+        },
+        {
+          "actor": "audit",
+          "name": "Audit",
+          "next": [
+            "Laporan"
+          ]
+        },
+        {
+          "actor": "manager",
+          "name": "Laporan",
+          "next": []
+        }
+      ]
+    }
+  ],
+  "api": [
+    {
+      "method": "GET",
+      "name": "list",
+      "path": "/api/blueprint",
+      "permission": "blueprint.read"
+    }
+  ],
+  "validation": [
+    {
+      "field": "id",
+      "message": "Transaction ID must be valid",
+      "rule": "required"
+    },
+    {
+      "field": "referenceNo",
+      "message": "Reference Number must be valid",
+      "rule": "required"
+    },
+    {
+      "field": "amount",
+      "message": "Amount must be valid",
+      "rule": "required"
+    },
+    {
+      "field": "status",
+      "message": "Status must be valid",
+      "rule": "required"
+    }
+  ],
+  "pluginOrder": [
+    "HostApplicationPlugin",
+    "AdminBootstrapPlugin",
+    "BackendBootstrapPlugin",
+    "WorkspacePlugin",
+    "RuntimeGeneratorPlugin",
+    "EnvironmentGeneratorPlugin"
+  ],
+  "artifacts": [
+    {
+      "contentHash": "cb8e38a1",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\docs\\generator\\host-application.md",
+      "plugin": "HostApplicationPlugin",
+      "template": "workspace/host-readme.md.tpl"
+    },
+    {
+      "contentHash": "548cfd11",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\admin\\package.json",
+      "plugin": "AdminBootstrapPlugin",
+      "template": "workspace/package.json.tpl"
+    },
+    {
+      "contentHash": "80cca611",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\admin\\tsconfig.json",
+      "plugin": "AdminBootstrapPlugin",
+      "template": "workspace/tsconfig.app.json.tpl"
+    },
+    {
+      "contentHash": "22495926",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\admin\\src\\index.ts",
+      "plugin": "AdminBootstrapPlugin",
+      "template": "workspace/admin-index.ts.tpl"
+    },
+    {
+      "contentHash": "44161c86",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\api\\package.json",
+      "plugin": "BackendBootstrapPlugin",
+      "template": "workspace/package.json.tpl"
+    },
+    {
+      "contentHash": "80cca611",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\api\\tsconfig.json",
+      "plugin": "BackendBootstrapPlugin",
+      "template": "workspace/tsconfig.app.json.tpl"
+    },
+    {
+      "contentHash": "b81b5f41",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\api\\src\\index.ts",
+      "plugin": "BackendBootstrapPlugin",
+      "template": "workspace/api-index.ts.tpl"
+    },
+    {
+      "contentHash": "737c6618",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\api\\src\\migrate.ts",
+      "plugin": "BackendBootstrapPlugin",
+      "template": "workspace/api-migrate.ts.tpl"
+    },
+    {
+      "contentHash": "8e5ae18c",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\api\\src\\seed.ts",
+      "plugin": "BackendBootstrapPlugin",
+      "template": "workspace/api-seed.ts.tpl"
+    },
+    {
+      "contentHash": "fbe3a600",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\api\\prisma\\schema.prisma",
+      "plugin": "BackendBootstrapPlugin",
+      "template": "workspace/api-prisma-schema.prisma.tpl"
+    },
+    {
+      "contentHash": "a0f39084",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\api\\prisma\\migrations\\0001_initial\\migration.sql",
+      "plugin": "BackendBootstrapPlugin",
+      "template": "workspace/api-prisma-migration.sql.tpl"
+    },
+    {
+      "contentHash": "beeb9d7d",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\package.json",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/root-package.json.tpl"
+    },
+    {
+      "contentHash": "4dc7602d",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\pnpm-workspace.yaml",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/pnpm-workspace.yaml.tpl"
+    },
+    {
+      "contentHash": "4bde1b18",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\tsconfig.json",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/tsconfig.json.tpl"
+    },
+    {
+      "contentHash": "f96c3ec0",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\packages\\shared\\package.json",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/package-shared.json.tpl"
+    },
+    {
+      "contentHash": "8a475c00",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\packages\\shared\\tsconfig.json",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/tsconfig.shared.json.tpl"
+    },
+    {
+      "contentHash": "63bd2197",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\packages\\shared\\src\\index.ts",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/shared-index.ts.tpl"
+    },
+    {
+      "contentHash": "356bdd3a",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\scripts\\start.mjs",
+      "plugin": "RuntimeGeneratorPlugin",
+      "template": "workspace/scripts/start.mjs.tpl"
+    },
+    {
+      "contentHash": "389489e8",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\worker\\package.json",
+      "plugin": "RuntimeGeneratorPlugin",
+      "template": "workspace/package.json.tpl"
+    },
+    {
+      "contentHash": "80cca611",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\worker\\tsconfig.json",
+      "plugin": "RuntimeGeneratorPlugin",
+      "template": "workspace/tsconfig.app.json.tpl"
+    },
+    {
+      "contentHash": "360a9903",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\worker\\src\\index.ts",
+      "plugin": "RuntimeGeneratorPlugin",
+      "template": "workspace/worker-index.ts.tpl"
+    },
+    {
+      "contentHash": "5f87ae8a",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\docker\\docker-compose.yml",
+      "plugin": "RuntimeGeneratorPlugin",
+      "template": "workspace/docker-compose.yml.tpl"
+    },
+    {
+      "contentHash": "d795d0a6",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\docker\\admin.Dockerfile",
+      "plugin": "RuntimeGeneratorPlugin",
+      "template": "workspace/docker/admin.Dockerfile.tpl"
+    },
+    {
+      "contentHash": "b06d5d90",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\docker\\api.Dockerfile",
+      "plugin": "RuntimeGeneratorPlugin",
+      "template": "workspace/docker/api.Dockerfile.tpl"
+    },
+    {
+      "contentHash": "b36b378f",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\docker\\worker.Dockerfile",
+      "plugin": "RuntimeGeneratorPlugin",
+      "template": "workspace/docker/worker.Dockerfile.tpl"
+    },
+    {
+      "contentHash": "f692816f",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\env.example",
+      "plugin": "EnvironmentGeneratorPlugin",
+      "template": "workspace/env.example.tpl"
+    }
+  ]
+}

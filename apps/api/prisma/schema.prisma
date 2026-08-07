@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model WorkspaceRecord {
+  id        String   @id @default(cuid())
+  name      String
+  status    String   @default("active")
+  createdAt DateTime @default(now())
+  @@index([status])
+}
+
+// ERP Wisata domain models
+model PaketWisata {
+  id         String   @id @default(cuid())
+  kode       String   @unique
+  nama       String
+  status     String   @default("aktif")
+  keterangan String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  @@index([status])
+  @@map("paket_wisata")
+}
+
+model Hotel {
+  id         String   @id @default(cuid())
+  kode       String   @unique
+  nama       String
+  status     String   @default("aktif")
+  keterangan String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  @@index([status])
+  @@map("hotel")
+}
+
+model Kendaraan {
+  id         String   @id @default(cuid())
+  kode       String   @unique
+  nama       String
+  status     String   @default("aktif")
+  keterangan String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  @@index([status])
+  @@map("kendaraan")
+}
+
+model GuideWisata {
+  id         String   @id @default(cuid())
+  kode       String   @unique
+  nama       String
+  status     String   @default("aktif")
+  keterangan String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  @@index([status])
+  @@map("guide_wisata")
+}
+
+model KasWisata {
+  id         String   @id @default(cuid())
+  kode       String   @unique
+  nama       String
+  status     String   @default("aktif")
+  keterangan String?
+  nominal    Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  @@index([status])
+  @@map("kas_wisata")
+}
+
+model JurnalWisata {
+  id         String   @id @default(cuid())
+  kode       String   @unique
+  nama       String
+  status     String   @default("aktif")
+  keterangan String?
+  nominal    Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  @@index([status])
+  @@map("jurnal_wisata")
+}

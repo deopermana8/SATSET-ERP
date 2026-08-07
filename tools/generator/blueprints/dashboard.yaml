@@ -1,0 +1,65 @@
+module: Sales
+entity: Opportunity
+description: Sales dashboard blueprint for pipeline, conversion, and forecast monitoring.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: Opportunity ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: stage
+    type: String
+    required: true
+    unique: false
+    label: Stage
+    searchable: true
+    filterable: true
+    input: select
+  - name: value
+    type: Decimal
+    required: true
+    unique: false
+    default: "0"
+    label: Value
+    searchable: false
+    filterable: true
+    input: number
+relations:
+  - name: owner
+    target: User
+    kind: many-to-one
+permissions:
+  - key: sales.read
+    description: Read sales insights.
+  - key: sales.manage
+    description: Manage sales opportunities.
+dashboard:
+  widgets:
+    - name: pipelineValue
+      type: metric
+      metric: sum(value)
+    - name: stageMix
+      type: chart
+      metric: count(stage)
+reports:
+  - name: sales-forecast
+    title: Sales Forecast
+    metrics:
+      - value
+      - stage
+menu:
+  - label: Sales
+    path: /sales
+    icon: chart-line
+mobile:
+  screen: SalesDashboard
+  offline: false
+scanner:
+  provider: sales-pipeline
+  schedule: 0 */8 * * *
+metadata:
+  domain: growth
+  owner: sales-ops

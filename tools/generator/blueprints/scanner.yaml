@@ -1,0 +1,62 @@
+module: Intake
+entity: ScanJob
+description: Scanner blueprint for ingestion pipelines, schedule management, and reconciliation.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: Scan Job ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: source
+    type: String
+    required: true
+    unique: false
+    label: Source
+    searchable: true
+    filterable: true
+    input: text
+  - name: status
+    type: String
+    required: true
+    unique: false
+    default: '"pending"'
+    label: Status
+    searchable: true
+    filterable: true
+    input: select
+relations:
+  - name: batch
+    target: ImportBatch
+    kind: many-to-one
+permissions:
+  - key: intake.read
+    description: Read intake jobs.
+  - key: intake.run
+    description: Run intake jobs.
+dashboard:
+  widgets:
+    - name: pendingJobs
+      type: metric
+      metric: count(status)
+reports:
+  - name: intake-status
+    title: Intake Status
+    metrics:
+      - source
+      - status
+menu:
+  - label: Intake
+    path: /intake
+    icon: scan
+mobile:
+  screen: IntakeScanner
+  offline: false
+scanner:
+  provider: intake-runtime
+  schedule: 0 */2 * * *
+metadata:
+  domain: ingestion
+  owner: platform-team

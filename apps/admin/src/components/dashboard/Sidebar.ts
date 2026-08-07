@@ -1,0 +1,3 @@
+export function renderDashboardSidebar(): string {
+  return `<div class="wid-list" id="command-center"><div class="wid-row"><span>Pekerjaan Saya</span><span class="badge b-active" id="cc-me">0</span></div><div class="wid-row"><span>Approval</span><span class="badge b-pending" id="cc-approval">0</span></div><div class="wid-row"><span>Tugas Hari Ini</span><span class="badge b-active" id="cc-task">0</span></div><div class="wid-row"><span>Notifikasi Penting</span><span class="badge b-pending" id="cc-notif">0</span></div><div class="wid-row"><span>Target Hari Ini</span><span class="badge b-draft" id="cc-target">-</span></div></div>`;
+}

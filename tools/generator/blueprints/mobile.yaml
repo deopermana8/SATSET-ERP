@@ -1,0 +1,61 @@
+module: FieldOps
+entity: Assignment
+description: Mobile-first blueprint for field execution, offline capture, and sync resilience.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: Assignment ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: title
+    type: String
+    required: true
+    unique: false
+    label: Title
+    searchable: true
+    filterable: true
+    input: text
+  - name: synced
+    type: Boolean
+    required: true
+    unique: false
+    default: "false"
+    label: Synced
+    searchable: false
+    filterable: true
+    input: checkbox
+relations:
+  - name: technician
+    target: User
+    kind: many-to-one
+permissions:
+  - key: fieldops.read
+    description: Read field assignments.
+  - key: fieldops.sync
+    description: Synchronize field assignments.
+dashboard:
+  widgets:
+    - name: completionRate
+      type: metric
+      metric: count(synced)
+reports:
+  - name: field-sync
+    title: Field Sync Status
+    metrics:
+      - synced
+menu:
+  - label: Field Ops
+    path: /field-ops
+    icon: smartphone
+mobile:
+  screen: FieldOpsHome
+  offline: true
+scanner:
+  provider: field-device
+  schedule: 0 */3 * * *
+metadata:
+  domain: mobile
+  owner: field-team

@@ -1,0 +1,84 @@
+module: POS
+entity:
+  - transaksi
+  - item
+  - pembayaran
+description: Point of sale domain for cashier, receipt, and settlement flows.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: total
+    type: Decimal
+    required: true
+    unique: false
+    default: "0"
+    label: Total
+    searchable: false
+    filterable: true
+    input: number
+relations:
+  - name: cashier
+    target: User
+    kind: many-to-one
+permissions:
+  - key: pos.read
+    description: Read POS transactions.
+  - key: pos.write
+    description: Manage POS transactions.
+dashboard:
+  widgets:
+    - name: dailySales
+      type: metric
+      metric: sum(total)
+reports:
+  - name: pos-daily
+    title: POS Daily Summary
+    metrics:
+      - sum(total)
+menu:
+  - label: POS
+    path: /pos
+    icon: receipt
+mobile:
+  screen: PosHome
+  offline: true
+scanner:
+  provider: pos-checker
+  schedule: 0 */2 * * *
+workflow:
+  - name: SaleFlow
+    steps:
+      - name: Cart
+        actor: cashier
+        next: [Payment]
+      - name: Payment
+        actor: cashier
+        next: [Receipt]
+      - name: Receipt
+        actor: system
+        next: [Settlement]
+      - name: Settlement
+        actor: finance
+        next: []
+api:
+  - name: createSale
+    method: POST
+    path: /api/pos/sales
+    permission: pos.write
+validation:
+  - field: total
+    rule: min:0
+    message: Total must be positive.
+seed:
+  - name: DefaultCounter
+    fields:
+      id: sale-001
+      total: "0"
+metadata:
+  domain: pos

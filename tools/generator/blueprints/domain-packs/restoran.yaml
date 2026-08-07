@@ -1,0 +1,87 @@
+module: Restoran
+entity:
+  - pesanan
+  - meja
+  - pembayaran
+description: Restaurant domain for order, table, kitchen, and billing.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: Order ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: total
+    type: Decimal
+    required: true
+    unique: false
+    default: "0"
+    label: Total
+    searchable: false
+    filterable: true
+    input: number
+relations:
+  - name: waiter
+    target: User
+    kind: many-to-one
+permissions:
+  - key: restoran.read
+    description: Read restoran domain.
+  - key: restoran.write
+    description: Manage restoran domain.
+dashboard:
+  widgets:
+    - name: salesMetric
+      type: metric
+      metric: sum(total)
+reports:
+  - name: restoran-sales
+    title: Restoran Sales
+    metrics:
+      - sum(total)
+menu:
+  - label: Restoran
+    path: /restoran
+    icon: utensils
+mobile:
+  screen: RestoranHome
+  offline: true
+scanner:
+  provider: restoran-checkout
+  schedule: 0 */2 * * *
+workflow:
+  - name: RestaurantOrder
+    steps:
+      - name: Pesanan
+        actor: waiter
+        next: [Dapur]
+      - name: Dapur
+        actor: kitchen
+        next: [Pembayaran]
+      - name: Pembayaran
+        actor: cashier
+        next: [Audit]
+      - name: Audit
+        actor: auditor
+        next: [Laporan]
+      - name: Laporan
+        actor: manager
+        next: []
+api:
+  - name: createOrder
+    method: POST
+    path: /api/restoran/orders
+    permission: restoran.write
+validation:
+  - field: total
+    rule: min:0
+    message: Total must be positive.
+seed:
+  - name: DefaultMenu
+    fields:
+      id: order-001
+      total: "0"
+metadata:
+  domain: restoran

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "noEmitOnError": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": false,
+    "declaration": true,
+    "sourceMap": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": [
+    "src/rules/ModuleNotFoundRule.ts",
+    "src/rules/PrismaImportRule.ts",
+    "src/rules/ReactTypeRule.ts",
+    "src/rules/TsConfigRule.ts",
+    "src/rules/UpdatedAtRule.ts",
+    "src/rules/UserIdRule.ts"
+  ]
+}

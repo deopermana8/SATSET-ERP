@@ -1,0 +1,50 @@
+module: Workspace
+entity: WorkspaceNode
+description: Workspace host application blueprint for apps, packages, runtime, and identity enabled dashboard.
+apps:
+  - api
+  - admin
+packages:
+  - shared
+runtime:
+  - docker
+  - env
+  - prisma
+identity:
+  enabled: true
+dashboard:
+  enabled: true
+  widgets:
+    - name: workspaceHealth
+      type: metric
+      metric: availability
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: Workspace ID
+    searchable: true
+    filterable: true
+    input: text
+relations: []
+permissions:
+  - key: workspace.read
+    description: Read workspace runtime status.
+reports:
+  - name: workspace-runtime
+    title: Workspace Runtime
+    metrics:
+      - availability
+menu:
+  - label: Workspace
+    path: /workspace
+    icon: layers
+mobile:
+  screen: WorkspaceOverview
+  offline: false
+scanner:
+  provider: workspace-scanner
+  schedule: 0 */12 * * *
+metadata:
+  blueprintType: workspace

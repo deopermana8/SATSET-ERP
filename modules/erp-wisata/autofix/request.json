@@ -1,0 +1,7 @@
+{
+  "module": "ErpWisata",
+  "entity": "Destinasi",
+  "outputRoot": "G:\SATSET AI\SATSET ERP",
+  "generatedAt": "2026-08-05T15:45:30.528Z",
+  "bridge": "tools/autofix"
+}

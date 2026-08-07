@@ -1,0 +1,5 @@
+ADMIN_PORT=3000
+API_PORT=3001
+WORKER_INTERVAL_MS=5000
+DATABASE_URL="file:./apps/api/prisma/dev.db"
+NODE_ENV=development

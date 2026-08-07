@@ -1,0 +1,86 @@
+module: Parkir
+entity:
+  - tiket
+  - kendaraan
+  - gate
+description: Parking domain for ticketing, entry gate, payment, and reporting.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: Ticket ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: plateNo
+    type: String
+    required: true
+    unique: false
+    label: Plate Number
+    searchable: true
+    filterable: true
+    input: text
+relations:
+  - name: lot
+    target: Lot
+    kind: many-to-one
+permissions:
+  - key: parkir.read
+    description: Read parking domain.
+  - key: parkir.write
+    description: Manage parking domain.
+dashboard:
+  widgets:
+    - name: activeParking
+      type: metric
+      metric: count(id)
+reports:
+  - name: parkir-traffic
+    title: Parkir Traffic
+    metrics:
+      - count(id)
+menu:
+  - label: Parkir
+    path: /parkir
+    icon: car
+mobile:
+  screen: ParkirHome
+  offline: true
+scanner:
+  provider: parkir-gate
+  schedule: 0 */1 * * *
+workflow:
+  - name: ParkingFlow
+    steps:
+      - name: Entry
+        actor: gatekeeper
+        next: [Payment]
+      - name: Payment
+        actor: cashier
+        next: [Exit]
+      - name: Exit
+        actor: gatekeeper
+        next: [Audit]
+      - name: Audit
+        actor: auditor
+        next: [Laporan]
+      - name: Laporan
+        actor: manager
+        next: []
+api:
+  - name: listParking
+    method: GET
+    path: /api/parkir/tickets
+    permission: parkir.read
+validation:
+  - field: plateNo
+    rule: required
+    message: Plate Number is required.
+seed:
+  - name: DefaultGate
+    fields:
+      id: gate-001
+      plateNo: B-1234-SAT
+metadata:
+  domain: parkir

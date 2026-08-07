@@ -1,0 +1,13 @@
+{
+  "name": "@satset/blueprint-api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "node ./dist/index.js",
+    "start": "node ./dist/index.js",
+    "test": "npm run build",
+    "migrate": "node ./dist/migrate.js",
+    "seed": "node ./dist/seed.js"
+  }
+}

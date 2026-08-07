@@ -1,0 +1,25 @@
+{
+  "name": "satset-autofix",
+  "version": "0.2.0",
+  "private": true,
+  "engines": {
+    "node": ">=20 <21"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "watch": "powershell -ExecutionPolicy Bypass -File ./Watch.ps1",
+    "start": "powershell -ExecutionPolicy Bypass -File ./Start-AutoFix.ps1",
+    "doctor": "node ../generator/qa-runner.cjs ./src/index.ts doctor",
+    "repair": "node ../generator/qa-runner.cjs ./src/index.ts repair",
+    "verify": "node ../generator/qa-runner.cjs ./src/index.ts build"
+  },
+  "dependencies": {
+    "execa": "^9.5.2",
+    "fast-glob": "^3.3.3",
+    "ts-morph": "^24.0.0",
+    "yaml": "^2.5.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.2"
+  }
+}

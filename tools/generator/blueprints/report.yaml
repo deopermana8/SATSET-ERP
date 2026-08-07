@@ -1,0 +1,59 @@
+module: Audit
+entity: LogEntry
+description: Audit reporting blueprint for compliance trails and operational evidence.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: Log Entry ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: actor
+    type: String
+    required: true
+    unique: false
+    label: Actor
+    searchable: true
+    filterable: true
+    input: text
+  - name: action
+    type: String
+    required: true
+    unique: false
+    label: Action
+    searchable: true
+    filterable: true
+    input: text
+relations:
+  - name: subject
+    target: Subject
+    kind: many-to-one
+permissions:
+  - key: audit.read
+    description: Read audit logs.
+dashboard:
+  widgets:
+    - name: auditEvents
+      type: metric
+      metric: count(action)
+reports:
+  - name: audit-trail
+    title: Audit Trail
+    metrics:
+      - actor
+      - action
+menu:
+  - label: Audit
+    path: /audit
+    icon: shield-check
+mobile:
+  screen: AuditTrail
+  offline: false
+scanner:
+  provider: audit-forwarder
+  schedule: 0 */12 * * *
+metadata:
+  domain: compliance
+  owner: audit-team

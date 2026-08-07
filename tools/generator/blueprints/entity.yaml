@@ -1,0 +1,69 @@
+module: Inventory
+entity: Item
+description: Inventory entity for stock, categorization, and fulfillment readiness.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: Item ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: sku
+    type: String
+    required: true
+    unique: true
+    label: SKU
+    searchable: true
+    filterable: true
+    input: text
+  - name: name
+    type: String
+    required: true
+    unique: false
+    label: Item Name
+    searchable: true
+    filterable: true
+    input: text
+  - name: stock
+    type: Int
+    required: true
+    unique: false
+    default: "0"
+    label: Stock
+    searchable: false
+    filterable: true
+    input: number
+relations:
+  - name: category
+    target: Category
+    kind: many-to-one
+permissions:
+  - key: inventory.read
+    description: Read inventory records.
+  - key: inventory.write
+    description: Maintain inventory records.
+dashboard:
+  widgets:
+    - name: stockBalance
+      type: metric
+      metric: sum(stock)
+reports:
+  - name: inventory-balance
+    title: Inventory Balance
+    metrics:
+      - stock
+menu:
+  - label: Inventory
+    path: /inventory
+    icon: boxes
+mobile:
+  screen: InventoryHome
+  offline: true
+scanner:
+  provider: inventory-sync
+  schedule: 0 */4 * * *
+metadata:
+  domain: operations
+  owner: supply-team

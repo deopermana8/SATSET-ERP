@@ -1,0 +1,94 @@
+module: ERP
+entity:
+  - akun
+  - jurnal
+  - transaksi
+  - kas
+description: Enterprise resource planning core domain for finance, audit, and operations.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: code
+    type: String
+    required: true
+    unique: true
+    label: Code
+    searchable: true
+    filterable: true
+    input: text
+  - name: status
+    type: String
+    required: true
+    unique: false
+    default: '"draft"'
+    label: Status
+    searchable: true
+    filterable: true
+    input: select
+relations:
+  - name: owner
+    target: User
+    kind: many-to-one
+permissions:
+  - key: erp.read
+    description: Read ERP domain.
+  - key: erp.write
+    description: Write ERP domain.
+dashboard:
+  widgets:
+    - name: operationalHealth
+      type: metric
+      metric: count(id)
+reports:
+  - name: erp-summary
+    title: ERP Summary
+    metrics:
+      - count(id)
+menu:
+  - label: ERP
+    path: /erp
+    icon: building
+mobile:
+  screen: ErpHome
+  offline: true
+scanner:
+  provider: erp-runtime
+  schedule: 0 */6 * * *
+workflow:
+  - name: ErpApproval
+    steps:
+      - name: Draft
+        actor: staff
+        next: [Review]
+      - name: Review
+        actor: manager
+        next: [Approve, Reject]
+      - name: Approve
+        actor: director
+        next: [Audit]
+      - name: Audit
+        actor: auditor
+        next: []
+api:
+  - name: listErp
+    method: GET
+    path: /api/erp
+    permission: erp.read
+validation:
+  - field: code
+    rule: required
+    message: Code is required.
+seed:
+  - name: DefaultLedger
+    fields:
+      id: ledger-001
+      code: GL-001
+      status: active
+metadata:
+  domain: erp

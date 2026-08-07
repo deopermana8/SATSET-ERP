@@ -1,0 +1,89 @@
+module: Hotel
+entity:
+  - reservasi
+  - tamu
+  - kamar
+description: Hotel domain for reservation, check-in, room control, and billing.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: Reservation ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: checkInDate
+    type: DateTime
+    required: true
+    unique: false
+    label: Check In Date
+    searchable: false
+    filterable: true
+    input: date
+relations:
+  - name: guest
+    target: Guest
+    kind: many-to-one
+permissions:
+  - key: hotel.read
+    description: Read hotel operations.
+  - key: hotel.write
+    description: Manage hotel operations.
+dashboard:
+  widgets:
+    - name: occupancy
+      type: metric
+      metric: count(id)
+reports:
+  - name: hotel-occupancy
+    title: Hotel Occupancy
+    metrics:
+      - count(id)
+menu:
+  - label: Hotel
+    path: /hotel
+    icon: bed
+mobile:
+  screen: HotelHome
+  offline: true
+scanner:
+  provider: hotel-gate
+  schedule: 0 */3 * * *
+workflow:
+  - name: HotelStay
+    steps:
+      - name: Reservasi
+        actor: guest
+        next: [Pembayaran]
+      - name: Pembayaran
+        actor: cashier
+        next: [QR]
+      - name: QR
+        actor: system
+        next: [Gate]
+      - name: Gate
+        actor: frontdesk
+        next: [Audit]
+      - name: Audit
+        actor: auditor
+        next: [Laporan]
+      - name: Laporan
+        actor: manager
+        next: []
+api:
+  - name: listReservations
+    method: GET
+    path: /api/hotel/reservations
+    permission: hotel.read
+validation:
+  - field: checkInDate
+    rule: required
+    message: Check In Date is required.
+seed:
+  - name: DefaultRoom
+    fields:
+      id: room-101
+      checkInDate: 2026-01-01T00:00:00Z
+metadata:
+  domain: hotel

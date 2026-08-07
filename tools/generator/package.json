@@ -1,0 +1,32 @@
+{
+  "name": "satset-generator-core-v2",
+  "version": "2.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20 <21"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "test": "node ./qa-runner.cjs ./src/qa/main.ts all",
+    "test:unit": "node ./qa-runner.cjs ./src/qa/main.ts unit",
+    "test:integration": "node ./qa-runner.cjs ./src/qa/main.ts integration",
+    "test:e2e": "node ./qa-runner.cjs ./src/qa/main.ts e2e",
+    "test:regression": "node ./qa-runner.cjs ./src/qa/main.ts regression",
+    "test:snapshot": "node ./qa-runner.cjs ./src/qa/main.ts snapshot",
+    "test:stress": "node ./qa-runner.cjs ./src/qa/main.ts stress",
+    "benchmark": "node ./qa-runner.cjs ./src/qa/main.ts benchmark",
+    "validate": "node ./qa-runner.cjs ./src/qa/main.ts validate",
+    "report": "node ./qa-runner.cjs ./src/qa/main.ts report",
+    "continuous": "node ./qa-runner.cjs ./src/qa/main.ts continuous"
+  },
+  "dependencies": {
+    "execa": "^9.5.2",
+    "fast-glob": "^3.3.3",
+    "yaml": "^2.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "typescript": "^5.6.2"
+  }
+}

@@ -1,0 +1,8 @@
+model Guide {
+  id String // required=true unique=true input=text
+  kode String // required=true unique=true input=text
+  nama String // required=true unique=false input=text
+  status String // required=true unique=false input=select
+  keterangan String // required=false unique=false input=textarea
+  pemesan Pelanggan // relation=many-to-one
+}

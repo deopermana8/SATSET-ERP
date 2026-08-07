@@ -1,0 +1,214 @@
+{
+  "generatedAt": "2026-08-05T10:25:42.700Z",
+  "module": "SatsetErp",
+  "entity": "Transaction",
+  "workflow": [
+    {
+      "name": "TransactionWorkflow",
+      "steps": [
+        {
+          "actor": "requester",
+          "name": "Reservasi",
+          "next": [
+            "Pembayaran"
+          ]
+        },
+        {
+          "actor": "cashier",
+          "name": "Pembayaran",
+          "next": [
+            "QR"
+          ]
+        },
+        {
+          "actor": "system",
+          "name": "QR",
+          "next": [
+            "Gate",
+            "Audit"
+          ]
+        },
+        {
+          "actor": "gate",
+          "name": "Gate",
+          "next": [
+            "Laporan"
+          ]
+        },
+        {
+          "actor": "audit",
+          "name": "Audit",
+          "next": [
+            "Laporan"
+          ]
+        },
+        {
+          "actor": "manager",
+          "name": "Laporan",
+          "next": []
+        }
+      ]
+    }
+  ],
+  "api": [
+    {
+      "method": "GET",
+      "name": "list",
+      "path": "/api/satset-erp",
+      "permission": "satset-erp.read"
+    }
+  ],
+  "validation": [
+    {
+      "field": "id",
+      "message": "Transaction ID must be valid",
+      "rule": "required"
+    },
+    {
+      "field": "referenceNo",
+      "message": "Reference Number must be valid",
+      "rule": "required"
+    },
+    {
+      "field": "amount",
+      "message": "Amount must be valid",
+      "rule": "required"
+    },
+    {
+      "field": "status",
+      "message": "Status must be valid",
+      "rule": "required"
+    }
+  ],
+  "pluginOrder": [
+    "WorkspacePlugin"
+  ],
+  "artifacts": [
+    {
+      "contentHash": "5b13df9c",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\package.json",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/root-package.json.tpl"
+    },
+    {
+      "contentHash": "4dc7602d",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\pnpm-workspace.yaml",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/pnpm-workspace.yaml.tpl"
+    },
+    {
+      "contentHash": "4bde1b18",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\tsconfig.json",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/tsconfig.json.tpl"
+    },
+    {
+      "contentHash": "f692816f",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\env.example",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/env.example.tpl"
+    },
+    {
+      "contentHash": "7145b69b",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\scripts\\start.mjs",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/scripts/start.mjs.tpl"
+    },
+    {
+      "contentHash": "6ea1e150",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\admin\\package.json",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/package.json.tpl"
+    },
+    {
+      "contentHash": "80cca611",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\admin\\tsconfig.json",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/tsconfig.app.json.tpl"
+    },
+    {
+      "contentHash": "32bda8c6",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\admin\\src\\index.ts",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/admin-index.ts.tpl"
+    },
+    {
+      "contentHash": "e1c927c7",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\api\\package.json",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/package.json.tpl"
+    },
+    {
+      "contentHash": "80cca611",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\api\\tsconfig.json",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/tsconfig.app.json.tpl"
+    },
+    {
+      "contentHash": "99a9dc7f",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\api\\src\\index.ts",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/api-index.ts.tpl"
+    },
+    {
+      "contentHash": "737c6618",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\api\\src\\migrate.ts",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/api-migrate.ts.tpl"
+    },
+    {
+      "contentHash": "8e5ae18c",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\api\\src\\seed.ts",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/api-seed.ts.tpl"
+    },
+    {
+      "contentHash": "c52e0e85",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\api\\prisma\\schema.prisma",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/api-prisma-schema.prisma.tpl"
+    },
+    {
+      "contentHash": "a0f39084",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\api\\prisma\\migrations\\0001_initial\\migration.sql",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/api-prisma-migration.sql.tpl"
+    },
+    {
+      "contentHash": "440eaa89",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\worker\\package.json",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/package.json.tpl"
+    },
+    {
+      "contentHash": "80cca611",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\worker\\tsconfig.json",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/tsconfig.app.json.tpl"
+    },
+    {
+      "contentHash": "360a9903",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\apps\\worker\\src\\index.ts",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/worker-index.ts.tpl"
+    },
+    {
+      "contentHash": "5dd8e921",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\packages\\shared\\package.json",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/package-shared.json.tpl"
+    },
+    {
+      "contentHash": "8a475c00",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\packages\\shared\\tsconfig.json",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/tsconfig.shared.json.tpl"
+    },
+    {
+      "contentHash": "63bd2197",
+      "outputPath": "G:\\SATSET AI\\SATSET ERP\\packages\\shared\\src\\index.ts",
+      "plugin": "WorkspacePlugin",
+      "template": "workspace/shared-index.ts.tpl"
+    }
+  ]
+}

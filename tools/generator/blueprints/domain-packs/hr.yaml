@@ -1,0 +1,86 @@
+module: HR
+entity:
+  - karyawan
+  - absensi
+  - payroll
+description: Human resources domain for employee, attendance, payroll, and compliance.
+fields:
+  - name: id
+    type: String
+    required: true
+    unique: true
+    label: Employee ID
+    searchable: true
+    filterable: true
+    input: text
+  - name: fullname
+    type: String
+    required: true
+    unique: false
+    label: Full Name
+    searchable: true
+    filterable: true
+    input: text
+relations:
+  - name: manager
+    target: Employee
+    kind: many-to-one
+permissions:
+  - key: hr.read
+    description: Read HR domain.
+  - key: hr.write
+    description: Manage HR domain.
+dashboard:
+  widgets:
+    - name: employeeCount
+      type: metric
+      metric: count(id)
+reports:
+  - name: hr-headcount
+    title: HR Headcount
+    metrics:
+      - count(id)
+menu:
+  - label: HR
+    path: /hr
+    icon: user-group
+mobile:
+  screen: HrHome
+  offline: true
+scanner:
+  provider: hr-attendance
+  schedule: 0 */12 * * *
+workflow:
+  - name: PayrollFlow
+    steps:
+      - name: Attendance
+        actor: employee
+        next: [Approval]
+      - name: Approval
+        actor: manager
+        next: [Payroll]
+      - name: Payroll
+        actor: hr
+        next: [Audit]
+      - name: Audit
+        actor: auditor
+        next: [Laporan]
+      - name: Laporan
+        actor: hr-manager
+        next: []
+api:
+  - name: listEmployees
+    method: GET
+    path: /api/hr/employees
+    permission: hr.read
+validation:
+  - field: fullname
+    rule: required
+    message: Full Name is required.
+seed:
+  - name: DefaultEmployee
+    fields:
+      id: emp-001
+      fullname: SATSET Employee
+metadata:
+  domain: hr
