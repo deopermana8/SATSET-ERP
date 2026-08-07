@@ -13,7 +13,25 @@ export function bootstrapCustomerServer(): void {
       return;
     }
 
-    if (url.pathname.startsWith("/customer")) {
+    if (
+      url.pathname.startsWith("/customer")
+      || url.pathname.startsWith("/ticketing")
+      || url.pathname.startsWith("/cashier")
+      || url.pathname.startsWith("/gate")
+      || url.pathname.startsWith("/ticket-preview")
+      || url.pathname.startsWith("/reservation")
+      || url.pathname.startsWith("/activities")
+      || url.pathname.startsWith("/activity-booking")
+      || url.pathname.startsWith("/cafe")
+      || url.pathname.startsWith("/kitchen")
+      || url.pathname.startsWith("/inventory")
+      || url.pathname.startsWith("/supplier")
+      || url.pathname.startsWith("/purchase")
+      || url.pathname.startsWith("/purchase/")
+      || url.pathname.startsWith("/recipe")
+      || url.pathname.startsWith("/stock-adjustment")
+      || url.pathname.startsWith("/stock-movement")
+    ) {
       response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
       response.end(renderCustomerHtml(apiUrl));
       return;
