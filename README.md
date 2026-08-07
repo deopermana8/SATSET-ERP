@@ -9,130 +9,44 @@ Modern Enterprise Resource Planning (ERP) System built with TypeScript, Node.js,
 
 ---
 
+# 📸 Screenshots
+
+## Dashboard
+
+![Dashboard](docs/sprint-27-screenshots/dashboard.png)
+
+## Booking
+
+![Booking](docs/sprint-27-screenshots/booking.png)
+
+## Ticketing
+
+![Ticketing](docs/sprint-27-screenshots/ticketing.png)
+
+## Master Data
+
+![Master Data](docs/sprint-27-screenshots/master-data.png)
+
+## Finance
+
+![Finance](docs/sprint-27-screenshots/finance.png)
+
+## Accounting
+
+![Accounting](docs/sprint-27-screenshots/accounting.png)
+
+## Cafe POS
+
+![Cafe POS](docs/sprint-27-screenshots/cafe-pos.png)
+
+## Outbound
+
+![Outbound](docs/sprint-27-screenshots/outbound.png)
+
+## Reporting
+
+![Reporting](docs/sprint-27-screenshots/laporan.png)
+
+---
+
 # ✨ Features
-
-## Customer Portal
-
-- Customer Registration & Login
-- Online Booking
-- Ticket Booking
-- Outbound Booking
-- Cafe Reservation
-- Payment
-- QR Ticket
-- Download PNG
-- Download PDF
-- Booking History
-- Customer Profile
-- Notifications
-- Responsive Mobile UI
-
-## Admin
-
-- Dashboard
-- Master Data
-- Booking Management
-- Customer Management
-- Reports
-
-## Backend
-
-- REST API
-- Worker Service
-- Prisma ORM
-- Modular Architecture
-
----
-
-# 🏗 Project Structure
-
-```
-apps/
-├── admin/
-├── api/
-├── customer/
-└── worker/
-
-packages/
-└── shared/
-
-playwright/
-
-scripts/
-
-docs/
-```
-
----
-
-# ⚙️ Tech Stack
-
-- TypeScript
-- Node.js
-- Prisma
-- Playwright
-- HTML
-- CSS
-- JavaScript
-
----
-
-# 🚀 Installation
-
-```bash
-npm install
-```
-
----
-
-# ▶ Run Development
-
-```bash
-npm run dev
-```
-
----
-
-# 🧪 Testing
-
-Build
-
-```bash
-npm run build
-```
-
-Lint
-
-```bash
-npm run lint
-```
-
-Smoke Test
-
-```bash
-npm run playwright:smoke
-```
-
-Regression Test
-
-```bash
-npm run playwright:regression
-```
-
----
-
-# 📦 Release
-
-Current Release
-
-```
-v24.2.0
-```
-
----
-
-# 📜 License
-
-MIT License
-
-Copyright (c) 2026 SATSET INDOTECH
