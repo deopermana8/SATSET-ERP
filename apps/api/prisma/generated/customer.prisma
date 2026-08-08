@@ -1,0 +1,9 @@
+model Customer {
+  code String
+  fullName String
+  email String
+  phone String?
+  id String @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

@@ -1,0 +1,13 @@
+model Ticket {
+  code String @unique
+  name String
+  category String
+  price Decimal
+  quota Int
+  validFrom DateTime
+  validUntil DateTime
+  active Boolean
+  id String @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

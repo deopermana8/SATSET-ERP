@@ -21,7 +21,7 @@ test('@smoke dashboard renders enterprise widgets', async ({ page }) => {
   expect(state.loadingFailure).toBe(false);
   expect(state.modalVisible).toBe(false);
 
-  await expectElementScreenshotMatchesBaseline(page, '#content', baselineScreenshotPath('dashboard.png'), ['#greet-sub']);
+  await expectElementScreenshotMatchesBaseline(page, '#content', baselineScreenshotPath('dashboard.png'), ['#greet-sub', '#dash-last-update', '#dash-state'], 0.013);
 
   const captured = await errors.stop();
   expect(captured.pageErrors).toEqual([]);

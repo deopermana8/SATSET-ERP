@@ -1,18 +1,18 @@
 # Sprint 28 Regression Checklist
 
 ## Checklist
-- [ ] Dashboard opens and shows enterprise widgets.
-- [ ] Ticketing opens and shows workspace, quick actions, chart, and table.
-- [ ] Booking opens and shows workspace, quick actions, chart, and table.
-- [ ] Cafe POS opens and shows workspace, quick actions, chart, and table.
-- [ ] Outbound opens and shows workspace, quick actions, chart, and table.
-- [ ] Finance opens and shows workspace, quick actions, chart, and table.
-- [ ] Accounting opens and shows workspace, quick actions, chart, and table.
-- [ ] Laporan group items open correctly.
-- [ ] Master Data group items open correctly.
-- [ ] pageErrors, consoleErrors, networkErrors, and failedResponses are empty.
-- [ ] visible skeleton count is zero on the active page.
-- [ ] no modal remains visible.
+- [x] Dashboard opens and shows enterprise widgets.
+- [x] Ticketing opens and shows workspace, quick actions, chart, and table.
+- [x] Booking opens and shows workspace, quick actions, chart, and table.
+- [x] Cafe POS opens and shows workspace, quick actions, chart, and table.
+- [x] Outbound opens and shows workspace, quick actions, chart, and table.
+- [x] Finance opens and shows workspace, quick actions, chart, and table.
+- [x] Accounting opens and shows workspace, quick actions, chart, and table.
+- [x] Laporan group items open correctly.
+- [x] Master Data group items open correctly.
+- [x] pageErrors, consoleErrors, networkErrors, and failedResponses are empty.
+- [x] visible skeleton count is zero on the active page.
+- [x] no modal remains visible.
 
 ## Cara Menjalankan Playwright
 - Jalankan semua regression: `npm run playwright:regression`

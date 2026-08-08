@@ -1,0 +1,24 @@
+export const {{routeConstName}} = {
+  get: {
+    method: "GET",
+    path: "/{{domainPath}}"
+  },
+  getById: {
+    method: "GET",
+    path: "/{{domainPath}}/:id"
+  },
+  post: {
+    method: "POST",
+    path: "/{{domainPath}}"
+  },
+  put: {
+    method: "PUT",
+    path: "/{{domainPath}}/:id"
+  },
+  delete: {
+    method: "DELETE",
+    path: "/{{domainPath}}/:id"
+  }
+};
+
+// TODO: wire route handlers

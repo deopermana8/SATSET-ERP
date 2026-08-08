@@ -1,0 +1,27 @@
+import { {{repositoryClassName}} } from "../repositories/{{repositoryClassName}}";
+
+export class {{className}} {
+  constructor(
+    private readonly repository:{{repositoryClassName}}
+  ){}
+
+  async findAll(){
+    throw new Error("TODO");
+  }
+
+  async findById(id:string){
+    throw new Error("TODO");
+  }
+
+  async create(data:any){
+    throw new Error("TODO");
+  }
+
+  async update(id:string,data:any){
+    throw new Error("TODO");
+  }
+
+  async delete(id:string){
+    throw new Error("TODO");
+  }
+}

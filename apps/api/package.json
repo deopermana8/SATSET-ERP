@@ -9,5 +9,9 @@
     "test": "npm run build",
     "migrate": "node ./dist/migrate.js",
     "seed": "node ./dist/seed.js"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.9.1",
+    "pg": "^8.22.0"
   }
 }

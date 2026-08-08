@@ -235,6 +235,68 @@ function safeParseBody(raw: string): Record<string, any> | null {
   catch { return null; }
 }
 
+const REPORT_PERMISSION_CODE = "wisata.laporan";
+const WORKSPACE_REPORT_TOKEN = "workspace-token";
+
+function hasReportPermission(request: IncomingMessage): boolean {
+  const authHeader = request.headers.authorization;
+  if (!authHeader) return false;
+  const [scheme, token] = authHeader.split(" ");
+  if (scheme !== "Bearer" || !token) return false;
+  return token === WORKSPACE_REPORT_TOKEN;
+}
+
+function ensureReportPermission(request: IncomingMessage, response: import("node:http").ServerResponse): boolean {
+  if (hasReportPermission(request)) {
+    return true;
+  }
+  response.writeHead(403, { "content-type": "application/json" });
+  response.end(JSON.stringify({ error: `Forbidden: tidak punya izin '${REPORT_PERMISSION_CODE}'` }));
+  return false;
+}
+
+type ReportPeriod = {
+  from: string | null;
+  to: string | null;
+};
+
+function isDateKey(value: string): boolean {
+  return /^\d{4}-\d{2}-\d{2}$/.test(value);
+}
+
+function isRealDateKey(value: string): boolean {
+  if (!isDateKey(value)) return false;
+  const parsed = new Date(`${value}T00:00:00.000Z`);
+  if (Number.isNaN(parsed.getTime())) return false;
+  return parsed.toISOString().slice(0, 10) === value;
+}
+
+function parseReportPeriod(searchParams: URLSearchParams): ReportPeriod {
+  const fromRaw = searchParams.get("from");
+  const toRaw = searchParams.get("to");
+  const from = fromRaw && fromRaw.trim() ? fromRaw.trim() : null;
+  const to = toRaw && toRaw.trim() ? toRaw.trim() : null;
+
+  if (from && !isRealDateKey(from)) {
+    throw new Error("Invalid period: from must use YYYY-MM-DD format");
+  }
+  if (to && !isRealDateKey(to)) {
+    throw new Error("Invalid period: to must use YYYY-MM-DD format");
+  }
+  if (from && to && from > to) {
+    throw new Error("Invalid period: from cannot be after to");
+  }
+
+  return { from, to };
+}
+
+function withinPeriod(dateIso: string, period: ReportPeriod): boolean {
+  const key = dateIso.slice(0, 10);
+  if (period.from && key < period.from) return false;
+  if (period.to && key > period.to) return false;
+  return true;
+}
+
 type ApiControllerResponse = CustomerResponse
   & TicketResponse
   & TicketSaleResponse
@@ -581,6 +643,9 @@ createServer(async (request, response) => {
     const controllerReq: TicketSaleRequest = { params: {} };
     const controllerRes = createControllerResponse(response);
     if ((request.method ?? "GET") === TICKET_SALE_ROUTES.getReport.method) {
+      if (!ensureReportPermission(request, response)) {
+        return;
+      }
       await ticketSaleController.getReport(controllerReq, controllerRes);
       return;
     }
@@ -593,6 +658,9 @@ createServer(async (request, response) => {
     const controllerReq: CafeOrderRequest = { params: {} };
     const controllerRes = createControllerResponse(response);
     if ((request.method ?? "GET") === CAFE_ORDER_ROUTES.getReport.method) {
+      if (!ensureReportPermission(request, response)) {
+        return;
+      }
       await cafeOrderController.report(controllerReq, controllerRes);
       return;
     }
@@ -787,6 +855,9 @@ createServer(async (request, response) => {
     const controllerReq: ActivityBookingRequest = { params: {} };
     const controllerRes = createControllerResponse(response);
     if ((request.method ?? "GET") === ACTIVITY_BOOKING_ROUTES.getReport.method) {
+      if (!ensureReportPermission(request, response)) {
+        return;
+      }
       await activityBookingController.report(controllerReq, controllerRes);
       return;
     }
@@ -978,7 +1049,145 @@ createServer(async (request, response) => {
     const controllerReq: ReservationRequest = { params: {} };
     const controllerRes = createControllerResponse(response);
     if ((request.method ?? "GET") === RESERVATION_ROUTES.getReport.method) {
+      if (!ensureReportPermission(request, response)) {
+        return;
+      }
       await reservationController.getReport(controllerReq, controllerRes);
+      return;
+    }
+    response.writeHead(405, { "content-type": "application/json" });
+    response.end(JSON.stringify({ error: "Method Not Allowed" }));
+    return;
+  }
+
+  if (url.pathname === "/api/erp-wisata/report") {
+    if ((request.method ?? "GET") === "GET") {
+      if (!ensureReportPermission(request, response)) {
+        return;
+      }
+
+      let period: ReportPeriod;
+      try {
+        period = parseReportPeriod(url.searchParams);
+      } catch (error) {
+        const message = error instanceof Error ? error.message : "Invalid period";
+        response.writeHead(400, { "content-type": "application/json" });
+        response.end(JSON.stringify({ error: message }));
+        return;
+      }
+
+      const ticketRows = (await ticketSaleRepository.findAll()).filter((item) => withinPeriod(item.soldAt, period));
+      const reservationRows = (await reservationRepository.findAll()).filter((item) => withinPeriod(item.createdAt, period));
+      const activityRows = (await activityBookingRepository.findAll()).filter((item) => withinPeriod(item.createdAt, period));
+      const cafeRows = (await cafeOrderRepository.findAll()).filter((item) => withinPeriod(item.createdAt, period));
+      const inventoryRows = (await inventoryRepository.findAll()).filter((item) => withinPeriod(item.createdAt, period));
+      const movementRows = (await stockMovementRepository.findAll()).filter((item) => withinPeriod(item.createdAt, period));
+
+      const ticketPaidStatuses = new Set(["PAID", "PRINTED", "CHECKED_IN"]);
+      const activityPaidStatuses = new Set(["PAID", "CONFIRMED", "CHECKED_IN", "COMPLETED"]);
+
+      const ticketGross = ticketRows.reduce((sum, item) => sum + item.total, 0);
+      const cafeGross = cafeRows.reduce((sum, item) => sum + item.total, 0);
+      const reservationGross = reservationRows.reduce((sum, item) => sum + item.totalAmount, 0);
+      const activityGross = activityRows.reduce((sum, item) => sum + item.total, 0);
+
+      const ticketPaid = ticketRows
+        .filter((item) => ticketPaidStatuses.has(item.status))
+        .reduce((sum, item) => sum + item.total, 0);
+      const cafePaid = cafeRows
+        .filter((item) => item.paymentStatus === "PAID")
+        .reduce((sum, item) => sum + item.total, 0);
+      const reservationPaid = reservationRows
+        .filter((item) => item.paymentStatus === "PAID")
+        .reduce((sum, item) => sum + item.totalAmount, 0);
+      const activityPaid = activityRows
+        .filter((item) => activityPaidStatuses.has(item.status))
+        .reduce((sum, item) => sum + item.total, 0);
+
+      const ticketOutstanding = ticketRows
+        .filter((item) => item.status === "NEW")
+        .reduce((sum, item) => sum + item.total, 0);
+      const cafeOutstanding = cafeRows
+        .filter((item) => item.paymentStatus === "UNPAID")
+        .reduce((sum, item) => sum + item.total, 0);
+      const reservationOutstanding = reservationRows
+        .filter((item) => item.paymentStatus === "WAITING_PAYMENT")
+        .reduce((sum, item) => sum + item.totalAmount, 0);
+      const activityOutstanding = activityRows
+        .filter((item) => item.status === "WAITING_PAYMENT")
+        .reduce((sum, item) => sum + item.total, 0);
+
+      const ticketCancelled = ticketRows
+        .filter((item) => item.status === "VOID")
+        .reduce((sum, item) => sum + item.total, 0);
+      const cafeCancelled = cafeRows
+        .filter((item) => item.status === "VOID")
+        .reduce((sum, item) => sum + item.total, 0);
+      const reservationCancelled = reservationRows
+        .filter((item) => item.reservationStatus === "CANCELLED")
+        .reduce((sum, item) => sum + item.totalAmount, 0);
+      const activityCancelled = activityRows
+        .filter((item) => item.status === "CANCELLED")
+        .reduce((sum, item) => sum + item.total, 0);
+
+      const inventoryValue = inventoryRows.reduce((sum, item) => sum + (item.currentStock * item.averageCost), 0);
+
+      response.writeHead(200, { "content-type": "application/json" });
+      response.end(JSON.stringify({
+        period: {
+          from: period.from,
+          to: period.to
+        },
+        operational: {
+          ticketSales: {
+            total: ticketRows.length,
+            paid: ticketRows.filter((item) => ticketPaidStatuses.has(item.status)).length,
+            checkedIn: ticketRows.filter((item) => item.status === "CHECKED_IN").length,
+            void: ticketRows.filter((item) => item.status === "VOID").length,
+            grossSales: ticketGross
+          },
+          reservations: {
+            total: reservationRows.length,
+            paid: reservationRows.filter((item) => item.paymentStatus === "PAID").length,
+            waitingPayment: reservationRows.filter((item) => item.paymentStatus === "WAITING_PAYMENT").length,
+            cancelled: reservationRows.filter((item) => item.reservationStatus === "CANCELLED").length
+          },
+          activityBookings: {
+            total: activityRows.length,
+            confirmed: activityRows.filter((item) => item.status === "CONFIRMED" || item.status === "PAID").length,
+            checkedIn: activityRows.filter((item) => item.status === "CHECKED_IN").length,
+            completed: activityRows.filter((item) => item.status === "COMPLETED").length,
+            cancelled: activityRows.filter((item) => item.status === "CANCELLED").length
+          },
+          cafeOrders: {
+            total: cafeRows.length,
+            paid: cafeRows.filter((item) => item.paymentStatus === "PAID").length,
+            completed: cafeRows.filter((item) => item.status === "COMPLETED").length,
+            void: cafeRows.filter((item) => item.status === "VOID").length,
+            totalSales: cafeRows
+              .filter((item) => item.paymentStatus === "PAID" && item.status !== "VOID")
+              .reduce((sum, item) => sum + item.total, 0)
+          },
+          inventory: {
+            items: inventoryRows.length,
+            lowStock: inventoryRows.filter((item) => item.currentStock <= item.minimumStock).length,
+            inventoryValue,
+            stockMovements: movementRows.length
+          }
+        },
+        financial: {
+          grossSales: ticketGross + cafeGross + reservationGross + activityGross,
+          paidSales: ticketPaid + cafePaid + reservationPaid + activityPaid,
+          outstanding: ticketOutstanding + cafeOutstanding + reservationOutstanding + activityOutstanding,
+          cancelled: ticketCancelled + cafeCancelled + reservationCancelled + activityCancelled
+        },
+        reservation: {
+          total: reservationRows.length,
+          confirmed: reservationRows.filter((item) => item.reservationStatus === "CONFIRMED" || item.reservationStatus === "PAID").length,
+          checkedIn: reservationRows.filter((item) => item.reservationStatus === "CHECKED_IN").length,
+          cancelled: reservationRows.filter((item) => item.reservationStatus === "CANCELLED").length
+        }
+      }));
       return;
     }
     response.writeHead(405, { "content-type": "application/json" });
@@ -1204,12 +1413,18 @@ createServer(async (request, response) => {
     const reqMethod = request.method ?? "GET";
 
     if (reqMethod === "GET" && url.pathname === inventoryRoutes.report) {
+      if (!ensureReportPermission(request, response)) {
+        return;
+      }
       response.writeHead(200, { "content-type": "application/json" });
       response.end(JSON.stringify(await inventoryController.report()));
       return;
     }
 
     if (reqMethod === "GET" && url.pathname === inventoryRoutes.dashboard) {
+      if (!ensureReportPermission(request, response)) {
+        return;
+      }
       response.writeHead(200, { "content-type": "application/json" });
       response.end(JSON.stringify(await inventoryController.dashboard()));
       return;

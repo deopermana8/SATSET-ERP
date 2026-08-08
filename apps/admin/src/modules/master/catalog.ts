@@ -55,6 +55,11 @@ export const masterModules = [
   createModule({ key: "customer", label: "Pelanggan", description: "Data pelanggan dan tamu", icon: "👤", apiEntity: "customer", searchTerms: ["Pelanggan", "Tamu", "Klien"] }),
   createModule({ key: "vendor", label: "Vendor", description: "Mitra pemasok jasa", icon: "🏬", apiEntity: "vendor", searchTerms: ["Vendor", "Mitra", "Partner"] }),
   createModule({ key: "supplier", label: "Pemasok", description: "Data pemasok barang dan jasa", icon: "📦", apiEntity: "supplier", searchTerms: ["Pemasok", "Persediaan", "Stok"] }),
+  createModule({ key: "menu-category", label: "Menu Category", description: "Master kategori menu cafe", icon: "🗂", apiEntity: "menu-category", searchTerms: ["Kategori Menu", "Cafe", "Menu Category"] }),
+  createModule({ key: "menu-item", label: "Menu Item", description: "Master item menu cafe", icon: "🍽", apiEntity: "menu-item", searchTerms: ["Menu Item", "Cafe", "Harga Menu"] }),
+  createModule({ key: "inventory", label: "Inventory", description: "Master persediaan bahan dan stok", icon: "📋", apiEntity: "inventory", searchTerms: ["Inventory", "Stok", "Gudang", "Bahan"] }),
+  createModule({ key: "purchase-order", label: "Purchasing", description: "Transaksi purchase order pemasok", icon: "🧾", apiEntity: "purchase-order", searchTerms: ["Purchasing", "Purchase Order", "PO"] }),
+  createModule({ key: "stock-movement", label: "Stock Movement", description: "Riwayat mutasi stok inventory", icon: "📈", apiEntity: "stock-movement", searchTerms: ["Stock Movement", "Mutasi Stok", "Inventory Flow"] }),
 ] as const satisfies readonly MasterModuleConfig[];
 
 export const masterModuleMap = Object.fromEntries(masterModules.map((module) => [module.key, module])) as Record<MasterEntityKey, MasterModuleConfig>;

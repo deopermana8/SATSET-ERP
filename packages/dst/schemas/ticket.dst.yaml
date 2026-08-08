@@ -1,0 +1,40 @@
+version: "1.0"
+
+domain:
+  name: "ticket"
+  description: "DST specification for ticket domain"
+
+fields:
+  - name: "code"
+    type: "string"
+    required: true
+    unique: true
+
+  - name: "name"
+    type: "string"
+    required: true
+
+  - name: "category"
+    type: "string"
+    required: true
+    description: "Enum: REGULAR, VIP, ROMBONGAN"
+
+  - name: "price"
+    type: "decimal"
+    required: true
+
+  - name: "quota"
+    type: "number"
+    required: true
+
+  - name: "validFrom"
+    type: "date"
+    required: true
+
+  - name: "validUntil"
+    type: "date"
+    required: true
+
+  - name: "active"
+    type: "boolean"
+    required: true

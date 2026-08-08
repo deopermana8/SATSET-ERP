@@ -1,0 +1,75 @@
+version: "1.0"
+
+domain:
+  name: "ticket-sale"
+  description: "DST specification for POS ticket sales"
+
+fields:
+  - name: "saleNumber"
+    type: "string"
+    required: true
+    unique: true
+
+  - name: "customerName"
+    type: "string"
+    required: true
+
+  - name: "customerPhone"
+    type: "string"
+    required: true
+
+  - name: "paymentMethod"
+    type: "string"
+    required: true
+
+  - name: "subtotal"
+    type: "decimal"
+    required: true
+
+  - name: "discount"
+    type: "decimal"
+    required: true
+
+  - name: "tax"
+    type: "decimal"
+    required: true
+
+  - name: "total"
+    type: "decimal"
+    required: true
+
+  - name: "paidAmount"
+    type: "decimal"
+    required: true
+
+  - name: "changeAmount"
+    type: "decimal"
+    required: true
+
+  - name: "status"
+    type: "string"
+    required: true
+
+  - name: "soldAt"
+    type: "datetime"
+    required: true
+
+# TicketSaleItem contract for Sprint 18.1 POS
+# qty uses integer in business validation, stored as number for DST compatibility.
+ticketSaleItemFields:
+  - name: "ticketId"
+    type: "string"
+    required: true
+  - name: "ticketName"
+    type: "string"
+    required: true
+  - name: "qty"
+    type: "number"
+    required: true
+    description: "integer"
+  - name: "price"
+    type: "decimal"
+    required: true
+  - name: "total"
+    type: "decimal"
+    required: true

@@ -1,0 +1,11 @@
+export interface Create{{domainName}}Dto {
+{{#each createFields}}
+  {{name}}{{#if optional}}?{{/if}}: {{type}};
+{{/each}}
+}
+
+export interface Update{{domainName}}Dto {
+{{#each updateFields}}
+  {{name}}?: {{type}};
+{{/each}}
+}

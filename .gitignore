@@ -64,3 +64,9 @@ tools/**/node_modules/
 tmp/
 temp/
 *.tmp
+# Local release artifacts
+.release-archive/
+*.bak
+*.backup
+*.bak_*
+*.backup_*

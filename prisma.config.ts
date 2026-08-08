@@ -1,8 +1,11 @@
-import { defineConfig } from 'prisma/config'
+import { defineConfig, env } from 'prisma/config'
 
 export default defineConfig({
-  schema: 'apps/api/prisma/schema.prisma',
+  schema: 'prisma/schema.prisma',
+  migrations: {
+    seed: 'npm run seed:api',
+  },
   datasource: {
-    url: 'file:./apps/api/prisma/dev.db',
+    url: env('DATABASE_URL'),
   },
 })

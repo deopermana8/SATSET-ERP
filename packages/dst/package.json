@@ -1,0 +1,25 @@
+{
+  "name": "@satset/blueprint-dst",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "dst": "./dist/cli/index.js"
+  },
+  "files": [
+    "dist",
+    "templates",
+    "schemas",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "node -e \"import('node:fs').then(fs=>fs.rmSync('dist',{recursive:true,force:true}))\"",
+    "test": "npm run build"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.8",
+    "yaml": "^2.8.1"
+  }
+}

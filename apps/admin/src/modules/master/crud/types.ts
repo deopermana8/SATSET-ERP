@@ -6,7 +6,12 @@ export type MasterEntityKey =
   | "paket-wisata"
   | "customer"
   | "vendor"
-  | "supplier";
+  | "supplier"
+  | "menu-category"
+  | "menu-item"
+  | "inventory"
+  | "purchase-order"
+  | "stock-movement";
 
 export type MasterRecord = {
   id: string;

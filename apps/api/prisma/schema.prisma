@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
 }
 
 model WorkspaceRecord {
@@ -88,3 +88,4 @@ model JurnalWisata {
   @@index([status])
   @@map("jurnal_wisata")
 }
+

@@ -80,7 +80,7 @@ function baseEntity(key: string, name: string, route: string, endpoint: string, 
 
 export const standardMasterEntities: MasterEntityConfig[] = [
   baseEntity("customer", "Pelanggan", "/master/pelanggan", "/erp-wisata/customer", "👤"),
-  baseEntity("supplier", "Pemasok", "/master/pemasok", "/erp-wisata/supplier", "📦"),
+  baseEntity("supplier", "Pemasok", "/master/pemasok", "/api/supplier", "📦"),
   baseEntity("barang", "Barang", "/master/barang", "/erp-wisata/barang", "📦"),
   baseEntity("gudang", "Gudang", "/master/gudang", "/erp-wisata/gudang", "🏬"),
   baseEntity("karyawan", "Karyawan", "/master/karyawan", "/erp-wisata/karyawan", "🧑"),
@@ -92,4 +92,9 @@ export const standardMasterEntities: MasterEntityConfig[] = [
   baseEntity("pajak", "Pajak", "/master/pajak", "/erp-wisata/pajak", "🧾"),
   baseEntity("bank", "Bank", "/master/bank", "/erp-wisata/bank", "🏦"),
   baseEntity("vendor", "Vendor", "/master/vendor", "/erp-wisata/vendor", "🏢"),
+  baseEntity("menu-category", "Menu Category", "/master/menu-category", "/api/menu-category", "🗂"),
+  baseEntity("menu-item", "Menu Item", "/master/menu-item", "/api/menu-item", "🍽"),
+  baseEntity("inventory", "Inventory", "/master/inventory", "/api/inventory", "📋"),
+  baseEntity("purchase-order", "Purchasing", "/master/purchasing", "/api/purchase-order", "🧾"),
+  baseEntity("stock-movement", "Stock Movement", "/master/stock-movement", "/api/stock-movement", "📈"),
 ];

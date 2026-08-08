@@ -1,0 +1,29 @@
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { {{camelName}}Api } from "../api/{{domainName}}Api";
+
+export function use{{domainName}}() {
+  const listQuery = useQuery({
+    queryKey: ["{{camelName}}", "list"],
+    queryFn: () => {{camelName}}Api.getAll()
+  });
+
+  const createMutation = useMutation({
+    mutationFn: (payload) => {{camelName}}Api.create(payload)
+  });
+
+  const updateMutation = useMutation({
+    mutationFn: ({ id, payload }) => {{camelName}}Api.update(id, payload)
+  });
+
+  const deleteMutation = useMutation({
+    mutationFn: (id) => {{camelName}}Api.delete(id)
+  });
+
+  // TODO: add invalidation strategy and optimistic updates.
+  return {
+    listQuery,
+    createMutation,
+    updateMutation,
+    deleteMutation
+  };
+}

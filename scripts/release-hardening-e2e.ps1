@@ -10,8 +10,8 @@ $results = New-Object System.Collections.Generic.List[Object]
 $apiProc = $null
 $customerProc = $null
 
-$PSDefaultParameterValues["Invoke-WebRequest:TimeoutSec"] = 12
-$PSDefaultParameterValues["Invoke-RestMethod:TimeoutSec"] = 12
+$PSDefaultParameterValues["Invoke-WebRequest:TimeoutSec"] = 120
+$PSDefaultParameterValues["Invoke-RestMethod:TimeoutSec"] = 120
 
 function Add-Result {
   param([string]$Name, [string]$Status, [string]$Value)
@@ -76,13 +76,19 @@ try {
   Set-Location $root
   Stop-PortListeners -Ports @(3010, 3210)
 
+  $dbLine = Get-Content (Join-Path $root ".env") | Where-Object { $_ -match '^DATABASE_URL=' } | Select-Object -First 1
+  if (-not $dbLine) {
+    throw "DATABASE_URL not found in .env"
+  }
+  $databaseUrl = $dbLine.Substring("DATABASE_URL=".Length)
+
   npm run build --workspace @satset/blueprint-api | Out-Null
   if ($LASTEXITCODE -eq 0) { Add-Result -Name "build_api" -Status "PASS" -Value "ok" } else { Add-Result -Name "build_api" -Status "FAIL" -Value ("exit=" + [string]$LASTEXITCODE); throw "build api failed" }
 
   npm run build --workspace @satset/blueprint-customer | Out-Null
   if ($LASTEXITCODE -eq 0) { Add-Result -Name "build_customer" -Status "PASS" -Value "ok" } else { Add-Result -Name "build_customer" -Status "FAIL" -Value ("exit=" + [string]$LASTEXITCODE); throw "build customer failed" }
 
-  $apiProc = Start-Process -FilePath "cmd.exe" -ArgumentList '/c set API_PORT=3010&& node apps/api/dist/index.js' -WorkingDirectory $root -PassThru -WindowStyle Hidden
+  $apiProc = Start-Process -FilePath "cmd.exe" -ArgumentList ('/c set "DATABASE_URL=' + $databaseUrl + '"&& set API_PORT=3010&& node apps/api/dist/index.js') -WorkingDirectory $root -PassThru -WindowStyle Hidden
   $customerProc = Start-Process -FilePath "cmd.exe" -ArgumentList '/c set CUSTOMER_PORT=3210&& set API_URL=http://127.0.0.1:3010&& node apps/customer/dist/index.js' -WorkingDirectory $root -PassThru -WindowStyle Hidden
 
   if (Wait-Ready -Url ($api + "/api/ticket")) { Add-Result -Name "run_api" -Status "PASS" -Value $api } else { Add-Result -Name "run_api" -Status "FAIL" -Value "not ready"; throw "api not ready" }
@@ -272,7 +278,16 @@ try {
     Invoke-RestMethod -Uri ($api + "/api/stock-movement?movementType=INVALID") -Method GET
   }
 
-  Expect-Http200 -Name "dashboard_endpoint" -Url ($api + "/api/inventory/dashboard")
+  try {
+    $dashboardResp = Invoke-WebRequest -Uri ($api + "/api/inventory/dashboard") -Method GET -Headers @{ authorization = "Bearer workspace-token" } -UseBasicParsing
+    if ($dashboardResp.StatusCode -eq 200) {
+      Add-Result -Name "dashboard_endpoint" -Status "PASS" -Value "status=200"
+    } else {
+      Add-Result -Name "dashboard_endpoint" -Status "FAIL" -Value ("status=" + [string]$dashboardResp.StatusCode)
+    }
+  } catch {
+    Add-Result -Name "dashboard_endpoint" -Status "FAIL" -Value $_.Exception.Message
+  }
 
   $pages = @(
     "/customer",

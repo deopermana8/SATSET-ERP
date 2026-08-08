@@ -1,0 +1,26 @@
+version: "1.0"
+
+domain:
+  name: "customer"
+  description: "DST specification for customer domain"
+
+fields:
+  - name: "code"
+    type: "string"
+    required: true
+    description: "Business identifier"
+
+  - name: "fullName"
+    type: "string"
+    required: true
+    description: "Customer full name"
+
+  - name: "email"
+    type: "string"
+    required: true
+    description: "Primary email"
+
+  - name: "phone"
+    type: "string"
+    required: false
+    description: "Optional phone number"

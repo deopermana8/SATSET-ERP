@@ -1,0 +1,17 @@
+model TicketSale {
+  saleNumber String @unique
+  customerName String
+  customerPhone String
+  paymentMethod String
+  subtotal Decimal
+  discount Decimal
+  tax Decimal
+  total Decimal
+  paidAmount Decimal
+  changeAmount Decimal
+  status String
+  soldAt DateTime
+  id String @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

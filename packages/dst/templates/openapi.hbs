@@ -1,0 +1,99 @@
+import { Router } from "express";
+
+const router = Router();
+
+export const {{openApiObjectName}} = {
+  openapi: "3.0.0",
+  info: {
+    title: "{{domainName}} API",
+    version: "1.0.0"
+  },
+  paths: {
+    "/{{domainPath}}": {
+      get: {
+        summary: "List {{domainName}}",
+        responses: {
+          "200": {
+            description: "OK"
+          }
+        }
+      },
+      post: {
+        summary: "Create {{domainName}}",
+        requestBody: {
+          required: true,
+          content: {
+            "application/json": {
+              schema: {
+                $ref: "#/components/schemas/Create{{domainName}}Request"
+              }
+            }
+          }
+        },
+        responses: {
+          "201": {
+            description: "Created"
+          }
+        }
+      }
+    },
+    "/{{domainPath}}/{id}": {
+      get: {
+        summary: "Get {{domainName}} by id",
+        responses: {
+          "200": {
+            description: "OK"
+          }
+        }
+      },
+      put: {
+        summary: "Update {{domainName}}",
+        requestBody: {
+          required: true,
+          content: {
+            "application/json": {
+              schema: {
+                $ref: "#/components/schemas/Update{{domainName}}Request"
+              }
+            }
+          }
+        },
+        responses: {
+          "200": {
+            description: "Updated"
+          }
+        }
+      },
+      delete: {
+        summary: "Delete {{domainName}}",
+        responses: {
+          "204": {
+            description: "No Content"
+          }
+        }
+      }
+    }
+  },
+  components: {
+    schemas: {
+      Create{{domainName}}Request: {
+        type: "object",
+        properties: {}
+      },
+      Update{{domainName}}Request: {
+        type: "object",
+        properties: {}
+      },
+      {{domainName}}Response: {
+        type: "object",
+        properties: {
+          id: {
+            type: "string"
+          }
+        }
+      }
+    }
+  }
+};
+
+export { router };

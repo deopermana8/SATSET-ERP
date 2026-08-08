@@ -2,42 +2,101 @@
 
 ## Summary
 
-Blueprint ERP Wisata untuk operasional destinasi, paket, hotel, kendaraan, guide, reservasi, ticketing, pembayaran, kas, jurnal, dan laporan.
+Dokumen kontrak laporan agregasi ERP Wisata untuk operasional, keuangan, dan reservasi.
 
-## Metrics
+## Endpoint
 
-### Laporan Operasional Wisata
+- Method: `GET`
+- Path: `/api/erp-wisata/report`
+- Permission: `wisata.laporan`
+- Authorization Header: `Authorization: Bearer <token>`
 
-{{#each this.metrics}}- {
-  "name": "wisata-operasional",
-  "title": "Laporan Operasional Wisata",
-  "metrics": [
-    "status",
-    "nama"
-  ]
+## Query Filter
+
+- `from` (optional): format `YYYY-MM-DD`
+- `to` (optional): format `YYYY-MM-DD`
+- Validation:
+  - jika `from` diisi, wajib format `YYYY-MM-DD`
+  - jika `to` diisi, wajib format `YYYY-MM-DD`
+  - jika `from` dan `to` diisi, `from` tidak boleh lebih besar dari `to`
+
+## Response Contract (200)
+
+```json
+{
+  "period": {
+    "from": "2026-08-01",
+    "to": "2026-08-08"
+  },
+  "operational": {
+    "ticketSales": {
+      "total": 0,
+      "paid": 0,
+      "checkedIn": 0,
+      "void": 0,
+      "grossSales": 0
+    },
+    "reservations": {
+      "total": 0,
+      "paid": 0,
+      "waitingPayment": 0,
+      "cancelled": 0
+    },
+    "activityBookings": {
+      "total": 0,
+      "confirmed": 0,
+      "checkedIn": 0,
+      "completed": 0,
+      "cancelled": 0
+    },
+    "cafeOrders": {
+      "total": 0,
+      "paid": 0,
+      "completed": 0,
+      "void": 0,
+      "totalSales": 0
+    },
+    "inventory": {
+      "items": 0,
+      "lowStock": 0,
+      "inventoryValue": 0,
+      "stockMovements": 0
+    }
+  },
+  "financial": {
+    "grossSales": 0,
+    "paidSales": 0,
+    "outstanding": 0,
+    "cancelled": 0
+  },
+  "reservation": {
+    "total": 0,
+    "confirmed": 0,
+    "checkedIn": 0,
+    "cancelled": 0
+  }
 }
-### Laporan Keuangan Wisata
+```
 
-{{#each this.metrics}}- {
-  "name": "wisata-keuangan",
-  "title": "Laporan Keuangan Wisata",
-  "metrics": [
-    "nominal",
-    "status"
-  ]
-}
-### Laporan Reservasi Wisata
+## Error Contract
 
-{{#each this.metrics}}- {
-  "name": "wisata-reservasi",
-  "title": "Laporan Reservasi Wisata",
-  "metrics": [
-    "tanggal",
-    "status"
-  ]
-}
+- `403 Forbidden`: token tidak memiliki izin `wisata.laporan`
+- `400 Bad Request`: period query tidak valid
+- `405 Method Not Allowed`: method selain `GET`
 
-{{/each}}
+## Master Data -> Reporting Integration
+
+Ringkasan integrasi sumber data yang dipakai agregasi:
+
+- Ticketing report: data transaksi tiket (`ticket sale`).
+- Reservasi report: data booking reservasi.
+- Activity booking report: data booking aktivitas outbound.
+- Cafe report: data order cafe.
+- Inventory report: data item inventory + stock movement.
+
+Catatan:
+- Metrik agregasi dihitung dari data operasional yang ada, tidak menambah metrik sintetis.
+- Entitas master data (`/erp-wisata/*`) mempengaruhi hasil report secara tidak langsung melalui transaksi operasional.
 
 ## Permissions
 

@@ -1,0 +1,567 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Role {
+  id              Int              @id @default(autoincrement())
+  name            String           @unique
+  createdAt       DateTime         @default(now())
+  users           User[]           @relation("User_roleId")
+  rolePermissions RolePermission[] @relation("role_permissions_roleId")
+
+  @@map("Role")
+}
+
+model User {
+  id              Int              @id @default(autoincrement())
+  name            String
+  email           String           @unique
+  password        String
+  roleId          Int
+  createdAt       DateTime         @default(now())
+  role            Role             @relation("User_roleId", fields: [roleId], references: [id], onDelete: Restrict)
+  userPermissions UserPermission[] @relation("user_permissions_userId")
+  shifts          Shift[]          @relation("shifts_cashierId")
+  transactions    Transaction[]    @relation("transactions_cashierId")
+
+  @@index([roleId])
+  @@index([email])
+  @@map("User")
+}
+
+model Ticket {
+  id               Int               @id @default(autoincrement())
+  name             String
+  type             String
+  price            Int
+  destinationId    Int?
+  active           Boolean           @default(true)
+  deletedAt        DateTime?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime
+  destination      Destination?      @relation("tickets_destinationId", fields: [destinationId], references: [id])
+  reservations     Reservation[]     @relation("reservations_ticketId")
+  transactionItems TransactionItem[] @relation("transaction_items_ticketId")
+
+  @@map("tickets")
+}
+
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
+  slug      String?   @unique
+  deletedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime
+
+  @@map("categories")
+}
+
+model Destination {
+  id           Int           @id @default(autoincrement())
+  name         String        @unique
+  slug         String        @unique
+  description  String?
+  address      String?
+  phone        String?
+  email        String?
+  active       Boolean       @default(true)
+  deletedAt    DateTime?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime
+  tickets      Ticket[]      @relation("tickets_destinationId")
+  facilities   Facility[]    @relation("facilities_destinationId")
+  gates        Gate[]        @relation("gates_destinationId")
+  reservations Reservation[] @relation("reservations_destinationId")
+
+  @@map("destinations")
+}
+
+model Facility {
+  id            Int         @id @default(autoincrement())
+  name          String
+  slug          String
+  description   String?
+  destinationId Int
+  active        Boolean     @default(true)
+  deletedAt     DateTime?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime
+  destination   Destination @relation("facilities_destinationId", fields: [destinationId], references: [id], onDelete: Restrict)
+
+  @@unique([destinationId, slug])
+  @@map("facilities")
+}
+
+model Gate {
+  id            Int         @id @default(autoincrement())
+  name          String
+  code          String      @unique
+  destinationId Int
+  active        Boolean     @default(true)
+  deletedAt     DateTime?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime
+  destination   Destination @relation("gates_destinationId", fields: [destinationId], references: [id], onDelete: Restrict)
+
+  @@map("gates")
+}
+
+model Visitor {
+  id           Int           @id @default(autoincrement())
+  name         String
+  email        String?       @unique
+  phone        String?
+  idCard       String?       @unique
+  deletedAt    DateTime?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime
+  reservations Reservation[] @relation("reservations_visitorId")
+
+  @@map("visitors")
+}
+
+model Reservation {
+  id            Int         @id @default(autoincrement())
+  code          String      @unique
+  visitorId     Int
+  destinationId Int
+  ticketId      Int
+  quantity      Int
+  totalPrice    Int
+  status        String      @default("pending")
+  reservedAt    DateTime    @default(now())
+  visitDate     DateTime?
+  deletedAt     DateTime?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime
+  visitor       Visitor     @relation("reservations_visitorId", fields: [visitorId], references: [id], onDelete: Restrict)
+  destination   Destination @relation("reservations_destinationId", fields: [destinationId], references: [id], onDelete: Restrict)
+  ticket        Ticket      @relation("reservations_ticketId", fields: [ticketId], references: [id], onDelete: Restrict)
+  payments      Payment?    @relation("payments_reservationId")
+
+  @@index([visitorId])
+  @@index([destinationId])
+  @@index([ticketId])
+  @@index([status])
+  @@index([createdAt])
+  @@map("reservations")
+}
+
+model Payment {
+  id            Int         @id @default(autoincrement())
+  reservationId Int         @unique
+  amount        Int
+  method        String      @default("cash")
+  status        String      @default("pending")
+  paidAt        DateTime?
+  deletedAt     DateTime?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime
+  reservation   Reservation @relation("payments_reservationId", fields: [reservationId], references: [id], onDelete: Restrict)
+
+  @@map("payments")
+}
+
+model Permission {
+  id              Int              @id @default(autoincrement())
+  code            String           @unique
+  name            String
+  module          String
+  description     String?
+  createdAt       DateTime         @default(now())
+  rolePermissions RolePermission[] @relation("role_permissions_permissionId")
+  userPermissions UserPermission[] @relation("user_permissions_permissionId")
+
+  @@map("permissions")
+}
+
+model RolePermission {
+  id           Int        @id @default(autoincrement())
+  roleId       Int
+  permissionId Int
+  createdAt    DateTime   @default(now())
+  role         Role       @relation("role_permissions_roleId", fields: [roleId], references: [id], onDelete: Cascade)
+  permission   Permission @relation("role_permissions_permissionId", fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@unique([roleId, permissionId])
+  @@map("role_permissions")
+}
+
+model UserPermission {
+  id           Int        @id @default(autoincrement())
+  userId       Int
+  permissionId Int
+  granted      Boolean    @default(true)
+  createdAt    DateTime   @default(now())
+  user         User       @relation("user_permissions_userId", fields: [userId], references: [id], onDelete: Cascade)
+  permission   Permission @relation("user_permissions_permissionId", fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, permissionId])
+  @@map("user_permissions")
+}
+
+model Shift {
+  id           Int           @id @default(autoincrement())
+  cashierId    Int
+  cashierName  String
+  openedAt     DateTime      @default(now())
+  closedAt     DateTime?
+  openingCash  Int
+  closingCash  Int?
+  totalSales   Int           @default(0)
+  totalTrx     Int           @default(0)
+  status       String        @default("open")
+  notes        String?
+  user         User          @relation("shifts_cashierId", fields: [cashierId], references: [id], onDelete: Restrict)
+  transactions Transaction[] @relation("transactions_shiftId")
+
+  @@map("shifts")
+}
+
+model Transaction {
+  id               Int               @id @default(autoincrement())
+  invoiceNo        String            @unique
+  status           String            @default("paid")
+  subtotal         Int
+  discount         Int               @default(0)
+  tax              Int               @default(0)
+  total            Int
+  paymentMethod    String
+  cashReceived     Int?
+  cashChange       Int?
+  notes            String?
+  cashierId        Int
+  cashierName      String
+  shiftId          Int?
+  pricingMode      String            @default("weekday")
+  createdAt        DateTime          @default(now())
+  user             User              @relation("transactions_cashierId", fields: [cashierId], references: [id], onDelete: Restrict)
+  shift            Shift?            @relation("transactions_shiftId", fields: [shiftId], references: [id])
+  transactionItems TransactionItem[] @relation("transaction_items_transactionId")
+
+  @@index([cashierId])
+  @@index([shiftId])
+  @@index([status])
+  @@index([createdAt])
+  @@index([paymentMethod])
+  @@map("transactions")
+}
+
+model TransactionItem {
+  id            Int         @id @default(autoincrement())
+  transactionId Int
+  ticketId      Int
+  ticketName    String
+  ticketType    String
+  unitPrice     Int
+  quantity      Int
+  subtotal      Int
+  qrToken       String      @unique
+  qrUsed        Boolean     @default(false)
+  qrExpiresAt   DateTime
+  transaction   Transaction @relation("transaction_items_transactionId", fields: [transactionId], references: [id], onDelete: Cascade)
+  ticket        Ticket      @relation("transaction_items_ticketId", fields: [ticketId], references: [id], onDelete: Restrict)
+
+  @@map("transaction_items")
+}
+
+model AuditLog {
+  id        Int      @id @default(autoincrement())
+  userId    Int?
+  userName  String?
+  action    String
+  entity    String
+  entityId  String?
+  ipAddress String?
+  userAgent String?
+  details   String?
+  createdAt DateTime @default(now())
+
+  @@index([action])
+  @@index([entity])
+  @@index([userId])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
+
+model CafeCategory {
+  id            Int            @id @default(autoincrement())
+  name          String         @unique
+  sortOrder     Int            @default(0)
+  active        Boolean        @default(true)
+  createdAt     DateTime       @default(now())
+  cafeMenuItems CafeMenuItem[] @relation("cafe_menu_items_categoryId")
+
+  @@map("cafe_categories")
+}
+
+model CafeMenuItem {
+  id             Int             @id @default(autoincrement())
+  categoryId     Int
+  name           String
+  description    String?
+  price          Int
+  cost           Int             @default(0)
+  image          String?
+  active         Boolean         @default(true)
+  stock          Int?
+  variants       String?
+  modifiers      String?
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime
+  cafeCategory   CafeCategory    @relation("cafe_menu_items_categoryId", fields: [categoryId], references: [id], onDelete: Restrict)
+  cafeOrderItems CafeOrderItem[] @relation("cafe_order_items_menuItemId")
+
+  @@map("cafe_menu_items")
+}
+
+model CafeTable {
+  id         Int         @id @default(autoincrement())
+  number     String      @unique
+  capacity   Int         @default(4)
+  status     String      @default("available")
+  active     Boolean     @default(true)
+  createdAt  DateTime    @default(now())
+  cafeOrders CafeOrder[] @relation("cafe_orders_tableId")
+
+  @@map("cafe_tables")
+}
+
+model CafeOrder {
+  id             Int             @id @default(autoincrement())
+  orderNo        String          @unique
+  tableId        Int?
+  status         String          @default("pending")
+  paymentMethod  String?
+  subtotal       Int             @default(0)
+  discount       Int             @default(0)
+  tax            Int             @default(0)
+  total          Int             @default(0)
+  notes          String?
+  cashierId      Int?
+  cashierName    String?
+  paidAt         DateTime?
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime
+  cafeTable      CafeTable?      @relation("cafe_orders_tableId", fields: [tableId], references: [id])
+  cafeOrderItems CafeOrderItem[] @relation("cafe_order_items_orderId")
+
+  @@index([status])
+  @@index([tableId])
+  @@index([cashierId])
+  @@index([createdAt])
+  @@map("cafe_orders")
+}
+
+model CafeOrderItem {
+  id           Int          @id @default(autoincrement())
+  orderId      Int
+  menuItemId   Int
+  itemName     String
+  price        Int
+  quantity     Int
+  subtotal     Int
+  modifiers    String?
+  notes        String?
+  status       String       @default("pending")
+  createdAt    DateTime     @default(now())
+  cafeOrder    CafeOrder    @relation("cafe_order_items_orderId", fields: [orderId], references: [id], onDelete: Cascade)
+  cafeMenuItem CafeMenuItem @relation("cafe_order_items_menuItemId", fields: [menuItemId], references: [id], onDelete: Restrict)
+
+  @@map("cafe_order_items")
+}
+
+model Supplier {
+  id             Int             @id @default(autoincrement())
+  name           String          @unique
+  contact        String?
+  phone          String?
+  email          String?
+  address        String?
+  active         Boolean         @default(true)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime
+  purchaseOrders PurchaseOrder[] @relation("purchase_orders_supplierId")
+
+  @@map("suppliers")
+}
+
+model InventoryItem {
+  id                 Int                 @id @default(autoincrement())
+  sku                String              @unique
+  name               String
+  category           String?
+  unit               String              @default("pcs")
+  currentStock       Int                 @default(0)
+  minStock           Int                 @default(0)
+  cost               Int                 @default(0)
+  active             Boolean             @default(true)
+  expiresAt          DateTime?
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime
+  purchaseOrderItems PurchaseOrderItem[] @relation("purchase_order_items_itemId")
+  stockMovements     StockMovement[]     @relation("stock_movements_itemId")
+
+  @@index([name])
+  @@index([active])
+  @@map("inventory_items")
+}
+
+model PurchaseOrder {
+  id                 Int                 @id @default(autoincrement())
+  poNumber           String              @unique
+  supplierId         Int
+  status             String              @default("draft")
+  totalAmount        Int                 @default(0)
+  notes              String?
+  orderedAt          DateTime?
+  receivedAt         DateTime?
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime
+  supplier           Supplier            @relation("purchase_orders_supplierId", fields: [supplierId], references: [id], onDelete: Restrict)
+  purchaseOrderItems PurchaseOrderItem[] @relation("purchase_order_items_orderId")
+
+  @@map("purchase_orders")
+}
+
+model PurchaseOrderItem {
+  id            Int           @id @default(autoincrement())
+  orderId       Int
+  itemId        Int
+  quantity      Int
+  unitCost      Int
+  subtotal      Int
+  received      Int           @default(0)
+  purchaseOrder PurchaseOrder @relation("purchase_order_items_orderId", fields: [orderId], references: [id], onDelete: Cascade)
+  inventoryItem InventoryItem @relation("purchase_order_items_itemId", fields: [itemId], references: [id], onDelete: Restrict)
+
+  @@map("purchase_order_items")
+}
+
+model StockMovement {
+  id            Int           @id @default(autoincrement())
+  itemId        Int
+  type          String
+  quantity      Int
+  unitCost      Int           @default(0)
+  reference     String?
+  notes         String?
+  userId        Int?
+  createdAt     DateTime      @default(now())
+  inventoryItem InventoryItem @relation("stock_movements_itemId", fields: [itemId], references: [id], onDelete: Restrict)
+
+  @@map("stock_movements")
+}
+
+model CashflowEntry {
+  id          Int      @id @default(autoincrement())
+  type        String
+  category    String
+  amount      Int
+  description String?
+  reference   String?
+  date        DateTime @default(now())
+  userId      Int?
+  createdAt   DateTime @default(now())
+
+  @@map("cashflow_entries")
+}
+
+model Member {
+  id         Int       @id @default(autoincrement())
+  name       String
+  email      String?   @unique
+  phone      String?   @unique
+  memberNo   String    @unique
+  level      String    @default("bronze")
+  points     Int       @default(0)
+  totalSpend Int       @default(0)
+  active     Boolean   @default(true)
+  birthDate  DateTime?
+  joinedAt   DateTime  @default(now())
+  updatedAt  DateTime
+
+  @@index([level])
+  @@index([email])
+  @@index([phone])
+  @@map("members")
+}
+
+model Voucher {
+  id          Int       @id @default(autoincrement())
+  code        String    @unique
+  type        String    @default("percent")
+  value       Int
+  minPurchase Int       @default(0)
+  maxUse      Int?
+  usedCount   Int       @default(0)
+  active      Boolean   @default(true)
+  expiresAt   DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@map("vouchers")
+}
+
+model Employee {
+  id         Int      @id @default(autoincrement())
+  name       String
+  email      String?  @unique
+  phone      String?
+  position   String?
+  department String?
+  salary     Int      @default(0)
+  active     Boolean  @default(true)
+  joinedAt   DateTime @default(now())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime
+
+  @@map("employees")
+}
+
+model SouvenirItem {
+  id          Int      @id @default(autoincrement())
+  sku         String   @unique
+  name        String
+  category    String?
+  price       Int
+  cost        Int      @default(0)
+  stock       Int      @default(0)
+  minStock    Int      @default(0)
+  active      Boolean  @default(true)
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime
+
+  @@map("souvenir_items")
+}
+
+model Warehouse {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  code      String   @unique
+  address   String?
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+
+  @@map("warehouses")
+}
+
+model Purchasing {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  description String?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime
+
+  @@index([name])
+  @@index([active])
+  @@map("purchasings")
+}

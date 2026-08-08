@@ -1,0 +1,127 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-08-07T11:09:01.703Z",
+  "fileCount": 24,
+  "files": [
+    {
+      "path": "apps/api/prisma/generated/ticket-sale.prisma",
+      "generator": "prisma",
+      "hash": "046e8cd02b5ad45b2f96f05b6703f10b4cec1f51a2e73b7ffcf937edc1763f7f"
+    },
+    {
+      "path": "apps/api/src/api/index.ts",
+      "generator": "barrel",
+      "hash": "28fb778b85cc77575925ff7ff297703a61291942b2a1eb0ddbb244947d30c1e0"
+    },
+    {
+      "path": "apps/api/src/api/TicketSaleApi.ts",
+      "generator": "api",
+      "hash": "8ff97a05b7b1ce3a2ebce4a8cfbfbffd23b3d06fad7c838771eb2d76bc237664"
+    },
+    {
+      "path": "apps/api/src/controllers/index.ts",
+      "generator": "barrel",
+      "hash": "6a833ffd3216a76b033bf21e205ad768ecec20e0bd3060536c8e3e264ac45d18"
+    },
+    {
+      "path": "apps/api/src/controllers/TicketSaleController.ts",
+      "generator": "controller",
+      "hash": "f956a8cc159bdf15e3488d12a760f4fb97c73ead8b8631b1aa9fedc4280fe4b1"
+    },
+    {
+      "path": "apps/api/src/dto/index.ts",
+      "generator": "barrel",
+      "hash": "9c3dc576e829c8f68d9a83c0a65edaf4f869584802c595e1ba9c81a762546eda"
+    },
+    {
+      "path": "apps/api/src/dto/TicketSaleDto.ts",
+      "generator": "dto",
+      "hash": "054670945880e791e80aa409ac8f03c33924e44fb278fb21e36e311f35ff14bf"
+    },
+    {
+      "path": "apps/api/src/openapi/TicketSaleOpenApi.ts",
+      "generator": "openapi",
+      "hash": "009e646ff72b376e956e1dab6020db11c3ab1915386fda1c74b5835a5c32110f"
+    },
+    {
+      "path": "apps/api/src/repositories/index.ts",
+      "generator": "barrel",
+      "hash": "28676a1b1a7d51733874d0415c2820d77b9f940425f3f8088eda4075301dd97d"
+    },
+    {
+      "path": "apps/api/src/repositories/TicketSaleRepository.ts",
+      "generator": "repository",
+      "hash": "517955958d4962b89b40c98bd21b9c94fc7965de039c479af1c774f5a08978b7"
+    },
+    {
+      "path": "apps/api/src/routes/ticket-sale.routes.ts",
+      "generator": "route",
+      "hash": "da3ebe2be3ee4f90e1e58b666db12eca307e4783c6863526ad4564f664f167a8"
+    },
+    {
+      "path": "apps/api/src/services/index.ts",
+      "generator": "barrel",
+      "hash": "d171f5f361225712daa7b80006a416114ec5029fae9385bda1b0fe13b51daea1"
+    },
+    {
+      "path": "apps/api/src/services/TicketSaleService.ts",
+      "generator": "service",
+      "hash": "ea11bb404e136f18479765b328158dbac3430ef75cd48b9185f7b2af526413cc"
+    },
+    {
+      "path": "apps/api/src/validators/TicketSaleValidator.ts",
+      "generator": "validator",
+      "hash": "a7980b8ca6dc680498b1ed92ab833d5c564ddc1c5359d57a7847ef57ce521e6c"
+    },
+    {
+      "path": "apps/web/src/api/TicketSaleApi.ts",
+      "generator": "react-query",
+      "hash": "d935441e4e77b5b27bcb8b80dd17e480eeb2dfcafe121c388ef6c177388ce021"
+    },
+    {
+      "path": "apps/web/src/components/index.ts",
+      "generator": "barrel",
+      "hash": "d88e2714bd48367c345f894641e6aecd40005a2650af12fc1b45d771f6954fe8"
+    },
+    {
+      "path": "apps/web/src/components/TicketSaleForm.tsx",
+      "generator": "form",
+      "hash": "083aacb0951b25d5f9f111500f67a0b6d5e6b068abae6b5ce3d0c6d70a929b94"
+    },
+    {
+      "path": "apps/web/src/components/TicketSaleTable.tsx",
+      "generator": "table",
+      "hash": "52a3a6e4df0674ebe30e927759b8a31924b4d04215e9f35639ee36415e37b23d"
+    },
+    {
+      "path": "apps/web/src/hooks/index.ts",
+      "generator": "barrel",
+      "hash": "a0183163d813112893109f48e98b55613616bcc09d2b11da33079f4b9f990735"
+    },
+    {
+      "path": "apps/web/src/hooks/useTicketSale.ts",
+      "generator": "hooks",
+      "hash": "84750bff5cc1706b4ab20cd7624c9e338685430b2de55e778e093c1088423f2c"
+    },
+    {
+      "path": "apps/web/src/modules/index.ts",
+      "generator": "barrel",
+      "hash": "7cc2920320fd987ea36e90e98cddfcd5404ba544d71e21697d4fcb077c69ba66"
+    },
+    {
+      "path": "apps/web/src/modules/ticket-sale/index.ts",
+      "generator": "module",
+      "hash": "d807890c80575d5a57cca472593dda7127b801d0cc767144c6ac39bed7949c11"
+    },
+    {
+      "path": "apps/web/src/pages/index.ts",
+      "generator": "barrel",
+      "hash": "a704a713d2e703d4492934fb47fceced0550f7072844269985fa6be580632b87"
+    },
+    {
+      "path": "apps/web/src/pages/TicketSalePage.tsx",
+      "generator": "page",
+      "hash": "94db63e88c3ab601e675ab4d9a1afdf2bf548ce474ffd80f726e4c301a5af16b"
+    }
+  ]
+}

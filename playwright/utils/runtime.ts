@@ -303,17 +303,17 @@ function compareImages(actualBuffer: Buffer, expectedBuffer: Buffer): number {
   return diffPixels / (width * height);
 }
 
-export async function expectScreenshotMatchesBaseline(page: Page, baselineFilePath: string, maskSelectors: string[] = []): Promise<void> {
+export async function expectScreenshotMatchesBaseline(page: Page, baselineFilePath: string, maskSelectors: string[] = [], maxDiffRatio = 0.01): Promise<void> {
   const actual = await page.screenshot({ fullPage: true });
   const expected = await fs.readFile(path.resolve(baselineFilePath));
   const maskRects = await getMaskRects(page, maskSelectors);
   const normalizedActual = paintMask(actual, maskRects);
   const normalizedExpected = paintMask(expected, maskRects);
   const diffRatio = compareImages(normalizedActual, normalizedExpected);
-  expect(diffRatio).toBeLessThanOrEqual(0.01);
+  expect(diffRatio).toBeLessThanOrEqual(maxDiffRatio);
 }
 
-export async function expectElementScreenshotMatchesBaseline(page: Page, selector: string, baselineFilePath: string, maskSelectors: string[] = []): Promise<void> {
+export async function expectElementScreenshotMatchesBaseline(page: Page, selector: string, baselineFilePath: string, maskSelectors: string[] = [], maxDiffRatio = 0.01): Promise<void> {
   const locator = page.locator(selector).first();
   const box = await locator.evaluate((element) => {
     const rect = element.getBoundingClientRect();
@@ -343,7 +343,7 @@ export async function expectElementScreenshotMatchesBaseline(page: Page, selecto
   const normalizedActual = paintMask(actual, cropMaskRects);
   const normalizedExpected = paintMask(expectedCrop, cropMaskRects);
   const diffRatio = compareImages(normalizedActual, normalizedExpected);
-  expect(diffRatio).toBeLessThanOrEqual(0.01);
+  expect(diffRatio).toBeLessThanOrEqual(maxDiffRatio);
 }
 
 export function baselineScreenshotPath(fileName: string): string {

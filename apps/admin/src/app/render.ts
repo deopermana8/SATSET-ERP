@@ -555,6 +555,7 @@ svg.chart{width:100%;overflow:visible}
     <div class="sb-item" data-nav="finance" onclick="gt('list','finance')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/></svg><span class="lbl">Finance</span></div>
     <div class="sb-item" data-nav="accounting" onclick="gt('list','accounting')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg><span class="lbl">Accounting</span></div>
     <div class="sb-lbl">Laporan</div>
+    <div class="sb-item" data-nav="laporan" onclick="gt('report')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3h12v14H4zM6 6h8v2H6zm0 4h8v2H6z"/></svg><span class="lbl">ERP Wisata</span></div>
     <div class="sb-item" data-nav="ticketing" onclick="gt('list','ticketing')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3h12v14H4zM6 6h8v2H6zm0 4h8v2H6z"/></svg><span class="lbl">Ticket</span></div>
     <div class="sb-item" data-nav="reservasi" onclick="gt('list','reservasi')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3h12v14H4zM6 6h8v2H6zm0 4h8v2H6z"/></svg><span class="lbl">Booking</span></div>
     <div class="sb-item" data-nav="cafe" onclick="gt('list','cafe')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3h12v14H4zM6 6h8v2H6zm0 4h8v2H6z"/></svg><span class="lbl">Cafe</span></div>
@@ -563,6 +564,12 @@ svg.chart{width:100%;overflow:visible}
     <div class="sb-lbl">Master Data</div>
     <div class="sb-item" data-nav="ticketing" onclick="gt('list','ticketing')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2h8a2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5z" clip-rule="evenodd"/></svg><span class="lbl">Tarif</span></div>
     <div class="sb-item" data-nav="paket-wisata" onclick="gt('list','paket-wisata')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2h8a2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5z" clip-rule="evenodd"/></svg><span class="lbl">Paket</span></div>
+    <div class="sb-item" data-nav="supplier" onclick="gt('list','supplier')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M4 4h12v12H4zM6 6h8v2H6zm0 4h8v2H6z"/></svg><span class="lbl">Supplier</span></div>
+    <div class="sb-item" data-nav="purchase-order" onclick="gt('list','purchase-order')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M5 3h10l2 3v11H3V6l2-3zm1 5h8v2H6zm0 4h8v2H6z"/></svg><span class="lbl">Purchasing</span></div>
+    <div class="sb-item" data-nav="stock-movement" onclick="gt('list','stock-movement')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M4 15h12v2H4zm1-3l3-3 2 2 4-5 1 1-5 6-2-2-2 2z"/></svg><span class="lbl">Stock Movement</span></div>
+    <div class="sb-item" data-nav="menu-category" onclick="gt('list','menu-category')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4h14v3H3zM3 9h14v3H3zM3 14h14v3H3z"/></svg><span class="lbl">Menu Category</span></div>
+    <div class="sb-item" data-nav="menu-item" onclick="gt('list','menu-item')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M6 2h8l1 6H5l1-6zm-1 8h10v8H5v-8z"/></svg><span class="lbl">Menu Item</span></div>
+    <div class="sb-item" data-nav="inventory" onclick="gt('list','inventory')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M3 5l7-3 7 3-7 3-7-3zm0 3l7 3 7-3v7l-7 3-7-3V8z"/></svg><span class="lbl">Inventory</span></div>
     <div class="sb-item" data-nav="cafe" onclick="gt('list','cafe')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4h11v8a4 4 0 01-4 4H7a4 4 0 01-4-4V4zm12 2h1a2 2 0 110 4h-1V6z"/></svg><span class="lbl">Menu</span></div>
     <div class="sb-item" data-nav="outbound" onclick="openOutboundEquipment()"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M3 5l7-3 7 3-7 3-7-3zm0 3l7 3 7-3v7l-7 3-7-3V8z"/></svg><span class="lbl">Peralatan</span></div>
     <div class="sb-item" data-nav="outbound" onclick="openOutboundInstructor()"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg><span class="lbl">Instruktur</span></div>
@@ -714,6 +721,47 @@ svg.chart{width:100%;overflow:visible}
       </div>
     </section>
 
+    <!-- REPORT -->
+    <section class="view" id="v-report">
+      <div class="back" onclick="gt('dashboard')"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg> Beranda</div>
+      <div class="ph">
+        <div><div class="ph-title">Laporan ERP Wisata</div><div class="ph-sub">Ringkasan operasional, financial, dan reservation dari API.</div></div>
+      </div>
+      <div class="card">
+        <div class="card-hd"><div class="card-title">Filter Periode</div><span class="badge b-active">Live API</span></div>
+        <div class="card-body">
+          <div class="form-grid" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:end;">
+            <div><label>Dari Tanggal</label><input id="report-from" type="date"/></div>
+            <div><label>Sampai Tanggal</label><input id="report-to" type="date"/></div>
+            <div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;">
+              <button class="btn btn-o" id="report-reset" type="button">Reset</button>
+              <button class="btn btn-p" id="report-load" type="button">Muat Laporan</button>
+            </div>
+          </div>
+          <div id="report-state" class="mt-10"></div>
+        </div>
+      </div>
+      <div class="grid grid-3" id="report-sections">
+        <article class="card">
+          <h3 style="margin-bottom:10px;">Operational</h3>
+          <pre id="report-operational" style="white-space:pre-wrap;font:12px/1.4 monospace;">-</pre>
+        </article>
+        <article class="card">
+          <h3 style="margin-bottom:10px;">Financial</h3>
+          <pre id="report-financial" style="white-space:pre-wrap;font:12px/1.4 monospace;">-</pre>
+        </article>
+        <article class="card">
+          <h3 style="margin-bottom:10px;">Reservation</h3>
+          <pre id="report-reservation" style="white-space:pre-wrap;font:12px/1.4 monospace;">-</pre>
+        </article>
+      </div>
+      <div class="card" id="report-empty" style="display:none;">
+        <div class="empty-ill">🧭</div>
+        <div class="empty-title">Data Laporan Belum Tersedia</div>
+        <div class="empty-desc">Tidak ada nilai report pada periode yang dipilih.</div>
+      </div>
+    </section>
+
     <!-- FORM -->
     <section class="view" id="v-form">
       <div class="back" id="fbk"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg> Kembali</div>
@@ -841,6 +889,7 @@ var activeTheme=localStorage.getItem('satset-theme-mode')||'dark';
 var ticketScanHistory=JSON.parse(localStorage.getItem('satset-ticket-scan-history')||'[]');
 var checkInQueue=JSON.parse(localStorage.getItem('satset-checkin-queue')||'[]');
 var bookingCounter=JSON.parse(localStorage.getItem('satset-booking-counter')||'{}');
+var reportState={from:'',to:'',loading:false,data:null,error:'',bound:false};
 var accountingJournals=JSON.parse(localStorage.getItem('satset-accounting-journals')||'[]');
 var accountingClosings=JSON.parse(localStorage.getItem('satset-accounting-closing')||'[]');
 var cafeOrders=JSON.parse(localStorage.getItem('satset-cafe-orders')||'[]');
@@ -1186,6 +1235,18 @@ function markTicketScan(ticketNo,result,gate,petugas,reason){
 function syncStatusOptionsForEntity(en){
   var sst=byId('sst'),sf=byId('sf-status');
   if(!sst||!sf)return;
+  if(en==='purchase-order'){
+    var poBase='<option value="">Semua Status</option><option value="DRAFT">DRAFT</option><option value="APPROVED">APPROVED</option><option value="RECEIVED">RECEIVED</option><option value="CANCELLED">CANCELLED</option>';
+    sst.innerHTML=poBase;
+    sf.innerHTML=poBase.replace('Semua Status','Status: Semua');
+    return;
+  }
+  if(en==='stock-movement'){
+    var smBase='<option value="">Semua Status</option><option value="IN">IN</option><option value="OUT">OUT</option><option value="ADJUSTMENT">ADJUSTMENT</option>';
+    sst.innerHTML=smBase;
+    sf.innerHTML=smBase.replace('Semua Status','Status: Semua');
+    return;
+  }
   if(en==='finance'){
     var financeBase='<option value="">Semua Status</option>'+(FINANCE_TRANSACTION||[]).map(function(s){return '<option value="'+s+'">'+s+'</option>'}).join('');
     sst.innerHTML=financeBase;
@@ -1221,6 +1282,10 @@ function syncTicketingActions(en){
 function syncFormStatusOptions(en){
   var fst=byId('fst');
   if(!fst)return;
+  if(en==='purchase-order'){
+    fst.innerHTML='<option value="DRAFT">DRAFT</option><option value="APPROVED">APPROVED</option><option value="RECEIVED">RECEIVED</option><option value="CANCELLED">CANCELLED</option>';
+    return;
+  }
   if(en==='finance'){
     fst.innerHTML=(FINANCE_TRANSACTION||[]).map(function(s){return '<option value="'+s+'">'+s+'</option>'}).join('');
     return;
@@ -1393,6 +1458,130 @@ function eSearchable(k){var m=eMeta(k);return m&&Array.isArray(m.searchableField
 function eSortable(k){var m=eMeta(k);return m&&Array.isArray(m.sortableFields)&&m.sortableFields.length?m.sortableFields:['name','status']}
 function eSortDefault(k){var m=eMeta(k);return m&&m.defaultSort?m.defaultSort:{field:'name',direction:'asc'}}
 function ePageSize(k){var m=eMeta(k);return m&&m.defaultPageSize?Number(m.defaultPageSize):10}
+function supportsEntityCreate(entity){return entity!=='stock-movement'}
+function supportsEntityUpdate(entity){return entity!=='menu-category'&&entity!=='purchase-order'&&entity!=='stock-movement'}
+function supportsEntityDelete(entity){return entity!=='menu-category'&&entity!=='inventory'&&entity!=='purchase-order'&&entity!=='stock-movement'}
+function supportsEntityDetail(entity){return entity==='supplier'||entity==='purchase-order'||entity==='inventory'}
+function toUiStatusFromActive(active){return active===false?'nonaktif':'aktif'}
+function toApiActiveFromStatus(status){return String(status||'aktif').toLowerCase()!=='nonaktif'}
+function normalizeEntityRows(entity,payload){
+  var rows=Array.isArray(payload)?payload:((payload&&payload.data)||[]);
+  if(!Array.isArray(rows))rows=[];
+  if(entity==='supplier'){
+    return rows.map(function(row){return{id:String(row.id||''),name:String(row.name||''),status:toUiStatusFromActive(row.active),active:!!row.active,code:String(row.code||''),phone:String(row.phone||''),email:String(row.email||''),address:String(row.address||'')}});
+  }
+  if(entity==='purchase-order'){
+    return rows.map(function(row){return{id:String(row.id||''),name:String(row.poNumber||row.name||''),status:String(row.status||'DRAFT').toUpperCase(),poNumber:String(row.poNumber||''),supplierId:String(row.supplierId||''),supplierName:String(row.supplierName||''),items:Array.isArray(row.items)?row.items:[],subtotal:Number(row.subtotal||0),total:Number(row.total||0),createdAt:String(row.createdAt||''),updatedAt:String(row.updatedAt||'')}});
+  }
+  if(entity==='stock-movement'){
+    return rows.map(function(row){return{id:String(row.id||''),name:String(row.reference||('Inventory '+String(row.inventoryId||''))),status:String(row.movementType||''),inventoryId:String(row.inventoryId||''),movementType:String(row.movementType||''),qty:Number(row.qty||0),balance:Number(row.balance||0),reference:String(row.reference||''),createdAt:String(row.createdAt||'')}});
+  }
+  if(entity==='menu-category'){
+    return rows.map(function(row){return{id:String(row.id||''),name:String(row.name||''),status:toUiStatusFromActive(row.active),active:!!row.active,code:String(row.code||'')}});
+  }
+  if(entity==='menu-item'){
+    return rows.map(function(row){return{id:String(row.id||''),name:String(row.name||''),status:toUiStatusFromActive(row.active),active:!!row.active,code:String(row.code||''),categoryId:String(row.categoryId||''),price:Number(row.price||0),stock:Number(row.stock||0)}});
+  }
+  if(entity==='inventory'){
+    return rows.map(function(row){return{id:String(row.id||''),name:String(row.name||''),status:toUiStatusFromActive(row.active),active:!!row.active,code:String(row.code||''),unit:String(row.unit||''),category:String(row.category||''),minimumStock:Number(row.minimumStock||0),currentStock:Number(row.currentStock||0),averageCost:Number(row.averageCost||0)}});
+  }
+  return rows;
+}
+function getEntityTotal(payload,rows){
+  if(payload&&typeof payload.total==='number')return Number(payload.total)||rows.length;
+  return rows.length;
+}
+async function buildCreatePayload(entity,name,status){
+  if(entity==='supplier'){
+    var supplierCode=(window.prompt('Kode supplier','SUP-'+String(Date.now()).slice(-4))||'').trim();
+    var supplierPhone=(window.prompt('Telepon supplier','081234567890')||'').trim();
+    var supplierEmail=(window.prompt('Email supplier','supplier@test.local')||'').trim();
+    var supplierAddress=(window.prompt('Alamat supplier','Alamat supplier test')||'').trim();
+    if(!supplierCode)throw new Error('Kode supplier wajib diisi');
+    if(!supplierPhone)throw new Error('Telepon supplier wajib diisi');
+    if(!supplierEmail)throw new Error('Email supplier wajib diisi');
+    if(!supplierAddress)throw new Error('Alamat supplier wajib diisi');
+    return {code:supplierCode,name:name,phone:supplierPhone,email:supplierEmail,address:supplierAddress,active:toApiActiveFromStatus(status)};
+  }
+  if(entity==='purchase-order'){
+    var supplierRows=normalizeEntityRows('supplier',await apf('/api/supplier',{method:'GET',cacheTtlMs:0}));
+    var inventoryRows=normalizeEntityRows('inventory',await apf('/api/inventory',{method:'GET',cacheTtlMs:0}));
+    if(!supplierRows.length)throw new Error('Supplier belum tersedia. Buat supplier terlebih dahulu.');
+    if(!inventoryRows.length)throw new Error('Inventory belum tersedia. Buat inventory terlebih dahulu.');
+    var supplierHint=supplierRows.slice(0,8).map(function(row){return row.id+'='+row.name}).join(', ');
+    var inventoryHint=inventoryRows.slice(0,8).map(function(row){return row.id+'='+row.name}).join(', ');
+    var supplierId=(window.prompt('Pilih supplierId ('+supplierHint+')',String(supplierRows[0].id||''))||'').trim();
+    var inventoryId=(window.prompt('Pilih inventoryId ('+inventoryHint+')',String(inventoryRows[0].id||''))||'').trim();
+    var qtyRaw=window.prompt('Qty purchase order','1');
+    var unitCostRaw=window.prompt('Unit cost','1000');
+    var qty=Number(qtyRaw||0);
+    var unitCost=Number(unitCostRaw||0);
+    var supplierRow=supplierRows.find(function(row){return row.id===supplierId});
+    var inventoryRow=inventoryRows.find(function(row){return row.id===inventoryId});
+    if(!supplierRow)throw new Error('supplierId tidak valid');
+    if(!inventoryRow)throw new Error('inventoryId tidak valid');
+    if(!Number.isInteger(qty)||qty<=0)throw new Error('Qty purchase order harus bilangan bulat > 0');
+    if(!Number.isFinite(unitCost)||unitCost<0)throw new Error('Unit cost tidak valid');
+    return {supplierId:supplierId,supplierName:supplierRow.name,items:[{inventoryId:inventoryId,inventoryName:inventoryRow.name,qty:qty,unitCost:unitCost,total:qty*unitCost}]};
+  }
+  if(entity==='menu-category'){
+    var categoryCode=(window.prompt('Kode kategori menu','CAT-'+String(Date.now()).slice(-4))||'').trim();
+    if(!categoryCode)throw new Error('Kode kategori wajib diisi');
+    return {code:categoryCode,name:name,active:toApiActiveFromStatus(status)};
+  }
+  if(entity==='menu-item'){
+    var categoryRows=normalizeEntityRows('menu-category',await apf('/api/menu-category',{method:'GET',cacheTtlMs:0}));
+    if(!categoryRows.length)throw new Error('Menu category belum tersedia. Buat category terlebih dahulu.');
+    var categoryHint=categoryRows.slice(0,8).map(function(row){return row.id+'='+row.name}).join(', ');
+    var selectedCategory=(window.prompt('Pilih categoryId ('+categoryHint+')',String(categoryRows[0].id||''))||'').trim();
+    if(!selectedCategory)throw new Error('categoryId wajib diisi');
+    var menuCode=(window.prompt('Kode menu item','MNU-'+String(Date.now()).slice(-4))||'').trim();
+    if(!menuCode)throw new Error('Kode menu item wajib diisi');
+    var priceRaw=window.prompt('Harga menu','0');
+    var stockRaw=window.prompt('Stok awal','0');
+    var price=Number(priceRaw||0);
+    var stock=Number(stockRaw||0);
+    if(!Number.isFinite(price)||price<0)throw new Error('Harga menu tidak valid');
+    if(!Number.isInteger(stock)||stock<0)throw new Error('Stok menu harus bilangan bulat >= 0');
+    return {categoryId:selectedCategory,code:menuCode,name:name,price:price,stock:stock,active:toApiActiveFromStatus(status)};
+  }
+  if(entity==='inventory'){
+    var invCode=(window.prompt('Kode inventory','INV-'+String(Date.now()).slice(-4))||'').trim();
+    var invUnit=(window.prompt('Unit inventory','pcs')||'').trim();
+    var invCategory=(window.prompt('Kategori inventory','Bahan Baku')||'').trim();
+    var minimumRaw=window.prompt('Minimum stock','0');
+    var currentRaw=window.prompt('Current stock','0');
+    var costRaw=window.prompt('Average cost','0');
+    if(!invCode)throw new Error('Kode inventory wajib diisi');
+    if(!invUnit)throw new Error('Unit inventory wajib diisi');
+    if(!invCategory)throw new Error('Kategori inventory wajib diisi');
+    var minimumStock=Number(minimumRaw||0);
+    var currentStock=Number(currentRaw||0);
+    var averageCost=Number(costRaw||0);
+    if(!Number.isFinite(minimumStock)||minimumStock<0)throw new Error('Minimum stock tidak valid');
+    if(!Number.isFinite(currentStock)||currentStock<0)throw new Error('Current stock tidak valid');
+    if(!Number.isFinite(averageCost)||averageCost<0)throw new Error('Average cost tidak valid');
+    return {code:invCode,name:name,unit:invUnit,category:invCategory,minimumStock:minimumStock,currentStock:currentStock,averageCost:averageCost,active:toApiActiveFromStatus(status)};
+  }
+  return {name:name,status:status};
+}
+async function buildUpdatePayload(entity,name,status,currentRow){
+  if(entity==='supplier'){
+    var nextCode=(window.prompt('Kode supplier',String((currentRow&&currentRow.code)||''))||'').trim();
+    var nextPhone=(window.prompt('Telepon supplier',String((currentRow&&currentRow.phone)||''))||'').trim();
+    var nextEmail=(window.prompt('Email supplier',String((currentRow&&currentRow.email)||''))||'').trim();
+    var nextAddress=(window.prompt('Alamat supplier',String((currentRow&&currentRow.address)||''))||'').trim();
+    if(!nextCode)throw new Error('Kode supplier wajib diisi');
+    if(!nextPhone)throw new Error('Telepon supplier wajib diisi');
+    if(!nextEmail)throw new Error('Email supplier wajib diisi');
+    if(!nextAddress)throw new Error('Alamat supplier wajib diisi');
+    return {code:nextCode,name:name,phone:nextPhone,email:nextEmail,address:nextAddress,active:toApiActiveFromStatus(status)};
+  }
+  if(entity==='menu-item'||entity==='inventory'||entity==='menu-category'){
+    return {name:name,active:toApiActiveFromStatus(status)};
+  }
+  return {name:name,status:status};
+}
 function recAudit(action,payload){AUD.push({entity:ent,action:action,at:Date.now(),payload:payload||{}});if(AUD.length>800)AUD.shift()}
 function canToolbarAction(k,action){var tools=ETOOL[k]||[];var hit=tools.find(function(t){return t.key===action});return hit?!!hit.enabled:true}
 function applyEntityToolbar(k){
@@ -1404,6 +1593,8 @@ function applyEntityToolbar(k){
   if(xls)xls.style.display=canToolbarAction(k,'export')?'':'none';
   if(imp)imp.style.display=canToolbarAction(k,'import')?'':'none';
   if(bd)bd.style.display=canToolbarAction(k,'delete')?'':'none';
+  if(add&&!supportsEntityCreate(k))add.style.display='none';
+  if(bd&&!supportsEntityDelete(k))bd.style.display='none';
 }
 function syncSidebarTooltips(){
   var collapsed=document.getElementById('sidebar').classList.contains('col');
@@ -1503,7 +1694,10 @@ function gt(v,e){
   closeDrawer();
   document.querySelectorAll('.view').forEach(function(x){x.classList.remove('on')});
   document.querySelectorAll('[data-nav]').forEach(function(x){x.classList.remove('active')});
-  var nk=(v==='list'||v==='form')?e:'dashboard',ne=document.querySelector('[data-nav="'+nk+'"]');
+  var nk='dashboard';
+  if(v==='list'||v==='form')nk=e;
+  if(v==='report')nk='laporan';
+  var ne=document.querySelector('[data-nav="'+nk+'"]');
   if(ne)ne.classList.add('active');
   if(v==='dashboard'){
     document.getElementById('v-dash').classList.add('on');
@@ -1525,6 +1719,10 @@ function gt(v,e){
     syncTicketingActions(e);
     setCr(['Beranda',lb]);
     ldList(e);
+  }else if(v==='report'){
+    document.getElementById('v-report').classList.add('on');
+    setCr(['Beranda','Laporan ERP Wisata']);
+    initReportView();
   }else if(v==='form'&&e){
     ent=e;
     document.getElementById('v-form').classList.add('on');
@@ -1632,6 +1830,127 @@ function fltSideMenu(q){
     var txt=(el.querySelector('.lbl')&&el.querySelector('.lbl').textContent||'').toLowerCase();
     el.style.display=(!kw||txt.includes(kw))?'':'none';
   });
+}
+function dateKeyFromOffset(dayOffset){
+  var d=new Date(Date.now()+dayOffset*86400000);
+  return d.toISOString().slice(0,10);
+}
+function readReportFilters(){
+  var fromInput=byId('report-from');
+  var toInput=byId('report-to');
+  reportState.from=(fromInput&&fromInput.value)||'';
+  reportState.to=(toInput&&toInput.value)||'';
+}
+function updateReportStateView(){
+  var stateNode=byId('report-state');
+  var loadBtn=byId('report-load');
+  if(loadBtn){
+    loadBtn.disabled=reportState.loading;
+    loadBtn.textContent=reportState.loading?'Memuat...':'Muat Laporan';
+  }
+  if(!stateNode)return;
+  if(reportState.loading){
+    stateNode.innerHTML='<div class="sk sk-lg"></div>';
+    return;
+  }
+  if(reportState.error){
+    stateNode.innerHTML='<div class="badge b-pending">Error</div> <span>'+escHtml(reportState.error)+'</span>';
+    return;
+  }
+  if(reportState.data&&reportState.data.period){
+    var pd=reportState.data.period;
+    stateNode.innerHTML='<div class="badge b-active">Periode</div> <span>'+(pd.from||'-')+' s/d '+(pd.to||'-')+'</span>';
+    return;
+  }
+  stateNode.innerHTML='';
+}
+function reportHasValue(node){
+  if(node===null||typeof node==='undefined')return false;
+  if(typeof node==='number')return node!==0;
+  if(typeof node==='string')return node.trim().length>0;
+  if(Array.isArray(node))return node.length>0&&node.some(reportHasValue);
+  if(typeof node==='object'){
+    var keys=Object.keys(node);
+    if(!keys.length)return false;
+    return keys.some(function(k){return reportHasValue(node[k])});
+  }
+  return false;
+}
+function renderReportSections(){
+  var data=reportState.data||{};
+  var operational=data.operational||{};
+  var financial=data.financial||{};
+  var reservation=data.reservation||{};
+  var emptyNode=byId('report-empty');
+  var sectionsNode=byId('report-sections');
+  var isEmpty=!reportHasValue(operational)&&!reportHasValue(financial)&&!reportHasValue(reservation);
+  if(emptyNode)emptyNode.style.display=(reportState.loading||reportState.error||!isEmpty)?'none':'';
+  if(sectionsNode)sectionsNode.style.display=(reportState.loading||reportState.error||isEmpty)?'none':'grid';
+  byId('report-operational').textContent=JSON.stringify(operational,null,2);
+  byId('report-financial').textContent=JSON.stringify(financial,null,2);
+  byId('report-reservation').textContent=JSON.stringify(reservation,null,2);
+}
+async function loadReportData(){
+  readReportFilters();
+  if(reportState.from&&reportState.to&&reportState.from>reportState.to){
+    reportState.error='Filter periode tidak valid: from tidak boleh melebihi to';
+    reportState.loading=false;
+    reportState.data=null;
+    updateReportStateView();
+    renderReportSections();
+    return;
+  }
+  reportState.loading=true;
+  reportState.error='';
+  updateReportStateView();
+  renderReportSections();
+  try{
+    var qp=[];
+    if(reportState.from)qp.push('from='+encodeURIComponent(reportState.from));
+    if(reportState.to)qp.push('to='+encodeURIComponent(reportState.to));
+    var path='/api/erp-wisata/report'+(qp.length?('?'+qp.join('&')):'');
+    var data=await apf(path,{method:'GET',headers:{'authorization':'Bearer workspace-token'}});
+    reportState.data=data||null;
+  }catch(e){
+    reportState.data=null;
+    var errorMessage=e&&e.message?String(e.message):'Gagal memuat laporan';
+    if(errorMessage.indexOf('HTTP 403')>=0){
+      reportState.error='Akses laporan ditolak: Anda tidak memiliki permission wisata.laporan.';
+    }else{
+      reportState.error=errorMessage;
+    }
+  }finally{
+    reportState.loading=false;
+    updateReportStateView();
+    renderReportSections();
+  }
+}
+function initReportView(){
+  if(!reportState.from)reportState.from=dateKeyFromOffset(-7);
+  if(!reportState.to)reportState.to=dateKeyFromOffset(0);
+  var fromInput=byId('report-from');
+  var toInput=byId('report-to');
+  if(fromInput)fromInput.value=reportState.from;
+  if(toInput)toInput.value=reportState.to;
+  if(!reportState.bound){
+    var loadBtn=byId('report-load');
+    var resetBtn=byId('report-reset');
+    if(loadBtn)loadBtn.onclick=function(){loadReportData()};
+    if(resetBtn)resetBtn.onclick=function(){
+      reportState.from=dateKeyFromOffset(-7);
+      reportState.to=dateKeyFromOffset(0);
+      if(fromInput)fromInput.value=reportState.from;
+      if(toInput)toInput.value=reportState.to;
+      loadReportData();
+    };
+    reportState.bound=true;
+  }
+  if(!reportState.data&&!reportState.loading&&!reportState.error){
+    loadReportData();
+    return;
+  }
+  updateReportStateView();
+  renderReportSections();
 }
 function openRecent(entity){toast('Membuka '+(LABELS[entity]||entity),'success');gt('list',entity)}
 function setWidgetPref(id,patch){
@@ -2426,7 +2745,13 @@ async function ldDash(){
   var counts={};
   var started=Date.now();
   try{
-    await Promise.all(ENT.map(async function(e){try{var d=await apf(eBasePath(e));counts[e]=d.total||0}catch(_){counts[e]=0}}));
+    await Promise.all(ENT.map(async function(e){
+      try{
+        var d=await apf(eBasePath(e));
+        var rows=normalizeEntityRows(e,d);
+        counts[e]=getEntityTotal(d,rows);
+      }catch(_){counts[e]=0}
+    }));
   }catch(_err){
     dashboardActions.setOffline(true);
   }
@@ -2623,7 +2948,7 @@ async function ldList(en){
   }
   try{
     var d=await apf(eBasePath(en));
-    allR=d.data||[];
+    allR=normalizeEntityRows(en,d);
     fltR=allR.slice();
     var ds=eSortDefault(en);
     sortStack=[{k:String(ds.field||'name'),asc:String(ds.direction||'asc')!=='desc'}];
@@ -2723,6 +3048,8 @@ function rndr(){
       var b1=document.createElement('button');b1.className='rmi';b1.textContent='Lihat';b1.onclick=function(){openDrawer(r.id)};
       var b2=document.createElement('button');b2.className='rmi';b2.textContent='Ubah';b2.onclick=function(){opEd(r.id)};
       var b3=document.createElement('button');b3.className='rmi';b3.textContent='Hapus';b3.onclick=function(){opDel(r.id)};
+      if(!supportsEntityUpdate(ent)){b2.disabled=true;b2.title='Update endpoint belum tersedia';}
+      if(!supportsEntityDelete(ent)){b3.disabled=true;b3.title='Delete endpoint belum tersedia';}
       m.append(b1,b2,b3);
       mb.onclick=function(ev){ev.stopPropagation();document.querySelectorAll('.rmenu').forEach(function(x){if(x!==m)x.classList.remove('on')});m.classList.toggle('on')};
       tr.addEventListener('keydown',function(e){
@@ -2752,7 +3079,7 @@ function tRow(id,ck){if(ck)sel.add(id);else sel.delete(id);upBk();document.query
 function tAll(ck){var sl=fltR.slice((pg-1)*PS,pg*PS);sl.forEach(function(r){if(ck)sel.add(r.id);else sel.delete(r.id)});rndr();byId('chkA').checked=ck;upBk()}
 function upBk(){var b=byId('bk');b.classList.toggle('on',sel.size>0);byId('bk-c').textContent=sel.size+' dipilih'}
 function clrSel(){sel.clear();byId('chkA').checked=false;rndr();upBk()}
-async function bulkDel(){if(!sel.size||!confirm('Hapus '+sel.size+' item?'))return;var ids=Array.from(sel);if(ent==='cafe'){cafeOrders=cafeOrders.filter(function(row){return ids.indexOf(row.id)<0});saveCafeOrders();recAudit('delete',{count:ids.length,bulk:true,entity:'cafe'});toast(ids.length+' item dihapus','success');sel.clear();ldList(ent);ldDash();return}if(ent==='outbound'){outboundRecords=outboundRecords.filter(function(row){return ids.indexOf(row.id)<0});saveOutboundRecords();recAudit('delete',{count:ids.length,bulk:true,entity:'outbound'});toast(ids.length+' data outbound dihapus','success');sel.clear();ldList(ent);ldDash();return}if(ent==='finance'){financeTransactions=financeTransactions.filter(function(row){return ids.indexOf(row.id)<0});saveFinanceTransactions();recAudit('delete',{count:ids.length,bulk:true,entity:'finance'});toast(ids.length+' transaksi dihapus','success');sel.clear();ldList(ent);ldDash();return}if(ent==='accounting'){accountingJournals=accountingJournals.filter(function(row){return ids.indexOf(row.id)<0});saveAccountingJournals();recAudit('delete',{count:ids.length,bulk:true,entity:'accounting'});toast(ids.length+' jurnal dihapus','success');sel.clear();ldList(ent);ldDash();return}for(var i=0;i<ids.length;i++){try{await apf(eItemPath(ent,ids[i]),{method:'DELETE'})}catch(_){}}recAudit('delete',{count:ids.length,bulk:true});toast(ids.length+' item dihapus','success');sel.clear();ldList(ent)}
+async function bulkDel(){if(!sel.size||!confirm('Hapus '+sel.size+' item?'))return;var ids=Array.from(sel);if(!supportsEntityDelete(ent)){toast('Delete tidak tersedia untuk modul ini','error');return}if(ent==='cafe'){cafeOrders=cafeOrders.filter(function(row){return ids.indexOf(row.id)<0});saveCafeOrders();recAudit('delete',{count:ids.length,bulk:true,entity:'cafe'});toast(ids.length+' item dihapus','success');sel.clear();ldList(ent);ldDash();return}if(ent==='outbound'){outboundRecords=outboundRecords.filter(function(row){return ids.indexOf(row.id)<0});saveOutboundRecords();recAudit('delete',{count:ids.length,bulk:true,entity:'outbound'});toast(ids.length+' data outbound dihapus','success');sel.clear();ldList(ent);ldDash();return}if(ent==='finance'){financeTransactions=financeTransactions.filter(function(row){return ids.indexOf(row.id)<0});saveFinanceTransactions();recAudit('delete',{count:ids.length,bulk:true,entity:'finance'});toast(ids.length+' transaksi dihapus','success');sel.clear();ldList(ent);ldDash();return}if(ent==='accounting'){accountingJournals=accountingJournals.filter(function(row){return ids.indexOf(row.id)<0});saveAccountingJournals();recAudit('delete',{count:ids.length,bulk:true,entity:'accounting'});toast(ids.length+' jurnal dihapus','success');sel.clear();ldList(ent);ldDash();return}for(var i=0;i<ids.length;i++){try{await apf(eItemPath(ent,ids[i]),{method:'DELETE',noCache:true})}catch(_){}}recAudit('delete',{count:ids.length,bulk:true});toast(ids.length+' item dihapus','success');sel.clear();ldList(ent)}
 function expCSV(){var rows=[['ID','Nama','Status']].concat(fltR.map(function(r){return[r.id,r.name,r.status]}));var csv=rows.map(function(r){return r.map(function(c){return'"'+String(c||'').replace(/"/g,'""')+'"'}).join(',')}).join('\\r\\n');var a=document.createElement('a');a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);a.download=ent+'-ekspor.csv';a.click();recAudit('export',{format:'csv',count:fltR.length});toast('Ekspor CSV berhasil','success')}
 function expXLS(){
   var rows=[['ID','Nama','Status']].concat(fltR.map(function(r){return[r.id,r.name,r.status]}));
@@ -2798,6 +3125,14 @@ function openDrawer(id){
   document.getElementById('dr-name').textContent=it.name||'-';
   document.getElementById('dr-status').textContent=it.status||'-';
   document.getElementById('detail-drawer').classList.add('on');
+  if(supportsEntityDetail(ent)){
+    apf(eItemPath(ent,id),{method:'GET',cacheTtlMs:0}).then(function(payload){
+      var detail=normalizeEntityRows(ent,[payload])[0]||it;
+      document.getElementById('dr-id').textContent=detail.id||'-';
+      document.getElementById('dr-name').textContent=detail.name||detail.poNumber||'-';
+      document.getElementById('dr-status').textContent=detail.status||'-';
+    }).catch(function(_e){});
+  }
 }
 function closeDrawer(){document.getElementById('detail-drawer').classList.remove('on')}
 
@@ -2825,6 +3160,7 @@ function sfForm(en,isEd){
 }
 
 function opEd(id){
+  if(!supportsEntityUpdate(ent)){toast('Update tidak tersedia untuk modul ini','error');return}
   var it=allR.find(function(r){return r.id===id});if(!it)return;
   activeEditRow=it;
   eId=id;gt('form',ent);
@@ -2841,7 +3177,8 @@ async function subForm(){
   var p=0;var prog=document.getElementById('f-prog');prog.style.width='0%';
   var int=setInterval(function(){p=Math.min(90,p+10);prog.style.width=p+'%'},90);
   try{
-    var payload={name:nm,status:st};
+    if(eId&&!supportsEntityUpdate(ent)){throw new Error('Update tidak tersedia untuk modul '+(LABELS[ent]||ent));}
+    var payload=eId?await buildUpdatePayload(ent,nm,st,activeEditRow):await buildCreatePayload(ent,nm,st);
     if(ent==='accounting'){
       if(eId&&activeEditRow){
         activeEditRow.name=nm;
@@ -2999,7 +3336,7 @@ async function subForm(){
 
 function opDel(id){dId=id;document.getElementById('dmod').classList.add('on')}
 function cMod(){dId=null;document.getElementById('dmod').classList.remove('on')}
-async function cfDel(){if(!dId)return;try{if(ent==='cafe'){cafeOrders=cafeOrders.filter(function(row){return row.id!==dId});saveCafeOrders();recAudit('delete',{id:dId,bulk:false,entity:'cafe'});toast('Pesanan cafe berhasil dihapus','success');cMod();ldList(ent);ldDash();return}if(ent==='outbound'){outboundRecords=outboundRecords.filter(function(row){return row.id!==dId});saveOutboundRecords();recAudit('delete',{id:dId,bulk:false,entity:'outbound'});toast('Data outbound berhasil dihapus','success');cMod();ldList(ent);ldDash();return}if(ent==='finance'){financeTransactions=financeTransactions.filter(function(row){return row.id!==dId});saveFinanceTransactions();recAudit('delete',{id:dId,bulk:false,entity:'finance'});toast('Transaksi keuangan berhasil dihapus','success');cMod();ldList(ent);ldDash();return}if(ent==='accounting'){accountingJournals=accountingJournals.filter(function(row){return row.id!==dId});saveAccountingJournals();recAudit('delete',{id:dId,bulk:false,entity:'accounting'});toast('Jurnal accounting berhasil dihapus','success');cMod();ldList(ent);ldDash();return}await apf(eItemPath(ent,dId),{method:'DELETE'});recAudit('delete',{id:dId,bulk:false});toast('Data berhasil dihapus','success');cMod();ldList(ent)}catch(e){toast('Gagal: '+e.message,'error');cMod()}}
+async function cfDel(){if(!dId)return;try{if(!supportsEntityDelete(ent)){toast('Delete tidak tersedia untuk modul ini','error');cMod();return}if(ent==='cafe'){cafeOrders=cafeOrders.filter(function(row){return row.id!==dId});saveCafeOrders();recAudit('delete',{id:dId,bulk:false,entity:'cafe'});toast('Pesanan cafe berhasil dihapus','success');cMod();ldList(ent);ldDash();return}if(ent==='outbound'){outboundRecords=outboundRecords.filter(function(row){return row.id!==dId});saveOutboundRecords();recAudit('delete',{id:dId,bulk:false,entity:'outbound'});toast('Data outbound berhasil dihapus','success');cMod();ldList(ent);ldDash();return}if(ent==='finance'){financeTransactions=financeTransactions.filter(function(row){return row.id!==dId});saveFinanceTransactions();recAudit('delete',{id:dId,bulk:false,entity:'finance'});toast('Transaksi keuangan berhasil dihapus','success');cMod();ldList(ent);ldDash();return}if(ent==='accounting'){accountingJournals=accountingJournals.filter(function(row){return row.id!==dId});saveAccountingJournals();recAudit('delete',{id:dId,bulk:false,entity:'accounting'});toast('Jurnal accounting berhasil dihapus','success');cMod();ldList(ent);ldDash();return}await apf(eItemPath(ent,dId),{method:'DELETE',noCache:true});recAudit('delete',{id:dId,bulk:false});toast('Data berhasil dihapus','success');cMod();ldList(ent)}catch(e){toast('Gagal: '+e.message,'error');cMod()}}
 
 document.getElementById('dmod').addEventListener('click',function(e){if(e.target===this)cMod()});
 document.getElementById('cmd-pal').addEventListener('click',function(e){if(e.target===this)closeCmd()});

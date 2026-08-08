@@ -1,8 +1,3 @@
-// SATSET ERP canonical Prisma schema
-// Source of truth for Phase 1: existing PostgreSQL baseline migration
-// 20260804_baseline_existing + current RBAC code.
-// IMPORTANT: take a DB backup and inspect migration history before applying.
-
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
@@ -10,7 +5,6 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 model Role {
@@ -537,3 +531,5 @@ model Purchasing {
   @@index([active])
   @@map("purchasings")
 }
+
+

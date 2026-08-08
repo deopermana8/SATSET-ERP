@@ -19,6 +19,7 @@
     "smoke": "npm run build && npm run lint && npm run test:unit && npm run playwright:smoke && npm run playwright:regression",
     "migrate": "npm run migrate --workspace @satset/blueprint-api",
     "seed": "npm run seed --workspace @satset/blueprint-api",
+    "seed:api": "npm run build --workspace @satset/blueprint-api && npm run seed --workspace @satset/blueprint-api",
     "lint": "tsc --noEmit -p tsconfig.json",
     "doctor": "prisma validate && prisma migrate status"
   },
@@ -34,5 +35,8 @@
   "allowScripts": {
     "@prisma/engines@7.9.1": true,
     "prisma@7.9.1": true
+  },
+  "prisma": {
+    "seed": "npm run seed:api"
   }
 }
