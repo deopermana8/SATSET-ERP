@@ -36,6 +36,30 @@ export const PERMISSION_DEFINITIONS = [
     module: "erp-wisata",
     description: "Akses laporan wisata."
   },
+  {
+    code: "settings.admin",
+    name: "settings.admin",
+    module: "super-admin",
+    description: "Akses menu pengaturan super admin."
+  },
+  {
+    code: "settings.modules",
+    name: "settings.modules",
+    module: "super-admin",
+    description: "Aktifkan/nonaktifkan modul usaha."
+  },
+  {
+    code: "settings.dashboard",
+    name: "settings.dashboard",
+    module: "super-admin",
+    description: "Konfigurasi tampilan dashboard."
+  },
+  {
+    code: "settings.users",
+    name: "settings.users",
+    module: "super-admin",
+    description: "Kelola hak akses pengguna."
+  },
 ] as const;
 
 export type PermissionCode = typeof PERMISSION_DEFINITIONS[number]["code"];

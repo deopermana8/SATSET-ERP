@@ -26,7 +26,6 @@ model User {
   role Role @relation("User_roleId", fields: [roleId], references: [id], onDelete: Restrict)
   userPermissions UserPermission[] @relation("user_permissions_userId")
   shifts Shift[] @relation("shifts_cashierId")
-  transactions Transaction[] @relation("transactions_cashierId")
   @@index([roleId])
   @@index([email])
   @@map("User")
@@ -34,9 +33,13 @@ model User {
 
 model Ticket {
   id Int @id @default(autoincrement())
+  code String @unique
   name String
   type String
   price Int
+  quota Int
+  validFrom DateTime
+  validUntil DateTime
   destinationId Int?
   active Boolean @default(true)
   deletedAt DateTime?
@@ -116,6 +119,34 @@ model Visitor {
   updatedAt DateTime
   reservations Reservation[] @relation("reservations_visitorId")
   @@map("visitors")
+}
+
+model Booking {
+  id                Int       @id @default(autoincrement())
+  bookingNumber     String    @unique
+  customerName      String
+  customerPhone     String
+  customerEmail     String
+  visitDate         String
+  visitSession      String
+  totalVisitor      Int       @default(0)
+  totalAmount       Int       @default(0)
+  paymentMethod     String    @default("CASH")
+  paymentStatus     String    @default("WAITING_PAYMENT")
+  reservationStatus String    @default("WAITING_PAYMENT")
+  ticketItems       Json
+  qrToken           String    @unique
+  paidAt            DateTime?
+  confirmedAt       DateTime?
+  checkedInAt       DateTime?
+  cancelledAt       DateTime?
+  ticketSaleId      String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime
+  @@index([reservationStatus])
+  @@index([paymentStatus])
+  @@index([createdAt])
+  @@map("bookings")
 }
 
 model Reservation {
@@ -206,8 +237,27 @@ model Shift {
   status String @default("open")
   notes String?
   user User @relation("shifts_cashierId", fields: [cashierId], references: [id], onDelete: Restrict)
-  transactions Transaction[] @relation("transactions_shiftId")
   @@map("shifts")
+}
+
+model CashierShift {
+  id Int @id @default(autoincrement())
+  shiftNumber String @unique
+  cashierId String
+  cashierName String
+  openedAt DateTime @default(now())
+  closedAt DateTime?
+  openingCash Int
+  closingCash Int @default(0)
+  cashSales Int @default(0)
+  qrisSales Int @default(0)
+  transferSales Int @default(0)
+  ticketCount Int @default(0)
+  status String @default("OPEN")
+  difference Int @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  @@map("cashier_shifts")
 }
 
 model Transaction {
@@ -222,15 +272,12 @@ model Transaction {
   cashReceived Int?
   cashChange Int?
   notes String?
-  cashierId Int
+  cashierId Int?
   cashierName String
   shiftId Int?
   pricingMode String @default("weekday")
   createdAt DateTime @default(now())
-  user User @relation("transactions_cashierId", fields: [cashierId], references: [id], onDelete: Restrict)
-  shift Shift? @relation("transactions_shiftId", fields: [shiftId], references: [id])
   transactionItems TransactionItem[] @relation("transaction_items_transactionId")
-  @@index([cashierId])
   @@index([shiftId])
   @@index([status])
   @@index([createdAt])
@@ -317,8 +364,12 @@ model CafeOrder {
   id Int @id @default(autoincrement())
   orderNo String @unique
   tableId Int?
-  status String @default("pending")
+  tableNumber String?
+  customerName String?
+  orderType String?
+  status String @default("NEW")
   paymentMethod String?
+  paymentStatus String @default("UNPAID")
   subtotal Int @default(0)
   discount Int @default(0)
   tax Int @default(0)
@@ -326,7 +377,11 @@ model CafeOrder {
   notes String?
   cashierId Int?
   cashierName String?
+  cashierShiftId String?
   paidAt DateTime?
+  printedAt DateTime?
+  completedAt DateTime?
+  voidedAt DateTime?
   createdAt DateTime @default(now())
   updatedAt DateTime
   cafeTable CafeTable? @relation("cafe_orders_tableId", fields: [tableId], references: [id])
@@ -530,6 +585,129 @@ model Purchasing {
   @@index([name])
   @@index([active])
   @@map("purchasings")
+}
+
+model Activity {
+  id        Int      @id @default(autoincrement())
+  code      String   @unique
+  name      String
+  category  String
+  duration  Int
+  capacity  Int
+  price     Int
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  @@index([active])
+  @@map("activities")
+}
+
+model ActivitySchedule {
+  id         Int      @id @default(autoincrement())
+  activityId String
+  date       String
+  session    String
+  capacity   Int
+  booked     Int      @default(0)
+  available  Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime
+  @@unique([activityId, date, session])
+  @@index([activityId])
+  @@map("activity_schedules")
+}
+
+model ActivityBooking {
+  id            Int       @id @default(autoincrement())
+  bookingNumber String    @unique
+  reservationId String
+  customerName  String
+  activityId    String
+  scheduleId    String
+  qty           Int
+  total         Int
+  status        String    @default("WAITING_PAYMENT")
+  paymentMethod String    @default("CASH")
+  qrToken       String    @unique
+  paidAt        DateTime?
+  checkedInAt   DateTime?
+  completedAt   DateTime?
+  cancelledAt   DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime
+  @@index([reservationId])
+  @@index([activityId])
+  @@index([scheduleId])
+  @@map("activity_bookings")
+}
+
+model Customer {
+  id        Int      @id @default(autoincrement())
+  code      String   @unique
+  fullName  String
+  email     String   @unique
+  phone     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  @@map("customers")
+}
+
+model Recipe {
+  id          Int      @id @default(autoincrement())
+  menuId      String   @unique
+  ingredients Json
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime
+  @@map("recipes")
+}
+
+model Organization {
+  id          Int      @id @default(autoincrement())
+  name        String
+  legalName   String?
+  logo        String?
+  address     String?
+  phone       String?
+  email       String?
+  website     String?
+  village     String?
+  district    String?
+  regency     String?
+  skNumber    String?
+  foundedYear Int?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime
+  modules     ModuleSetting[]
+  @@map("organizations")
+}
+
+model ModuleSetting {
+  id             Int          @id @default(autoincrement())
+  organizationId Int
+  moduleKey      String
+  enabled        Boolean      @default(true)
+  config         Json?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  @@unique([organizationId, moduleKey])
+  @@index([organizationId])
+  @@map("module_settings")
+}
+
+model DashboardWidgetSetting {
+  id        Int      @id @default(autoincrement())
+  userId    Int?
+  widgetId  String
+  hidden    Boolean  @default(false)
+  pinned    Boolean  @default(false)
+  sortOrder Int      @default(0)
+  width     String   @default("md")
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  @@unique([userId, widgetId])
+  @@index([userId])
+  @@map("dashboard_widget_settings")
 }
 
 

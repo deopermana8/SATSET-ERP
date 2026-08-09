@@ -207,7 +207,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .kpi-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--s3)}
 .kpi-lbl{font-size:11px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.06em}
 .kpi-ic{width:36px;height:36px;border-radius:var(--r2);display:flex;align-items:center;justify-content:center}
-.kpi-val{font-size:30px;font-weight:700;line-height:1;margin-bottom:var(--s1)}
+.kpi-val{font-size:clamp(14px,2.2vw,30px);font-weight:700;line-height:1.15;margin-bottom:var(--s1);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .kpi-trend{font-size:12px;display:flex;align-items:center;gap:3px}
 .kpi-comp{font-size:11px;color:var(--text-3);margin-top:6px}
 .kpi-spark{width:100%;height:24px;display:block;margin-top:8px}
@@ -248,7 +248,7 @@ svg.chart{width:100%;overflow:visible}
 .intel-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
 .sum-card{border:1px solid var(--border);border-radius:14px;background:var(--surface-2);padding:12px}
 .sum-name{font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.05em}
-.sum-val{font-size:22px;font-weight:700;line-height:1.1;margin-top:6px}
+.sum-val{font-size:clamp(12px,1.8vw,22px);font-weight:700;line-height:1.1;margin-top:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .module-board{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
 .module-card{border:1px solid var(--border);border-radius:14px;background:var(--surface-2);padding:12px;display:flex;flex-direction:column;gap:10px}
 .module-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
@@ -511,6 +511,62 @@ svg.chart{width:100%;overflow:visible}
   .tbl td::before{content:attr(data-label);display:block;color:var(--text-3);font-size:10px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
 }
 @media(max-width:580px){.kpi-grid{grid-template-columns:1fr}.nav-usr span{display:none}.fbody{padding:14px}.fft{padding:12px}#content{padding:14px}.sb-logo{padding:0 14px}}
+/* BUM Desa Report Center */
+.bd-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:var(--s4)}
+.bd-tab{padding:8px 16px;border-radius:var(--r2);border:1px solid var(--border);background:var(--surface-2);font-size:12px;font-weight:600;cursor:pointer;color:var(--text-2);transition:all var(--t-fast)}
+.bd-tab.on{background:var(--brand);color:#111827;border-color:var(--brand)}
+/* Super Admin Settings */
+.sa-tabs{display:flex;gap:2px;border-bottom:2px solid var(--border);margin-bottom:var(--s5);flex-wrap:wrap}
+.sa-tab{padding:10px 18px;font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all var(--t-fast)}
+.sa-tab.on{color:var(--brand);border-bottom-color:var(--brand)}
+.sa-tab:hover{color:var(--text);background:var(--surface-2);border-radius:var(--r2) var(--r2) 0 0}
+.sa-panel{display:none}.sa-panel.on{display:block}
+.sa-section{margin-bottom:var(--s5)}
+.sa-section-title{font-size:13px;font-weight:700;color:var(--text-2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:var(--s3)}
+.sa-field-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--s3)}
+.sa-module-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--s3)}
+.sa-module-card{border:1px solid var(--border);border-radius:var(--r2);padding:var(--s3);background:var(--surface-2);display:flex;align-items:flex-start;gap:var(--s3)}
+.sa-module-card.dep-warn{border-color:var(--warn);background:color-mix(in oklab,var(--warn-soft,#fef3c7) 40%,transparent)}
+.sa-toggle{position:relative;width:40px;height:22px;flex-shrink:0;margin-top:2px}
+.sa-toggle input{opacity:0;width:0;height:0;position:absolute}
+.sa-toggle-track{display:block;width:40px;height:22px;background:var(--border);border-radius:999px;cursor:pointer;transition:background var(--t-fast)}
+.sa-toggle input:checked+.sa-toggle-track{background:var(--brand)}
+.sa-toggle-track::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform var(--t-fast);box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.sa-toggle input:checked+.sa-toggle-track::after{transform:translateX(18px)}
+.sa-module-info{flex:1;min-width:0}
+.sa-module-name{font-size:13px;font-weight:700;color:var(--text)}
+.sa-module-desc{font-size:11px;color:var(--text-3);margin-top:2px}
+.sa-module-dep{font-size:10px;color:var(--warn);margin-top:4px;font-weight:600}
+.sa-user-row{display:flex;align-items:center;gap:var(--s3);padding:10px 0;border-bottom:1px solid var(--border)}
+.sa-user-row:last-child{border-bottom:none}
+.sa-perm-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.sa-perm-chip{font-size:11px;padding:3px 8px;border-radius:999px;border:1px solid var(--border);background:var(--surface-2);cursor:pointer;color:var(--text-2);transition:all var(--t-fast)}
+.sa-perm-chip.on{background:var(--brand);color:#111827;border-color:var(--brand)}
+.sa-widget-row{display:flex;align-items:center;gap:var(--s3);padding:8px;border-bottom:1px solid var(--border);font-size:12px}
+.sa-widget-row:last-child{border-bottom:none}
+.sa-widget-id{font-family:monospace;font-size:10px;color:var(--text-3);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bd-preview{background:var(--surface);border:1px solid var(--border);border-radius:var(--r3);padding:32px;min-height:200px;font-size:13px;line-height:1.6}
+.bd-section{margin-bottom:28px}
+.bd-title{font-size:16px;font-weight:800;color:var(--text);margin-bottom:4px;padding-bottom:6px;border-bottom:2px solid var(--brand)}
+.bd-subtitle{font-size:13px;font-weight:700;color:var(--text-2);margin:14px 0 6px}
+.bd-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:13px}
+.bd-row-total{display:flex;justify-content:space-between;padding:6px 0;font-weight:700;border-top:2px solid var(--text);border-bottom:2px solid var(--text);font-size:13px;margin-top:4px}
+.bd-row-sub{display:flex;justify-content:space-between;padding:4px 0;font-size:12px;color:var(--text-2);padding-left:16px}
+.bd-empty{text-align:center;color:var(--text-3);padding:40px;font-style:italic}
+.bd-identity{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;padding:16px;background:var(--surface-2);border-radius:var(--r2);margin-bottom:var(--s4);font-size:12px}
+.bd-id-row{display:flex;flex-direction:column;gap:2px}
+.bd-id-label{color:var(--text-3);font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:10px}
+.bd-id-value{font-weight:700;color:var(--text);font-size:13px}
+@media print{
+  #sidebar,#navbar,.back,.bd-tabs,.bd-actions,button,.bd-identity-form{display:none!important}
+  .view{display:block!important;padding:0!important}
+  #v-bumdesa{display:block!important}
+  .bd-preview{border:none!important;padding:16px 0!important;box-shadow:none!important}
+  body{background:#fff!important;color:#000!important}
+  .bd-row,.bd-row-sub,.bd-row-total{color:#000!important}
+  .bd-title{color:#000!important;border-color:#000!important}
+  @page{margin:2cm}
+}
 </style>
 </head>
 <body>
@@ -556,6 +612,7 @@ svg.chart{width:100%;overflow:visible}
     <div class="sb-item" data-nav="accounting" onclick="gt('list','accounting')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg><span class="lbl">Accounting</span></div>
     <div class="sb-lbl">Laporan</div>
     <div class="sb-item" data-nav="laporan" onclick="gt('report')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3h12v14H4zM6 6h8v2H6zm0 4h8v2H6z"/></svg><span class="lbl">ERP Wisata</span></div>
+    <div class="sb-item" data-nav="bumdesa" onclick="gt('bumdesa')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v1a1 1 0 102 0v-1zm4-1a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM8 7a1 1 0 00-1 1v2a1 1 0 002 0V8a1 1 0 00-1-1zm4 0a1 1 0 00-1 1v2a1 1 0 002 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/></svg><span class="lbl">Report Center</span></div>
     <div class="sb-item" data-nav="ticketing" onclick="gt('list','ticketing')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3h12v14H4zM6 6h8v2H6zm0 4h8v2H6z"/></svg><span class="lbl">Ticket</span></div>
     <div class="sb-item" data-nav="reservasi" onclick="gt('list','reservasi')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3h12v14H4zM6 6h8v2H6zm0 4h8v2H6z"/></svg><span class="lbl">Booking</span></div>
     <div class="sb-item" data-nav="cafe" onclick="gt('list','cafe')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3h12v14H4zM6 6h8v2H6zm0 4h8v2H6z"/></svg><span class="lbl">Cafe</span></div>
@@ -573,6 +630,8 @@ svg.chart{width:100%;overflow:visible}
     <div class="sb-item" data-nav="cafe" onclick="gt('list','cafe')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4h11v8a4 4 0 01-4 4H7a4 4 0 01-4-4V4zm12 2h1a2 2 0 110 4h-1V6z"/></svg><span class="lbl">Menu</span></div>
     <div class="sb-item" data-nav="outbound" onclick="openOutboundEquipment()"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path d="M3 5l7-3 7 3-7 3-7-3zm0 3l7 3 7-3v7l-7 3-7-3V8z"/></svg><span class="lbl">Peralatan</span></div>
     <div class="sb-item" data-nav="outbound" onclick="openOutboundInstructor()"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg><span class="lbl">Instruktur</span></div>
+    <div class="sb-lbl">Super Admin</div>
+    <div class="sb-item" data-nav="superadmin" onclick="gt('superadmin')"><svg class="ic" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/></svg><span class="lbl">Pengaturan</span></div>
   </div>
   <div class="sb-foot">
     <div class="sb-user"><div class="sb-av">AD</div><div class="sb-ui"><div class="sb-un">Administrator</div><div class="sb-ur">Super Admin</div></div></div>
@@ -760,6 +819,178 @@ svg.chart{width:100%;overflow:visible}
         <div class="empty-title">Data Laporan Belum Tersedia</div>
         <div class="empty-desc">Tidak ada nilai report pada periode yang dipilih.</div>
       </div>
+    </section>
+
+    <!-- SUPER ADMIN SETTINGS -->
+    <section class="view" id="v-superadmin">
+      <div class="back" onclick="gt('dashboard')"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg> Beranda</div>
+      <div class="ph"><div><div class="ph-title">Pengaturan Super Admin</div><div class="ph-sub">Konfigurasi identitas, modul, dashboard, hak akses, dan tampilan customer</div></div><div><button class="btn btn-p" onclick="saveCurrentSaTab()">Simpan Pengaturan</button></div></div>
+
+      <div class="sa-tabs">
+        <button class="sa-tab on" data-sa="identitas" onclick="switchSaTab('identitas')">A. Identitas Usaha</button>
+        <button class="sa-tab" data-sa="modul" onclick="switchSaTab('modul')">B. Modul Usaha</button>
+        <button class="sa-tab" data-sa="dashboard" onclick="switchSaTab('dashboard')">C. Dashboard</button>
+        <button class="sa-tab" data-sa="hakakses" onclick="switchSaTab('hakakses')">D. Hak Akses</button>
+        <button class="sa-tab" data-sa="customer" onclick="switchSaTab('customer')">E. Customer Portal</button>
+      </div>
+      <div id="sa-msg" style="margin-bottom:8px"></div>
+
+      <!-- A. IDENTITAS USAHA -->
+      <div class="sa-panel on" id="sa-identitas">
+        <div class="card">
+          <div class="card-hd"><div class="card-title">Identitas Wisata / BUM Desa</div><span class="badge b-active">DB</span></div>
+          <div class="card-body">
+            <div class="sa-section">
+              <div class="sa-section-title">Informasi Dasar</div>
+              <div class="sa-field-grid">
+                <div><label>Nama Wisata / Unit Usaha <span style="color:var(--danger)">*</span></label><input id="sa-name" placeholder="Nama wisata..."/></div>
+                <div><label>Nama Legal / BUM Desa</label><input id="sa-legalName" placeholder="BUM Desa ..."/></div>
+                <div><label>Alamat</label><input id="sa-address" placeholder="Alamat lengkap..."/></div>
+                <div><label>Desa</label><input id="sa-village" placeholder="Desa ..."/></div>
+                <div><label>Kecamatan</label><input id="sa-district" placeholder="Kecamatan ..."/></div>
+                <div><label>Kabupaten/Kota</label><input id="sa-regency" placeholder="Kabupaten ..."/></div>
+              </div>
+            </div>
+            <div class="sa-section">
+              <div class="sa-section-title">Kontak & Legal</div>
+              <div class="sa-field-grid">
+                <div><label>Telepon</label><input id="sa-phone" placeholder="08xx..."/></div>
+                <div><label>Email</label><input id="sa-email" type="email" placeholder="email@domain.com"/></div>
+                <div><label>Website</label><input id="sa-website" placeholder="https://..."/></div>
+                <div><label>Logo URL</label><input id="sa-logo" placeholder="https://..."/></div>
+                <div><label>Nomor SK Pendirian</label><input id="sa-skNumber" placeholder="No. SK ..."/></div>
+                <div><label>Tahun Berdiri</label><input id="sa-foundedYear" type="number" min="2000" max="2099"/></div>
+              </div>
+            </div>
+            <div class="sa-section">
+              <div class="sa-section-title">Preview Identitas</div>
+              <div id="sa-identity-preview" style="background:var(--surface-2);border-radius:var(--r2);padding:var(--s4);border:1px solid var(--border);font-size:12px;line-height:1.8">
+                <div style="color:var(--text-3)">Isi form dan simpan untuk melihat preview identitas.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- B. MODUL USAHA -->
+      <div class="sa-panel" id="sa-modul">
+        <div class="card">
+          <div class="card-hd"><div class="card-title">Aktivasi Modul Usaha</div><span class="badge b-active">DB</span></div>
+          <div class="card-body">
+            <div style="font-size:12px;color:var(--text-3);margin-bottom:var(--s4)">Menonaktifkan modul akan menyembunyikan menu dan widget terkait. Data tidak dihapus.</div>
+            <div class="sa-module-grid" id="sa-module-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- C. DASHBOARD WIDGET SETTINGS -->
+      <div class="sa-panel" id="sa-dashboard">
+        <div class="card">
+          <div class="card-hd"><div class="card-title">Konfigurasi Widget Dashboard</div><button class="btn btn-o btn-sm" onclick="resetSaDashboard()">Reset ke Default</button></div>
+          <div class="card-body">
+            <div style="font-size:12px;color:var(--text-3);margin-bottom:var(--s4)">Show/hide widget, pin, dan atur ukuran. Klik simpan untuk menyimpan ke DB.</div>
+            <div id="sa-widget-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- D. HAK AKSES -->
+      <div class="sa-panel" id="sa-hakakses">
+        <div class="card">
+          <div class="card-hd"><div class="card-title">Manajemen Hak Akses Pengguna</div></div>
+          <div class="card-body">
+            <div style="font-size:12px;color:var(--text-3);margin-bottom:var(--s4)">Permission user-specific override role default. Centang = granted, kosong = mengikuti role.</div>
+            <div id="sa-user-list"><div style="color:var(--text-3)">Memuat data pengguna...</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- E. CUSTOMER PORTAL -->
+      <div class="sa-panel" id="sa-customer">
+        <div class="card">
+          <div class="card-hd"><div class="card-title">Tampilan Customer Portal</div></div>
+          <div class="card-body">
+            <div class="sa-section">
+              <div class="sa-section-title">Menu Customer (ON/OFF bergantung modul aktif)</div>
+              <div class="sa-module-grid" id="sa-customer-modules">
+                <div class="sa-module-card"><label class="sa-toggle"><input type="checkbox" id="sa-cust-booking" checked/><span class="sa-toggle-track"></span></label><div class="sa-module-info"><div class="sa-module-name">Booking Tiket</div><div class="sa-module-desc">Menu booking tiket wisata (perlu modul: ticket)</div></div></div>
+                <div class="sa-module-card"><label class="sa-toggle"><input type="checkbox" id="sa-cust-reservation" checked/><span class="sa-toggle-track"></span></label><div class="sa-module-info"><div class="sa-module-name">Reservasi</div><div class="sa-module-desc">Menu reservasi online (perlu modul: reservation)</div></div></div>
+                <div class="sa-module-card"><label class="sa-toggle"><input type="checkbox" id="sa-cust-activity" checked/><span class="sa-toggle-track"></span></label><div class="sa-module-info"><div class="sa-module-name">Aktivitas</div><div class="sa-module-desc">Daftar aktivitas & outbound (perlu modul: activity)</div></div></div>
+                <div class="sa-module-card"><label class="sa-toggle"><input type="checkbox" id="sa-cust-history" checked/><span class="sa-toggle-track"></span></label><div class="sa-module-info"><div class="sa-module-name">Riwayat</div><div class="sa-module-desc">History booking dan pembayaran</div></div></div>
+                <div class="sa-module-card"><label class="sa-toggle"><input type="checkbox" id="sa-cust-profile" checked/><span class="sa-toggle-track"></span></label><div class="sa-module-info"><div class="sa-module-name">Profil</div><div class="sa-module-desc">Profil dan pengaturan akun customer</div></div></div>
+                <div class="sa-module-card"><label class="sa-toggle"><input type="checkbox" id="sa-cust-contact" checked/><span class="sa-toggle-track"></span></label><div class="sa-module-info"><div class="sa-module-name">Info Kontak Usaha</div><div class="sa-module-desc">Tampilkan telepon, email, alamat di portal</div></div></div>
+              </div>
+            </div>
+            <div class="sa-section">
+              <div class="sa-section-title">Preview Status Menu Customer</div>
+              <div id="sa-customer-preview" style="background:var(--surface-2);border-radius:var(--r2);padding:var(--s4);border:1px solid var(--border);font-size:12px;line-height:1.8"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REPORT CENTER BUM DESA -->
+    <section class="view" id="v-bumdesa">
+      <div class="back" onclick="gt('dashboard')"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg> Beranda</div>
+      <div class="ph"><div><div class="ph-title">Report Center BUM Desa</div><div class="ph-sub">Laporan keuangan sesuai PP No. 11/2021 & Kepmendesa 136/2022</div></div></div>
+
+      <!-- Identitas BUM Desa -->
+      <div class="card bd-identity-form" style="margin-bottom:var(--s4)">
+        <div class="card-hd"><div class="card-title">Identitas BUM Desa</div><button class="btn btn-o btn-sm" onclick="saveBumDesaIdentity()">Simpan Identitas</button></div>
+        <div class="card-body">
+          <div class="form-grid" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
+            <div><label>Nama BUM Desa</label><input id="bd-nama" placeholder="BUM Desa ..."/></div>
+            <div><label>Desa</label><input id="bd-desa" placeholder="Desa ..."/></div>
+            <div><label>Kecamatan</label><input id="bd-kecamatan" placeholder="Kecamatan ..."/></div>
+            <div><label>Kabupaten/Kota</label><input id="bd-kabupaten" placeholder="Kabupaten ..."/></div>
+            <div><label>Nomor SK Pendirian</label><input id="bd-sk" placeholder="No. SK ..."/></div>
+            <div><label>Tahun Berdiri</label><input id="bd-tahun-berdiri" type="number" min="2000" max="2099" placeholder="${new Date().getFullYear()}"/></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Period & Report Type -->
+      <div class="card" style="margin-bottom:var(--s4)">
+        <div class="card-body">
+          <div class="form-grid" style="grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;align-items:end">
+            <div><label>Tahun Laporan</label><input id="bd-tahun" type="number" min="2020" max="2099" value="${new Date().getFullYear()}"/></div>
+            <div><label>Dari Bulan</label><select id="bd-bulan-dari"><option value="01">Januari</option><option value="02">Februari</option><option value="03">Maret</option><option value="04">April</option><option value="05">Mei</option><option value="06">Juni</option><option value="07">Juli</option><option value="08">Agustus</option><option value="09">September</option><option value="10">Oktober</option><option value="11">November</option><option value="12">Desember</option></select></div>
+            <div><label>Sampai Bulan</label><select id="bd-bulan-sampai"><option value="01">Januari</option><option value="02">Februari</option><option value="03">Maret</option><option value="04">April</option><option value="05">Mei</option><option value="06">Juni</option><option value="07">Juli</option><option value="08">Agustus</option><option value="09">September</option><option value="10">Oktober</option><option value="11">November</option><option value="12">Desember</option></select></div>
+            <div style="display:flex;gap:8px"><button class="btn btn-p" onclick="loadBumDesaReport()">Muat Laporan</button></div>
+          </div>
+          <div id="bd-bulan-sampai-default" style="display:none"></div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="bd-tabs">
+        <button class="bd-tab on" data-bd="tahunan" onclick="switchBdTab('tahunan')">Laporan Tahunan</button>
+        <button class="bd-tab" data-bd="neraca" onclick="switchBdTab('neraca')">Posisi Keuangan</button>
+        <button class="bd-tab" data-bd="labarugi" onclick="switchBdTab('labarugi')">Laba Rugi</button>
+        <button class="bd-tab" data-bd="ekuitas" onclick="switchBdTab('ekuitas')">Perubahan Ekuitas</button>
+        <button class="bd-tab" data-bd="aruskasbd" onclick="switchBdTab('aruskasbd')">Arus Kas</button>
+        <button class="bd-tab" data-bd="calk" onclick="switchBdTab('calk')">CaLK</button>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="bd-actions" style="display:flex;gap:8px;margin-bottom:var(--s4);flex-wrap:wrap">
+        <button class="btn btn-p" onclick="window.print()"><svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" style="flex-shrink:0"><path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a1 1 0 001 1h8a1 1 0 001-1v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a1 1 0 00-1-1H6a1 1 0 00-1 1zm2 0h6v3H7V4zm-1 9v-1h8v1H6zm-2-4a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"/></svg> Cetak / Download PDF</button>
+        <button class="btn btn-o" onclick="exportBdXls()"><svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" style="flex-shrink:0"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg> Export Excel</button>
+        <span id="bd-period-label" style="line-height:36px;font-size:12px;color:var(--text-3)"></span>
+      </div>
+
+      <!-- Preview -->
+      <div class="card">
+        <div class="card-body" style="padding:0">
+          <div class="bd-preview" id="bd-preview">
+            <div class="bd-empty">Pilih periode dan klik "Muat Laporan" untuk menampilkan laporan.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- State message -->
+      <div id="bd-msg" style="margin-top:10px"></div>
     </section>
 
     <!-- FORM -->
@@ -1011,13 +1242,13 @@ function renderAccountingMetric(id,label,value){var root=byId(id);if(!root)retur
 function renderAccountingDashboardWidgets(){
   var summary=summarizeAccountingJournals();
   renderAccountingMetric('accounting-jumlah-jurnal-summary','Jumlah Jurnal',summary.jumlahJurnal);
-  renderAccountingMetric('accounting-saldo-kas-summary','Saldo Kas',fmtIdr(summary.saldoKas));
-  renderAccountingMetric('accounting-saldo-bank-summary','Saldo Bank',fmtIdr(summary.saldoBank));
-  renderAccountingMetric('accounting-pendapatan-summary','Pendapatan',fmtIdr(summary.pendapatan));
-  renderAccountingMetric('accounting-beban-summary','Beban',fmtIdr(summary.beban));
-  renderAccountingMetric('accounting-laba-bersih-summary','Laba Bersih',fmtIdr(summary.labaBersih));
+  renderAccountingMetric('accounting-saldo-kas-summary','Saldo Kas',fmtIdrCompact(summary.saldoKas));
+  renderAccountingMetric('accounting-saldo-bank-summary','Saldo Bank',fmtIdrCompact(summary.saldoBank));
+  renderAccountingMetric('accounting-pendapatan-summary','Pendapatan',fmtIdrCompact(summary.pendapatan));
+  renderAccountingMetric('accounting-beban-summary','Beban',fmtIdrCompact(summary.beban));
+  renderAccountingMetric('accounting-laba-bersih-summary','Laba Bersih',fmtIdrCompact(summary.labaBersih));
   renderAccountingMetric('accounting-neraca-summary','Neraca',summary.neraca?'Seimbang':'Tidak Seimbang');
-  renderAccountingMetric('accounting-cash-flow-summary','Cash Flow',fmtIdr(summary.cashFlow));
+  renderAccountingMetric('accounting-cash-flow-summary','Cash Flow',fmtIdrCompact(summary.cashFlow));
   renderAccountingMetric('accounting-trial-balance-summary','Trial Balance',summary.trialBalance?'Seimbang':'Tidak Seimbang');
   renderAccountingMetric('accounting-closing-status-summary','Closing Status',summary.closingStatus);
 }
@@ -1087,14 +1318,14 @@ function summarizeFinanceTransactions(){
 function renderFinanceMetric(id,label,value){var root=byId(id);if(!root)return;root.innerHTML='<div class="sum-card"><div class="sum-name">'+label+'</div><div class="sum-val">'+value+'</div></div>'}
 function renderFinanceDashboardWidgets(){
   var summary=summarizeFinanceTransactions();
-  renderFinanceMetric('finance-saldo-kas-summary','Saldo Kas',fmtIdr(summary.saldoKas));
-  renderFinanceMetric('finance-saldo-bank-summary','Saldo Bank',fmtIdr(summary.saldoBank));
-  renderFinanceMetric('finance-pendapatan-summary','Pendapatan Hari Ini',fmtIdr(summary.pendapatanHariIni));
-  renderFinanceMetric('finance-pengeluaran-summary','Pengeluaran Hari Ini',fmtIdr(summary.pengeluaranHariIni));
-  renderFinanceMetric('finance-laba-summary','Laba Operasional Hari Ini',fmtIdr(summary.labaOperasionalHariIni));
-  renderFinanceMetric('finance-cash-flow-summary','Cash Flow',fmtIdr(summary.cashFlow));
+  renderFinanceMetric('finance-saldo-kas-summary','Saldo Kas',fmtIdrCompact(summary.saldoKas));
+  renderFinanceMetric('finance-saldo-bank-summary','Saldo Bank',fmtIdrCompact(summary.saldoBank));
+  renderFinanceMetric('finance-pendapatan-summary','Pendapatan Hari Ini',fmtIdrCompact(summary.pendapatanHariIni));
+  renderFinanceMetric('finance-pengeluaran-summary','Pengeluaran Hari Ini',fmtIdrCompact(summary.pengeluaranHariIni));
+  renderFinanceMetric('finance-laba-summary','Laba Operasional Hari Ini',fmtIdrCompact(summary.labaOperasionalHariIni));
+  renderFinanceMetric('finance-cash-flow-summary','Cash Flow',fmtIdrCompact(summary.cashFlow));
   var perModul=byId('finance-per-modul-summary');
-  if(perModul)perModul.innerHTML=summary.pendapatanPerModul.map(function(item){return '<div class="sum-card"><div class="sum-name">'+item.modul+'</div><div class="sum-val">'+fmtIdr(item.nominal)+'</div></div>'}).join('');
+  if(perModul)perModul.innerHTML=summary.pendapatanPerModul.map(function(item){return '<div class="sum-card"><div class="sum-name">'+item.modul+'</div><div class="sum-val">'+fmtIdrCompact(item.nominal)+'</div></div>'}).join('');
 }
 function drawFinanceBar(id,rows,key){
   var sv=byId(id);if(!sv)return;var max=Math.max.apply(null,rows.map(function(row){return Number(row[key]||0)}).concat([1]));sv.innerHTML='';rows.slice(0,6).forEach(function(row,idx){var x=40+idx*82;var val=Number(row[key]||0);var h=Math.max(6,Math.round((val/max)*100));var y=145-h;var rect=document.createElementNS('http://www.w3.org/2000/svg','rect');rect.setAttribute('x',String(x));rect.setAttribute('y',String(y));rect.setAttribute('width','56');rect.setAttribute('height',String(h));rect.setAttribute('rx','8');rect.setAttribute('fill',id==='bar-finance-expense'?'var(--danger)':(id==='bar-finance-cash'?'var(--brand)':'var(--success)'));rect.setAttribute('opacity','0.88');sv.appendChild(rect);var txt=document.createElementNS('http://www.w3.org/2000/svg','text');txt.setAttribute('x',String(x+28));txt.setAttribute('y',String(y-8));txt.setAttribute('text-anchor','middle');txt.setAttribute('font-size','10');txt.setAttribute('fill','currentColor');txt.textContent=String(Math.round(val/1000))+'k';sv.appendChild(txt);var lbl=document.createElementNS('http://www.w3.org/2000/svg','text');lbl.setAttribute('x',String(x+28));lbl.setAttribute('y','165');lbl.setAttribute('text-anchor','middle');lbl.setAttribute('font-size','9');lbl.setAttribute('fill','currentColor');lbl.setAttribute('opacity','0.65');lbl.textContent=String(row.label||row.modul||row.tanggal||'').substring(0,8);sv.appendChild(lbl)});
@@ -1218,6 +1449,7 @@ function finishCheckInQueue(bookingNo){
 }
 
 function fmtIdr(v){return new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(Number(v||0))}
+function fmtIdrCompact(v){var n=Number(v||0);var fmt=function(x,d){return new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:d||1,minimumFractionDigits:0}).format(x);};if(n>=1e12)return fmt(n/1e12)+' T';if(n>=1e9)return fmt(n/1e9)+' M';if(n>=1e6)return fmt(n/1e6)+' Jt';return fmtIdr(n)}
 function ticketTariffByType(type){return(TICKET_TARIFF||[]).find(function(t){return t.type===type})||TICKET_TARIFF[0]}
 function genTicketNo(){var d=new Date();return 'TKT-'+d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'-'+String(d.getTime()).slice(-6)}
 function calcTicketTotals(tariffType,qty,discountPct){
@@ -1697,6 +1929,8 @@ function gt(v,e){
   var nk='dashboard';
   if(v==='list'||v==='form')nk=e;
   if(v==='report')nk='laporan';
+  if(v==='bumdesa')nk='bumdesa';
+  if(v==='superadmin')nk='superadmin';
   var ne=document.querySelector('[data-nav="'+nk+'"]');
   if(ne)ne.classList.add('active');
   if(v==='dashboard'){
@@ -1723,6 +1957,14 @@ function gt(v,e){
     document.getElementById('v-report').classList.add('on');
     setCr(['Beranda','Laporan ERP Wisata']);
     initReportView();
+  }else if(v==='bumdesa'){
+    document.getElementById('v-bumdesa').classList.add('on');
+    setCr(['Beranda','Report Center BUM Desa']);
+    initBumDesaView();
+  }else if(v==='superadmin'){
+    document.getElementById('v-superadmin').classList.add('on');
+    setCr(['Beranda','Pengaturan Super Admin']);
+    initSuperAdminView();
   }else if(v==='form'&&e){
     ent=e;
     document.getElementById('v-form').classList.add('on');
@@ -1909,7 +2151,8 @@ async function loadReportData(){
     if(reportState.from)qp.push('from='+encodeURIComponent(reportState.from));
     if(reportState.to)qp.push('to='+encodeURIComponent(reportState.to));
     var path='/api/erp-wisata/report'+(qp.length?('?'+qp.join('&')):'');
-    var data=await apf(path,{method:'GET',headers:{'authorization':'Bearer workspace-token'}});
+    var _rptJwt=localStorage.getItem('satset.admin.jwt')||'';
+    var data=await apf(path,{method:'GET',headers:{'authorization':'Bearer '+_rptJwt}});
     reportState.data=data||null;
   }catch(e){
     reportState.data=null;
@@ -1925,6 +2168,695 @@ async function loadReportData(){
     renderReportSections();
   }
 }
+// ── SUPER ADMIN SETTINGS ───────────────────────────────────────────────────
+var saState={tab:'identitas',org:null,modules:{},widgets:{},users:[],dirty:false};
+// JWT token stored in localStorage after admin login — never use workspace-token for settings
+var SA_TOKEN=(function(){return localStorage.getItem('satset.admin.jwt')||''})();
+var SA_BASE=API_BASE+'/api/settings';
+
+var SA_MODULE_DEFS=[
+  {key:'ticket',name:'Tiket',desc:'Penjualan tiket masuk wisata',widgets:['tiket-ringkas','tiket-grafik','antrian-checkin'],sidebar:['ticketing']},
+  {key:'reservation',name:'Reservasi',desc:'Booking & reservasi online',dep:'ticket',widgets:['reservasi','operasional-hari-ini','operasional-grafik'],sidebar:['reservasi']},
+  {key:'activity',name:'Aktivitas / Outbound',desc:'Paket outbound dan aktivitas',dep:'reservation',widgets:['outbound-peserta','outbound-sesi','outbound-pendapatan','outbound-kuota-terpakai','outbound-kuota-tersisa','outbound-instruktur','outbound-peralatan','outbound-kehadiran','outbound-grafik-peserta','outbound-grafik-pendapatan'],sidebar:['outbound']},
+  {key:'cafe',name:'Cafe / POS',desc:'Point of sale cafe dan restoran',widgets:['cafe-pendapatan','cafe-total-order','cafe-menu-terlaris','cafe-produk-terlaris','cafe-jam-ramai','cafe-order-diproses','cafe-order-selesai','cafe-rata-transaksi','cafe-kas-aktif'],sidebar:['cafe']},
+  {key:'kitchen',name:'Kitchen Display',desc:'Tampilan dapur (perlu Cafe)',dep:'cafe',widgets:[],sidebar:[]},
+  {key:'gate',name:'Gate / Check-in',desc:'Pemindaian QR di pintu masuk (perlu Tiket)',dep:'ticket',widgets:['gate-monitoring'],sidebar:[]},
+  {key:'inventory',name:'Inventory',desc:'Manajemen stok dan barang',widgets:[],sidebar:['inventory','stock-movement']},
+  {key:'supplier',name:'Supplier',desc:'Data pemasok',widgets:[],sidebar:['supplier']},
+  {key:'purchase',name:'Purchase Order',desc:'Pembelian dan pengadaan',widgets:[],sidebar:['purchase-order']},
+  {key:'finance',name:'Finance',desc:'Laporan keuangan dan kas',widgets:['finance-saldo-kas','finance-saldo-bank','finance-pendapatan-hari-ini','finance-pengeluaran-hari-ini','finance-laba-hari-ini','finance-cash-flow','finance-per-modul','finance-grafik-kas','finance-grafik-pendapatan','finance-grafik-pengeluaran'],sidebar:['finance']},
+  {key:'accounting',name:'Accounting / Jurnal',desc:'Jurnal akuntansi (perlu Finance)',dep:'finance',widgets:['accounting-jumlah-jurnal','accounting-saldo-kas','accounting-saldo-bank','accounting-pendapatan','accounting-beban','accounting-laba-bersih','accounting-neraca','accounting-cash-flow','accounting-trial-balance','accounting-closing-status'],sidebar:['accounting']},
+  {key:'customer',name:'Data Customer',desc:'CRUD data customer',widgets:[],sidebar:[]},
+  {key:'report',name:'Report Center',desc:'Laporan ERP dan BUM Desa',widgets:[],sidebar:['laporan','bumdesa']},
+];
+
+var SA_PERM_CODES=[
+  {code:'wisata.read',label:'Baca Data'},{code:'wisata.write',label:'Kelola Data'},
+  {code:'wisata.master',label:'Master Data'},{code:'wisata.reservasi',label:'Reservasi'},
+  {code:'wisata.keuangan',label:'Keuangan'},{code:'wisata.laporan',label:'Laporan'},
+  {code:'settings.admin',label:'Pengaturan'},
+];
+
+async function saFetch(path,opts){
+  var url=SA_BASE+path;
+  var headers=Object.assign({'Authorization':'Bearer '+SA_TOKEN,'Content-Type':'application/json'},opts&&opts.headers||{});
+  var res=await fetch(url,Object.assign({},opts,{headers:headers}));
+  if(res&&(res.status===401||res.status===403)){showSaMsg('Sesi berakhir atau akses ditolak. Silakan login kembali.','err');showSaLoginDialog();return null;}
+  return res;
+}
+
+async function saLogin(email,password){
+  try{
+    var res=await fetch(API_BASE+'/api/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,password:password})});
+    if(!res.ok){var err=await res.json();showSaMsg('Login gagal: '+(err.error||'Coba lagi'),'err');return false;}
+    var data=await res.json();
+    if(data.role!=='SUPER_ADMIN'){showSaMsg('Akses ditolak: hanya SUPER_ADMIN yang dapat mengakses Pengaturan','err');return false;}
+    SA_TOKEN=data.token;
+    localStorage.setItem('satset.admin.jwt',data.token);
+    hideSaLoginDialog();
+    showSaMsg('Login berhasil sebagai '+data.name,'ok');
+    return true;
+  }catch(e){showSaMsg('Error login: '+e.message,'err');return false;}
+}
+
+function showSaLoginDialog(){
+  var d=byId('sa-login-dialog');
+  if(d){d.style.display='flex';return;}
+  var overlay=document.createElement('div');
+  overlay.id='sa-login-dialog';
+  overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:9999';
+  overlay.innerHTML='<div style="background:var(--surface);border-radius:var(--r3);padding:var(--s6);width:360px;box-shadow:0 20px 60px rgba(0,0,0,.4)">'+
+    '<div class="ph-title" style="margin-bottom:var(--s4)">Login Super Admin</div>'+
+    '<div style="margin-bottom:var(--s3)"><label>Email</label><input id="sa-login-email" type="email" placeholder="admin@..." style="width:100%;margin-top:4px"/></div>'+
+    '<div style="margin-bottom:var(--s4)"><label>Password</label><input id="sa-login-pass" type="password" placeholder="Password" style="width:100%;margin-top:4px"/></div>'+
+    '<div style="display:flex;gap:8px"><button class="btn btn-p" style="flex:1" onclick="saDoLogin()">Masuk</button><button class="btn btn-o" onclick="hideSaLoginDialog()">Batal</button></div>'+
+    '<div id="sa-login-msg" style="margin-top:8px;font-size:12px;color:var(--danger)"></div>'+
+  '</div>';
+  document.body.appendChild(overlay);
+  setTimeout(function(){var em=byId('sa-login-email');if(em)em.focus();},100);
+}
+
+function hideSaLoginDialog(){var d=byId('sa-login-dialog');if(d)d.remove();}
+
+async function saDoLogin(){
+  var email=(byId('sa-login-email')&&byId('sa-login-email').value)||'';
+  var pass=(byId('sa-login-pass')&&byId('sa-login-pass').value)||'';
+  var msg=byId('sa-login-msg');
+  if(!email||!pass){if(msg)msg.textContent='Email dan password wajib diisi';return;}
+  if(msg)msg.textContent='Memverifikasi...';
+  var ok=await saLogin(email,pass);
+  if(ok)await initSuperAdminView();
+}
+
+function switchSaTab(tab){
+  saState.tab=tab;
+  document.querySelectorAll('.sa-tab').forEach(function(t){t.classList.toggle('on',t.getAttribute('data-sa')===tab)});
+  document.querySelectorAll('.sa-panel').forEach(function(p){p.classList.remove('on')});
+  var panel=document.getElementById('sa-'+tab);
+  if(panel)panel.classList.add('on');
+}
+
+async function initSuperAdminView(){
+  SA_TOKEN=localStorage.getItem('satset.admin.jwt')||'';
+  if(!SA_TOKEN){showSaLoginDialog();return;}
+  showSaMsg('Memuat pengaturan...','info');
+  try{
+    var [orgRes,modRes]=await Promise.all([saFetch('/organization'),saFetch('/modules')]);
+    if(orgRes.ok){saState.org=await orgRes.json();fillSaOrg();}
+    if(modRes.ok){saState.modules=await modRes.json();renderSaModules();}
+    renderSaWidgets();
+    await loadSaUsers();
+    renderSaCustomerPreview();
+    showSaMsg('Pengaturan berhasil dimuat','ok');
+    setTimeout(function(){var m=byId('sa-msg');if(m)m.textContent=''},2000);
+  }catch(e){showSaMsg('Gagal memuat pengaturan: '+e.message,'err');}
+}
+
+function showSaMsg(msg,type){var m=byId('sa-msg');if(!m)return;m.textContent=msg;m.className='notice '+(type||'info')}
+
+function fillSaOrg(){
+  var org=saState.org||{};
+  ['name','legalName','address','village','district','regency','phone','email','website','logo','skNumber'].forEach(function(f){var el=byId('sa-'+f);if(el)el.value=org[f]||'';});
+  if(byId('sa-foundedYear'))byId('sa-foundedYear').value=org.foundedYear||'';
+  renderSaOrgPreview();
+}
+
+function renderSaOrgPreview(){
+  var pr=byId('sa-identity-preview');if(!pr)return;
+  var org=saState.org||{};
+  var fields=[
+    ['Nama Wisata',org.name||'—'],['BUM Desa',org.legalName||'—'],['Alamat',org.address||'—'],
+    ['Desa',org.village||'—'],['Kecamatan',org.district||'—'],['Kabupaten',org.regency||'—'],
+    ['Telepon',org.phone||'—'],['Email',org.email||'—'],['Website',org.website||'—'],
+    ['SK Pendirian',org.skNumber||'—'],['Tahun Berdiri',org.foundedYear||'—'],
+  ];
+  pr.innerHTML='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:6px">'+fields.map(function(f){return '<div><span style="color:var(--text-3);font-weight:600">'+f[0]+':</span> '+escapeHtml(String(f[1]))+'</div>'}).join('')+'</div>';
+}
+
+async function saveCurrentSaTab(){
+  var tab=saState.tab;
+  if(tab==='identitas')await saveSaOrg();
+  else if(tab==='modul')await saveSaModules();
+  else if(tab==='dashboard')await saveSaDashboard();
+  else if(tab==='customer')saveSaCustomer();
+  else showSaMsg('Pilih tab untuk menyimpan','info');
+}
+
+async function saveSaOrg(){
+  var fields=['name','legalName','address','village','district','regency','phone','email','website','logo','skNumber'];
+  var patch={};
+  fields.forEach(function(f){var el=byId('sa-'+f);if(el)patch[f]=el.value;});
+  var fy=byId('sa-foundedYear');if(fy&&fy.value)patch.foundedYear=Number(fy.value);
+  showSaMsg('Menyimpan identitas...','info');
+  try{
+    var res=await saFetch('/organization',{method:'PUT',body:JSON.stringify(patch)});
+    if(res.ok){saState.org=await res.json();renderSaOrgPreview();showSaMsg('Identitas berhasil disimpan','ok');}
+    else{showSaMsg('Gagal: '+(await res.text()),'err');}
+  }catch(e){showSaMsg('Error: '+e.message,'err');}
+  // sync to BUM Desa identity localStorage for backward compat
+  var bdId={nama:patch.name||'',desa:patch.village||'',kecamatan:patch.district||'',kabupaten:patch.regency||'',sk:patch.skNumber||'','tahun-berdiri':patch.foundedYear||''};
+  localStorage.setItem('satset-bumdesa-identity',JSON.stringify(bdId));
+}
+
+function renderSaModules(){
+  var list=byId('sa-module-list');if(!list)return;
+  list.innerHTML=SA_MODULE_DEFS.map(function(m){
+    var enabled=saState.modules[m.key]!==false;
+    var depKey=m.dep;
+    var depEnabled=!depKey||(saState.modules[depKey]!==false);
+    var depWarn=(!enabled||!depEnabled)&&depKey?'<div class="sa-module-dep">⚠ Perlu modul: '+depKey+'</div>':'';
+    return '<div class="sa-module-card'+(depKey&&!depEnabled?' dep-warn':'')+'">'+
+      '<label class="sa-toggle"><input type="checkbox" data-mod="'+m.key+'" '+(enabled?'checked':'')+'/>'+
+      '<span class="sa-toggle-track"></span></label>'+
+      '<div class="sa-module-info"><div class="sa-module-name">'+m.name+'</div><div class="sa-module-desc">'+m.desc+'</div>'+depWarn+'</div>'+
+    '</div>';
+  }).join('');
+}
+
+async function saveSaModules(){
+  var updates={};
+  document.querySelectorAll('[data-mod]').forEach(function(el){updates[el.getAttribute('data-mod')]=el.checked;});
+  showSaMsg('Menyimpan modul...','info');
+  try{
+    var res=await saFetch('/modules',{method:'PUT',body:JSON.stringify(updates)});
+    if(res.ok){saState.modules=await res.json();renderSaModules();applyModuleFiltering();showSaMsg('Modul berhasil disimpan','ok');}
+    else{showSaMsg('Gagal: '+(await res.text()),'err');}
+  }catch(e){showSaMsg('Error: '+e.message,'err');}
+}
+
+function renderSaWidgets(){
+  var list=byId('sa-widget-list');if(!list)return;
+  var meta=window.DASH_WIDGET_META||[];
+  if(!meta.length){list.innerHTML='<div style="color:var(--text-3)">Widget metadata tidak tersedia.</div>';return;}
+  list.innerHTML=meta.slice(0,20).map(function(w){
+    var cfg=(widgetCfg&&widgetCfg[w.id])||{};
+    var hidden=!!(cfg.hidden);var pinned=!!(cfg.pinned);
+    return '<div class="sa-widget-row">'+
+      '<label class="sa-toggle" style="width:32px;height:18px;font-size:10px"><input type="checkbox" data-wid="'+w.id+'" data-wfield="hidden" '+(hidden?'':'checked')+'><span class="sa-toggle-track"></span></label>'+
+      '<span style="font-size:12px;font-weight:600;flex:2">'+w.title+'</span>'+
+      '<span class="sa-widget-id">'+w.id+'</span>'+
+    '</div>';
+  }).join('');
+  if(meta.length>20){list.innerHTML+='<div style="color:var(--text-3);font-size:11px;padding:8px">...dan '+(meta.length-20)+' widget lainnya (konfigurasi via Dashboard → Atur Widget)</div>';}
+}
+
+async function saveSaDashboard(){
+  var items=document.querySelectorAll('[data-wid]');var saved=0;
+  showSaMsg('Menyimpan konfigurasi dashboard...','info');
+  for(var i=0;i<items.length;i++){
+    var el=items[i];var widgetId=el.getAttribute('data-wid');var field=el.getAttribute('data-wfield');
+    var val=field==='hidden'?!el.checked:el.checked;
+    try{
+      await saFetch('/dashboard/'+encodeURIComponent(widgetId),{method:'PUT',body:JSON.stringify({hidden:val})});
+      saved++;
+    }catch(_e){}
+  }
+  showSaMsg('Dashboard: '+saved+' widget disimpan ke DB','ok');
+  // sync to localStorage for immediate effect
+  items.forEach(function(el){
+    var wid=el.getAttribute('data-wid');var val=!el.checked;
+    var cur=widgetCfg[wid]||{};widgetCfg[wid]=Object.assign({},cur,{hidden:val});
+  });
+  localStorage.setItem('satset-widget-config',JSON.stringify(widgetCfg));
+  renderWidgets();
+}
+
+async function resetSaDashboard(){
+  showSaMsg('Mereset dashboard...','info');
+  try{
+    await saFetch('/dashboard',{method:'DELETE'});
+    // clear local
+    widgetCfg={};localStorage.removeItem('satset-widget-config');
+    renderWidgets();renderSaWidgets();
+    showSaMsg('Dashboard direset ke default','ok');
+  }catch(e){showSaMsg('Error: '+e.message,'err');}
+}
+
+async function loadSaUsers(){
+  var container=byId('sa-user-list');if(!container)return;
+  try{
+    var res=await saFetch('/users');
+    if(!res.ok){container.innerHTML='<div style="color:var(--danger)">Gagal memuat users</div>';return;}
+    saState.users=await res.json();
+    container.innerHTML=saState.users.map(function(u){
+      return '<div class="sa-user-row">'+
+        '<div style="flex:2"><div style="font-weight:700;font-size:13px">'+escapeHtml(u.name)+'</div>'+
+        '<div style="font-size:11px;color:var(--text-3)">'+escapeHtml(u.email)+' · Role: '+(u.role&&u.role.name||'—')+'</div>'+
+        '<div class="sa-perm-grid">'+SA_PERM_CODES.map(function(p){
+          return '<span class="sa-perm-chip" data-uid="'+u.id+'" data-code="'+p.code+'" onclick="toggleSaPerm(this)">'+p.label+'</span>';
+        }).join('')+'</div></div>'+
+      '</div>';
+    }).join('');
+    // load each user's permissions
+    for(var i=0;i<saState.users.length;i++){loadUserPerms(saState.users[i].id);}
+  }catch(e){if(container)container.innerHTML='<div style="color:var(--danger)">Error: '+e.message+'</div>';}
+}
+
+async function loadUserPerms(userId){
+  try{
+    var res=await saFetch('/users/'+userId+'/permissions');
+    if(!res.ok)return;
+    var data=await res.json();
+    var granted=new Set();
+    if(data&&data.role&&data.role.rolePermissions){data.role.rolePermissions.forEach(function(rp){if(rp.permission)granted.add(rp.permission.code)});}
+    if(data&&data.userPermissions){data.userPermissions.forEach(function(up){if(up.permission){if(up.granted)granted.add(up.permission.code);else granted.delete(up.permission.code);}});}
+    document.querySelectorAll('[data-uid="'+userId+'"]').forEach(function(chip){
+      chip.classList.toggle('on',granted.has(chip.getAttribute('data-code')));
+    });
+  }catch(_e){}
+}
+
+async function toggleSaPerm(chip){
+  var userId=Number(chip.getAttribute('data-uid'));
+  var code=chip.getAttribute('data-code');
+  var nowOn=chip.classList.contains('on');
+  try{
+    var res=await saFetch('/users/'+userId+'/permissions',{method:'PUT',body:JSON.stringify({code:code,granted:!nowOn})});
+    if(res.ok){chip.classList.toggle('on',!nowOn);showSaMsg('Permission '+(nowOn?'dicabut':'diberikan')+': '+code,'ok');}
+    else{showSaMsg('Gagal update permission','err');}
+  }catch(e){showSaMsg('Error: '+e.message,'err');}
+}
+
+function saveSaCustomer(){
+  var custSettings={
+    booking:byId('sa-cust-booking')&&byId('sa-cust-booking').checked,
+    reservation:byId('sa-cust-reservation')&&byId('sa-cust-reservation').checked,
+    activity:byId('sa-cust-activity')&&byId('sa-cust-activity').checked,
+    history:byId('sa-cust-history')&&byId('sa-cust-history').checked,
+    profile:byId('sa-cust-profile')&&byId('sa-cust-profile').checked,
+    contact:byId('sa-cust-contact')&&byId('sa-cust-contact').checked,
+  };
+  localStorage.setItem('satset-customer-settings',JSON.stringify(custSettings));
+  renderSaCustomerPreview();
+  showSaMsg('Pengaturan customer disimpan (lokal)','ok');
+}
+
+function renderSaCustomerPreview(){
+  var pr=byId('sa-customer-preview');if(!pr)return;
+  var s=JSON.parse(localStorage.getItem('satset-customer-settings')||'{}');
+  var items=[
+    ['Booking Tiket',s.booking!==false,'modul: ticket'],
+    ['Reservasi',s.reservation!==false,'modul: reservation'],
+    ['Aktivitas',s.activity!==false,'modul: activity'],
+    ['Riwayat',s.history!==false,'—'],
+    ['Profil',s.profile!==false,'—'],
+    ['Info Kontak',s.contact!==false,'—'],
+  ];
+  pr.innerHTML=items.map(function(item){
+    return '<div style="display:flex;gap:8px;align-items:center;padding:3px 0">'+
+      '<span style="width:16px;height:16px;border-radius:50%;background:'+(item[1]?'var(--success)':'var(--border)')+';display:inline-block;flex-shrink:0"></span>'+
+      '<span style="font-weight:600">'+item[0]+'</span>'+
+      '<span style="color:var(--text-3);font-size:11px">'+item[2]+'</span>'+
+    '</div>';
+  }).join('');
+}
+
+// ── MODULE FILTERING (applied to admin sidebar + widgets) ──────────────────
+function applyModuleFiltering(){
+  SA_MODULE_DEFS.forEach(function(m){
+    var enabled=saState.modules[m.key]!==false;
+    // hide/show widgets
+    m.widgets.forEach(function(wid){
+      var card=document.querySelector('[data-widget="'+wid+'"]');
+      if(card)card.style.display=enabled?'':'none';
+    });
+  });
+}
+
+function getEnabledModules(){return Object.keys(saState.modules).filter(function(k){return saState.modules[k]!==false});}
+function isModuleEnabled(key){return saState.modules[key]!==false;}
+
+// Load module settings on boot for filtering (uses stored JWT if available)
+(function(){
+  var jwt=localStorage.getItem('satset.admin.jwt');
+  if(!jwt)return; // no token — skip module filtering until user logs in
+  fetch(SA_BASE+'/modules',{headers:{'Authorization':'Bearer '+jwt}}).then(function(r){
+    if(r.ok)return r.json();return {};
+  }).then(function(m){
+    if(m&&typeof m==='object'){saState.modules=m;applyModuleFiltering();}
+  }).catch(function(){});
+})();
+// ── END SUPER ADMIN ─────────────────────────────────────────────────────────
+
+// ── BUM DESA REPORT CENTER ─────────────────────────────────────────────────
+var bdState={tab:'tahunan',tahun:new Date().getFullYear(),bulanDari:'01',bulanSampai:'12',journals:[],finRows:[],operational:null};
+
+function initBumDesaView(){
+  var identity=JSON.parse(localStorage.getItem('satset-bumdesa-identity')||'{}');
+  var fields=['nama','desa','kecamatan','kabupaten','sk','tahun-berdiri'];
+  fields.forEach(function(f){var el=byId('bd-'+f);if(el&&identity[f])el.value=identity[f];});
+  var tahunEl=byId('bd-tahun');
+  if(tahunEl)tahunEl.value=String(bdState.tahun);
+  var sampai=byId('bd-bulan-sampai');
+  if(sampai)sampai.value='12';
+}
+
+function saveBumDesaIdentity(){
+  var identity={};
+  ['nama','desa','kecamatan','kabupaten','sk','tahun-berdiri'].forEach(function(f){
+    var el=byId('bd-'+f);if(el)identity[f]=el.value;
+  });
+  localStorage.setItem('satset-bumdesa-identity',JSON.stringify(identity));
+  toast('Identitas BUM Desa disimpan','success');
+}
+
+function switchBdTab(tab){
+  bdState.tab=tab;
+  document.querySelectorAll('.bd-tab').forEach(function(t){t.classList.toggle('on',t.getAttribute('data-bd')===tab)});
+  renderBdPreview();
+}
+
+function fmtRp(n){return new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',minimumFractionDigits:0,maximumFractionDigits:0}).format(Number(n)||0)}
+function bdRowHtml(label,val,indent){
+  var cls=indent?'bd-row-sub':'bd-row';
+  return '<div class="'+cls+'"><span>'+(indent?'&nbsp;&nbsp;&nbsp;':'')+label+'</span><span>'+fmtRp(val)+'</span></div>';
+}
+function bdTotalHtml(label,val){return '<div class="bd-row-total"><span>'+label+'</span><span>'+fmtRp(val)+'</span></div>'}
+
+function bdBuildTrialBalance(journals){
+  var accounts={};
+  journals.forEach(function(j){
+    (j.lines||[]).forEach(function(line){
+      var code=String(line.accountCode||'');
+      if(!accounts[code])accounts[code]={code:code,name:String(line.accountName||code),debit:0,credit:0};
+      accounts[code].debit+=Number(line.debit||0);
+      accounts[code].credit+=Number(line.credit||0);
+    });
+  });
+  return Object.values(accounts);
+}
+
+function bdGetIdentity(){return JSON.parse(localStorage.getItem('satset-bumdesa-identity')||'{}')}
+
+async function loadBumDesaReport(){
+  var tahun=Number(byId('bd-tahun').value||new Date().getFullYear());
+  var dari=byId('bd-bulan-dari').value||'01';
+  var sampai=byId('bd-bulan-sampai').value||'12';
+  bdState.tahun=tahun;bdState.bulanDari=dari;bdState.bulanSampai=sampai;
+  var from=tahun+'-'+dari+'-01';
+  var lastDay=new Date(tahun,Number(sampai),0).getDate();
+  var to=tahun+'-'+sampai+'-'+String(lastDay).padStart(2,'0');
+  var label='Periode '+dari+'/'+tahun+' — '+sampai+'/'+tahun;
+  var lbl=byId('bd-period-label');if(lbl)lbl.textContent=label;
+  // filter journals by period
+  bdState.journals=(accountingJournals||[]).filter(function(j){
+    var d=String(j.createdAt||'').slice(0,10);return d>=from&&d<=to;
+  });
+  bdState.finRows=(financeTransactions||[]).filter(function(r){
+    var d=String(r.dibuatPada||'').slice(0,10);return d>=from&&d<=to;
+  });
+  // fetch operational data from API
+  try{
+    var _bdJwt=localStorage.getItem('satset.admin.jwt')||'';
+    var url=API_BASE+'/api/erp-wisata/report?from='+from+'&to='+to;
+    var res=await fetch(url,{headers:{'Authorization':'Bearer '+_bdJwt}});
+    if(res.ok)bdState.operational=await res.json();else bdState.operational=null;
+  }catch(e){bdState.operational=null;}
+  renderBdPreview();
+}
+
+function renderBdPreview(){
+  var container=byId('bd-preview');if(!container)return;
+  var tab=bdState.tab;
+  var identity=bdGetIdentity();
+  var nama=identity['nama']||'BUM Desa';
+  var periodLabel='Tahun '+bdState.tahun+' (Periode '+bdState.bulanDari+' s.d. '+bdState.bulanSampai+')';
+  var header='<div class="bd-identity" style="margin-bottom:20px">'+
+    '<div class="bd-id-row"><div class="bd-id-label">BUM Desa</div><div class="bd-id-value">'+(nama||'—')+'</div></div>'+
+    '<div class="bd-id-row"><div class="bd-id-label">Desa</div><div class="bd-id-value">'+(identity['desa']||'—')+'</div></div>'+
+    '<div class="bd-id-row"><div class="bd-id-label">Kecamatan</div><div class="bd-id-value">'+(identity['kecamatan']||'—')+'</div></div>'+
+    '<div class="bd-id-row"><div class="bd-id-label">Kabupaten/Kota</div><div class="bd-id-value">'+(identity['kabupaten']||'—')+'</div></div>'+
+    '<div class="bd-id-row"><div class="bd-id-label">Nomor SK</div><div class="bd-id-value">'+(identity['sk']||'—')+'</div></div>'+
+    '<div class="bd-id-row"><div class="bd-id-label">Periode Laporan</div><div class="bd-id-value">'+periodLabel+'</div></div>'+
+  '</div>';
+  var html='';
+  if(tab==='tahunan')html=header+renderBdTahunan(nama,periodLabel);
+  else if(tab==='neraca')html=header+renderBdNeraca();
+  else if(tab==='labarugi')html=header+renderBdLabaRugi();
+  else if(tab==='ekuitas')html=header+renderBdEkuitas();
+  else if(tab==='aruskasbd')html=header+renderBdArusKas();
+  else if(tab==='calk')html=header+renderBdCaLK(identity,periodLabel);
+  container.innerHTML=html||'<div class="bd-empty">Data belum tersedia.</div>';
+}
+
+function renderBdTahunan(nama,periodLabel){
+  var trial=bdBuildTrialBalance(bdState.journals);
+  var hasData=trial.length>0||bdState.finRows.length>0||(bdState.operational&&bdState.operational.revenue);
+  var income=bdCalcIncome(trial);
+  var ops=bdState.operational;
+  var html='';
+  html+='<div class="bd-section"><div class="bd-title">LAPORAN TAHUNAN BUM DESA</div>';
+  html+='<div style="text-align:center;font-size:14px;font-weight:700;margin:8px 0">'+nama+'</div>';
+  html+='<div style="text-align:center;color:var(--text-2);font-size:12px">'+periodLabel+'</div></div>';
+
+  html+='<div class="bd-section"><div class="bd-subtitle">1. Ikhtisar Pencapaian</div>';
+  if(ops&&ops.revenue){
+    html+=bdRowHtml('Total Pendapatan Operasional',ops.revenue.totalPaid||0);
+    html+=bdRowHtml('Total Transaksi Tiket',(ops.operational&&ops.operational.ticketSales&&ops.operational.ticketSales.total)||0);
+    html+=bdRowHtml('Total Reservasi',(ops.operational&&ops.operational.reservations&&ops.operational.reservations.total)||0);
+  } else if(hasData){
+    html+=bdRowHtml('Total Pendapatan',income.pendapatan);
+    html+=bdRowHtml('Laba Bersih',income.labaBersih);
+  } else {
+    html+='<div class="bd-empty">Data operasional belum tersedia. Muat laporan dengan periode yang valid.</div>';
+  }
+  html+='</div>';
+
+  html+='<div class="bd-section"><div class="bd-subtitle">2. Kinerja Usaha per Unit</div>';
+  if(ops&&ops.operational){
+    var op=ops.operational;
+    if(op.ticketSales)html+=bdRowHtml('Tiket — Terjual',op.ticketSales.total)+bdRowHtml('Tiket — Pendapatan Bruto',op.ticketSales.grossSales,true);
+    if(op.reservations)html+=bdRowHtml('Reservasi — Total',op.reservations.total)+bdRowHtml('Reservasi — Pendapatan Bruto',op.reservations.grossSales,true);
+    if(op.cafeOrders)html+=bdRowHtml('Cafe — Order',op.cafeOrders.total)+bdRowHtml('Cafe — Pendapatan Bruto',op.cafeOrders.grossSales,true);
+    if(op.activityBookings)html+=bdRowHtml('Aktivitas — Booking',op.activityBookings.total)+bdRowHtml('Aktivitas — Pendapatan Bruto',op.activityBookings.grossSales,true);
+  } else {
+    html+='<div class="bd-empty">Data kinerja usaha belum tersedia.</div>';
+  }
+  html+='</div>';
+
+  html+='<div class="bd-section"><div class="bd-subtitle">3. Ringkasan Laporan Keuangan</div>';
+  html+=renderBdLabaRugi();
+  html+='</div>';
+  return html;
+}
+
+function bdCalcIncome(trial){
+  var sum=function(prefix){return trial.filter(function(r){return String(r.code||r.accountCode||'').startsWith(prefix)}).reduce(function(a,r){return a+(Number(r.credit||0)-Number(r.debit||0))},0)};
+  var sumDebit=function(prefix){return trial.filter(function(r){return String(r.code||r.accountCode||'').startsWith(prefix)}).reduce(function(a,r){return a+(Number(r.debit||0)-Number(r.credit||0))},0)};
+  var pendapatan=sum('4');
+  var hpp=sumDebit('5');
+  var beban=sumDebit('6');
+  var pendapatanLain=sum('7');
+  var bebanLain=sumDebit('8');
+  var labaOperasional=pendapatan-hpp-beban;
+  var labaBersih=labaOperasional+pendapatanLain-bebanLain;
+  return{pendapatan:pendapatan,hpp:hpp,beban:beban,pendapatanLain:pendapatanLain,bebanLain:bebanLain,labaOperasional:labaOperasional,labaBersih:labaBersih};
+}
+
+function renderBdLabaRugi(){
+  var trial=bdBuildTrialBalance(bdState.journals);
+  var inc=bdCalcIncome(trial);
+  if(trial.length===0&&bdState.finRows.length===0)return'<div class="bd-empty">Belum ada jurnal akuntansi pada periode ini. Transaksi akan otomatis tercatat setelah aktivitas operasional berjalan.</div>';
+  var html='';
+  html+='<div class="bd-section"><div class="bd-title">LAPORAN LABA RUGI</div>';
+  html+='<div class="bd-subtitle">Pendapatan Usaha</div>';
+  trial.filter(function(r){return String(r.code||r.accountCode||'').startsWith('4')}).forEach(function(r){
+    html+=bdRowHtml(r.name||(r.code||r.accountCode),Number(r.credit||0)-Number(r.debit||0),true);
+  });
+  html+=bdRowHtml('TOTAL PENDAPATAN',inc.pendapatan);
+  html+='<div class="bd-subtitle">Harga Pokok Penjualan</div>';
+  trial.filter(function(r){return String(r.code||r.accountCode||'').startsWith('5')}).forEach(function(r){
+    html+=bdRowHtml(r.name||(r.code||r.accountCode),Number(r.debit||0)-Number(r.credit||0),true);
+  });
+  html+=bdRowHtml('TOTAL HPP',inc.hpp);
+  html+=bdRowHtml('LABA KOTOR',inc.pendapatan-inc.hpp);
+  html+='<div class="bd-subtitle">Beban Operasional</div>';
+  trial.filter(function(r){return String(r.code||r.accountCode||'').startsWith('6')}).forEach(function(r){
+    html+=bdRowHtml(r.name||(r.code||r.accountCode),Number(r.debit||0)-Number(r.credit||0),true);
+  });
+  html+=bdRowHtml('TOTAL BEBAN OPERASIONAL',inc.beban);
+  html+=bdTotalHtml('LABA OPERASIONAL',inc.labaOperasional);
+  if(inc.pendapatanLain!==0||inc.bebanLain!==0){
+    html+='<div class="bd-subtitle">Pendapatan/Beban Lain-lain</div>';
+    if(inc.pendapatanLain!==0)html+=bdRowHtml('Pendapatan Lainnya',inc.pendapatanLain,true);
+    if(inc.bebanLain!==0)html+=bdRowHtml('Beban Lainnya',inc.bebanLain,true);
+  }
+  html+=bdTotalHtml('LABA BERSIH PERIODE BERJALAN',inc.labaBersih);
+  html+='</div>';
+  return html;
+}
+
+function renderBdNeraca(){
+  var trial=bdBuildTrialBalance(bdState.journals);
+  if(trial.length===0)return'<div class="bd-empty">Belum ada jurnal akuntansi pada periode ini.</div>';
+  var getBalance=function(r,normal){
+    var d=Number(r.debit||0),c=Number(r.credit||0);
+    return normal==='Debit'?d-c:c-d;
+  };
+  var asetLancar=trial.filter(function(r){var code=String(r.code||r.accountCode||'');return code.startsWith('1')&&Number(code)<1200});
+  var asetTetap=trial.filter(function(r){var code=String(r.code||r.accountCode||'');return code.startsWith('1')&&Number(code)>=1200});
+  var kewajiban=trial.filter(function(r){return String(r.code||r.accountCode||'').startsWith('2')});
+  var ekuitas=trial.filter(function(r){return String(r.code||r.accountCode||'').startsWith('3')});
+  var inc=bdCalcIncome(trial);
+  var totalAsetLancar=asetLancar.reduce(function(a,r){return a+getBalance(r,'Debit')},0);
+  var totalAsetTetap=asetTetap.reduce(function(a,r){return a+getBalance(r,'Debit')},0);
+  var totalAset=totalAsetLancar+totalAsetTetap;
+  var totalKewajiban=kewajiban.reduce(function(a,r){return a+getBalance(r,'Kredit')},0);
+  var totalEkuitas=ekuitas.reduce(function(a,r){return a+getBalance(r,'Kredit')},0)+inc.labaBersih;
+  var html='';
+  html+='<div class="bd-section"><div class="bd-title">LAPORAN POSISI KEUANGAN (NERACA)</div>';
+  html+='<div class="bd-subtitle">ASET</div>';
+  html+='<div style="font-size:12px;color:var(--text-3);margin-bottom:4px">Aset Lancar</div>';
+  asetLancar.forEach(function(r){html+=bdRowHtml(r.name||(r.code||r.accountCode),getBalance(r,'Debit'),true)});
+  html+=bdRowHtml('Total Aset Lancar',totalAsetLancar);
+  if(asetTetap.length>0){
+    html+='<div style="font-size:12px;color:var(--text-3);margin-bottom:4px;margin-top:8px">Aset Tidak Lancar</div>';
+    asetTetap.forEach(function(r){html+=bdRowHtml(r.name||(r.code||r.accountCode),getBalance(r,'Debit'),true)});
+    html+=bdRowHtml('Total Aset Tidak Lancar',totalAsetTetap);
+  }
+  html+=bdTotalHtml('TOTAL ASET',totalAset);
+  html+='<div class="bd-subtitle">KEWAJIBAN</div>';
+  if(kewajiban.length>0){kewajiban.forEach(function(r){html+=bdRowHtml(r.name||(r.code||r.accountCode),getBalance(r,'Kredit'),true)})}
+  else{html+='<div class="bd-row"><span style="color:var(--text-3)">Tidak ada kewajiban tercatat</span><span>'+fmtRp(0)+'</span></div>'}
+  html+=bdRowHtml('Total Kewajiban',totalKewajiban);
+  html+='<div class="bd-subtitle">EKUITAS</div>';
+  ekuitas.forEach(function(r){html+=bdRowHtml(r.name||(r.code||r.accountCode),getBalance(r,'Kredit'),true)});
+  html+=bdRowHtml('Laba/Rugi Berjalan',inc.labaBersih,true);
+  html+=bdRowHtml('Total Ekuitas',totalEkuitas);
+  html+=bdTotalHtml('TOTAL KEWAJIBAN DAN EKUITAS',totalKewajiban+totalEkuitas);
+  var selisih=Math.round(totalAset)-Math.round(totalKewajiban+totalEkuitas);
+  if(Math.abs(selisih)>1)html+='<div style="color:var(--warn);font-size:11px;margin-top:6px">⚠ Selisih neraca: '+fmtRp(Math.abs(selisih))+' — periksa kelengkapan jurnal.</div>';
+  html+='</div>';
+  return html;
+}
+
+function renderBdEkuitas(){
+  var trial=bdBuildTrialBalance(bdState.journals);
+  var inc=bdCalcIncome(trial);
+  var identity=bdGetIdentity();
+  var allJournals=accountingJournals||[];
+  var prevYear=bdState.tahun-1;
+  var prevJournals=allJournals.filter(function(j){return String(j.createdAt||'').startsWith(String(prevYear))});
+  var prevTrial=bdBuildTrialBalance(prevJournals);
+  var prevEkuitas=prevTrial.filter(function(r){return String(r.code||r.accountCode||'').startsWith('3')}).reduce(function(a,r){return a+(Number(r.credit||0)-Number(r.debit||0))},0);
+  var prevInc=bdCalcIncome(prevTrial);
+  var saldoAwal=prevEkuitas+prevInc.labaBersih;
+  var modalBerjalan=trial.filter(function(r){return String(r.code||r.accountCode||'').startsWith('3')}).reduce(function(a,r){return a+(Number(r.credit||0)-Number(r.debit||0))},0);
+  var saldoAkhir=saldoAwal+modalBerjalan+inc.labaBersih;
+  var html='';
+  html+='<div class="bd-section"><div class="bd-title">LAPORAN PERUBAHAN EKUITAS</div>';
+  html+=bdRowHtml('Saldo Awal Ekuitas (Tahun '+(bdState.tahun-1)+')',saldoAwal);
+  if(modalBerjalan!==0)html+=bdRowHtml('Penambahan Modal Berjalan',modalBerjalan,true);
+  html+=bdRowHtml('Laba Bersih Periode Berjalan',inc.labaBersih,true);
+  html+=bdTotalHtml('SALDO AKHIR EKUITAS',saldoAkhir);
+  if(saldoAwal===0&&modalBerjalan===0)html+='<div style="color:var(--text-3);font-size:11px;margin-top:6px">Saldo awal dihitung dari akumulasi jurnal tahun sebelumnya. Pastikan jurnal pembukaan sudah diinput.</div>';
+  html+='</div>';
+  return html;
+}
+
+function renderBdArusKas(){
+  var trial=bdBuildTrialBalance(bdState.journals);
+  if(trial.length===0)return'<div class="bd-empty">Belum ada jurnal akuntansi pada periode ini.</div>';
+  var kasAwal=0;
+  var allJournals=accountingJournals||[];
+  var from=bdState.tahun+'-'+bdState.bulanDari+'-01';
+  var prevJournals=allJournals.filter(function(j){return String(j.createdAt||'').slice(0,10)<from});
+  var prevTrial=bdBuildTrialBalance(prevJournals);
+  prevTrial.filter(function(r){var code=String(r.code||r.accountCode||'');return['1001','1002','1003','1004','1101','1102'].indexOf(code)>=0}).forEach(function(r){kasAwal+=Number(r.debit||0)-Number(r.credit||0)});
+  var operatingAcc=['4001','4002','4003','4004','6001','6002','6003'];
+  var operating=trial.filter(function(r){return operatingAcc.indexOf(String(r.code||r.accountCode||''))>=0}).reduce(function(a,r){return a+(Number(r.credit||0)-Number(r.debit||0))},0);
+  var investingAcc=['1201','1202','1203','1301','1302'];
+  var investing=trial.filter(function(r){return investingAcc.indexOf(String(r.code||r.accountCode||''))>=0}).reduce(function(a,r){return a+(Number(r.credit||0)-Number(r.debit||0))},0);
+  var financingAcc=['2001','3001'];
+  var financing=trial.filter(function(r){return financingAcc.indexOf(String(r.code||r.accountCode||''))>=0}).reduce(function(a,r){return a+(Number(r.credit||0)-Number(r.debit||0))},0);
+  var net=operating+investing+financing;
+  var kasAkhir=kasAwal+net;
+  var html='';
+  html+='<div class="bd-section"><div class="bd-title">LAPORAN ARUS KAS</div>';
+  html+=bdRowHtml('Saldo Kas Awal Periode',kasAwal);
+  html+='<div class="bd-subtitle">Arus Kas dari Aktivitas Operasional</div>';
+  html+=bdRowHtml('Penerimaan dari Pelanggan',operating>0?operating:0,true);
+  html+=bdRowHtml('Pembayaran kepada Pemasok/Karyawan',operating<0?Math.abs(operating):0,true);
+  html+=bdRowHtml('Arus Kas Bersih Operasional',operating);
+  if(investing!==0){
+    html+='<div class="bd-subtitle">Arus Kas dari Aktivitas Investasi</div>';
+    html+=bdRowHtml('Pengeluaran untuk Aset',investing,true);
+    html+=bdRowHtml('Arus Kas Bersih Investasi',investing);
+  }
+  if(financing!==0){
+    html+='<div class="bd-subtitle">Arus Kas dari Aktivitas Pendanaan</div>';
+    html+=bdRowHtml('Penerimaan Modal/Pinjaman',financing,true);
+    html+=bdRowHtml('Arus Kas Bersih Pendanaan',financing);
+  }
+  html+=bdTotalHtml('KENAIKAN/(PENURUNAN) KAS BERSIH',net);
+  html+=bdTotalHtml('SALDO KAS AKHIR PERIODE',kasAkhir);
+  html+='</div>';
+  return html;
+}
+
+function renderBdCaLK(identity,periodLabel){
+  var trial=bdBuildTrialBalance(bdState.journals);
+  var inc=bdCalcIncome(trial);
+  var html='';
+  html+='<div class="bd-section"><div class="bd-title">CATATAN ATAS LAPORAN KEUANGAN (CaLK)</div></div>';
+  html+='<div class="bd-section"><div class="bd-subtitle">1. Umum</div>';
+  html+='<p style="font-size:12px;line-height:1.7;color:var(--text-2)">';
+  html+=(identity['nama']||'BUM Desa')+' didirikan berdasarkan Peraturan Desa dan '+(identity['sk']?'SK Nomor '+identity['sk']:' Surat Keputusan Kepala Desa')+', berlokasi di Desa '+(identity['desa']||'—')+', Kecamatan '+(identity['kecamatan']||'—')+', '+(identity['kabupaten']||'—');
+  html+='. Laporan keuangan disusun sesuai dengan Pedoman PP No. 11 Tahun 2021 tentang BUM Desa dan Kepmendesa PDTT No. 136 Tahun 2022.';
+  html+='</p></div>';
+  html+='<div class="bd-section"><div class="bd-subtitle">2. Kebijakan Akuntansi</div>';
+  html+='<ul style="font-size:12px;line-height:1.8;color:var(--text-2);padding-left:18px">';
+  html+='<li>Dasar penyusunan: basis akrual sesuai Kepmendesa PDTT 136/2022</li>';
+  html+='<li>Pengakuan pendapatan: saat transaksi terjadi dan risiko telah berpindah</li>';
+  html+='<li>Aset tetap: dicatat berdasarkan harga perolehan</li>';
+  html+='<li>Mata uang pelaporan: Rupiah Indonesia (IDR)</li>';
+  html+='</ul></div>';
+  html+='<div class="bd-section"><div class="bd-subtitle">3. Sumber Data</div>';
+  html+='<ul style="font-size:12px;line-height:1.8;color:var(--text-2);padding-left:18px">';
+  html+='<li>Jurnal akuntansi pada periode: '+periodLabel+' ('+bdState.journals.length+' jurnal)</li>';
+  html+='<li>Transaksi keuangan tercatat: '+bdState.finRows.length+' transaksi</li>';
+  if(bdState.operational){html+='<li>Data operasional tersedia dari sistem ERP Wisata</li>';}
+  else{html+='<li>Data operasional API tidak tersedia — laporan keuangan hanya berdasarkan jurnal</li>';}
+  html+='</ul></div>';
+  html+='<div class="bd-section"><div class="bd-subtitle">4. Rincian Pendapatan</div>';
+  if(inc.pendapatan>0){
+    trial.filter(function(r){return String(r.code||r.accountCode||'').startsWith('4')}).forEach(function(r){
+      var val=Number(r.credit||0)-Number(r.debit||0);
+      if(val!==0)html+=bdRowHtml(r.name||(r.code||r.accountCode),val,true);
+    });
+    html+=bdRowHtml('Total Pendapatan',inc.pendapatan);
+  }else{html+='<div style="color:var(--text-3);font-size:12px">Belum ada pendapatan tercatat pada periode ini.</div>'}
+  html+='</div>';
+  html+='<div class="bd-section"><div class="bd-subtitle">5. Rincian Beban</div>';
+  if(inc.beban>0||inc.hpp>0){
+    trial.filter(function(r){var code=String(r.code||r.accountCode||'');return code.startsWith('5')||code.startsWith('6')}).forEach(function(r){
+      var val=Number(r.debit||0)-Number(r.credit||0);
+      if(val!==0)html+=bdRowHtml(r.name||(r.code||r.accountCode),val,true);
+    });
+    html+=bdRowHtml('Total Beban',inc.beban+inc.hpp);
+  }else{html+='<div style="color:var(--text-3);font-size:12px">Belum ada beban tercatat pada periode ini.</div>'}
+  html+='</div>';
+  return html;
+}
+
+function exportBdXls(){
+  var identity=bdGetIdentity();
+  var trial=bdBuildTrialBalance(bdState.journals);
+  var inc=bdCalcIncome(trial);
+  var tahun=bdState.tahun;
+  var nama=(identity['nama']||'BUMDesa').replace(/\s+/g,'_');
+  var tab=bdState.tab;
+  var tabLabel={'tahunan':'Tahunan','neraca':'Neraca','labarugi':'LabaRugi','ekuitas':'Ekuitas','aruskasbd':'ArusKas','calk':'CaLK'}[tab]||tab;
+  var filename='BUMDes_'+nama+'_'+tabLabel+'_'+tahun+'.xls';
+  var rows=[['Laporan '+tabLabel+' BUM Desa — '+tahun],[''],['Akun','Debit','Kredit','Saldo']];
+  trial.forEach(function(r){rows.push([r.name||(r.code||r.accountCode),r.debit||0,r.credit||0,(r.debit||0)-(r.credit||0)])});
+  rows.push([''],['Ringkasan Laba Rugi','']);
+  rows.push(['Pendapatan',inc.pendapatan]);rows.push(['HPP',inc.hpp]);rows.push(['Beban',inc.beban]);rows.push(['Laba Bersih',inc.labaBersih]);
+  if(typeof exportXls==='function'){exportXls(filename,rows);toast('File Excel diunduh: '+filename,'success');}
+  else{toast('Fungsi export XLS tidak tersedia','error');}
+}
+// ── END BUM DESA ────────────────────────────────────────────────────────────
+
 function initReportView(){
   if(!reportState.from)reportState.from=dateKeyFromOffset(-7);
   if(!reportState.to)reportState.to=dateKeyFromOffset(0);
@@ -2307,12 +3239,12 @@ function renderPrimaryKpi(counts,ticketRows){
   var ticketRevenue=todayTickets.reduce(function(acc,row){return acc+Number(row.total||0)},0);
   if(byId('kv-ticket-today'))byId('kv-ticket-today').textContent=String(todayTickets.length||0);
   if(byId('kv-booking-today'))byId('kv-booking-today').textContent=String(counts.reservasi||0);
-  if(byId('kv-revenue-ticket'))byId('kv-revenue-ticket').textContent=fmtIdr(ticketRevenue);
-  if(byId('kv-revenue-cafe'))byId('kv-revenue-cafe').textContent=fmtIdr(cafe.pendapatanCafeHariIni||0);
-  if(byId('kv-revenue-outbound'))byId('kv-revenue-outbound').textContent=fmtIdr(outbound.pendapatanOutbound||0);
-  if(byId('kv-cash-balance'))byId('kv-cash-balance').textContent=fmtIdr(finance.saldoKas||0);
-  if(byId('kv-bank-balance'))byId('kv-bank-balance').textContent=fmtIdr(finance.saldoBank||0);
-  if(byId('kv-profit-today'))byId('kv-profit-today').textContent=fmtIdr(finance.labaOperasionalHariIni||0);
+  if(byId('kv-revenue-ticket'))byId('kv-revenue-ticket').textContent=fmtIdrCompact(ticketRevenue);
+  if(byId('kv-revenue-cafe'))byId('kv-revenue-cafe').textContent=fmtIdrCompact(cafe.pendapatanCafeHariIni||0);
+  if(byId('kv-revenue-outbound'))byId('kv-revenue-outbound').textContent=fmtIdrCompact(outbound.pendapatanOutbound||0);
+  if(byId('kv-cash-balance'))byId('kv-cash-balance').textContent=fmtIdrCompact(finance.saldoKas||0);
+  if(byId('kv-bank-balance'))byId('kv-bank-balance').textContent=fmtIdrCompact(finance.saldoBank||0);
+  if(byId('kv-profit-today'))byId('kv-profit-today').textContent=fmtIdrCompact(finance.labaOperasionalHariIni||0);
 }
 function renderTicketSummary(rows){
   var root=byId('ticket-summary');

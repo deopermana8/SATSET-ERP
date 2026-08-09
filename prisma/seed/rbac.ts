@@ -106,7 +106,22 @@ async function main() {
   }
   console.log(`  ✓ Kasir: ${kasirPerms.length} permissions assigned`);
 
-  // ── 7. Ensure admin user exists and is Admin role ────────────────────────
+  // ── 7. SUPER_ADMIN gets settings permissions explicitly ──────────────────
+  const settingsCodes = ["settings.admin", "settings.modules", "settings.dashboard", "settings.users"];
+  const settingsPerms = await prisma.permission.findMany({
+    where: { code: { in: settingsCodes } },
+    select: { id: true },
+  });
+  for (const perm of settingsPerms) {
+    await prisma.rolePermission.upsert({
+      where: { roleId_permissionId: { roleId: superRole.id, permissionId: perm.id } },
+      update: {},
+      create: { roleId: superRole.id, permissionId: perm.id },
+    });
+  }
+  console.log(`  ✓ SUPER_ADMIN: ${settingsPerms.length} settings permissions explicitly assigned`);
+
+  // ── 8. Ensure admin user exists and is Admin role ────────────────────────
   const { default: bcrypt } = await import("bcryptjs");
   const initialPassword = process.env.ADMIN_INITIAL_PASSWORD;
   if (!initialPassword || initialPassword.length < 12) {

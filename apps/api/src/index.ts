@@ -1,6 +1,14 @@
 import { createServer, type IncomingMessage } from "node:http";
 import { randomUUID } from "node:crypto";
 import { handleCustomerPortalRoute } from "./customerPortal.js";
+import { signAdminJwt, verifySettingsAuth, verifyReportAuth } from "./auth/adminAuth.js";
+import { prisma } from "./prismaClient.js";
+import {
+  getOrCreateOrganization, updateOrganization,
+  getModuleSettings, setModules,
+  getDashboardWidgetSettings, setDashboardWidget, resetDashboardWidgets,
+  listUsers, getUserPermissions, setUserPermission,
+} from "./services/SettingsService.js";
 import { ActivityBookingController, type ActivityBookingRequest, type ActivityBookingResponse } from "./controllers/ActivityBookingController.js";
 import { ActivityController, type ActivityRequest, type ActivityResponse } from "./controllers/ActivityController.js";
 import { ActivityScheduleController, type ActivityScheduleRequest, type ActivityScheduleResponse } from "./controllers/ActivityScheduleController.js";
@@ -75,7 +83,7 @@ type RecordItem = { id: string; name: string; status: string };
 const port = Number(process.env.API_PORT ?? 3001);
 const records: RecordItem[] = [{ id: "001", name: "Destinasi Utama", status: "active" }];
 
-// ERP Wisata in-memory store — replace with DB persistence via Prisma in production
+// ERP Wisata in-memory store â€” replace with DB persistence via Prisma in production
 const erpWisataStores: Record<string, RecordItem[]> = {
   destinasi: [{ id: "d001", name: "Wisata Alam Raya", status: "aktif" }],
   "paket-wisata": [],
@@ -235,25 +243,7 @@ function safeParseBody(raw: string): Record<string, any> | null {
   catch { return null; }
 }
 
-const REPORT_PERMISSION_CODE = "wisata.laporan";
-const WORKSPACE_REPORT_TOKEN = "workspace-token";
-
-function hasReportPermission(request: IncomingMessage): boolean {
-  const authHeader = request.headers.authorization;
-  if (!authHeader) return false;
-  const [scheme, token] = authHeader.split(" ");
-  if (scheme !== "Bearer" || !token) return false;
-  return token === WORKSPACE_REPORT_TOKEN;
-}
-
-function ensureReportPermission(request: IncomingMessage, response: import("node:http").ServerResponse): boolean {
-  if (hasReportPermission(request)) {
-    return true;
-  }
-  response.writeHead(403, { "content-type": "application/json" });
-  response.end(JSON.stringify({ error: `Forbidden: tidak punya izin '${REPORT_PERMISSION_CODE}'` }));
-  return false;
-}
+// All report and settings endpoints use JWT — workspace-token no longer accepted
 
 type ReportPeriod = {
   from: string | null;
@@ -643,7 +633,10 @@ createServer(async (request, response) => {
     const controllerReq: TicketSaleRequest = { params: {} };
     const controllerRes = createControllerResponse(response);
     if ((request.method ?? "GET") === TICKET_SALE_ROUTES.getReport.method) {
-      if (!ensureReportPermission(request, response)) {
+      const _reportAuth = await verifyReportAuth(request);
+      if (!_reportAuth.ok) {
+        response.writeHead(_reportAuth.status, { "content-type": "application/json" });
+        response.end(JSON.stringify({ error: _reportAuth.error }));
         return;
       }
       await ticketSaleController.getReport(controllerReq, controllerRes);
@@ -658,7 +651,10 @@ createServer(async (request, response) => {
     const controllerReq: CafeOrderRequest = { params: {} };
     const controllerRes = createControllerResponse(response);
     if ((request.method ?? "GET") === CAFE_ORDER_ROUTES.getReport.method) {
-      if (!ensureReportPermission(request, response)) {
+      const _reportAuth = await verifyReportAuth(request);
+      if (!_reportAuth.ok) {
+        response.writeHead(_reportAuth.status, { "content-type": "application/json" });
+        response.end(JSON.stringify({ error: _reportAuth.error }));
         return;
       }
       await cafeOrderController.report(controllerReq, controllerRes);
@@ -855,7 +851,10 @@ createServer(async (request, response) => {
     const controllerReq: ActivityBookingRequest = { params: {} };
     const controllerRes = createControllerResponse(response);
     if ((request.method ?? "GET") === ACTIVITY_BOOKING_ROUTES.getReport.method) {
-      if (!ensureReportPermission(request, response)) {
+      const _reportAuth = await verifyReportAuth(request);
+      if (!_reportAuth.ok) {
+        response.writeHead(_reportAuth.status, { "content-type": "application/json" });
+        response.end(JSON.stringify({ error: _reportAuth.error }));
         return;
       }
       await activityBookingController.report(controllerReq, controllerRes);
@@ -1049,7 +1048,10 @@ createServer(async (request, response) => {
     const controllerReq: ReservationRequest = { params: {} };
     const controllerRes = createControllerResponse(response);
     if ((request.method ?? "GET") === RESERVATION_ROUTES.getReport.method) {
-      if (!ensureReportPermission(request, response)) {
+      const _reportAuth = await verifyReportAuth(request);
+      if (!_reportAuth.ok) {
+        response.writeHead(_reportAuth.status, { "content-type": "application/json" });
+        response.end(JSON.stringify({ error: _reportAuth.error }));
         return;
       }
       await reservationController.getReport(controllerReq, controllerRes);
@@ -1062,7 +1064,10 @@ createServer(async (request, response) => {
 
   if (url.pathname === "/api/erp-wisata/report") {
     if ((request.method ?? "GET") === "GET") {
-      if (!ensureReportPermission(request, response)) {
+      const _reportAuth = await verifyReportAuth(request);
+      if (!_reportAuth.ok) {
+        response.writeHead(_reportAuth.status, { "content-type": "application/json" });
+        response.end(JSON.stringify({ error: _reportAuth.error }));
         return;
       }
 
@@ -1413,7 +1418,10 @@ createServer(async (request, response) => {
     const reqMethod = request.method ?? "GET";
 
     if (reqMethod === "GET" && url.pathname === inventoryRoutes.report) {
-      if (!ensureReportPermission(request, response)) {
+      const _reportAuth = await verifyReportAuth(request);
+      if (!_reportAuth.ok) {
+        response.writeHead(_reportAuth.status, { "content-type": "application/json" });
+        response.end(JSON.stringify({ error: _reportAuth.error }));
         return;
       }
       response.writeHead(200, { "content-type": "application/json" });
@@ -1422,7 +1430,10 @@ createServer(async (request, response) => {
     }
 
     if (reqMethod === "GET" && url.pathname === inventoryRoutes.dashboard) {
-      if (!ensureReportPermission(request, response)) {
+      const _reportAuth = await verifyReportAuth(request);
+      if (!_reportAuth.ok) {
+        response.writeHead(_reportAuth.status, { "content-type": "application/json" });
+        response.end(JSON.stringify({ error: _reportAuth.error }));
         return;
       }
       response.writeHead(200, { "content-type": "application/json" });
@@ -1654,12 +1665,6 @@ createServer(async (request, response) => {
     return;
   }
 
-  if (request.method === "POST" && url.pathname === "/auth/login") {
-    response.writeHead(200, { "content-type": "application/json" });
-    response.end(JSON.stringify({ token: "workspace-token", user: "admin" }));
-    return;
-  }
-
   // ERP Wisata CRUD routes: /erp-wisata/{entity}
   const erpMatch = url.pathname.match(/^\/erp-wisata\/([a-z-]+)(\/([^/]+))?$/);
   if (erpMatch) {
@@ -1715,6 +1720,114 @@ createServer(async (request, response) => {
     }
   }
 
+  // ── AUTH ROUTES (/api/auth/*) ─────────────────────────────────────────────
+  if (url.pathname === "/api/auth/login" && (request.method ?? "GET") === "POST") {
+    const raw = await readBody(request);
+    const body = safeParseBody(raw);
+    if (!body || typeof body.email !== "string" || typeof body.password !== "string") {
+      response.writeHead(400, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Requires { email, password }" }));
+      return;
+    }
+    const { default: bcrypt } = await import("bcryptjs");
+    const user = await prisma.user.findUnique({
+      where: { email: body.email as string },
+      include: { role: { select: { name: true } } },
+    });
+    if (!user) {
+      response.writeHead(401, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Email atau password salah" }));
+      return;
+    }
+    const ok = await bcrypt.compare(body.password as string, user.password);
+    if (!ok) {
+      response.writeHead(401, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: "Email atau password salah" }));
+      return;
+    }
+    const token = signAdminJwt({ id: user.id, email: user.email, role: user.role.name });
+    response.writeHead(200, { "content-type": "application/json" });
+    response.end(JSON.stringify({ token, role: user.role.name, name: user.name }));
+    return;
+  }
+
+  // ── SETTINGS ROUTES (/api/settings/*) — requires JWT, SUPER_ADMIN only ───
+  if (url.pathname.startsWith("/api/settings/")) {
+    const authResult = await verifySettingsAuth(request, "settings.admin");
+    if (!authResult.ok) {
+      response.writeHead(authResult.status, { "content-type": "application/json" });
+      response.end(JSON.stringify({ error: authResult.error }));
+      return;
+    }
+    const seg = url.pathname.slice("/api/settings/".length);
+    const method = request.method ?? "GET";
+    if (seg === "organization" && method === "GET") {
+      const org = await getOrCreateOrganization();
+      response.writeHead(200, { "content-type": "application/json" });
+      response.end(JSON.stringify(org)); return;
+    }
+    if (seg === "organization" && method === "PUT") {
+      const raw = await readBody(request); const body = safeParseBody(raw);
+      if (!body) { response.writeHead(400, { "content-type": "application/json" }); response.end(JSON.stringify({ error: "Invalid JSON" })); return; }
+      const allowed = ["name","legalName","logo","address","phone","email","website","village","district","regency","skNumber","foundedYear"] as const;
+      const patch: Record<string, unknown> = {};
+      for (const k of allowed) if (k in body) patch[k] = body[k];
+      const org = await updateOrganization(patch as Parameters<typeof updateOrganization>[0]);
+      response.writeHead(200, { "content-type": "application/json" }); response.end(JSON.stringify(org)); return;
+    }
+    if (seg === "modules" && method === "GET") {
+      const modules = await getModuleSettings();
+      response.writeHead(200, { "content-type": "application/json" }); response.end(JSON.stringify(modules)); return;
+    }
+    if (seg === "modules" && method === "PUT") {
+      const raw = await readBody(request); const body = safeParseBody(raw);
+      if (!body) { response.writeHead(400, { "content-type": "application/json" }); response.end(JSON.stringify({ error: "Invalid JSON" })); return; }
+      const updates: Record<string, boolean> = {};
+      for (const [k, v] of Object.entries(body)) { if (typeof v === "boolean") updates[k] = v; }
+      const modules = await setModules(updates);
+      response.writeHead(200, { "content-type": "application/json" }); response.end(JSON.stringify(modules)); return;
+    }
+    if (seg === "dashboard" && method === "GET") {
+      const uid = url.searchParams.get("userId") ? Number(url.searchParams.get("userId")) : undefined;
+      const settings = await getDashboardWidgetSettings(uid);
+      response.writeHead(200, { "content-type": "application/json" }); response.end(JSON.stringify(settings)); return;
+    }
+    if (seg.startsWith("dashboard/") && method === "PUT") {
+      const widgetId = seg.slice("dashboard/".length);
+      const raw = await readBody(request); const body = safeParseBody(raw);
+      if (!body) { response.writeHead(400, { "content-type": "application/json" }); response.end(JSON.stringify({ error: "Invalid JSON" })); return; }
+      const uid = body.userId != null ? Number(body.userId) : undefined;
+      await setDashboardWidget(widgetId, { hidden: body.hidden, pinned: body.pinned, sortOrder: body.sortOrder, width: body.width }, uid);
+      response.writeHead(200, { "content-type": "application/json" }); response.end(JSON.stringify({ ok: true })); return;
+    }
+    if (seg === "dashboard" && method === "DELETE") {
+      const uid = url.searchParams.get("userId") ? Number(url.searchParams.get("userId")) : undefined;
+      await resetDashboardWidgets(uid);
+      response.writeHead(200, { "content-type": "application/json" }); response.end(JSON.stringify({ ok: true })); return;
+    }
+    if (seg === "users" && method === "GET") {
+      const users = await listUsers();
+      response.writeHead(200, { "content-type": "application/json" }); response.end(JSON.stringify(users)); return;
+    }
+    const userPermMatch = seg.match(/^users\/(\d+)\/permissions$/);
+    if (userPermMatch && method === "GET") {
+      const userId = Number(userPermMatch[1]);
+      const data = await getUserPermissions(userId);
+      if (!data) { response.writeHead(404, { "content-type": "application/json" }); response.end(JSON.stringify({ error: "User not found" })); return; }
+      response.writeHead(200, { "content-type": "application/json" }); response.end(JSON.stringify(data)); return;
+    }
+    if (userPermMatch && method === "PUT") {
+      const userId = Number(userPermMatch[1]);
+      const raw = await readBody(request); const body = safeParseBody(raw);
+      if (!body || typeof body.code !== "string" || typeof body.granted !== "boolean") {
+        response.writeHead(400, { "content-type": "application/json" }); response.end(JSON.stringify({ error: "Requires { code, granted }" })); return;
+      }
+      await setUserPermission(userId, body.code as string, body.granted as boolean);
+      response.writeHead(200, { "content-type": "application/json" }); response.end(JSON.stringify({ ok: true })); return;
+    }
+    response.writeHead(404, { "content-type": "application/json" });
+    response.end(JSON.stringify({ error: "Settings route not found" })); return;
+  }
   response.writeHead(404, { "content-type": "application/json" });
   response.end(JSON.stringify({ error: "Not Found" }));
   } catch (err) {

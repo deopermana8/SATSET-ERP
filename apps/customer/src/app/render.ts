@@ -8,18 +8,27 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f6f8f6;
+      --bg: #f5f8f5;
       --surface: #ffffff;
-      --surface-soft: #f2f8f4;
-      --text: #153024;
-      --muted: #5c7568;
-      --brand: #0ea965;
-      --brand-2: #0f766e;
-      --accent: #f59e0b;
+      --surface-soft: #f0f7f3;
+      --surface-2: #eaf4ee;
+      --text: #111f17;
+      --muted: #50705e;
+      --brand: #059669;
+      --brand-2: #0d7a6b;
+      --brand-soft: #d1fae5;
+      --success: #059669;
+      --success-soft: #d1fae5;
+      --warning: #d97706;
+      --warning-soft: #fef3c7;
+      --info: #0284c7;
+      --info-soft: #e0f2fe;
       --danger: #dc2626;
-      --border: #dce8e0;
+      --danger-soft: #fee2e2;
+      --accent: #f59e0b;
+      --border: #d4e8da;
       --radius: 16px;
-      --shadow: 0 16px 40px rgba(8, 32, 18, 0.08);
+      --shadow: 0 8px 32px rgba(8,32,18,0.08),0 2px 8px rgba(8,32,18,0.04);
     }
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; font-family: "Plus Jakarta Sans", system-ui, sans-serif; background: radial-gradient(circle at 20% -10%, #d8f7e8 0, transparent 45%), var(--bg); color: var(--text); }
@@ -36,14 +45,23 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
     .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; }
     .brand { font-weight: 800; letter-spacing: 0.02em; }
     .menu { display: flex; flex-wrap: wrap; gap: 8px; }
-    .menu a { padding: 8px 12px; border-radius: 999px; font-size: 13px; color: var(--muted); }
-    .menu a:hover { background: #e9f6ef; color: var(--text); }
+    .menu a { padding: 8px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--muted); transition: background .15s, color .15s; }
+    .menu a:hover { background: var(--brand-soft); color: var(--brand-2); }
+    /* nav-auth hidden until login; nav-guest shown on landing */
+    .nav-auth { display: none; }
+    /* internal operator routes — never visible to customers */
+    #route-cashier,#route-ticketing,#route-gate,#route-cafe,#route-kitchen,
+    #route-supplier,#route-inventory,#route-purchase,#route-purchase-detail,
+    #route-recipe,#route-stock-adjustment,#route-stock-movement { display: none !important; }
     .btn { border: 0; border-radius: 12px; padding: 10px 14px; font-weight: 700; cursor: pointer; }
     .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
-    .btn-brand { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #fff; }
-    .btn-soft { background: #e9f6ef; color: #0e5137; }
-    .btn-line { background: #fff; border: 1px solid var(--border); color: var(--text); }
-    .btn-danger { background: #fee2e2; color: #7f1d1d; border: 1px solid #fecaca; }
+    .btn-brand { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #fff; box-shadow: 0 4px 14px rgba(5,150,105,0.28); transition: opacity .15s, box-shadow .15s; }
+    .btn-brand:hover { opacity: .92; box-shadow: 0 6px 20px rgba(5,150,105,0.36); }
+    .btn-soft { background: var(--brand-soft); color: #065f46; }
+    .btn-soft:hover { background: #a7f3d0; }
+    .btn-line { background: #fff; border: 1.5px solid var(--border); color: var(--text); }
+    .btn-line:hover { background: var(--surface-soft); border-color: #9dc8b0; }
+    .btn-danger { background: var(--danger-soft); color: #7f1d1d; border: 1px solid #fecaca; }
     .hero { display: grid; gap: 16px; grid-template-columns: 1.4fr 1fr; padding: 34px 0 18px; }
     .hero-card {
       background: linear-gradient(145deg, #103a2d, #175640);
@@ -74,7 +92,7 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       padding: 18px;
       box-shadow: var(--shadow);
     }
-    .chip { display: inline-flex; align-items: center; gap: 6px; background: #ecfdf5; color: #0f5132; border-radius: 999px; padding: 6px 10px; font-size: 12px; font-weight: 700; }
+    .chip { display: inline-flex; align-items: center; gap: 6px; background: var(--brand-soft); color: #065f46; border-radius: 999px; padding: 6px 10px; font-size: 12px; font-weight: 700; }
     .route { display: none; padding: 18px 0 40px; }
     .route.active { display: block; }
     .grid { display: grid; gap: 14px; }
@@ -105,9 +123,10 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
     .totals .row { display: flex; justify-content: space-between; font-size: 13px; }
     .totals .grand { font-weight: 800; font-size: 15px; border-top: 1px dashed var(--border); padding-top: 8px; }
     .notice { margin-top: 10px; padding: 10px 12px; border-radius: 10px; font-size: 13px; }
-    .notice.ok { background: #ecfdf3; color: #0f5132; border: 1px solid #b7ebcf; }
-    .notice.err { background: #fef2f2; color: #7f1d1d; border: 1px solid #fecaca; }
-    .notice.warn { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
+    .notice.ok { background: var(--success-soft); color: #065f46; border: 1px solid #6ee7b7; }
+    .notice.err { background: var(--danger-soft); color: #7f1d1d; border: 1px solid #fca5a5; }
+    .notice.warn { background: var(--warning-soft); color: #92400e; border: 1px solid #fcd34d; }
+    .notice.info { background: var(--info-soft); color: #075985; border: 1px solid #7dd3fc; }
     .ticket-box { display: grid; gap: 10px; }
     .ticket-meta { display: grid; gap: 4px; font-size: 13px; color: var(--muted); }
     .qr-wrap { display: inline-block; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 10px; }
@@ -230,24 +249,10 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       <div class="brand">SATSET Customer Portal</div>
       <nav class="menu">
         <a href="/customer" data-link>Beranda</a>
-        <a href="/reservation" data-link>Reservation</a>
-        <a href="/activities" data-link>Activities</a>
-        <a href="/activity-booking" data-link>Activity Booking</a>
-        <a href="/cafe" data-link>Cafe POS</a>
-        <a href="/kitchen" data-link>Kitchen</a>
-        <a href="/inventory" data-link>Inventory</a>
-        <a href="/supplier" data-link>Supplier</a>
-        <a href="/purchase" data-link>Purchase</a>
-        <a href="/recipe" data-link>Recipe</a>
-        <a href="/stock-adjustment" data-link>Stock Adj</a>
-        <a href="/stock-movement" data-link>Stock Movement</a>
-        <a href="/customer/booking" data-link>Booking</a>
-        <a href="/ticketing" data-link>POS Ticketing</a>
-        <a href="/cashier" data-link>Kasir</a>
-        <a href="/gate" data-link>Gate</a>
-        <a href="/customer/history" data-link>Riwayat</a>
-        <a href="/customer/profile" data-link>Profile</a>
-        <a href="/customer/login" data-link>Login</a>
+        <a href="/customer/booking" data-link class="nav-auth">Booking</a>
+        <a href="/customer/history" data-link class="nav-auth">Riwayat</a>
+        <a href="/customer/profile" data-link class="nav-auth">Profil</a>
+        <a href="/customer/register" data-link class="nav-guest">Daftar</a>
       </nav>
       <button id="header-auth-btn" class="btn btn-soft" type="button">Login</button>
     </div>
@@ -297,27 +302,7 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
         <article class="card"><h3>Menu Signature</h3><p>Kopi, makanan ringan, dan hidangan utama.</p></article>
       </section>
 
-      <h2 class="section-title">Customer CRUD</h2>
-      <article class="card">
-        <form id="crud-customer-form" class="form-grid">
-          <div class="grid grid-2">
-            <div><label>Kode</label><input id="crud-code" required /></div>
-            <div><label>Nama Lengkap</label><input id="crud-full-name" required /></div>
-          </div>
-          <div class="grid grid-2">
-            <div><label>Email</label><input id="crud-email" type="email" required /></div>
-            <div><label>Telepon</label><input id="crud-phone" placeholder="08xxxx" /></div>
-          </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap;">
-            <button class="btn btn-brand" id="crud-submit" type="submit">Tambah Customer</button>
-            <button class="btn btn-line" id="crud-cancel-edit" type="button" style="display:none;">Batal Edit</button>
-          </div>
-        </form>
-        <div id="crud-customer-msg"></div>
-        <div id="crud-customer-list" style="margin-top:14px;"></div>
-      </article>
-
-      <footer>Copyright SATSET Portal - Booking Wizard - Notification Center</footer>
+      <footer>Copyright SATSET Portal - Booking Wizard</footer>
     </section>
 
     <section id="route-login" class="route" data-route="/customer/login">
@@ -360,41 +345,16 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
     </section>
 
     <section id="route-dashboard" class="route" data-route="/customer/dashboard">
-      <h2 class="section-title">Dashboard Customer</h2>
+      <h2 class="section-title">Ringkasan Akun</h2>
       <section class="kpi">
-        <article class="card"><div class="label">Shift Status</div><div class="value" id="dash-shift-status">CLOSED</div></article>
-        <article class="card"><div class="label">Cash Sales</div><div class="value" id="dash-cash-sales">0</div></article>
-        <article class="card"><div class="label">QRIS Sales</div><div class="value" id="dash-qris-sales">0</div></article>
-        <article class="card"><div class="label">Transfer Sales</div><div class="value" id="dash-transfer-sales">0</div></article>
-        <article class="card"><div class="label">Ticket Sold</div><div class="value" id="dash-ticket-sold">0</div></article>
-        <article class="card"><div class="label">Opening Cash</div><div class="value" id="dash-opening-cash">0</div></article>
-        <article class="card"><div class="label">Current Cash</div><div class="value" id="dash-current-cash">0</div></article>
-        <article class="card"><div class="label">Reservation Today</div><div class="value" id="dash-reservation-today">0</div></article>
-        <article class="card"><div class="label">Paid Reservation</div><div class="value" id="dash-paid-reservation">0</div></article>
-        <article class="card"><div class="label">Waiting Payment</div><div class="value" id="dash-waiting-payment">0</div></article>
-        <article class="card"><div class="label">Today's Visitor</div><div class="value" id="dash-today-visitor">0</div></article>
-        <article class="card"><div class="label">Upcoming Visitor</div><div class="value" id="dash-upcoming-visitor">0</div></article>
-        <article class="card"><div class="label">Today's Activities</div><div class="value" id="dash-activity-today">0</div></article>
-        <article class="card"><div class="label">Booked Slots</div><div class="value" id="dash-activity-booked-slots">0</div></article>
-        <article class="card"><div class="label">Remaining Capacity</div><div class="value" id="dash-activity-remaining-capacity">0</div></article>
-        <article class="card"><div class="label">Popular Activities</div><div class="value" id="dash-activity-popular">0</div></article>
-        <article class="card"><div class="label">Upcoming Sessions</div><div class="value" id="dash-activity-upcoming">0</div></article>
-        <article class="card"><div class="label">Cafe Sales Today</div><div class="value" id="dash-cafe-sales">0</div></article>
-        <article class="card"><div class="label">Orders Today</div><div class="value" id="dash-cafe-orders">0</div></article>
-        <article class="card"><div class="label">Average Order</div><div class="value" id="dash-cafe-average">0</div></article>
-        <article class="card"><div class="label">Top Menu</div><div class="value" id="dash-cafe-top-menu">-</div></article>
-        <article class="card"><div class="label">Remaining Stock</div><div class="value" id="dash-cafe-stock">0</div></article>
-        <article class="card"><div class="label">Low Stock</div><div class="value" id="dash-inv-low-stock">0</div></article>
-        <article class="card"><div class="label">Inventory Value</div><div class="value" id="dash-inv-value">0</div></article>
-        <article class="card"><div class="label">Purchase Today</div><div class="value" id="dash-inv-purchase-today">0</div></article>
-        <article class="card"><div class="label">Consumption Today</div><div class="value" id="dash-inv-consumption-today">0</div></article>
-        <article class="card"><div class="label">Waste Today</div><div class="value" id="dash-inv-waste-today">0</div></article>
-        <article class="card"><div class="label">Pending PO</div><div class="value" id="dash-inv-pending-po">0</div></article>
-        <article class="card"><div class="label">Movements Today</div><div class="value" id="dash-inv-movement-today">0</div></article>
+        <article class="card"><div class="label">Reservasi Saya</div><div class="value" id="dash-my-reservations">0</div></article>
+        <article class="card"><div class="label">Menunggu Bayar</div><div class="value" id="dash-waiting-payment">0</div></article>
+        <article class="card"><div class="label">Kunjungan Hari Ini</div><div class="value" id="dash-today-visitor">0</div></article>
+        <article class="card"><div class="label">Kunjungan Mendatang</div><div class="value" id="dash-upcoming-visitor">0</div></article>
+        <article class="card"><div class="label">Activity Booking</div><div class="value" id="dash-activity-today">0</div></article>
+        <article class="card"><div class="label">Sesi Mendatang</div><div class="value" id="dash-activity-upcoming">0</div></article>
       </section>
-      <h3 class="section-title">Sales per Shift</h3>
-      <article class="card" id="dash-active-list"></article>
-      <h3 class="section-title">Notification Center</h3>
+      <h3 class="section-title">Notifikasi</h3>
       <article class="card"><div id="dashboard-notifications" class="notification-list"></div></article>
     </section>
 
@@ -3248,52 +3208,14 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
 
     async function loadDashboard() {
       try {
-        const data = await cashierShiftClient.summary();
         const reservation = await reservationClient.report();
         const activityReport = await activityClient.bookingReport();
-        const cafeSummary = await cafeClient.summary();
-        const inventoryDashboard = await inventoryPurchasingClient.inventoryDashboard();
-        const purchaseOrders = await inventoryPurchasingClient.listPurchaseOrder();
-        const todayIso = new Date().toISOString().slice(0, 10);
-        const movementRows = await inventoryPurchasingClient.listStockMovement({ from: todayIso, to: todayIso });
-        document.getElementById("dash-shift-status").textContent = data.shiftStatus || "CLOSED";
-        document.getElementById("dash-cash-sales").textContent = formatCurrency(data.cashSales || 0);
-        document.getElementById("dash-qris-sales").textContent = formatCurrency(data.qrisSales || 0);
-        document.getElementById("dash-transfer-sales").textContent = formatCurrency(data.transferSales || 0);
-        document.getElementById("dash-ticket-sold").textContent = String(data.ticketCount || 0);
-        document.getElementById("dash-opening-cash").textContent = formatCurrency(data.openingCash || 0);
-        document.getElementById("dash-current-cash").textContent = formatCurrency(data.currentCash || 0);
-        document.getElementById("dash-reservation-today").textContent = String(reservation.reservationToday || 0);
-        document.getElementById("dash-paid-reservation").textContent = String(reservation.paidReservation || 0);
+        document.getElementById("dash-my-reservations").textContent = String((reservation.reservationToday || 0) + (reservation.paidReservation || 0));
         document.getElementById("dash-waiting-payment").textContent = String(reservation.waitingPayment || 0);
         document.getElementById("dash-today-visitor").textContent = String(reservation.todayVisitor || 0);
         document.getElementById("dash-upcoming-visitor").textContent = String(reservation.upcomingVisitor || 0);
         document.getElementById("dash-activity-today").textContent = String(activityReport.todayActivities || 0);
-        document.getElementById("dash-activity-booked-slots").textContent = String(activityReport.bookedSlots || 0);
-        document.getElementById("dash-activity-remaining-capacity").textContent = String(activityReport.remainingCapacity || 0);
-        document.getElementById("dash-activity-popular").textContent = String((activityReport.popularActivities || []).length);
         document.getElementById("dash-activity-upcoming").textContent = String((activityReport.upcomingSessions || []).length);
-        document.getElementById("dash-cafe-sales").textContent = formatCurrency(cafeSummary.cafeSalesToday || 0);
-        document.getElementById("dash-cafe-orders").textContent = String(cafeSummary.ordersToday || 0);
-        document.getElementById("dash-cafe-average").textContent = formatCurrency(cafeSummary.averageOrder || 0);
-        document.getElementById("dash-cafe-top-menu").textContent = String(cafeSummary.topMenu || "-");
-        document.getElementById("dash-cafe-stock").textContent = String(cafeSummary.remainingStock || 0);
-        document.getElementById("dash-inv-low-stock").textContent = String((inventoryDashboard.lowStock || []).length || 0);
-        document.getElementById("dash-inv-value").textContent = formatCurrency(inventoryDashboard.inventoryValue || 0);
-        document.getElementById("dash-inv-purchase-today").textContent = formatCurrency(inventoryDashboard.purchaseToday || 0);
-        document.getElementById("dash-inv-consumption-today").textContent = String(inventoryDashboard.consumptionToday || 0);
-        document.getElementById("dash-inv-waste-today").textContent = String(inventoryDashboard.wasteToday || 0);
-        document.getElementById("dash-inv-pending-po").textContent = String((purchaseOrders || []).filter((item) => item.status === "DRAFT" || item.status === "APPROVED").length);
-        document.getElementById("dash-inv-movement-today").textContent = String((movementRows || []).length);
-        const list = document.getElementById("dash-active-list");
-        const report = await posTicketingService.getReport();
-        const salesRows = (report.salesPerKasir || []).slice(0, 5).map((item) => {
-          return '<div style="padding:8px 0;border-bottom:1px solid var(--border)"><strong>' + escapeHtml(item.cashier) + '</strong> - ' + escapeHtml(item.transactions) + ' trx - ' + escapeHtml(formatCurrency(item.total)) + '</div>';
-        }).join("");
-        const popularRows = (activityReport.popularActivities || []).slice(0, 3).map((item) => {
-          return '<div style="padding:8px 0;border-bottom:1px solid var(--border)"><strong>' + escapeHtml(item.activityName) + '</strong> - booked ' + escapeHtml(item.totalQty) + '</div>';
-        }).join("");
-        list.innerHTML = (salesRows + popularRows) || "Belum ada transaksi hari ini.";
         await loadNotificationsInto("dashboard-notifications");
       } catch (error) {
         showMessage("payment-msg", error.message, "err");
@@ -3353,14 +3275,16 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
     }
 
     function syncHeaderAuth() {
-      const btn = document.getElementById("header-auth-btn");
-      const token = localStorage.getItem("satset.customer.token");
+      var btn = document.getElementById("header-auth-btn");
+      var token = localStorage.getItem("satset.customer.token");
+      document.querySelectorAll('.nav-auth').forEach(function(el) { el.style.display = token ? '' : 'none'; });
+      document.querySelectorAll('.nav-guest').forEach(function(el) { el.style.display = token ? 'none' : ''; });
       if (token) {
-        btn.textContent = "Logout";
-        btn.onclick = () => logoutCustomer();
+        btn.textContent = "Keluar";
+        btn.onclick = function() { logoutCustomer(); };
       } else {
-        btn.textContent = "Login";
-        btn.onclick = () => navigate("/customer/login");
+        btn.textContent = "Masuk";
+        btn.onclick = function() { navigate("/customer/login"); };
       }
     }
 
@@ -4445,7 +4369,8 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       win.print();
     });
 
-    document.getElementById("crud-customer-form").addEventListener("submit", async (event) => {
+    const crudForm = document.getElementById("crud-customer-form");
+    if (crudForm) crudForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       try {
         const payload = {
@@ -4470,7 +4395,8 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       }
     });
 
-    document.getElementById("crud-cancel-edit").addEventListener("click", () => {
+    const crudCancelEdit = document.getElementById("crud-cancel-edit");
+    if (crudCancelEdit) crudCancelEdit.addEventListener("click", () => {
       resetCustomerCrudForm();
       showMessage("crud-customer-msg", "Mode edit dibatalkan", "warn");
     });

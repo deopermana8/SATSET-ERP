@@ -12,6 +12,10 @@
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.9.1",
+    "bcryptjs": "^3.0.3",
     "pg": "^8.22.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^3.0.0"
   }
 }

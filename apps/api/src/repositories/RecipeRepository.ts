@@ -1,6 +1,5 @@
-import { randomUUID } from "node:crypto";
-
 import type { RecipeIngredientDto } from "../dto/RecipeDto.js";
+import { prisma } from "../prismaClient.js";
 
 export interface RecipeEntity {
   id: string;
@@ -19,51 +18,67 @@ export interface UpdateRecipeInput {
   ingredients: RecipeIngredientDto[];
 }
 
-export class RecipeRepository {
-  private readonly items = new Map<string, RecipeEntity>();
+type PrismaRecipeRow = {
+  id: number;
+  menuId: string;
+  ingredients: unknown;
+  createdAt: Date;
+  updatedAt: Date;
+};
 
+function toEntity(row: PrismaRecipeRow): RecipeEntity {
+  return {
+    id: String(row.id),
+    menuId: row.menuId,
+    ingredients: (Array.isArray(row.ingredients) ? row.ingredients : []) as RecipeIngredientDto[],
+    createdAt: row.createdAt.toISOString(),
+    updatedAt: row.updatedAt.toISOString(),
+  };
+}
+
+type JsonInput = Parameters<typeof prisma.recipe.create>[0]["data"]["ingredients"];
+
+export class RecipeRepository {
   async findAll(): Promise<RecipeEntity[]> {
-    return [...this.items.values()].sort((a, b) => a.createdAt.localeCompare(b.createdAt));
+    const rows = await prisma.recipe.findMany({ orderBy: { createdAt: "asc" } });
+    return rows.map((row) => toEntity(row as PrismaRecipeRow));
   }
 
   async findById(id: string): Promise<RecipeEntity | null> {
-    return this.items.get(id) ?? null;
+    const recipeId = Number(id);
+    if (!Number.isInteger(recipeId)) return null;
+    const row = await prisma.recipe.findUnique({ where: { id: recipeId } });
+    return row ? toEntity(row as PrismaRecipeRow) : null;
   }
 
   async findByMenuId(menuId: string): Promise<RecipeEntity | null> {
-    for (const item of this.items.values()) {
-      if (item.menuId === menuId) {
-        return item;
-      }
-    }
-    return null;
+    const row = await prisma.recipe.findUnique({ where: { menuId } });
+    return row ? toEntity(row as PrismaRecipeRow) : null;
   }
 
   async create(data: CreateRecipeInput): Promise<RecipeEntity> {
-    const now = new Date().toISOString();
-    const created: RecipeEntity = {
-      id: randomUUID(),
-      menuId: data.menuId,
-      ingredients: data.ingredients,
-      createdAt: now,
-      updatedAt: now
-    };
-    this.items.set(created.id, created);
-    return created;
+    const row = await prisma.recipe.create({
+      data: {
+        menuId: data.menuId,
+        ingredients: data.ingredients as unknown as JsonInput,
+        updatedAt: new Date(),
+      },
+    });
+    return toEntity(row as PrismaRecipeRow);
   }
 
   async update(id: string, data: UpdateRecipeInput): Promise<RecipeEntity | null> {
-    const existing = this.items.get(id);
-    if (!existing) {
-      return null;
-    }
-
-    const updated: RecipeEntity = {
-      ...existing,
-      ingredients: data.ingredients,
-      updatedAt: new Date().toISOString()
-    };
-    this.items.set(id, updated);
-    return updated;
+    const recipeId = Number(id);
+    if (!Number.isInteger(recipeId)) return null;
+    const existing = await prisma.recipe.findUnique({ where: { id: recipeId }, select: { id: true } });
+    if (!existing) return null;
+    const row = await prisma.recipe.update({
+      where: { id: recipeId },
+      data: {
+        ingredients: data.ingredients as unknown as JsonInput,
+        updatedAt: new Date(),
+      },
+    });
+    return toEntity(row as PrismaRecipeRow);
   }
 }

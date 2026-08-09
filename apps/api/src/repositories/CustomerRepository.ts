@@ -1,6 +1,5 @@
-import { randomUUID } from "node:crypto";
-
 import type { CreateCustomerDto, UpdateCustomerDto } from "../dto/CustomerDto.js";
+import { prisma } from "../prismaClient.js";
 
 export interface CustomerEntity {
   id: string;
@@ -12,72 +11,90 @@ export interface CustomerEntity {
   updatedAt: string;
 }
 
-export class CustomerRepository {
-  private readonly items = new Map<string, CustomerEntity>();
+type PrismaCustomerRow = {
+  id: number;
+  code: string;
+  fullName: string;
+  email: string;
+  phone: string | null;
+  createdAt: Date;
+  updatedAt: Date;
+};
 
+function toEntity(row: PrismaCustomerRow): CustomerEntity {
+  return {
+    id: String(row.id),
+    code: row.code,
+    fullName: row.fullName,
+    email: row.email,
+    phone: row.phone ?? undefined,
+    createdAt: row.createdAt.toISOString(),
+    updatedAt: row.updatedAt.toISOString(),
+  };
+}
+
+export class CustomerRepository {
   async findAll(): Promise<CustomerEntity[]> {
-    return [...this.items.values()]
-      .sort((a, b) => a.createdAt.localeCompare(b.createdAt));
+    const rows = await prisma.customer.findMany({ orderBy: { createdAt: "asc" } });
+    return rows.map((row) => toEntity(row as PrismaCustomerRow));
   }
 
   async findById(id: string): Promise<CustomerEntity | null> {
-    return this.items.get(id) ?? null;
+    const customerId = Number(id);
+    if (!Number.isInteger(customerId)) return null;
+    const row = await prisma.customer.findUnique({ where: { id: customerId } });
+    return row ? toEntity(row as PrismaCustomerRow) : null;
   }
 
   async findByCode(code: string): Promise<CustomerEntity | null> {
-    for (const item of this.items.values()) {
-      if (item.code.toLowerCase() === code.toLowerCase()) {
-        return item;
-      }
-    }
-    return null;
+    const row = await prisma.customer.findFirst({ where: { code: { equals: code, mode: "insensitive" } } });
+    return row ? toEntity(row as PrismaCustomerRow) : null;
   }
 
   async findByEmail(email: string): Promise<CustomerEntity | null> {
-    for (const item of this.items.values()) {
-      if (item.email.toLowerCase() === email.toLowerCase()) {
-        return item;
-      }
-    }
-    return null;
+    const row = await prisma.customer.findFirst({ where: { email: { equals: email, mode: "insensitive" } } });
+    return row ? toEntity(row as PrismaCustomerRow) : null;
   }
 
   async create(data: CreateCustomerDto): Promise<CustomerEntity> {
-    const now = new Date().toISOString();
-    const created: CustomerEntity = {
-      id: randomUUID(),
-      code: data.code,
-      fullName: data.fullName,
-      email: data.email,
-      phone: data.phone,
-      createdAt: now,
-      updatedAt: now
-    };
-
-    this.items.set(created.id, created);
-    return created;
+    const row = await prisma.customer.create({
+      data: {
+        code: data.code,
+        fullName: data.fullName,
+        email: data.email,
+        phone: data.phone ?? null,
+        updatedAt: new Date(),
+      },
+    });
+    return toEntity(row as PrismaCustomerRow);
   }
 
   async update(id: string, data: UpdateCustomerDto): Promise<CustomerEntity | null> {
-    const existing = this.items.get(id);
-    if (!existing) {
-      return null;
-    }
-
-    const updated: CustomerEntity = {
-      ...existing,
-      code: data.code ?? existing.code,
-      fullName: data.fullName ?? existing.fullName,
-      email: data.email ?? existing.email,
-      phone: data.phone ?? existing.phone,
-      updatedAt: new Date().toISOString()
-    };
-
-    this.items.set(id, updated);
-    return updated;
+    const customerId = Number(id);
+    if (!Number.isInteger(customerId)) return null;
+    const existing = await prisma.customer.findUnique({ where: { id: customerId }, select: { id: true } });
+    if (!existing) return null;
+    const row = await prisma.customer.update({
+      where: { id: customerId },
+      data: {
+        code: data.code ?? undefined,
+        fullName: data.fullName ?? undefined,
+        email: data.email ?? undefined,
+        phone: data.phone ?? undefined,
+        updatedAt: new Date(),
+      },
+    });
+    return toEntity(row as PrismaCustomerRow);
   }
 
   async delete(id: string): Promise<boolean> {
-    return this.items.delete(id);
+    const customerId = Number(id);
+    if (!Number.isInteger(customerId)) return false;
+    try {
+      await prisma.customer.delete({ where: { id: customerId } });
+      return true;
+    } catch {
+      return false;
+    }
   }
 }

@@ -137,9 +137,13 @@ exports.Prisma.UserScalarFieldEnum = {
 
 exports.Prisma.TicketScalarFieldEnum = {
   id: 'id',
+  code: 'code',
   name: 'name',
   type: 'type',
   price: 'price',
+  quota: 'quota',
+  validFrom: 'validFrom',
+  validUntil: 'validUntil',
   destinationId: 'destinationId',
   active: 'active',
   deletedAt: 'deletedAt',
@@ -200,6 +204,30 @@ exports.Prisma.VisitorScalarFieldEnum = {
   phone: 'phone',
   idCard: 'idCard',
   deletedAt: 'deletedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BookingScalarFieldEnum = {
+  id: 'id',
+  bookingNumber: 'bookingNumber',
+  customerName: 'customerName',
+  customerPhone: 'customerPhone',
+  customerEmail: 'customerEmail',
+  visitDate: 'visitDate',
+  visitSession: 'visitSession',
+  totalVisitor: 'totalVisitor',
+  totalAmount: 'totalAmount',
+  paymentMethod: 'paymentMethod',
+  paymentStatus: 'paymentStatus',
+  reservationStatus: 'reservationStatus',
+  ticketItems: 'ticketItems',
+  qrToken: 'qrToken',
+  paidAt: 'paidAt',
+  confirmedAt: 'confirmedAt',
+  checkedInAt: 'checkedInAt',
+  cancelledAt: 'cancelledAt',
+  ticketSaleId: 'ticketSaleId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -268,6 +296,25 @@ exports.Prisma.ShiftScalarFieldEnum = {
   totalTrx: 'totalTrx',
   status: 'status',
   notes: 'notes'
+};
+
+exports.Prisma.CashierShiftScalarFieldEnum = {
+  id: 'id',
+  shiftNumber: 'shiftNumber',
+  cashierId: 'cashierId',
+  cashierName: 'cashierName',
+  openedAt: 'openedAt',
+  closedAt: 'closedAt',
+  openingCash: 'openingCash',
+  closingCash: 'closingCash',
+  cashSales: 'cashSales',
+  qrisSales: 'qrisSales',
+  transferSales: 'transferSales',
+  ticketCount: 'ticketCount',
+  status: 'status',
+  difference: 'difference',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.TransactionScalarFieldEnum = {
@@ -353,8 +400,12 @@ exports.Prisma.CafeOrderScalarFieldEnum = {
   id: 'id',
   orderNo: 'orderNo',
   tableId: 'tableId',
+  tableNumber: 'tableNumber',
+  customerName: 'customerName',
+  orderType: 'orderType',
   status: 'status',
   paymentMethod: 'paymentMethod',
+  paymentStatus: 'paymentStatus',
   subtotal: 'subtotal',
   discount: 'discount',
   tax: 'tax',
@@ -362,7 +413,11 @@ exports.Prisma.CafeOrderScalarFieldEnum = {
   notes: 'notes',
   cashierId: 'cashierId',
   cashierName: 'cashierName',
+  cashierShiftId: 'cashierShiftId',
   paidAt: 'paidAt',
+  printedAt: 'printedAt',
+  completedAt: 'completedAt',
+  voidedAt: 'voidedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -531,9 +586,121 @@ exports.Prisma.PurchasingScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.ActivityScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  name: 'name',
+  category: 'category',
+  duration: 'duration',
+  capacity: 'capacity',
+  price: 'price',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ActivityScheduleScalarFieldEnum = {
+  id: 'id',
+  activityId: 'activityId',
+  date: 'date',
+  session: 'session',
+  capacity: 'capacity',
+  booked: 'booked',
+  available: 'available',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ActivityBookingScalarFieldEnum = {
+  id: 'id',
+  bookingNumber: 'bookingNumber',
+  reservationId: 'reservationId',
+  customerName: 'customerName',
+  activityId: 'activityId',
+  scheduleId: 'scheduleId',
+  qty: 'qty',
+  total: 'total',
+  status: 'status',
+  paymentMethod: 'paymentMethod',
+  qrToken: 'qrToken',
+  paidAt: 'paidAt',
+  checkedInAt: 'checkedInAt',
+  completedAt: 'completedAt',
+  cancelledAt: 'cancelledAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CustomerScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  fullName: 'fullName',
+  email: 'email',
+  phone: 'phone',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.RecipeScalarFieldEnum = {
+  id: 'id',
+  menuId: 'menuId',
+  ingredients: 'ingredients',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.OrganizationScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  legalName: 'legalName',
+  logo: 'logo',
+  address: 'address',
+  phone: 'phone',
+  email: 'email',
+  website: 'website',
+  village: 'village',
+  district: 'district',
+  regency: 'regency',
+  skNumber: 'skNumber',
+  foundedYear: 'foundedYear',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ModuleSettingScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  moduleKey: 'moduleKey',
+  enabled: 'enabled',
+  config: 'config',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.DashboardWidgetSettingScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  widgetId: 'widgetId',
+  hidden: 'hidden',
+  pinned: 'pinned',
+  sortOrder: 'sortOrder',
+  width: 'width',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
+};
+
+exports.Prisma.NullableJsonNullValueInput = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull
 };
 
 exports.Prisma.QueryMode = {
@@ -546,6 +713,12 @@ exports.Prisma.NullsOrder = {
   last: 'last'
 };
 
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
+
 
 exports.Prisma.ModelName = {
   Role: 'Role',
@@ -556,12 +729,14 @@ exports.Prisma.ModelName = {
   Facility: 'Facility',
   Gate: 'Gate',
   Visitor: 'Visitor',
+  Booking: 'Booking',
   Reservation: 'Reservation',
   Payment: 'Payment',
   Permission: 'Permission',
   RolePermission: 'RolePermission',
   UserPermission: 'UserPermission',
   Shift: 'Shift',
+  CashierShift: 'CashierShift',
   Transaction: 'Transaction',
   TransactionItem: 'TransactionItem',
   AuditLog: 'AuditLog',
@@ -581,7 +756,15 @@ exports.Prisma.ModelName = {
   Employee: 'Employee',
   SouvenirItem: 'SouvenirItem',
   Warehouse: 'Warehouse',
-  Purchasing: 'Purchasing'
+  Purchasing: 'Purchasing',
+  Activity: 'Activity',
+  ActivitySchedule: 'ActivitySchedule',
+  ActivityBooking: 'ActivityBooking',
+  Customer: 'Customer',
+  Recipe: 'Recipe',
+  Organization: 'Organization',
+  ModuleSetting: 'ModuleSetting',
+  DashboardWidgetSetting: 'DashboardWidgetSetting'
 };
 
 /**
