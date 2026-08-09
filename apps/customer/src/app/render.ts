@@ -62,6 +62,11 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
     .btn-line { background: #fff; border: 1.5px solid var(--border); color: var(--text); }
     .btn-line:hover { background: var(--surface-soft); border-color: #9dc8b0; }
     .btn-danger { background: var(--danger-soft); color: #7f1d1d; border: 1px solid #fecaca; }
+    .btn:focus-visible,
+    a:focus-visible {
+      outline: 3px solid color-mix(in oklab, var(--brand) 52%, white);
+      outline-offset: 2px;
+    }
     .hero { display: grid; gap: 16px; grid-template-columns: 1.4fr 1fr; padding: 34px 0 18px; }
     .hero-card {
       background: linear-gradient(145deg, #103a2d, #175640);
@@ -92,6 +97,226 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       padding: 18px;
       box-shadow: var(--shadow);
     }
+    .hero-copy h1 { max-width: 12ch; }
+    .hero-copy p { max-width: 56ch; }
+    .hero-visual {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: 1.15fr .85fr;
+      min-height: 360px;
+    }
+    .hero-image {
+      position: relative;
+      background: linear-gradient(160deg, #0f5132, #166534 46%, #1d7b56);
+      display: grid;
+      align-content: end;
+      padding: 18px;
+      overflow: hidden;
+    }
+    .hero-image::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 18% 20%, rgba(255,255,255,0.18), transparent 46%), radial-gradient(circle at 84% 14%, rgba(255,255,255,0.16), transparent 38%);
+    }
+    .hero-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.24;
+      mix-blend-mode: screen;
+    }
+    .hero-image-content { position: relative; color: #ecfdf3; display: grid; gap: 6px; }
+    .hero-image-content strong { font-size: 19px; }
+    .hero-image-content span { font-size: 12px; color: #d1fae5; }
+    .hero-strip {
+      padding: 14px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      background: linear-gradient(180deg, #ffffff, #f8fcf9);
+    }
+    .hero-strip article {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 10px;
+      display: grid;
+      gap: 4px;
+      background: #fff;
+    }
+    .hero-strip article strong { font-size: 13px; }
+    .hero-strip article span { font-size: 11px; color: var(--muted); line-height: 1.45; }
+    .landing-block { margin-top: 18px; }
+    .landing-block:first-of-type { margin-top: 8px; }
+    .discovery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .discover-card {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(8,32,18,0.06);
+      display: grid;
+      min-height: 100%;
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+    .discover-card:hover {
+      transform: translateY(-2px);
+      border-color: #8ecfb0;
+      box-shadow: 0 12px 22px rgba(8,32,18,0.1);
+    }
+    .discover-media {
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(160deg, #e0f8ec, #caefde 56%, #ecfaf3);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .discover-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: .88;
+    }
+    .discover-body {
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+    .discover-badge {
+      display: inline-flex;
+      width: max-content;
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      background: #ecfdf5;
+      border: 1px solid #b6ecd0;
+      color: #166534;
+    }
+    .discover-title { margin: 0; font-size: 16px; }
+    .discover-copy { margin: 0; font-size: 12px; color: var(--muted); line-height: 1.55; }
+    .discover-cta {
+      margin-top: 2px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: max-content;
+      min-height: 44px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .discover-cta:hover { background: var(--surface-soft); border-color: #9dc8b0; }
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .highlight-card {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(8,32,18,0.06);
+      display: grid;
+    }
+    .highlight-media { aspect-ratio: 4 / 3; background: linear-gradient(150deg, #d6f6e6, #c6eed9 58%, #effaf4); border-bottom: 1px solid var(--border); }
+    .highlight-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .highlight-body { padding: 12px; display: grid; gap: 7px; }
+    .highlight-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .highlight-row strong { color: #065f46; font-size: 14px; }
+    .member-promo {
+      margin-top: 16px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(135deg, #f3fff8, #ecfdf5);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 12px;
+    }
+    .member-promo h3 { margin: 0 0 6px; font-size: 20px; }
+    .member-promo p { margin: 0; color: #166534; font-size: 13px; line-height: 1.55; }
+    .member-benefits { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .member-benefits span {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid #b6ecd0;
+      font-size: 11px;
+      color: #166534;
+      font-weight: 700;
+    }
+    .member-promo-actions {
+      border: 1px solid #bce8cf;
+      background: #fff;
+      border-radius: 16px;
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+      align-content: center;
+    }
+    .member-promo-actions p { color: var(--muted); font-size: 12px; }
+    .landing-convert {
+      margin-top: 16px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: var(--shadow);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .landing-convert h3 { margin: 0; font-size: 24px; }
+    .landing-convert p { margin: 6px 0 0; font-size: 13px; color: var(--muted); }
+    .trust-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .trust-item {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      background: #fff;
+      display: grid;
+      gap: 5px;
+      min-height: 100%;
+    }
+    .trust-item strong { font-size: 14px; }
+    .trust-item span { font-size: 12px; color: var(--muted); line-height: 1.45; }
     .chip { display: inline-flex; align-items: center; gap: 6px; background: var(--brand-soft); color: #065f46; border-radius: 999px; padding: 6px 10px; font-size: 12px; font-weight: 700; }
     .route { display: none; padding: 18px 0 40px; }
     .route.active { display: block; }
@@ -478,6 +703,7 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
 
     @media (max-width: 960px) {
       .hero { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 320px; }
       .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .kpi { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -488,6 +714,10 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       .catalog-filter { position: static; }
       .product-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
       .table-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .discovery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .highlight-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .member-promo { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 767px) {
@@ -498,8 +728,15 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       .kpi { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .wizard-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .slots { grid-template-columns: 1fr; }
+      .hero { padding-top: 20px; }
+      .hero-copy h1 { font-size: clamp(24px, 9vw, 34px); }
+      .hero-visual { min-height: 280px; }
+      .hero-strip { grid-template-columns: 1fr; }
       .product-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
       .table-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .discovery-grid { grid-template-columns: 1fr; }
+      .highlight-grid { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr; }
       .pos-shell { padding-bottom: 110px; }
       .order-panel {
         position: sticky;
@@ -554,46 +791,170 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
   <main class="container">
     <section id="route-landing" class="route active" data-route="/customer">
       <div class="hero">
-        <article class="hero-card">
-          <span class="chip">Customer Online Booking</span>
-          <h1>Booking Wizard SATSET untuk Tiket, Outbound, dan Cafe</h1>
-          <p>Alur booking 5 langkah dengan kalkulasi harga realtime, kuota kursi live, promo voucher, dan e-ticket QR profesional.</p>
+        <article class="hero-card hero-copy">
+          <span class="chip">SATSET Resort Experience</span>
+          <h1>Liburan Lebih Mudah, Semua dari SATSET</h1>
+          <p>Pesan tiket, pilih aktivitas outbound, dan atur momen santai di cafe lewat satu portal customer yang praktis.</p>
           <div class="hero-actions">
-            <button class="btn btn-brand" data-nav="/customer/booking" type="button">Mulai Booking</button>
-            <button class="btn btn-line" data-nav="/customer/register" type="button">Daftar Akun</button>
+            <button class="btn btn-brand" data-nav="/customer/booking" type="button">Booking Sekarang</button>
+            <button class="btn btn-line" data-nav="/activity-booking" type="button">Lihat Aktivitas</button>
           </div>
           <div class="hero-badge-row">
-            <span class="chip">Realtime Price</span>
-            <span class="chip">Promo Voucher</span>
-            <span class="chip">Payment Countdown</span>
+            <span class="chip">Guest Checkout</span>
+            <span class="chip">Booking 5 Langkah</span>
+            <span class="chip">Image-First POS</span>
           </div>
         </article>
+        <aside class="hero-visual" aria-label="Visual destinasi SATSET">
+          <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1400&q=80" alt="Pemandangan resort SATSET" loading="lazy" />
+            <div class="hero-image-content">
+              <strong>Destinasi Wisata Keluarga</strong>
+              <span>Tiket, aktivitas outbound, dan cafe dalam satu alur pemesanan.</span>
+            </div>
+          </div>
+          <div class="hero-strip">
+            <article><strong>Tiket Wisata</strong><span>Masuk area wisata dengan pilihan kategori dan kuota jelas.</span></article>
+            <article><strong>Aktivitas</strong><span>Pilih sesi outbound dan cek slot tersisa secara cepat.</span></article>
+            <article><strong>Cafe</strong><span>Atur meja, pilih menu, dan lanjutkan pembayaran tanpa ribet.</span></article>
+          </div>
+        </aside>
+      </div>
+
+      <section class="landing-block">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Layanan Utama</span>
+            <h2 class="section-title" style="margin:0;">Pilih Layanan SATSET</h2>
+            <p>Kartu layanan dengan alur langsung ke fitur yang Anda butuhkan.</p>
+          </div>
+        </div>
+        <div class="discovery-grid">
+          <article class="discover-card">
+            <div class="discover-media">
+              <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80" alt="Layanan tiket wisata SATSET" loading="lazy" />
+            </div>
+            <div class="discover-body">
+              <span class="discover-badge">Tiket</span>
+              <h3 class="discover-title">Tiket Wisata</h3>
+              <p class="discover-copy">Telusuri kategori tiket, cek ketersediaan, lalu lanjutkan transaksi lewat panel pesanan.</p>
+              <button type="button" class="discover-cta" data-nav="/ticketing">Buka Ticketing</button>
+            </div>
+          </article>
+          <article class="discover-card">
+            <div class="discover-media">
+              <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1200&q=80" alt="Area cafe SATSET" loading="lazy" />
+            </div>
+            <div class="discover-body">
+              <span class="discover-badge">Cafe</span>
+              <h3 class="discover-title">Cafe SATSET</h3>
+              <p class="discover-copy">Pilih meja, tentukan menu, dan pantau total pesanan dengan panel cafe yang selalu terlihat.</p>
+              <button type="button" class="discover-cta" data-nav="/cafe">Buka Cafe</button>
+            </div>
+          </article>
+          <article class="discover-card">
+            <div class="discover-media">
+              <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1200&q=80" alt="Aktivitas outbound SATSET" loading="lazy" />
+            </div>
+            <div class="discover-body">
+              <span class="discover-badge">Aktivitas</span>
+              <h3 class="discover-title">Outbound & Aktivitas</h3>
+              <p class="discover-copy">Pilih aktivitas image-first, tentukan jadwal, dan lihat status booking outbound secara ringkas.</p>
+              <button type="button" class="discover-cta" data-nav="/activity-booking">Lihat Aktivitas</button>
+            </div>
+          </article>
+          <article class="discover-card">
+            <div class="discover-media">
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80" alt="Alur booking wisata SATSET" loading="lazy" />
+            </div>
+            <div class="discover-body">
+              <span class="discover-badge">Booking</span>
+              <h3 class="discover-title">Booking Wizard</h3>
+              <p class="discover-copy">Selesaikan booking 5 langkah untuk tiket, outbound, atau cafe dengan opsi guest checkout.</p>
+              <button type="button" class="discover-cta" data-nav="/customer/booking">Mulai Booking</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="landing-block">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Highlight Destinasi</span>
+            <h2 class="section-title" style="margin:0;">Inspirasi Aktivitas</h2>
+            <p>Pilihan aktivitas populer untuk referensi rencana kunjungan Anda.</p>
+          </div>
+        </div>
+        <div class="highlight-grid">
+          <article class="highlight-card">
+            <div class="highlight-media"><img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=1200&q=80" alt="Zona petualangan keluarga" loading="lazy" /></div>
+            <div class="highlight-body">
+              <h3 class="discover-title">Zona Petualangan</h3>
+              <p class="discover-copy">Pilihan kegiatan outbound ringan untuk tim, keluarga, atau komunitas.</p>
+              <div class="highlight-row"><span>Estimasi Harga</span><strong>Mulai Paket Basic</strong></div>
+              <div class="highlight-row"><span>Ketersediaan</span><span class="availability-badge">Cek Slot di Booking</span></div>
+            </div>
+          </article>
+          <article class="highlight-card">
+            <div class="highlight-media"><img src="https://images.unsplash.com/photo-1471623320832-752e8bbf8413?auto=format&fit=crop&w=1200&q=80" alt="Area kuliner dan cafe" loading="lazy" /></div>
+            <div class="highlight-body">
+              <h3 class="discover-title">Area Kuliner</h3>
+              <p class="discover-copy">Temukan meja favorit dan menu andalan untuk melengkapi pengalaman wisata.</p>
+              <div class="highlight-row"><span>Menu Tersedia</span><strong>Image-First Catalog</strong></div>
+              <div class="highlight-row"><span>Status Meja</span><span class="availability-badge low">Realtime di POS Cafe</span></div>
+            </div>
+          </article>
+          <article class="highlight-card">
+            <div class="highlight-media"><img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1200&q=80" alt="Pemandangan outdoor SATSET" loading="lazy" /></div>
+            <div class="highlight-body">
+              <h3 class="discover-title">Paket Liburan</h3>
+              <p class="discover-copy">Kombinasi tiket, aktivitas, dan cafe untuk kunjungan yang lebih praktis.</p>
+              <div class="highlight-row"><span>Rekomendasi</span><strong>Booking 5 Langkah</strong></div>
+              <div class="highlight-row"><span>Akses Cepat</span><span class="availability-badge">Mulai dari Guest Checkout</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="member-promo" aria-label="Member SATSET">
+        <div>
+          <h3>Member SATSET</h3>
+          <p>Dapatkan pengalaman booking lebih personal dengan benefit promo, point, dan update penawaran kunjungan berikutnya.</p>
+          <div class="member-benefits">
+            <span>Promo Berkala</span>
+            <span>Info Event</span>
+            <span>Riwayat Booking</span>
+            <span>Benefit Member</span>
+          </div>
+        </div>
+        <div class="member-promo-actions">
+          <p>Sudah jadi member? Lanjutkan ke Booking Wizard untuk cek status member di langkah kontak.</p>
+          <button class="btn btn-soft" data-nav="/customer/booking" type="button">Cek Member</button>
+          <button class="btn btn-line" data-nav="/customer/register" type="button">Daftar Member</button>
+        </div>
+      </section>
+
+      <section class="landing-convert">
+        <div>
+          <h3>Siap Jalan-Jalan?</h3>
+          <p>Mulai dari pemilihan produk sampai pembayaran dalam satu alur booking yang mudah.</p>
+        </div>
+        <button class="btn btn-brand" data-nav="/customer/booking" type="button">Mulai Booking</button>
+      </section>
+
+      <section class="trust-grid">
+        <article class="trust-item"><strong>Booking Mudah</strong><span>Alur booking ringkas dan jelas untuk semua layanan SATSET.</span></article>
+        <article class="trust-item"><strong>Pilihan Aktivitas</strong><span>Tiket, outbound, dan cafe dalam satu portal customer.</span></article>
+        <article class="trust-item"><strong>Pembayaran</strong><span>Dukungan metode pembayaran dengan panel transaksi terstruktur.</span></article>
+        <article class="trust-item"><strong>Customer Support</strong><span>Informasi layanan dan notifikasi tersedia langsung dari dashboard customer.</span></article>
+      </section>
+
+      <div class="landing-block">
         <aside class="hero-aside">
           <h3 style="margin:0 0 10px">Notification Center</h3>
           <div id="landing-notifications" class="notification-list"></div>
         </aside>
       </div>
-
-      <h2 class="section-title">Paket Wisata</h2>
-      <section class="grid grid-3">
-        <article class="card"><h3>Paket Family</h3><p>Tiket keluarga + voucher cafe.</p></article>
-        <article class="card"><h3>Paket Couple</h3><p>Akses area premium + dokumentasi.</p></article>
-        <article class="card"><h3>Paket Group</h3><p>Diskon kuantitas untuk rombongan.</p></article>
-      </section>
-
-      <h2 class="section-title">Paket Outbound</h2>
-      <section class="grid grid-3">
-        <article class="card"><h3>Adventure Basic</h3><p>Team building 3 jam.</p></article>
-        <article class="card"><h3>Adventure Pro</h3><p>Team challenge + fasilitator.</p></article>
-        <article class="card"><h3>Corporate Camp</h3><p>Program sehari penuh.</p></article>
-      </section>
-
-      <h2 class="section-title">Cafe</h2>
-      <section class="grid grid-3">
-        <article class="card"><h3>Indoor Lounge</h3><p>Area nyaman untuk keluarga.</p></article>
-        <article class="card"><h3>Outdoor Deck</h3><p>Pemandangan area wisata.</p></article>
-        <article class="card"><h3>Menu Signature</h3><p>Kopi, makanan ringan, dan hidangan utama.</p></article>
-      </section>
 
       <footer>Copyright SATSET Portal - Booking Wizard</footer>
     </section>
@@ -3717,8 +4078,7 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
         const textLabel = parts.join(' ');
         return ''
           + '<div class="wizard-step ' + tone + '">'
-          + '<span class="wizard-step-index">' + escapeHtml(indexLabel) + '</span>'
-          + '<span class="wizard-step-label">' + escapeHtml(textLabel) + '</span>'
+          + '<span class="wizard-step-label"><span class="wizard-step-index">' + escapeHtml(indexLabel) + '</span> ' + escapeHtml(textLabel) + '</span>'
           + '</div>';
       }).join("");
     }
