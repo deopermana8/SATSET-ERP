@@ -31,7 +31,7 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       --shadow: 0 8px 32px rgba(8,32,18,0.08),0 2px 8px rgba(8,32,18,0.04);
     }
     * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; font-family: "Plus Jakarta Sans", system-ui, sans-serif; background: radial-gradient(circle at 20% -10%, #d8f7e8 0, transparent 45%), var(--bg); color: var(--text); }
+    html, body { margin: 0; padding: 0; font-family: "Plus Jakarta Sans", system-ui, sans-serif; background: radial-gradient(circle at 20% -10%, #d8f7e8 0, transparent 45%), var(--bg); color: var(--text); overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
     .container { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
     .topbar {
@@ -50,10 +50,10 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
     /* nav-auth hidden until login; nav-guest shown on landing */
     .nav-auth { display: none; }
     /* internal operator routes — never visible to customers */
-    #route-cashier,#route-ticketing,#route-gate,#route-cafe,#route-kitchen,
+    #route-cashier,#route-gate,#route-kitchen,
     #route-supplier,#route-inventory,#route-purchase,#route-purchase-detail,
     #route-recipe,#route-stock-adjustment,#route-stock-movement { display: none !important; }
-    .btn { border: 0; border-radius: 12px; padding: 10px 14px; font-weight: 700; cursor: pointer; }
+    .btn { border: 0; border-radius: 12px; padding: 11px 15px; font-weight: 700; cursor: pointer; font-size: 13px; min-height: 44px; }
     .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
     .btn-brand { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #fff; box-shadow: 0 4px 14px rgba(5,150,105,0.28); transition: opacity .15s, box-shadow .15s; }
     .btn-brand:hover { opacity: .92; box-shadow: 0 6px 20px rgba(5,150,105,0.36); }
@@ -113,6 +113,7 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       background: #fff;
       color: var(--text);
       font: inherit;
+      min-height: 44px;
     }
     textarea { min-height: 90px; resize: vertical; }
     .kpi { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
@@ -138,7 +139,7 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
     }
     .wizard-steps {
       display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 8px;
       margin-bottom: 8px;
     }
@@ -147,12 +148,18 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       background: var(--surface-soft);
       border-radius: 12px;
       padding: 10px 8px;
-      text-align: center;
-      font-size: 11px;
+      text-align: left;
+      font-size: 12px;
       color: var(--muted);
       font-weight: 700;
+      display: grid;
+      gap: 4px;
     }
-    .wizard-step.active { border-color: #52c895; background: #e9f6ef; color: #0f5132; }
+    .wizard-step.active { border-color: #52c895; background: #e9f6ef; color: #0f5132; box-shadow: 0 0 0 2px rgba(82,200,149,0.15); }
+    .wizard-step.complete { background: #103a2d; border-color: #103a2d; color: #e8fff4; }
+    .wizard-step.upcoming { opacity: 0.86; }
+    .wizard-step-index { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .wizard-step-label { font-size: 13px; line-height: 1.25; }
     .wizard-panel { display: none; }
     .wizard-panel.active { display: block; }
     .service-option {
@@ -199,6 +206,275 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
     .countdown { font-size: 22px; font-weight: 800; }
     .mobile-nav { display: none; }
     .hero-badge-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .section-head { display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:12px; }
+    .section-head p { margin: 4px 0 0; font-size: 13px; color: var(--muted); }
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      margin-bottom: 8px;
+      border-radius: 999px;
+      background: #e8fff4;
+      color: #0f5132;
+      border: 1px solid #b6ecd0;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .pos-shell { display:grid; grid-template-columns: minmax(0,1.8fr) minmax(300px,0.95fr); gap:14px; }
+    .pos-main { display:grid; gap:12px; }
+    .tab-row { display:flex; gap:8px; flex-wrap:wrap; }
+    .tab-btn {
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .tab-btn.active { background: #ecfdf5; color: #065f46; border-color: #69d3a2; }
+    .catalog-shell { display:grid; grid-template-columns: 220px minmax(0,1fr); gap:12px; align-items:start; }
+    .catalog-filter {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #f8fcf9;
+      padding: 10px;
+      display:grid;
+      gap:8px;
+      position: sticky;
+      top: 88px;
+    }
+    .catalog-filter h4 { margin: 0 0 2px; font-size: 13px; color: var(--muted); }
+    .catalog-filter p { margin: 0; font-size: 12px; color: var(--muted); }
+    .product-grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:14px; }
+    .product-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fff;
+      overflow: hidden;
+      display: grid;
+      min-height: 100%;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      box-shadow: 0 4px 10px rgba(8,32,18,0.05);
+    }
+    .product-card:hover {
+      transform: translateY(-2px);
+      border-color: #8ecfb0;
+      box-shadow: 0 10px 24px rgba(8,32,18,0.1);
+    }
+    .product-card.selected {
+      border-color: #1e9f6e;
+      box-shadow: 0 0 0 3px rgba(30,159,110,0.2), 0 12px 28px rgba(8,32,18,0.13);
+    }
+    .product-figure {
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(150deg, #def7ea, #c7f0df 58%, #effaf4);
+      border-bottom: 1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#0f5132;
+      font-weight:800;
+      font-size:13px;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-figure img { width:100%; height:100%; object-fit:cover; display:block; }
+    .img-fallback {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 10px;
+      text-align: center;
+      color: #14532d;
+      background: linear-gradient(150deg, #d9fbe9, #c0f2da 60%, #eefcf5);
+    }
+    .product-figure img + .img-fallback { display: none; }
+    .product-figure.is-fallback img { display: none !important; }
+    .product-figure.is-fallback .img-fallback { display: grid; }
+    .product-body { padding: 12px; display:grid; gap:9px; }
+    .product-name { margin:0; font-size:14px; line-height:1.4; }
+    .product-subtitle { margin: -2px 0 0; color: var(--muted); font-size: 12px; }
+    .product-meta { display:flex; justify-content:space-between; align-items:center; gap:8px; font-size:12px; color:var(--muted); }
+    .product-price { font-size: 16px; color: #065f46; letter-spacing: 0.01em; }
+    .category-badge {
+      display:inline-flex;
+      align-items:center;
+      border-radius:999px;
+      padding:4px 8px;
+      font-size:11px;
+      font-weight:700;
+      background:#eef2ff;
+      color:#3730a3;
+      border:1px solid #c7d2fe;
+    }
+    .availability-badge {
+      display:inline-flex;
+      align-items:center;
+      border-radius:999px;
+      padding: 4px 8px;
+      font-size:11px;
+      font-weight:700;
+      background:#ecfdf5;
+      color:#166534;
+      border:1px solid #86efac;
+    }
+    .availability-badge.low { background:#fff7ed; color:#9a3412; border-color:#fdba74; }
+    .availability-badge.full { background:#fef2f2; color:#991b1b; border-color:#fca5a5; }
+    .product-actions { display:flex; gap:8px; align-items:center; }
+    .product-actions .btn { min-width: 44px; justify-content: center; }
+    .qty-pill {
+      width: 74px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px;
+      font: inherit;
+      min-height: 44px;
+    }
+    .order-panel {
+      display:grid;
+      gap:10px;
+      align-content:start;
+      position: sticky;
+      top: 86px;
+      padding: 18px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #ffffff, #f8fcf9);
+    }
+    .order-title { margin:0; font-size:16px; }
+    .panel-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
+    .panel-heading p { margin: 4px 0 0; font-size: 12px; color: var(--muted); }
+    .panel-count {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #ecfdf5;
+      border: 1px solid #b7ebcf;
+      color: #166534;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .order-items { display:grid; gap:8px; max-height: 320px; overflow:auto; padding-right:2px; }
+    .order-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px;
+      display:grid;
+      gap: 4px;
+      background: #fff;
+    }
+    .order-item-top { display:flex; justify-content:space-between; gap:8px; align-items:flex-start; }
+    .order-item small { color: var(--muted); }
+    .order-total-box { border-top:1px dashed var(--border); padding-top:10px; display:grid; gap:8px; }
+    .order-total-row { display:flex; align-items:center; justify-content:space-between; font-size:13px; }
+    .order-total-row strong { font-size:15px; }
+    .empty-state {
+      border: 1px dashed var(--border);
+      border-radius: 16px;
+      padding: 18px 16px;
+      display: grid;
+      gap: 6px;
+      text-align: left;
+      background: linear-gradient(180deg, #ffffff, #f6fbf8);
+    }
+    .empty-state strong { font-size: 14px; }
+    .empty-state p { margin: 0; font-size: 12px; color: var(--muted); line-height: 1.55; }
+    .empty-state-badge {
+      display:inline-flex;
+      align-items:center;
+      width:max-content;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #eef8f2;
+      color: #166534;
+      border: 1px solid #cdebd9;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .table-block {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, #ffffff, #f8fcf9);
+    }
+    .table-block h3 { margin: 0; font-size: 18px; }
+    .table-block p { margin: 0; font-size: 12px; color: var(--muted); }
+    .table-legend { display:flex; gap:8px; flex-wrap:wrap; }
+    .legend-pill {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--border);
+      font-size:11px;
+      font-weight:700;
+      color:var(--muted);
+    }
+    .legend-dot {
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      display:inline-block;
+      background:#cbd5e1;
+    }
+    .legend-dot.empty { background:#a7f3d0; }
+    .legend-dot.occupied { background:#93c5fd; }
+    .legend-dot.waiting { background:#fdba74; }
+    .table-grid { display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:8px; }
+    .table-chip {
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px 12px;
+      text-align: center;
+      cursor: pointer;
+      display:grid;
+      gap:6px;
+      min-height: 84px;
+    }
+    .table-chip .table-no { font-weight: 800; letter-spacing: 0.08em; font-size: 18px; }
+    .table-chip .table-status { font-size: 11px; color: var(--muted); font-weight:700; }
+    .table-chip.selected { border-color:#1e9f6e; background:#ecfdf5; box-shadow: 0 0 0 3px rgba(30,159,110,0.2); }
+    .table-chip.occupied { background:#eff6ff; border-color:#93c5fd; }
+    .table-chip.waiting { background:#fff7ed; border-color:#fdba74; }
+    .ghost-inputs { display:none; }
+    .quick-date { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .quick-date .btn { padding: 8px 10px; font-size: 12px; }
+    .member-strip {
+      border:1px dashed #86efac;
+      border-radius:12px;
+      padding:10px;
+      background:#f0fdf4;
+      display:grid;
+      gap:8px;
+      margin-top:10px;
+    }
+    .member-strip .title { font-weight: 800; }
+    .member-strip .hint { margin: 0; font-size: 12px; color: #166534; }
+    .contact-hint { margin-top: 8px; font-size: 12px; color: #166534; }
+    .helper-text { margin: 0; font-size: 12px; color: var(--muted); }
+    .member-actions { display:grid; gap:8px; }
+    .member-action-card {
+      border: 1px solid #cdebd9;
+      border-radius: 12px;
+      padding: 12px;
+      background: rgba(255,255,255,0.7);
+      display:grid;
+      gap:8px;
+    }
+    .member-action-card p { margin: 0; font-size: 12px; color: #166534; }
 
     @media (max-width: 960px) {
       .hero { grid-template-columns: 1fr; }
@@ -207,6 +483,11 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       .kpi { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .wizard-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .slots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .pos-shell { grid-template-columns: 1fr; }
+      .catalog-shell { grid-template-columns: 1fr; }
+      .catalog-filter { position: static; }
+      .product-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .table-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
     }
 
     @media (max-width: 767px) {
@@ -217,9 +498,20 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       .kpi { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .wizard-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .slots { grid-template-columns: 1fr; }
+      .product-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .table-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .pos-shell { padding-bottom: 110px; }
+      .order-panel {
+        position: sticky;
+        bottom: 70px;
+        top: auto;
+        z-index: 30;
+        background: color-mix(in oklab, #ffffff 94%, transparent);
+        backdrop-filter: blur(8px);
+      }
       .mobile-nav {
         display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(6, minmax(0, 1fr));
         position: fixed;
         bottom: 10px;
         left: 10px;
@@ -235,7 +527,8 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
         border: 0;
         background: transparent;
         font-size: 11px;
-        padding: 10px 6px;
+        padding: 10px 4px;
+        min-height: 48px;
         color: var(--muted);
         font-weight: 700;
       }
@@ -264,7 +557,7 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
         <article class="hero-card">
           <span class="chip">Customer Online Booking</span>
           <h1>Booking Wizard SATSET untuk Tiket, Outbound, dan Cafe</h1>
-          <p>Alur booking 6 langkah dengan kalkulasi harga realtime, kuota kursi live, promo voucher, dan e-ticket QR profesional.</p>
+          <p>Alur booking 5 langkah dengan kalkulasi harga realtime, kuota kursi live, promo voucher, dan e-ticket QR profesional.</p>
           <div class="hero-actions">
             <button class="btn btn-brand" data-nav="/customer/booking" type="button">Mulai Booking</button>
             <button class="btn btn-line" data-nav="/customer/register" type="button">Daftar Akun</button>
@@ -391,7 +684,13 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
     </section>
 
     <section id="route-booking" class="route" data-route="/customer/booking">
-      <h2 class="section-title">Booking Wizard</h2>
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Checkout Wisata</span>
+          <h2 class="section-title" style="margin:0;">Booking Wizard</h2>
+          <p>Alur pemesanan wisata yang ringkas, nyaman, dan tetap ramah untuk guest checkout.</p>
+        </div>
+      </div>
       <article class="card wizard">
         <div class="wizard-steps" id="wizard-steps"></div>
 
@@ -416,15 +715,17 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
         </div>
 
         <div class="wizard-panel" data-step="4">
-          <h3>Step 4 - Jumlah Peserta</h3>
+          <h3>Step 4 - Data Kontak</h3>
           <div class="grid grid-2">
-            <div id="wiz-ticket-fields">
+            <div id="wiz-ticket-fields" class="card">
+              <label style="display:block; margin-bottom:8px;">Ringkasan Pengunjung</label>
               <label>Dewasa</label>
               <input id="wiz-adults" type="number" min="0" value="1" />
               <label style="margin-top:8px">Anak</label>
               <input id="wiz-children" type="number" min="0" value="0" />
             </div>
-            <div id="wiz-shared-fields" class="form-grid">
+            <div id="wiz-shared-fields" class="card form-grid">
+              <label style="display:block; margin-bottom:2px;">Detail Kunjungan</label>
               <div id="wiz-outbound-package-wrap">
                 <label>Paket Outbound</label>
                 <select id="wiz-package"><option value="basic">Adventure Basic</option><option value="pro">Adventure Pro</option><option value="camp">Corporate Camp</option></select>
@@ -439,10 +740,34 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
               </div>
             </div>
           </div>
+          <div class="grid grid-3" style="margin-top:10px;">
+            <div><label>Nama Pemesan (opsional)</label><input id="wiz-customer-name" placeholder="Nama" /></div>
+            <div><label>No HP</label><input id="wiz-customer-phone" placeholder="08xxxx" /></div>
+            <div><label>Email</label><input id="wiz-customer-email" type="email" placeholder="email@domain.com" /></div>
+          </div>
+          <p class="contact-hint">Masukkan nomor HP atau email untuk menerima informasi pemesanan.</p>
+          <p class="helper-text">Salah satu wajib diisi.</p>
+          <div class="member-strip">
+            <div class="title">Member SATSET</div>
+            <p class="hint">Sudah pernah berkunjung? Gunakan nomor HP atau email untuk cek status member. Jika belum, lanjut daftar tanpa mengganggu proses checkout.</p>
+            <div class="member-actions">
+              <div class="member-action-card">
+                <strong>Sudah pernah berkunjung?</strong>
+                <input id="wiz-member-contact" placeholder="Nomor HP / Email member" />
+                <button id="wiz-member-check" type="button" class="btn btn-soft">Cek Member</button>
+              </div>
+              <div class="member-action-card">
+                <strong>Belum menjadi member?</strong>
+                <p>Daftar member untuk menyimpan benefit promo, point, dan penawaran kunjungan berikutnya.</p>
+                <button id="wiz-member-signup" type="button" class="btn btn-line">Daftar Member</button>
+              </div>
+            </div>
+            <div id="wiz-member-result" class="notice info">Member benefit: diskon, point, promo, harga khusus, voucher. Validasi member akan aktif setelah backend siap.</div>
+          </div>
         </div>
 
         <div class="wizard-panel" data-step="5">
-          <h3>Step 5 - Ringkasan Booking</h3>
+          <h3>Step 5 - Review & Pembayaran</h3>
           <div class="grid grid-2">
             <div>
               <label>Kode Promo / Voucher</label>
@@ -452,10 +777,7 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
             </div>
             <div class="totals" id="wiz-totals"></div>
           </div>
-        </div>
-
-        <div class="wizard-panel" data-step="6">
-          <h3>Step 6 - Pembayaran</h3>
+          <article class="card" id="wiz-review-contact" style="margin-top:10px;"></article>
           <div class="payment-card">
             <div class="grid grid-2">
               <div><label>Gateway</label><select id="wiz-pay-gateway"><option value="sandbox">Sandbox</option><option value="midtrans">Midtrans</option><option value="xendit">Xendit</option></select></div>
@@ -549,35 +871,242 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
     </section>
 
     <section id="route-ticketing" class="route" data-route="/ticketing">
-      <h2 class="section-title">POS Ticketing (Sprint 18.1)</h2>
-      <article class="card form-grid">
-        <div class="grid grid-2">
-          <div><label>Nama Customer</label><input id="pos-customer-name" placeholder="Nama customer" /></div>
-          <div><label>No HP Customer</label><input id="pos-customer-phone" placeholder="08xxxx" /></div>
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Wisata Ticketing</span>
+          <h2 class="section-title" style="margin:0;">POS Ticketing</h2>
+          <p>Katalog tiket image-first dengan kategori, ketersediaan, dan order panel real-time.</p>
         </div>
-        <div class="grid grid-4">
-          <div><label>Pilih Tiket</label><select id="pos-ticket-select"></select></div>
-          <div><label>Qty</label><input id="pos-ticket-qty" type="number" min="1" value="1" /></div>
-          <div style="display:flex;align-items:end"><button class="btn btn-soft" id="pos-add-item" type="button">Tambah Item</button></div>
-          <div><label>Metode Bayar</label><select id="pos-payment-method"><option value="CASH">CASH</option><option value="QRIS">QRIS</option><option value="TRANSFER">TRANSFER</option></select></div>
-        </div>
-        <div id="pos-items"></div>
-        <div class="grid grid-4">
-          <div><label>Subtotal</label><input id="pos-subtotal" readonly /></div>
-          <div><label>Diskon</label><input id="pos-discount" type="number" min="0" value="0" /></div>
-          <div><label>Pajak</label><input id="pos-tax" type="number" min="0" value="0" /></div>
-          <div><label>Total</label><input id="pos-total" readonly /></div>
-        </div>
-        <div class="grid grid-2">
-          <div><label>Bayar</label><input id="pos-paid-amount" type="number" min="0" value="0" /></div>
-          <div><label>Kembalian</label><input id="pos-change-amount" readonly /></div>
-        </div>
-        <div style="display:flex; gap:8px; flex-wrap:wrap;">
-          <button class="btn btn-brand" id="pos-save-sale" type="button">Simpan Transaksi</button>
-          <button class="btn btn-line" id="pos-refresh-ticket" type="button">Refresh Tiket</button>
-        </div>
-        <div id="pos-msg"></div>
+      </div>
+      <article class="pos-shell">
+        <section class="card pos-main">
+          <div class="grid grid-3">
+            <div><label>Nama Customer</label><input id="pos-customer-name" placeholder="Nama customer" /></div>
+            <div><label>No HP Customer</label><input id="pos-customer-phone" placeholder="08xxxx" /></div>
+            <div><label>Metode Bayar</label><select id="pos-payment-method"><option value="CASH">CASH</option><option value="QRIS">QRIS</option><option value="TRANSFER">TRANSFER</option></select></div>
+          </div>
+          <div class="catalog-shell">
+            <aside class="catalog-filter">
+              <h4>Kategori Tiket</h4>
+              <p>Pilih kategori untuk memfokuskan produk yang tampil di katalog.</p>
+              <div class="tab-row" id="pos-category-tabs"></div>
+            </aside>
+            <section id="pos-ticket-catalog" class="product-grid"></section>
+          </div>
+          <div class="ghost-inputs">
+            <select id="pos-ticket-select"></select>
+            <input id="pos-ticket-qty" type="number" min="1" value="1" />
+            <button class="btn btn-soft" id="pos-add-item" type="button">Tambah Item</button>
+          </div>
+        </section>
+        <aside class="card order-panel">
+          <div class="panel-heading">
+            <div>
+              <h3 class="order-title">Pesanan</h3>
+              <p>Ringkasan transaksi tiket yang sedang dipilih.</p>
+            </div>
+            <span class="panel-count" id="pos-order-count">0 item</span>
+          </div>
+          <div class="notice info">Jenis Pesanan: Tiket</div>
+          <div id="pos-items" class="order-items"></div>
+          <div class="order-total-box">
+            <div class="order-total-row"><span>Subtotal</span><strong id="pos-subtotal-text">Rp0</strong></div>
+            <div class="grid grid-2">
+              <div><label>Diskon</label><input id="pos-discount" type="number" min="0" value="0" /></div>
+              <div><label>Pajak</label><input id="pos-tax" type="number" min="0" value="0" /></div>
+            </div>
+            <div class="order-total-row"><span>Total</span><strong id="pos-total-text">Rp0</strong></div>
+            <div class="grid grid-2">
+              <div><label>Bayar</label><input id="pos-paid-amount" type="number" min="0" value="0" /></div>
+              <div><label>Kembalian</label><input id="pos-change-amount" readonly /></div>
+            </div>
+            <input id="pos-subtotal" readonly style="display:none;" />
+            <input id="pos-total" readonly style="display:none;" />
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button class="btn btn-brand" id="pos-save-sale" type="button">Bayar</button>
+              <button class="btn btn-line" id="pos-refresh-ticket" type="button">Refresh Tiket</button>
+            </div>
+            <div id="pos-msg"></div>
+          </div>
+        </aside>
       </article>
+    </section>
+
+    <section id="route-activity-booking" class="route" data-route="/activity-booking">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Katalog Outbound</span>
+          <h2 class="section-title" style="margin:0;">POS Outbound</h2>
+          <p>Pilih aktivitas visual, cek availability badge, lalu tentukan jadwal dengan cepat.</p>
+        </div>
+      </div>
+      <article class="pos-shell">
+        <section class="card pos-main">
+          <div class="table-block">
+            <h3>Jadwal Aktivitas</h3>
+            <p>Pilih aktivitas, tentukan hari, lalu lanjutkan ke sesi yang tersedia.</p>
+          </div>
+          <div class="grid grid-3">
+            <div><label>Reservation ID (opsional)</label><input id="ab-reservation-id" placeholder="reservation id" /></div>
+            <div><label>Customer Name</label><input id="ab-customer-name" placeholder="Nama customer" /></div>
+            <div><label>Qty</label><input id="ab-qty" type="number" min="1" value="1" /></div>
+          </div>
+          <div class="quick-date">
+            <button class="btn btn-line" type="button" data-ab-quick-date="today">Hari Ini</button>
+            <button class="btn btn-line" type="button" data-ab-quick-date="tomorrow">Besok</button>
+            <button class="btn btn-line" type="button" data-ab-quick-date="next">+2 Hari</button>
+          </div>
+          <div class="grid grid-3">
+            <div><label>Date</label><input id="ab-date" type="date" /></div>
+            <div><label>Session</label><input id="ab-session" placeholder="MORNING" /></div>
+            <div><label>Capacity</label><input id="ab-capacity" type="number" min="1" value="20" /></div>
+          </div>
+          <div id="ab-activity-catalog" class="product-grid"></div>
+          <div id="ab-schedule-cards" class="product-grid"></div>
+          <div class="ghost-inputs">
+            <select id="ab-activity-select"></select>
+            <select id="ab-schedule-select"></select>
+            <button class="btn btn-soft" id="ab-create-schedule-btn" type="button">Create Schedule</button>
+          </div>
+        </section>
+        <aside class="card order-panel">
+          <div class="panel-heading">
+            <div>
+              <h3 class="order-title">Pesanan Outbound</h3>
+              <p>Jadwal dan status aktivitas yang dipilih tampil di panel ini.</p>
+            </div>
+            <span class="panel-count">Aktif</span>
+          </div>
+          <div id="ab-selected-schedule" class="notice info">Jadwal: belum dipilih</div>
+          <div class="grid grid-2">
+            <div><label>Payment Method</label><select id="ab-payment-method"><option value="CASH">CASH</option><option value="QRIS">QRIS</option><option value="TRANSFER">TRANSFER</option></select></div>
+            <div><label>Status</label><input id="ab-status" value="WAITING_PAYMENT" readonly /></div>
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="btn btn-brand" id="ab-create-booking-btn" type="button">Book Activity</button>
+            <button class="btn btn-line" id="ab-refresh-btn" type="button">Refresh</button>
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="btn btn-soft" id="ab-pay-btn" type="button">Pay</button>
+            <button class="btn btn-line" id="ab-checkin-btn" type="button">Check-in</button>
+            <button class="btn btn-danger" id="ab-cancel-btn" type="button">Cancel</button>
+          </div>
+          <article class="card">
+            <h3 style="margin:0 0 10px;">QR Activity Booking</h3>
+            <div class="qr-wrap" id="ab-qr">QR belum tersedia</div>
+          </article>
+          <article class="card">
+            <h3 style="margin:0 0 10px;">Status Timeline</h3>
+            <div id="ab-timeline"></div>
+          </article>
+          <div id="ab-msg"></div>
+        </aside>
+      </article>
+
+      <h3 class="section-title">Schedule</h3>
+      <article class="card" id="ab-schedule-list"></article>
+
+      <h3 class="section-title">Booking List</h3>
+      <article class="card" id="ab-booking-list"></article>
+    </section>
+
+    <section id="route-cafe" class="route" data-route="/cafe">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Cafe Service</span>
+          <h2 class="section-title" style="margin:0;">POS Cafe</h2>
+          <p>Pilih meja lebih dulu, lalu tambah menu image cards ke order panel berdasarkan nomor meja.</p>
+        </div>
+      </div>
+      <article class="pos-shell">
+        <section class="card pos-main">
+          <div class="table-block">
+            <h3>Pilih Meja</h3>
+            <p>Fokus utama untuk layanan dine-in. Pilih meja aktif sebelum menambahkan menu.</p>
+            <div class="table-legend">
+              <span class="legend-pill"><span class="legend-dot empty"></span>Kosong</span>
+              <span class="legend-pill"><span class="legend-dot occupied"></span>Terisi</span>
+              <span class="legend-pill"><span class="legend-dot waiting"></span>Menunggu</span>
+            </div>
+            <div id="cafe-table-selector" class="table-grid"></div>
+          </div>
+          <div class="tab-row" id="cafe-category-tabs"></div>
+          <div id="cafe-menu-catalog" class="product-grid"></div>
+          <div class="ghost-inputs">
+            <select id="cafe-order-menu"></select>
+            <input id="cafe-order-qty" type="number" min="1" value="1" />
+            <button class="btn btn-soft" id="cafe-add-cart-btn" type="button">Add Cart</button>
+          </div>
+          <details class="card">
+            <summary style="cursor:pointer; font-weight:700;">Management Kategori & Menu</summary>
+            <div class="form-grid" style="margin-top:10px;">
+              <div class="grid grid-4">
+                <div><label>Category Code</label><input id="cafe-category-code" placeholder="CAT-DRINK" /></div>
+                <div><label>Category Name</label><input id="cafe-category-name" placeholder="Minuman" /></div>
+                <div><label>Category Active</label><select id="cafe-category-active"><option value="true">true</option><option value="false">false</option></select></div>
+                <div style="display:flex;align-items:end"><button class="btn btn-soft" id="cafe-create-category-btn" type="button">Create Category</button></div>
+              </div>
+
+              <div class="grid grid-4">
+                <div><label>Menu Category</label><select id="cafe-menu-category"></select></div>
+                <div><label>Menu Code</label><input id="cafe-menu-code" placeholder="MNU-001" /></div>
+                <div><label>Menu Name</label><input id="cafe-menu-name" placeholder="Es Teh" /></div>
+                <div><label>Price</label><input id="cafe-menu-price" type="number" min="0" value="10000" /></div>
+              </div>
+              <div class="grid grid-4">
+                <div><label>Stock</label><input id="cafe-menu-stock" type="number" min="0" value="50" /></div>
+                <div><label>Menu Active</label><select id="cafe-menu-active"><option value="true">true</option><option value="false">false</option></select></div>
+                <div style="display:flex;align-items:end"><button class="btn btn-brand" id="cafe-create-menu-btn" type="button">Create Menu</button></div>
+                <div style="display:flex;align-items:end"><button class="btn btn-line" id="cafe-refresh-btn" type="button">Refresh Cafe Data</button></div>
+              </div>
+            </div>
+          </details>
+        </section>
+
+        <aside class="card order-panel">
+          <div class="panel-heading">
+            <div>
+              <h3 class="order-title">Pesanan Cafe</h3>
+              <p>Panel sticky untuk memantau meja, menu, dan total transaksi.</p>
+            </div>
+            <span class="panel-count" id="cafe-order-count">0 item</span>
+          </div>
+          <div class="notice info" id="cafe-selected-table">MEJA 01</div>
+          <div class="grid grid-2">
+            <div><label>Customer</label><input id="cafe-customer-name" value="Walk In" /></div>
+            <div><label>Table</label><input id="cafe-table-number" value="01" /></div>
+          </div>
+          <div class="grid grid-2">
+            <div><label>Order Type</label><select id="cafe-order-type"><option value="DINE_IN">DINE_IN</option><option value="TAKE_AWAY">TAKE_AWAY</option></select></div>
+            <div><label>Payment Method</label><select id="cafe-payment-method"><option value="CASH">CASH</option><option value="QRIS">QRIS</option><option value="TRANSFER">TRANSFER</option></select></div>
+          </div>
+          <div id="cafe-cart" class="order-items"></div>
+          <div class="grid grid-2">
+            <div><label>Discount</label><input id="cafe-discount" type="number" min="0" value="0" /></div>
+            <div><label>Tax</label><input id="cafe-tax" type="number" min="0" value="0" /></div>
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="btn btn-brand" id="cafe-create-order-btn" type="button">Create Order</button>
+            <button class="btn btn-line" id="cafe-clear-cart-btn" type="button">Clear Cart</button>
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="btn btn-soft" id="cafe-pay-order-btn" type="button">Pay Order</button>
+            <button class="btn btn-line" id="cafe-print-order-btn" type="button">Print Receipt</button>
+            <button class="btn btn-danger" id="cafe-void-order-btn" type="button">Void Order</button>
+          </div>
+          <article class="card">
+            <h3 style="margin:0 0 8px;">Receipt</h3>
+            <pre id="cafe-receipt" style="white-space:pre-wrap;font:12px/1.4 monospace;">Belum ada receipt</pre>
+          </article>
+          <div id="cafe-msg"></div>
+        </aside>
+      </article>
+
+      <h3 class="section-title">Menu List</h3>
+      <article class="card" id="cafe-menu-list"></article>
+
+      <h3 class="section-title">Order List</h3>
+      <article class="card" id="cafe-order-list"></article>
     </section>
 
     <section id="route-ticket-preview" class="route" data-route="/ticket-preview">
@@ -690,122 +1219,6 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       <article class="card" id="activity-list"></article>
     </section>
 
-    <section id="route-activity-booking" class="route" data-route="/activity-booking">
-      <h2 class="section-title">Activity Booking</h2>
-      <article class="card form-grid">
-        <div class="grid grid-4">
-          <div><label>Reservation ID</label><input id="ab-reservation-id" placeholder="reservation id" /></div>
-          <div><label>Customer Name</label><input id="ab-customer-name" placeholder="Nama customer" /></div>
-          <div><label>Activity</label><select id="ab-activity-select"></select></div>
-          <div><label>Schedule</label><select id="ab-schedule-select"></select></div>
-        </div>
-        <div class="grid grid-4">
-          <div><label>Date</label><input id="ab-date" type="date" /></div>
-          <div><label>Session</label><input id="ab-session" placeholder="MORNING" /></div>
-          <div><label>Capacity</label><input id="ab-capacity" type="number" min="1" value="20" /></div>
-          <div style="display:flex;align-items:end"><button class="btn btn-soft" id="ab-create-schedule-btn" type="button">Create Schedule</button></div>
-        </div>
-        <div class="grid grid-4">
-          <div><label>Qty</label><input id="ab-qty" type="number" min="1" value="1" /></div>
-          <div><label>Payment Method</label><select id="ab-payment-method"><option value="CASH">CASH</option><option value="QRIS">QRIS</option><option value="TRANSFER">TRANSFER</option></select></div>
-          <div><label>Status</label><input id="ab-status" value="WAITING_PAYMENT" readonly /></div>
-          <div style="display:flex;align-items:end"><button class="btn btn-brand" id="ab-create-booking-btn" type="button">Book Activity</button></div>
-        </div>
-        <div style="display:flex; gap:8px; flex-wrap:wrap;">
-          <button class="btn btn-line" id="ab-refresh-btn" type="button">Refresh</button>
-          <button class="btn btn-soft" id="ab-pay-btn" type="button">Pay</button>
-          <button class="btn btn-line" id="ab-checkin-btn" type="button">Check-in</button>
-          <button class="btn btn-danger" id="ab-cancel-btn" type="button">Cancel</button>
-        </div>
-        <div class="grid grid-2">
-          <article class="card">
-            <h3 style="margin:0 0 10px;">QR Activity Booking</h3>
-            <div class="qr-wrap" id="ab-qr">QR belum tersedia</div>
-          </article>
-          <article class="card">
-            <h3 style="margin:0 0 10px;">Status Timeline</h3>
-            <div id="ab-timeline"></div>
-          </article>
-        </div>
-        <div id="ab-msg"></div>
-      </article>
-
-      <h3 class="section-title">Schedule</h3>
-      <article class="card" id="ab-schedule-list"></article>
-
-      <h3 class="section-title">Booking List</h3>
-      <article class="card" id="ab-booking-list"></article>
-    </section>
-
-    <section id="route-cafe" class="route" data-route="/cafe">
-      <h2 class="section-title">Cafe / Food Court POS</h2>
-      <article class="card form-grid">
-        <div class="grid grid-4">
-          <div><label>Category Code</label><input id="cafe-category-code" placeholder="CAT-DRINK" /></div>
-          <div><label>Category Name</label><input id="cafe-category-name" placeholder="Minuman" /></div>
-          <div><label>Category Active</label><select id="cafe-category-active"><option value="true">true</option><option value="false">false</option></select></div>
-          <div style="display:flex;align-items:end"><button class="btn btn-soft" id="cafe-create-category-btn" type="button">Create Category</button></div>
-        </div>
-
-        <div class="grid grid-4">
-          <div><label>Menu Category</label><select id="cafe-menu-category"></select></div>
-          <div><label>Menu Code</label><input id="cafe-menu-code" placeholder="MNU-001" /></div>
-          <div><label>Menu Name</label><input id="cafe-menu-name" placeholder="Es Teh" /></div>
-          <div><label>Price</label><input id="cafe-menu-price" type="number" min="0" value="10000" /></div>
-        </div>
-        <div class="grid grid-4">
-          <div><label>Stock</label><input id="cafe-menu-stock" type="number" min="0" value="50" /></div>
-          <div><label>Menu Active</label><select id="cafe-menu-active"><option value="true">true</option><option value="false">false</option></select></div>
-          <div style="display:flex;align-items:end"><button class="btn btn-brand" id="cafe-create-menu-btn" type="button">Create Menu</button></div>
-          <div style="display:flex;align-items:end"><button class="btn btn-line" id="cafe-refresh-btn" type="button">Refresh Cafe Data</button></div>
-        </div>
-
-        <div class="grid grid-4">
-          <div><label>Pilih Menu</label><select id="cafe-order-menu"></select></div>
-          <div><label>Qty</label><input id="cafe-order-qty" type="number" min="1" value="1" /></div>
-          <div style="display:flex;align-items:end"><button class="btn btn-soft" id="cafe-add-cart-btn" type="button">Add Cart</button></div>
-          <div></div>
-        </div>
-
-        <div class="grid grid-4">
-          <div><label>Customer</label><input id="cafe-customer-name" value="Walk In" /></div>
-          <div><label>Table</label><input id="cafe-table-number" value="A1" /></div>
-          <div><label>Order Type</label><select id="cafe-order-type"><option value="DINE_IN">DINE_IN</option><option value="TAKE_AWAY">TAKE_AWAY</option></select></div>
-          <div><label>Payment Method</label><select id="cafe-payment-method"><option value="CASH">CASH</option><option value="QRIS">QRIS</option><option value="TRANSFER">TRANSFER</option></select></div>
-        </div>
-
-        <div class="grid grid-4">
-          <div><label>Discount</label><input id="cafe-discount" type="number" min="0" value="0" /></div>
-          <div><label>Tax</label><input id="cafe-tax" type="number" min="0" value="0" /></div>
-          <div style="display:flex;align-items:end"><button class="btn btn-brand" id="cafe-create-order-btn" type="button">Create Order</button></div>
-          <div style="display:flex;align-items:end"><button class="btn btn-line" id="cafe-clear-cart-btn" type="button">Clear Cart</button></div>
-        </div>
-
-        <div style="display:flex; gap:8px; flex-wrap:wrap;">
-          <button class="btn btn-soft" id="cafe-pay-order-btn" type="button">Pay Order</button>
-          <button class="btn btn-line" id="cafe-print-order-btn" type="button">Print Receipt</button>
-          <button class="btn btn-danger" id="cafe-void-order-btn" type="button">Void Order</button>
-        </div>
-
-        <div class="grid grid-2">
-          <article class="card">
-            <h3 style="margin:0 0 8px;">Cart</h3>
-            <div id="cafe-cart"></div>
-          </article>
-          <article class="card">
-            <h3 style="margin:0 0 8px;">Receipt</h3>
-            <pre id="cafe-receipt" style="white-space:pre-wrap;font:12px/1.4 monospace;">Belum ada receipt</pre>
-          </article>
-        </div>
-        <div id="cafe-msg"></div>
-      </article>
-
-      <h3 class="section-title">Menu List</h3>
-      <article class="card" id="cafe-menu-list"></article>
-
-      <h3 class="section-title">Order List</h3>
-      <article class="card" id="cafe-order-list"></article>
-    </section>
 
     <section id="route-kitchen" class="route" data-route="/kitchen">
       <h2 class="section-title">Kitchen Monitor</h2>
@@ -1649,12 +2062,11 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
     const profileService = new ProfileService(customerService);
 
     const wizardStepLabels = [
-      "Step 1 Layanan",
-      "Step 2 Tanggal",
-      "Step 3 Jam",
-      "Step 4 Peserta",
-      "Step 5 Ringkasan",
-      "Step 6 Pembayaran"
+      "01 Produk",
+      "02 Tanggal",
+      "03 Jadwal",
+      "04 Kontak",
+      "05 Review & Bayar"
     ];
 
     const state = {
@@ -1673,6 +2085,9 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
         packageCode: "basic",
         area: "indoor",
         promoCode: "",
+        customerName: "",
+        customerPhone: "",
+        customerEmail: "",
         latestQuote: null,
         availability: []
       },
@@ -1683,6 +2098,8 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       },
       pos: {
         tickets: [],
+        activeCategory: "Semua",
+        selectedTicketId: "",
         items: [],
         currentSaleId: "",
         currentPreview: null
@@ -1702,12 +2119,16 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
         rows: [],
         schedules: [],
         bookings: [],
+        currentActivityId: "",
         currentBookingId: "",
         currentBooking: null
       },
       cafe: {
         categories: [],
         menus: [],
+        activeCategory: "Semua",
+        selectedMenuId: "",
+        selectedTable: "01",
         orders: [],
         cart: [],
         currentOrderId: "",
@@ -1749,6 +2170,57 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       if (lowered.includes("<script") || lowered.includes("javascript:")) return "";
       if (/on[a-z]+=/.test(lowered)) return "";
       return raw;
+    }
+
+    function resolveProductImage(item) {
+      const source = item && (item.imageUrl || item.image || item.thumbnail || item.photoUrl || item.photo || item.bannerUrl);
+      return source ? String(source) : "";
+    }
+
+    function resolveCategory(item, fallback) {
+      return String((item && (item.category || item.categoryName || item.type || item.group)) || fallback || "General");
+    }
+
+    function availabilityTone(value) {
+      const amount = Number(value || 0);
+      if (amount <= 0) return "full";
+      if (amount <= 5) return "low";
+      return "ok";
+    }
+
+    function renderProductCard(config) {
+      const img = config.image || "";
+      const badgeTone = availabilityTone(config.availabilityValue);
+      const badgeClass = badgeTone === "full" ? "availability-badge full" : badgeTone === "low" ? "availability-badge low" : "availability-badge";
+      const icon = config.placeholderIcon || "SATSET";
+      return ''
+        + '<article class="product-card' + (config.selected ? ' selected' : '') + '">'
+        + '<div class="product-figure">'
+        + (img
+          ? '<img src="' + escapeHtml(img) + '" alt="' + escapeHtml(config.name) + '" loading="lazy" onerror="this.parentElement.classList.add(&quot;is-fallback&quot;)" /><span class="img-fallback">' + escapeHtml(icon) + '</span>'
+          : '<span class="img-fallback">' + escapeHtml(icon) + '</span>')
+        + '</div>'
+        + '<div class="product-body">'
+        + '<h4 class="product-name">' + escapeHtml(config.name) + '</h4>'
+        + (config.subtitle ? '<p class="product-subtitle">' + escapeHtml(config.subtitle) + '</p>' : '')
+        + '<div class="product-meta"><strong class="product-price">' + escapeHtml(formatCurrency(config.price || 0)) + '</strong>'
+        + '<span class="' + badgeClass + '">' + escapeHtml(config.availabilityLabel || "") + '</span></div>'
+        + (config.categoryLabel ? '<div><span class="category-badge">' + escapeHtml(config.categoryLabel) + '</span></div>' : '')
+        + '<div class="product-actions">'
+        + (config.qtyInputId ? '<input class="qty-pill" id="' + escapeHtml(config.qtyInputId) + '" type="number" min="1" value="1" />' : '')
+        + '<button type="button" class="btn btn-soft" ' + escapeHtml(config.actionAttr) + '="' + escapeHtml(config.actionValue) + '">' + escapeHtml(config.actionLabel || "Tambah") + '</button>'
+        + '</div>'
+        + '</div>'
+        + '</article>';
+    }
+
+    function renderEmptyState(title, description, badge) {
+      return ''
+        + '<div class="empty-state">'
+        + (badge ? '<span class="empty-state-badge">' + escapeHtml(badge) + '</span>' : '')
+        + '<strong>' + escapeHtml(title) + '</strong>'
+        + '<p>' + escapeHtml(description) + '</p>'
+        + '</div>';
     }
 
     function showMessage(targetId, message, kind) {
@@ -1949,35 +2421,74 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       document.getElementById("pos-subtotal").value = String(subtotal);
       document.getElementById("pos-total").value = String(total);
       document.getElementById("pos-change-amount").value = String(changeAmount);
+      const subtotalText = document.getElementById("pos-subtotal-text");
+      const totalText = document.getElementById("pos-total-text");
+      if (subtotalText) subtotalText.textContent = formatCurrency(subtotal);
+      if (totalText) totalText.textContent = formatCurrency(total);
 
       return { subtotal, discount, tax, total, paidAmount, changeAmount, paymentMethod };
     }
 
+    function renderPosCategoryTabs() {
+      const root = document.getElementById("pos-category-tabs");
+      const rows = state.pos.tickets || [];
+      const categories = ["Semua"].concat(Array.from(new Set(rows.map((item) => resolveCategory(item, "General")))));
+      if (!categories.includes(state.pos.activeCategory)) {
+        state.pos.activeCategory = "Semua";
+      }
+      root.innerHTML = categories.map((category) => {
+        const active = state.pos.activeCategory === category;
+        return '<button type="button" class="tab-btn ' + (active ? 'active' : '') + '" data-pos-category="' + escapeHtml(category) + '">' + escapeHtml(category) + '</button>';
+      }).join('');
+    }
+
+    function renderPosTicketCatalog() {
+      const root = document.getElementById("pos-ticket-catalog");
+      const all = state.pos.tickets.filter((item) => item.active);
+      const rows = all.filter((item) => state.pos.activeCategory === "Semua" || resolveCategory(item, "General") === state.pos.activeCategory);
+      if (!rows.length) {
+        root.innerHTML = renderEmptyState("Belum ada tiket pada kategori ini", "Pilih kategori lain atau refresh data tiket untuk memuat katalog terbaru.", "Katalog Kosong");
+        return;
+      }
+      root.innerHTML = rows.map((item) => {
+        const qtyId = 'pos-qty-' + escapeHtml(item.id);
+        const category = resolveCategory(item, "Tiket Masuk");
+        return renderProductCard({
+          image: resolveProductImage(item),
+          name: item.name + ' (' + item.code + ')',
+          subtitle: item.description || item.summary || '',
+          price: item.price || 0,
+          availabilityValue: item.quota,
+          availabilityLabel: item.quota > 0 ? ('Sisa ' + item.quota) : 'Habis',
+          categoryLabel: category,
+          placeholderIcon: 'TIKET',
+          qtyInputId: qtyId,
+          selected: state.pos.selectedTicketId === item.id,
+          actionAttr: 'data-pos-ticket-add',
+          actionValue: item.id,
+          actionLabel: '+'
+        });
+      }).join('');
+    }
+
     function renderPosItems() {
       const root = document.getElementById("pos-items");
+      const countRoot = document.getElementById("pos-order-count");
+      const totalQty = state.pos.items.reduce((sum, item) => sum + Number(item.qty || 0), 0);
+      if (countRoot) countRoot.textContent = totalQty + ' item';
       if (!state.pos.items.length) {
-        root.innerHTML = '<div class="notice warn">Belum ada item tiket.</div>';
+        root.innerHTML = renderEmptyState("Keranjang tiket masih kosong", "Pilih tiket dari katalog untuk mulai membuat transaksi wisata.", "0 Item");
         recalculatePos();
         return;
       }
 
-      const rows = state.pos.items.map((item, index) => (
-        '<tr>' +
-          '<td>' + escapeHtml(item.ticketName) + '</td>' +
-          '<td>' + escapeHtml(item.qty) + '</td>' +
-          '<td>' + escapeHtml(formatCurrency(item.price)) + '</td>' +
-          '<td>' + escapeHtml(formatCurrency(item.total)) + '</td>' +
-          '<td><button type="button" class="btn btn-line" data-pos-remove="' + String(index) + '">Hapus</button></td>' +
-        '</tr>'
+      root.innerHTML = state.pos.items.map((item, index) => (
+        '<article class="order-item">'
+          + '<div class="order-item-top"><strong>' + escapeHtml(item.ticketName) + '</strong><button type="button" class="btn btn-line" data-pos-remove="' + String(index) + '">Hapus</button></div>'
+          + '<small>' + escapeHtml(item.qty) + ' x ' + escapeHtml(formatCurrency(item.price)) + '</small>'
+          + '<strong>' + escapeHtml(formatCurrency(item.total)) + '</strong>'
+        + '</article>'
       )).join("");
-
-      root.innerHTML =
-        '<div style="overflow:auto;">' +
-          '<table style="width:100%; border-collapse:collapse;">' +
-            '<thead><tr><th align="left">Tiket</th><th align="left">Qty</th><th align="left">Harga</th><th align="left">Total</th><th align="left">Aksi</th></tr></thead>' +
-            '<tbody>' + rows + '</tbody>' +
-          '</table>' +
-        '</div>';
 
       root.querySelectorAll("[data-pos-remove]").forEach((button) => {
         button.addEventListener("click", () => {
@@ -2003,6 +2514,8 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       if (!activeTickets.length) {
         showMessage("pos-msg", "Tidak ada tiket aktif dengan quota tersedia", "warn");
       }
+      renderPosCategoryTabs();
+      renderPosTicketCatalog();
     }
 
     async function loadPosTicketing() {
@@ -2164,6 +2677,33 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       select.innerHTML = rows.map((item) => (
         '<option value="' + escapeHtml(item.id) + '">' + escapeHtml(item.name) + ' - ' + escapeHtml(formatCurrency(item.price)) + ' | cap ' + escapeHtml(item.capacity) + '</option>'
       )).join("");
+      if (!state.activity.currentActivityId && rows.length) {
+        state.activity.currentActivityId = rows[0].id;
+      }
+      if (state.activity.currentActivityId) {
+        select.value = state.activity.currentActivityId;
+      }
+      const root = document.getElementById("ab-activity-catalog");
+      if (root) {
+        root.innerHTML = rows.map((item) => {
+          const schedules = (state.activity.schedules || []).filter((row) => row.activityId === item.id);
+          const available = schedules.reduce((sum, row) => sum + Number(row.available || 0), 0);
+          return renderProductCard({
+            image: resolveProductImage(item),
+            name: item.name,
+            subtitle: item.duration ? (item.duration + ' menit') : '',
+            price: item.price || 0,
+            availabilityValue: available,
+            availabilityLabel: available > 0 ? ('Available ' + available) : 'Penuh',
+            categoryLabel: resolveCategory(item, "Outbound"),
+            placeholderIcon: 'OUTBOUND',
+            selected: state.activity.currentActivityId === item.id,
+            actionAttr: 'data-ab-activity',
+            actionValue: item.id,
+            actionLabel: state.activity.currentActivityId === item.id ? 'Dipilih' : 'Pilih'
+          });
+        }).join("");
+      }
     }
 
     function renderActivityList() {
@@ -2226,6 +2766,7 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
 
     function renderActivityScheduleOptions() {
       const activityId = document.getElementById("ab-activity-select").value;
+      state.activity.currentActivityId = activityId || state.activity.currentActivityId;
       const select = document.getElementById("ab-schedule-select");
       const schedules = (state.activity.schedules || []).filter((item) => item.activityId === activityId);
       select.innerHTML = schedules.map((item) => (
@@ -2233,6 +2774,37 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       )).join("");
       if (!schedules.length) {
         select.innerHTML = "";
+      } else if (!select.value) {
+        select.value = schedules[0].id;
+      }
+
+      const selectedSchedule = schedules.find((item) => item.id === select.value);
+      const scheduleInfo = document.getElementById("ab-selected-schedule");
+      if (scheduleInfo) {
+        scheduleInfo.textContent = selectedSchedule
+          ? ("Jadwal: " + selectedSchedule.date + " " + selectedSchedule.session + " | Slot tersedia: " + selectedSchedule.available)
+          : "Jadwal: belum dipilih";
+      }
+
+      const cardRoot = document.getElementById("ab-schedule-cards");
+      if (cardRoot) {
+        if (!schedules.length) {
+          cardRoot.innerHTML = renderEmptyState("Belum ada jadwal tersedia", "Pilih aktivitas lain atau buat jadwal baru untuk melanjutkan pemesanan outbound.", "Jadwal");
+          return;
+        }
+        cardRoot.innerHTML = schedules.map((item) => {
+          const isSelected = select.value === item.id;
+          return ''
+            + '<article class="product-card' + (isSelected ? ' selected' : '') + '">'
+            + '<div class="product-figure"><span>' + escapeHtml(item.session || "SESSION") + '</span></div>'
+            + '<div class="product-body">'
+            + '<h4 class="product-name">' + escapeHtml(item.date) + '</h4>'
+            + '<p class="product-subtitle">Jam ' + escapeHtml(item.session || '-') + ' • Kapasitas ' + escapeHtml(item.capacity || '-') + '</p>'
+            + '<div class="product-meta"><strong>Booked ' + escapeHtml(item.booked) + '</strong><span class="' + (availabilityTone(item.available) === 'full' ? 'availability-badge full' : availabilityTone(item.available) === 'low' ? 'availability-badge low' : 'availability-badge') + '">Sisa ' + escapeHtml(item.available) + '</span></div>'
+            + '<div class="product-actions"><button type="button" class="btn ' + (isSelected ? 'btn-brand' : 'btn-line') + '" data-ab-schedule="' + escapeHtml(item.id) + '">' + (isSelected ? 'Aktif' : 'Pilih Jadwal') + '</button></div>'
+            + '</div>'
+            + '</article>';
+        }).join('');
       }
     }
 
@@ -2353,17 +2925,78 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       categorySelect.innerHTML = categories.map((item) => (
         '<option value="' + escapeHtml(item.id) + '">' + escapeHtml(item.name) + ' (' + escapeHtml(item.code) + ')</option>'
       )).join("");
+      const tabRoot = document.getElementById("cafe-category-tabs");
+      const tabItems = [{ id: "Semua", name: "Semua" }].concat(categories.map((item) => ({ id: item.id, name: item.name })));
+      if (!tabItems.some((item) => item.id === state.cafe.activeCategory)) {
+        state.cafe.activeCategory = "Semua";
+      }
+      if (tabRoot) {
+        tabRoot.innerHTML = tabItems.map((item) => {
+          const active = state.cafe.activeCategory === item.id;
+          return '<button type="button" class="tab-btn ' + (active ? 'active' : '') + '" data-cafe-category="' + escapeHtml(item.id) + '">' + escapeHtml(item.name) + '</button>';
+        }).join('');
+      }
     }
 
     function renderCafeMenuOptions() {
       const select = document.getElementById("cafe-order-menu");
-      const menus = (state.cafe.menus || []).filter((item) => item.active && item.stock > 0);
+      const menus = (state.cafe.menus || []).filter((item) => item.active && item.stock > 0 && (state.cafe.activeCategory === "Semua" || item.categoryId === state.cafe.activeCategory));
       select.innerHTML = menus.map((item) => (
         '<option value="' + escapeHtml(item.id) + '">' + escapeHtml(item.name) + ' - ' + escapeHtml(formatCurrency(item.price || 0)) + ' | stock ' + escapeHtml(item.stock) + '</option>'
       )).join("");
       if (!menus.length) {
         select.innerHTML = "";
       }
+
+      const root = document.getElementById("cafe-menu-catalog");
+      if (root) {
+        if (!menus.length) {
+          root.innerHTML = renderEmptyState("Menu pada kategori ini belum tersedia", "Pilih kategori lain atau refresh data cafe untuk memuat menu terbaru.", "Menu Kosong");
+        } else {
+          root.innerHTML = menus.map((item) => {
+            const qtyId = 'cafe-qty-' + escapeHtml(item.id);
+            return renderProductCard({
+              image: resolveProductImage(item),
+              name: item.name,
+              subtitle: item.description || item.summary || '',
+              price: item.price || 0,
+              availabilityValue: item.stock,
+              availabilityLabel: item.stock > 0 ? ('Stock ' + item.stock) : 'Habis',
+              categoryLabel: resolveCategory(item, "Menu"),
+              placeholderIcon: 'CAFE',
+              qtyInputId: qtyId,
+              selected: state.cafe.selectedMenuId === item.id,
+              actionAttr: 'data-cafe-menu-add',
+              actionValue: item.id,
+              actionLabel: '+'
+            });
+          }).join("");
+        }
+      }
+    }
+
+    function renderCafeTableSelector() {
+      const root = document.getElementById("cafe-table-selector");
+      if (!root) return;
+      const numbers = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+      const byTable = {};
+      (state.cafe.orders || []).forEach((order) => {
+        const key = String(order.tableNumber || "").padStart(2, "0");
+        if (!key) return;
+        byTable[key] = order;
+      });
+      if (!state.cafe.selectedTable) state.cafe.selectedTable = "01";
+      root.innerHTML = numbers.map((no) => {
+        const order = byTable[no];
+        const status = order ? (order.status === "NEW" ? "menunggu" : "terisi") : "kosong";
+        const className = status === "menunggu" ? "table-chip waiting" : status === "terisi" ? "table-chip occupied" : "table-chip";
+        const selected = state.cafe.selectedTable === no;
+        return ''
+          + '<button type="button" class="' + className + (selected ? ' selected' : '') + '" data-cafe-table="' + no + '">'
+          + '<span class="table-no">MEJA ' + no + '</span>'
+          + '<span class="table-status">' + status.toUpperCase() + '</span>'
+          + '</button>';
+      }).join("");
     }
 
     function renderCafeMenuList() {
@@ -2423,8 +3056,15 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
 
     function renderCafeCart() {
       const root = document.getElementById("cafe-cart");
+      const selectedTableText = document.getElementById("cafe-selected-table");
+      const countRoot = document.getElementById("cafe-order-count");
+      const totalQty = state.cafe.cart.reduce((sum, item) => sum + Number(item.qty || 0), 0);
+      if (countRoot) countRoot.textContent = totalQty + ' item';
+      if (selectedTableText) {
+        selectedTableText.textContent = "MEJA " + (state.cafe.selectedTable || document.getElementById("cafe-table-number").value || "-");
+      }
       if (!state.cafe.cart.length) {
-        root.innerHTML = '<div class="notice warn">Cart masih kosong.</div>';
+        root.innerHTML = renderEmptyState("Keranjang cafe masih kosong", "Pilih meja lalu tambahkan menu favorit untuk mulai membuat order.", "0 Item");
         return;
       }
 
@@ -2433,17 +3073,13 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       const tax = Math.max(0, Number(document.getElementById("cafe-tax").value || 0));
       const total = Math.max(0, subtotal - discount + tax);
 
-      root.innerHTML = '<div style="overflow:auto;"><table style="width:100%; border-collapse:collapse;">'
-        + '<thead><tr><th align="left">Menu</th><th align="left">Qty</th><th align="left">Price</th><th align="left">Total</th><th align="left">Aksi</th></tr></thead>'
-        + '<tbody>' + state.cafe.cart.map((item, index) => (
-          '<tr>'
-          + '<td>' + escapeHtml(item.menuName) + '</td>'
-          + '<td>' + escapeHtml(item.qty) + '</td>'
-          + '<td>' + escapeHtml(formatCurrency(item.price)) + '</td>'
-          + '<td>' + escapeHtml(formatCurrency(item.total)) + '</td>'
-          + '<td><button type="button" class="btn btn-line" data-cafe-cart-remove="' + String(index) + '">Hapus</button></td>'
-          + '</tr>'
-        )).join('') + '</tbody></table></div>'
+      root.innerHTML = state.cafe.cart.map((item, index) => (
+        '<article class="order-item">'
+        + '<div class="order-item-top"><strong>' + escapeHtml(item.menuName) + '</strong><button type="button" class="btn btn-line" data-cafe-cart-remove="' + String(index) + '">Hapus</button></div>'
+        + '<small>' + escapeHtml(item.qty) + ' x ' + escapeHtml(formatCurrency(item.price)) + '</small>'
+        + '<strong>' + escapeHtml(formatCurrency(item.total)) + '</strong>'
+        + '</article>'
+      )).join('')
         + '<div class="totals">'
         + '<div class="row"><span>Subtotal</span><strong>' + escapeHtml(formatCurrency(subtotal)) + '</strong></div>'
         + '<div class="row"><span>Discount</span><strong>- ' + escapeHtml(formatCurrency(discount)) + '</strong></div>'
@@ -2490,6 +3126,9 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
           if (!order) return;
           state.cafe.currentOrderId = id;
           state.cafe.currentOrder = order;
+          state.cafe.selectedTable = String(order.tableNumber || state.cafe.selectedTable || "01").padStart(2, "0");
+          document.getElementById("cafe-table-number").value = state.cafe.selectedTable;
+          renderCafeTableSelector();
           showMessage("cafe-msg", "Order dipilih: " + order.orderNumber, "ok");
         });
       });
@@ -2520,6 +3159,7 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
         state.cafe.orders = orders;
         renderCafeCategoryOptions();
         renderCafeMenuOptions();
+        renderCafeTableSelector();
         renderCafeMenuList();
         renderCafeCart();
         renderCafeOrderList();
@@ -2945,9 +3585,9 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       }
     }
 
-    function addPosItem() {
-      const ticketId = document.getElementById("pos-ticket-select").value;
-      const qty = Math.max(1, Number(document.getElementById("pos-ticket-qty").value || 1));
+    function addPosItem(ticketIdArg, qtyArg) {
+      const ticketId = ticketIdArg || document.getElementById("pos-ticket-select").value;
+      const qty = Math.max(1, Number(qtyArg || document.getElementById("pos-ticket-qty").value || 1));
       const ticket = state.pos.tickets.find((item) => item.id === ticketId);
       if (!ticket) {
         showMessage("pos-msg", "Tiket tidak ditemukan", "err");
@@ -2965,6 +3605,8 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
         price: ticket.price,
         total: ticket.price * qty
       });
+      state.pos.selectedTicketId = ticket.id;
+      renderPosTicketCatalog();
       renderPosItems();
       showMessage("pos-msg", "Item tiket ditambahkan", "ok");
     }
@@ -3011,6 +3653,9 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       state.wizard.packageCode = "basic";
       state.wizard.area = "indoor";
       state.wizard.promoCode = "";
+      state.wizard.customerName = "";
+      state.wizard.customerPhone = "";
+      state.wizard.customerEmail = "";
       state.wizard.latestQuote = null;
       state.wizard.availability = [];
     }
@@ -3042,7 +3687,7 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
     }
 
     function ensureAuth(path) {
-      const protectedPaths = ["/customer/dashboard", "/customer/profile", "/customer/history", "/customer/payment", "/customer/booking", "/customer/ticket"];
+      const protectedPaths = ["/customer/dashboard", "/customer/profile", "/customer/history", "/customer/payment"];
       if (protectedPaths.includes(path) && !localStorage.getItem("satset.customer.token")) {
         history.replaceState({}, "", "/customer/login");
         setActiveRoute("/customer/login");
@@ -3064,7 +3709,18 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
 
     function renderWizardSteps() {
       const wrap = document.getElementById("wizard-steps");
-      wrap.innerHTML = wizardStepLabels.map((label, idx) => '<div class="wizard-step ' + (state.wizard.step === (idx + 1) ? "active" : "") + '">' + label + "</div>").join("");
+      wrap.innerHTML = wizardStepLabels.map((label, idx) => {
+        const stepNumber = idx + 1;
+        const tone = state.wizard.step === stepNumber ? 'active' : state.wizard.step > stepNumber ? 'complete' : 'upcoming';
+        const parts = String(label).split(' ');
+        const indexLabel = parts.shift() || String(stepNumber).padStart(2, '0');
+        const textLabel = parts.join(' ');
+        return ''
+          + '<div class="wizard-step ' + tone + '">'
+          + '<span class="wizard-step-index">' + escapeHtml(indexLabel) + '</span>'
+          + '<span class="wizard-step-label">' + escapeHtml(textLabel) + '</span>'
+          + '</div>';
+      }).join("");
     }
 
     function scheduleRealtimeQuote() {
@@ -3080,7 +3736,7 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
         panel.classList.toggle("active", Number(panel.getAttribute("data-step")) === state.wizard.step);
       });
       document.getElementById("wiz-prev").disabled = state.wizard.step <= 1;
-      document.getElementById("wiz-next").disabled = state.wizard.step >= 6;
+      document.getElementById("wiz-next").disabled = state.wizard.step >= 5;
     }
 
     function syncServiceButtons() {
@@ -3108,6 +3764,21 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       return Object.assign({}, base, { pax: state.wizard.participants, area: state.wizard.area });
     }
 
+    function renderWizardReviewContact() {
+      const root = document.getElementById("wiz-review-contact");
+      if (!root) return;
+      const name = state.wizard.customerName || "-";
+      const phone = state.wizard.customerPhone || "-";
+      const email = state.wizard.customerEmail || "-";
+      root.innerHTML = ''
+        + '<h3 style="margin:0 0 8px;">Data Pemesan (Opsional)</h3>'
+        + '<div class="grid grid-3">'
+        + '<div><label>Nama</label><input value="' + escapeHtml(name) + '" readonly /></div>'
+        + '<div><label>No HP</label><input value="' + escapeHtml(phone) + '" readonly /></div>'
+        + '<div><label>Email</label><input value="' + escapeHtml(email) + '" readonly /></div>'
+        + '</div>';
+    }
+
     async function refreshQuote() {
       const payload = collectWizardPayload();
       if (!payload.date || !payload.time) return;
@@ -3123,6 +3794,7 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       const q = state.wizard.latestQuote;
       if (!q || !q.price) {
         root.innerHTML = '<div class="row"><span>Subtotal</span><strong>-</strong></div>';
+        renderWizardReviewContact();
         return;
       }
       root.innerHTML = '<div class="row"><span>Subtotal</span><strong>' + formatCurrency(q.price.subtotal) + '</strong></div>' +
@@ -3130,6 +3802,7 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
         '<div class="row"><span>Pajak</span><strong>' + formatCurrency(q.price.tax) + '</strong></div>' +
         '<div class="row"><span>Service</span><strong>' + formatCurrency(q.price.service) + '</strong></div>' +
         '<div class="row grand"><span>Grand Total</span><strong>' + formatCurrency(q.price.grandTotal) + "</strong></div>";
+      renderWizardReviewContact();
     }
 
     async function refreshAvailability() {
@@ -3161,6 +3834,9 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       document.getElementById("wiz-package").value = state.wizard.packageCode;
       document.getElementById("wiz-area").value = state.wizard.area;
       document.getElementById("wiz-promo").value = state.wizard.promoCode;
+      document.getElementById("wiz-customer-name").value = state.wizard.customerName;
+      document.getElementById("wiz-customer-phone").value = state.wizard.customerPhone;
+      document.getElementById("wiz-customer-email").value = state.wizard.customerEmail;
       renderWizardTotals();
       if (state.wizard.step >= 3) {
         refreshAvailability().catch((error) => showMessage("wiz-date-msg", error.message, "err"));
@@ -3369,14 +4045,101 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
     }
 
     document.addEventListener("click", (event) => {
-      const target = event.target.closest("[data-link],[data-nav],[data-service],[data-slot]");
+      const target = event.target.closest("[data-link],[data-nav],[data-service],[data-slot],[data-pos-ticket-add],[data-pos-category],[data-cafe-category],[data-cafe-menu-add],[data-cafe-table],[data-ab-activity],[data-ab-schedule],[data-ab-quick-date]");
       if (!target) return;
+
+      if (target.hasAttribute("data-pos-category")) {
+        state.pos.activeCategory = target.getAttribute("data-pos-category") || "Semua";
+        renderPosCategoryTabs();
+        renderPosTicketCatalog();
+        return;
+      }
+
+      if (target.hasAttribute("data-pos-ticket-add")) {
+        const ticketId = target.getAttribute("data-pos-ticket-add") || "";
+        const qtyInput = document.getElementById("pos-qty-" + ticketId);
+        const qty = Math.max(1, Number((qtyInput && qtyInput.value) || 1));
+        addPosItem(ticketId, qty);
+        return;
+      }
+
+      if (target.hasAttribute("data-ab-quick-date")) {
+        const now = new Date();
+        const type = target.getAttribute("data-ab-quick-date") || "today";
+        if (type === "tomorrow") now.setDate(now.getDate() + 1);
+        if (type === "next") now.setDate(now.getDate() + 2);
+        const date = now.toISOString().slice(0, 10);
+        document.getElementById("ab-date").value = date;
+        return;
+      }
 
       if (target.hasAttribute("data-service")) {
         state.wizard.service = target.getAttribute("data-service");
         state.wizard.time = "";
         state.wizard.latestQuote = null;
         syncWizardUI();
+        return;
+      }
+
+      if (target.hasAttribute("data-cafe-category")) {
+        state.cafe.activeCategory = target.getAttribute("data-cafe-category") || "Semua";
+        renderCafeCategoryOptions();
+        renderCafeMenuOptions();
+        return;
+      }
+
+      if (target.hasAttribute("data-cafe-menu-add")) {
+        const menuId = target.getAttribute("data-cafe-menu-add") || "";
+        const qtyInput = document.getElementById("cafe-qty-" + menuId);
+        const qty = Math.max(1, Number((qtyInput && qtyInput.value) || 1));
+        const menu = (state.cafe.menus || []).find((item) => item.id === menuId);
+        if (!menu) return;
+        if (qty > Number(menu.stock || 0)) {
+          showMessage("cafe-msg", "Qty melebihi stock menu", "warn");
+          return;
+        }
+        state.cafe.cart.push({
+          menuItemId: menu.id,
+          menuName: menu.name,
+          qty,
+          price: menu.price,
+          total: menu.price * qty
+        });
+        state.cafe.selectedMenuId = menu.id;
+        renderCafeMenuOptions();
+        renderCafeCart();
+        showMessage("cafe-msg", "Menu ditambahkan ke cart", "ok");
+        return;
+      }
+
+      if (target.hasAttribute("data-cafe-table")) {
+        state.cafe.selectedTable = target.getAttribute("data-cafe-table") || "01";
+        document.getElementById("cafe-table-number").value = state.cafe.selectedTable;
+        document.getElementById("cafe-order-type").value = "DINE_IN";
+        renderCafeTableSelector();
+        renderCafeCart();
+        return;
+      }
+
+      if (target.hasAttribute("data-ab-activity")) {
+        const id = target.getAttribute("data-ab-activity") || "";
+        document.getElementById("ab-activity-select").value = id;
+        state.activity.currentActivityId = id;
+        renderActivityScheduleOptions();
+        renderActivitySelectOptions();
+        return;
+      }
+
+      if (target.hasAttribute("data-ab-schedule")) {
+        const id = target.getAttribute("data-ab-schedule") || "";
+        document.getElementById("ab-schedule-select").value = id;
+        const schedule = (state.activity.schedules || []).find((item) => item.id === id);
+        if (schedule) {
+          document.getElementById("ab-date").value = schedule.date || "";
+          document.getElementById("ab-session").value = schedule.session || "";
+          document.getElementById("ab-capacity").value = String(schedule.capacity || 20);
+        }
+        renderActivityScheduleOptions();
         return;
       }
 
@@ -3389,10 +4152,6 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       const nextPath = target.getAttribute("data-link") || target.getAttribute("data-nav");
       if (!nextPath) return;
       event.preventDefault();
-      if (nextPath === "/customer/booking" && !localStorage.getItem("satset.customer.token")) {
-        navigate("/customer/login");
-        return;
-      }
       if (!ensureAuth(nextPath)) return;
       navigate(nextPath);
     });
@@ -3470,6 +4229,18 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       state.wizard.promoCode = event.target.value.toUpperCase();
       scheduleRealtimeQuote();
     });
+    document.getElementById("wiz-customer-name").addEventListener("input", (event) => {
+      state.wizard.customerName = String(event.target.value || "").trim();
+      renderWizardReviewContact();
+    });
+    document.getElementById("wiz-customer-phone").addEventListener("input", (event) => {
+      state.wizard.customerPhone = String(event.target.value || "").trim();
+      renderWizardReviewContact();
+    });
+    document.getElementById("wiz-customer-email").addEventListener("input", (event) => {
+      state.wizard.customerEmail = String(event.target.value || "").trim();
+      renderWizardReviewContact();
+    });
 
     document.getElementById("wiz-promo-apply").addEventListener("click", async () => {
       try {
@@ -3500,7 +4271,7 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
           return;
         }
       }
-      if (state.wizard.step < 6) {
+      if (state.wizard.step < 5) {
         state.wizard.step += 1;
         syncWizardUI();
       }
@@ -3508,8 +4279,8 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
 
     document.getElementById("wiz-booking-submit").addEventListener("click", async () => {
       try {
-        if (!localStorage.getItem("satset.customer.token")) {
-          navigate("/customer/login");
+        if (!state.wizard.customerPhone && !state.wizard.customerEmail) {
+          showMessage("wiz-payment-status", "Isi minimal nomor HP atau email untuk kontak booking.", "warn");
           return;
         }
         const payload = collectWizardPayload();
@@ -3533,6 +4304,24 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
       } catch (error) {
         showMessage("wiz-payment-status", error.message, "err");
       }
+    });
+
+    document.getElementById("wiz-member-check").addEventListener("click", () => {
+      const value = String(document.getElementById("wiz-member-contact").value || "").trim();
+      const result = document.getElementById("wiz-member-result");
+      if (!value) {
+        result.className = "notice warn";
+        result.textContent = "Masukkan nomor HP atau email untuk cek status member (placeholder UI).";
+        return;
+      }
+      result.className = "notice info";
+      result.textContent = "Pencarian member untuk '" + value + "' akan aktif setelah backend member tersedia.";
+    });
+
+    document.getElementById("wiz-member-signup").addEventListener("click", () => {
+      const result = document.getElementById("wiz-member-result");
+      result.className = "notice info";
+      result.textContent = "Form pendaftaran member akan dihubungkan ke backend pada fase berikutnya. Lanjutkan booking sebagai guest untuk saat ini.";
     });
 
     document.getElementById("pay-btn").addEventListener("click", async () => {
@@ -3663,12 +4452,18 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
     });
 
     document.getElementById("ab-activity-select").addEventListener("change", () => {
+      state.activity.currentActivityId = document.getElementById("ab-activity-select").value || "";
+      renderActivitySelectOptions();
       renderActivityScheduleOptions();
     });
 
     document.getElementById("ab-refresh-btn").addEventListener("click", async () => {
       await loadActivityBookingPage();
       showMessage("ab-msg", "Data activity booking direfresh", "ok");
+    });
+
+    document.getElementById("ab-date").addEventListener("change", () => {
+      renderActivityScheduleOptions();
     });
 
     document.getElementById("ab-create-schedule-btn").addEventListener("click", async () => {
@@ -4057,6 +4852,14 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
 
     document.getElementById("cafe-discount").addEventListener("input", () => renderCafeCart());
     document.getElementById("cafe-tax").addEventListener("input", () => renderCafeCart());
+    document.getElementById("cafe-table-number").addEventListener("input", () => {
+      const value = String(document.getElementById("cafe-table-number").value || "").trim();
+      if (value) {
+        state.cafe.selectedTable = value.padStart(2, "0");
+        renderCafeTableSelector();
+        renderCafeCart();
+      }
+    });
 
     document.getElementById("cafe-create-order-btn").addEventListener("click", async () => {
       try {
@@ -4064,10 +4867,12 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
           showMessage("cafe-msg", "Tambahkan minimal satu menu ke cart", "warn");
           return;
         }
+        const tableNumber = state.cafe.selectedTable || document.getElementById("cafe-table-number").value || "01";
+        document.getElementById("cafe-table-number").value = tableNumber;
 
         const payload = {
           customerName: document.getElementById("cafe-customer-name").value || "Walk In",
-          tableNumber: document.getElementById("cafe-table-number").value || "-",
+          tableNumber,
           orderType: document.getElementById("cafe-order-type").value,
           paymentMethod: document.getElementById("cafe-payment-method").value,
           discount: Number(document.getElementById("cafe-discount").value || 0),
