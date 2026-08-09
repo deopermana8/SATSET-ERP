@@ -2064,7 +2064,7 @@ export const renderCustomerHtml = (api: string): string => `<!doctype html>
     const wizardStepLabels = [
       "01 Produk",
       "02 Tanggal",
-      "03 Jadwal",
+      "03 Jumlah",
       "04 Kontak",
       "05 Review & Bayar"
     ];
