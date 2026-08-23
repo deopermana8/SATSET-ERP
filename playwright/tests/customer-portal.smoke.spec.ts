@@ -16,7 +16,7 @@ test.describe('customer portal smoke', () => {
     await expect
       .poll(async () => {
         try {
-          const response = await page.request.get('http://127.0.0.1:3001/health');
+          const response = await page.request.get('http://127.0.0.1:3003/health');
           return response.status();
         } catch {
           return 0;
@@ -56,7 +56,7 @@ test.describe('customer portal smoke', () => {
 
     await page.goto('http://127.0.0.1:3200/customer/booking');
 
-    await page.getByRole('button', { name: 'Tiket' }).click();
+    await page.getByRole('button', { name: 'Outbound' }).click();
     await page.getByRole('button', { name: 'Berikutnya' }).click();
 
     await page.locator('#wiz-date').fill('2030-01-02');
@@ -67,22 +67,37 @@ test.describe('customer portal smoke', () => {
     await availableSlot.click();
     await page.getByRole('button', { name: 'Berikutnya' }).click();
 
-    await page.locator('#wiz-adults').fill('1');
-    await page.locator('#wiz-children').fill('0');
+    await page.locator('#wiz-participants').fill('1');
     await page.getByRole('button', { name: 'Berikutnya' }).click();
 
     await page.locator('#wiz-promo').fill('HEMAT10');
     await page.locator('#wiz-promo-apply').click();
     await expect(page.locator('#wiz-totals')).toContainText('Grand Total');
-    await page.getByRole('button', { name: 'Berikutnya' }).click();
 
-    await page.locator('#wiz-pay-gateway').selectOption('sandbox');
-    await page.locator('#wiz-pay-method').selectOption('virtual-account');
+    await page.locator('#wiz-pay-method').selectOption('qris');
+    const bookingResponsePromise = page.waitForResponse((response) => response.url().endsWith('/customer/booking/outbound') && response.request().method() === 'POST');
+    const checkoutResponsePromise = page.waitForResponse((response) => response.url().endsWith('/customer/payment/checkout') && response.request().method() === 'POST');
     await page.locator('#wiz-booking-submit').click();
+    const bookingResponse = await bookingResponsePromise;
+    const checkoutResponse = await checkoutResponsePromise;
+    expect(bookingResponse.ok()).toBeTruthy();
+    expect(checkoutResponse.ok()).toBeTruthy();
+    await expect(page.locator('#guest-payment-panel')).toBeVisible();
+    await expect(page.locator('#guest-payment-summary')).toContainText('MENUNGGU PEMBAYARAN');
+
+    const confirmResponsePromise = page.waitForResponse((response) => response.url().endsWith('/customer/payment/confirm') && response.request().method() === 'POST');
+    const bookingId = await page.locator('#payment-booking-id').inputValue();
+    await expect(page.locator('#guest-payment-simulate-btn')).toBeVisible();
+    await expect(page.locator('#guest-payment-simulate-btn')).toBeEnabled();
+    await page.locator('#guest-payment-simulate-btn').click();
+    const confirmResponse = await confirmResponsePromise;
+    expect(confirmResponse.ok()).toBeTruthy();
 
     await expect(page).toHaveURL(/\/customer\/ticket\/.+/);
+    expect(page.url()).toContain('/customer/ticket/' + bookingId);
     await expect(page.locator('#ticket-detail')).toContainText('Status:');
     await expect(page.locator('#ticket-detail')).toContainText('PAID');
+    await expect(page.locator('#ticket-qr')).toBeVisible();
   });
 
   test('@smoke customer history and profile route load', async ({ page }) => {
